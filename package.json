@@ -21,6 +21,8 @@
     "@testing-library/user-event": "12.1.10",
     "chart.js": "3.4.1",
     "chroma-js": "2.1.2",
+    "formik": "^2.2.9",
+    "moment": "^2.29.1",
     "prop-types": "15.7.2",
     "react": "17.0.2",
     "react-chartjs-2": "3.0.4",

@@ -8,6 +8,7 @@ import MDBox from "components/MDBox";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
+import TabBar from "./GuestLoginForm/components/TabBar";
 // import ReportsBarChart from "examples/Charts/BarCharts/ReportsBarChart";
 // import ReportsLineChart from "examples/Charts/LineCharts/ReportsLineChart";
 // import ComplexStatisticsCard from "examples/Cards/StatisticsCards/ComplexStatisticsCard";
@@ -29,7 +30,7 @@ function Dashboard() {
       <MDBox py={3}>
         <MDBox mt={4.5}>
           <Grid container spacing={3}>
-            <Grid item xs={12} md={6} lg={4} />
+            <Grid item xs={12} md={6} lg={4} ><TabBar/></Grid>
             <Grid item xs={12} md={6} lg={4} />
             <Grid item xs={12} md={6} lg={4} />
           </Grid>
