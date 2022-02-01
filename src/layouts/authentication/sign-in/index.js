@@ -13,21 +13,21 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
-import { useState } from "react";
+// import { useState } from "react";
 
 // react-router-dom components
 import { Link } from "react-router-dom";
 
 // @mui material components
 import Card from "@mui/material/Card";
-import Switch from "@mui/material/Switch";
-import Grid from "@mui/material/Grid";
-import MuiLink from "@mui/material/Link";
+// import Switch from "@mui/material/Switch";
+// import Grid from "@mui/material/Grid";
+// import MuiLink from "@mui/material/Link";
 
 // @mui icons
-import FacebookIcon from "@mui/icons-material/Facebook";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import GoogleIcon from "@mui/icons-material/Google";
+// import FacebookIcon from "@mui/icons-material/Facebook";
+// import GitHubIcon from "@mui/icons-material/GitHub";
+// import GoogleIcon from "@mui/icons-material/Google";
 
 // Material Dashboard 2 React components
 import MDBox from "components/MDBox";
@@ -42,14 +42,14 @@ import BasicLayout from "layouts/authentication/components/BasicLayout";
 import bgImage from "assets/images/bg-sign-in-basic.jpeg";
 
 function Basic() {
-  const [rememberMe, setRememberMe] = useState(false);
+  // const [rememberMe, setRememberMe] = useState(false);
 
-  const handleSetRememberMe = () => setRememberMe(!rememberMe);
+  // const handleSetRememberMe = () => setRememberMe(!rememberMe);
 
   return (
     <BasicLayout image={bgImage}>
       <Card>
-        <MDBox
+        {/* <MDBox
           variant="gradient"
           bgColor="info"
           borderRadius="lg"
@@ -80,7 +80,7 @@ function Basic() {
               </MDTypography>
             </Grid>
           </Grid>
-        </MDBox>
+        </MDBox> */}
         <MDBox pt={4} pb={3} px={3}>
           <MDBox component="form" role="form">
             <MDBox mb={2}>
@@ -90,8 +90,8 @@ function Basic() {
               <MDInput type="password" label="Password" fullWidth />
             </MDBox>
             <MDBox display="flex" alignItems="center" ml={-1}>
-              <Switch checked={rememberMe} onChange={handleSetRememberMe} />
-              <MDTypography
+              {/* <Switch checked={rememberMe} onChange={handleSetRememberMe} /> */}
+              {/* <MDTypography
                 variant="button"
                 fontWeight="regular"
                 color="text"
@@ -99,14 +99,23 @@ function Basic() {
                 sx={{ cursor: "pointer", userSelect: "none", ml: -1 }}
               >
                 &nbsp;&nbsp;Remember me
-              </MDTypography>
+              </MDTypography> */}
             </MDBox>
             <MDBox mt={4} mb={1}>
               <MDButton variant="gradient" color="info" fullWidth>
-                sign in
+                <MDTypography
+                  component={Link}
+                  to="/dashboard"
+                  variant="button"
+                  color="inherit"
+                  fontWeight="medium"
+                  textGradient
+                >
+                  Sign in
+                </MDTypography>
               </MDButton>
             </MDBox>
-            <MDBox mt={3} mb={1} textAlign="center">
+            {/* <MDBox mt={3} mb={1} textAlign="center">
               <MDTypography variant="button" color="text">
                 Don&apos;t have an account?{" "}
                 <MDTypography
@@ -120,7 +129,7 @@ function Basic() {
                   Sign up
                 </MDTypography>
               </MDTypography>
-            </MDBox>
+            </MDBox> */}
           </MDBox>
         </MDBox>
       </Card>
