@@ -1,29 +1,30 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 import React from "react";
-//import Header from '../Components/Header';
+// import Header from '../Components/Header';
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-//import { createStyles, makeStyles } from '@mui/styles';
-//import { createTheme, ThemeProvider } from '@mui/material/styles';
+// import { createStyles, makeStyles } from '@mui/styles';
+// import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Container, Grid, Typography } from "@mui/material";
-import Textfield from "./TextField";
-import Select from "./Select";
-import DateTimePicker from "./DataTimePicker";
-import Checkbox from "./CheckBox";
-import Button from "./Button";
-//import countries from './countries';
 import moment from "moment";
-//import Divider from '@mui/material/Divider';
 import Divider from "@mui/material/Divider";
 import Chip from "@mui/material/Chip";
+import Textfield from "./TextField";
+import Select from "../../../../Select";
+import Checkbox from "./CheckBox";
+import DateTimePicker from "./DataTimePicker";
+import Button from "./Button";
+import countries from "./countries.json";
+// import Divider from '@mui/material/Divider';
 
 // const useStyles = makeStyles((theme) => createStyles({
 //     root: {
 //       marginTop: theme.spacing(5),
 //       marginBottom: theme.spacing(8),
 //     },
-//   }),
-//   )
-//   const theme = createTheme();
+// }),
+// )
+// const theme = createTheme();
 
 const INITIAL_FORM_STATE = {
   firstName: "",
@@ -125,8 +126,9 @@ const FORM_VALIDATION = Yup.object().shape({
   passport: Yup.mixed().required("File is required"),
 });
 
+// eslint-disable-next-line arrow-body-style
 const GuestLoginForm = () => {
-  //const classes = useStyles();
+  // const classes = useStyles();
 
   return (
     <Grid container>
@@ -163,11 +165,7 @@ const GuestLoginForm = () => {
                     <Textfield name="email" label="Email" />
                   </Grid>
                   <Grid item xs={6}>
-                    <DateTimePicker
-                      maxDate={new Date()}
-                      name="dateOfBirth"
-                      label="Date of Birth"
-                    />
+                    <DateTimePicker maxDate={new Date()} name="dateOfBirth" label="Date of Birth" />
                   </Grid>
 
                   <Grid item xs={6}>
@@ -182,17 +180,13 @@ const GuestLoginForm = () => {
                   <Grid item xs={6}>
                     <Textfield name="fatherPhone" label="Father's Phone" />
                   </Grid>
+                  // eslint-disable-next-line react/jsx-no-comment-textnodes
                   <Grid item xs={6}>
-                    <Textfield
-                      name="localGaurdianName"
-                      label="Local Gaurdian's Name"
-                    />
+                    // eslint-disable-next-line prettier/prettier
+                    <Textfield name="localGaurdianName" label="Local Gaurdian's Name" />
                   </Grid>
                   <Grid item xs={6}>
-                    <Textfield
-                      name="localGaurdianPhone"
-                      label="Local Gaurdian's Phone"
-                    />
+                    <Textfield name="localGaurdianPhone" label="Local Gaurdian's Phone" />
                   </Grid>
                   <Grid item xs={6}>
                     <Textfield name="bloodGroup" label="Blood Group" />
@@ -213,10 +207,7 @@ const GuestLoginForm = () => {
                   </Grid>
 
                   <Grid item xs={12}>
-                    <Textfield
-                      name="addressLine2"
-                      label="Address Line 2 With PinCode"
-                    />
+                    <Textfield name="addressLine2" label="Address Line 2 With PinCode" />
                   </Grid>
 
                   <Grid item xs={6}>
@@ -228,11 +219,7 @@ const GuestLoginForm = () => {
                   </Grid>
 
                   <Grid item xs={12}>
-                    <Select
-                      name="country"
-                      label="Country"
-                      options={countries}
-                    />
+                    <Select name="country" label="Country" options={countries} />
                   </Grid>
                   <Divider variant="middle" />
                   <Grid item xs={12}>
@@ -264,21 +251,15 @@ const GuestLoginForm = () => {
 
 
 
-                  </Grid> */}
+                  </Grid> */}{" "}
                   </Grid>
 
                   <Grid item xs={12}>
-                    <Textfield
-                      name="workAddressLine1"
-                      label="Work Address Line 1"
-                    />
+                    <Textfield name="workAddressLine1" label="Work Address Line 1" />
                   </Grid>
 
                   <Grid item xs={12}>
-                    <Textfield
-                      name="workAddressLine2"
-                      label="Work Address Line 2 "
-                    />
+                    <Textfield name="workAddressLine2" label="Work Address Line 2 " />
                   </Grid>
 
                   <Divider variant="middle" />
@@ -293,14 +274,8 @@ const GuestLoginForm = () => {
                   </Grid>
 
                   <Grid item xs={12}>
-                    <h4>
-                      ID Proof:(Pancard/AadharCard/VoterID/DrivingLicence)
-                    </h4>
-                    <Textfield
-                      name="Idproof"
-                      helperText="Govt ID Proof"
-                      type="file"
-                    />
+                    <h4>ID Proof:(Pancard/AadharCard/VoterID/DrivingLicence)</h4>
+                    <Textfield name="Idproof" helperText="Govt ID Proof" type="file" />
                   </Grid>
 
                   <Grid item xs={12}>
@@ -326,10 +301,7 @@ const GuestLoginForm = () => {
                     <DateTimePicker name="bookingDate" label="Booking Date" />
                   </Grid>
                   <Grid item xs={6}>
-                    <DateTimePicker
-                      name="checkoutDate"
-                      label="Check-Out date"
-                    />
+                    <DateTimePicker name="checkoutDate" label="Check-Out date" />
                   </Grid>
                   <Grid item xs={6}>
                     <DateTimePicker name="arrivalDate" label="Check-In date" />
@@ -341,32 +313,20 @@ const GuestLoginForm = () => {
                     <Textfield name="roomRent" label="Room Rent" />
                   </Grid>
                   <Grid item xs={6}>
-                    <Textfield
-                      name="securityDeposit"
-                      label="Security Deposit"
-                    />
+                    <Textfield name="securityDeposit" label="Security Deposit" />
                   </Grid>
 
                   <Grid item xs={12}>
-                    <Textfield
-                      name="checkinNotes"
-                      label="Check-in Notes"
-                      multiline={true}
-                      rows={4}
-                    />
+                    <Textfield name="checkinNotes" label="Check-in Notes" multiline rows={4} />
                   </Grid>
 
                   <Grid item xs={12}>
-                    <Checkbox
-                      name="termsOfService"
-                      legend="Terms of service"
-                      label="I agree"
-                    />
+                    <Checkbox name="termsOfService" legend="Terms of service" label="I agree" />
                   </Grid>
                   <Divider variant="middle" />
                   <Grid item xs={4} justifyContent="center">
                     <Button>
-                      <Divider></Divider>
+                      <Divider />
                       Submit
                     </Button>
                   </Grid>
