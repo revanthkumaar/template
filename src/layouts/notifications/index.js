@@ -18,6 +18,7 @@ import { useState } from "react";
 // @mui material components
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
+import DataTable from "examples/Tables/DataTable";
 
 // Material Dashboard 2 React components
 import MDBox from "components/MDBox";
@@ -30,10 +31,13 @@ import MDSnackbar from "components/MDSnackbar";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
+import authorsTableData from "layouts/tables/data/authorsTableData";
 
 function Notifications() {
   // const [successSB, setSuccessSB] = useState(false);
   const [infoSB, setInfoSB] = useState(false);
+  const { columns, rows } = authorsTableData();
+
   // const [warningSB, setWarningSB] = useState(false);
   // const [errorSB, setErrorSB] = useState(false);
 
@@ -113,7 +117,7 @@ function Notifications() {
   return (
     <DashboardLayout>
       <DashboardNavbar />
-      <MDBox mt={12}>
+      <MDBox mt={1}>
         <Grid container spacing={3} justifyContent="center">
           <Grid item xs={12} lg={12}>
             <Card>
@@ -153,6 +157,37 @@ function Notifications() {
                     {renderInfoSB}
                   </Grid>
                 </Grid>
+              </MDBox>
+            </Card>
+          </Grid>
+
+          <Grid container mt={2} spacing={3} justifyContent="center" />
+
+          <Grid item xs={12} lg={12}>
+            {" "}
+            <Card>
+              <MDBox
+                mx={2}
+                mt={-3}
+                py={3}
+                px={2}
+                variant="gradient"
+                bgColor="info"
+                borderRadius="lg"
+                coloredShadow="info"
+              >
+                <MDTypography variant="h6" color="white">
+                  TRANSACTION DETAILS
+                </MDTypography>
+              </MDBox>
+              <MDBox pt={3}>
+                <DataTable
+                  table={{ columns, rows }}
+                  isSorted={false}
+                  entriesPerPage={false}
+                  showTotalEntries={false}
+                  noEndBorder
+                />
               </MDBox>
             </Card>
           </Grid>
