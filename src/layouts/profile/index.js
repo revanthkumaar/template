@@ -1,4 +1,3 @@
-
 import Grid from "@mui/material/Grid";
 
 // Material Dashboard 2 React components
@@ -30,7 +29,9 @@ function Dashboard() {
       <MDBox py={3}>
         <MDBox mt={4.5}>
           <Grid container spacing={3}>
-            <Grid item xs={12} md={6} lg={4} ><TabBar/></Grid>
+            <Grid item xs={12} md={6} lg={4}>
+              <TabBar />
+            </Grid>
             <Grid item xs={12} md={6} lg={4} />
             <Grid item xs={12} md={6} lg={4} />
           </Grid>
