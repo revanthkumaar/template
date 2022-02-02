@@ -4,6 +4,7 @@ import Billing from "layouts/billing";
 import Notifications from "layouts/notifications";
 import Profile from "layouts/profile";
 import SignIn from "layouts/authentication/sign-in";
+import Tables from "layouts/tables";
 // import SignUp from "layouts/authentication/sign-up";
 
 // @mui icons
@@ -29,11 +30,11 @@ const routes = [
 
   {
     type: "collapse",
-    name: "Noticelist",
+    name: "Notice List",
     key: "billing",
     icon: <Icon fontSize="small">receipt_long</Icon>,
     route: "/billing",
-    component: <Billing />,
+    component: <Tables/>,
   },
   {
     type: "collapse",
