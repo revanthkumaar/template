@@ -23,9 +23,7 @@ const rows = [
 
 export default function Payments() {
   return (
-    <Grid container spacing={2} columns={16}>
-      <Grid item xs={3}></Grid>
-      <Grid item xs={12}>
+    
         <TableContainer
           component={Paper}
           display="flex"
@@ -52,14 +50,14 @@ export default function Payments() {
                   <TableCell component="th" scope="row">
                     {row.name}
                   </TableCell>
-                  <TableCell align="right">{row.calories}</TableCell>
+                  <TableCell align="right">{row.calories} <CheckBox /></TableCell>
                   <TableCell align="right">
                     {row.fat}
                     <CheckBox />
                   </TableCell>
                   <TableCell align="right">
                     {row.carbs}
-                    <CheckBox />
+                   
                   </TableCell>
                   <TableCell align="right">{row.protein}</TableCell>
                 </TableRow>
@@ -67,7 +65,6 @@ export default function Payments() {
             </TableBody>
           </Table>
         </TableContainer>
-      </Grid>
-    </Grid>
+     
   );
 }
