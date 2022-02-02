@@ -103,7 +103,7 @@ export default function FullWidthTabs() {
 							textColor="inherit"
 							variant="fullWidth"
 							aria-label="full width tabs example"
-							style={{ background: '#4169E1' }}
+							style={{ background: '#1E90FF' }}
 						>
 							<Tab label="Transactions" {...a11yProps(0)} />
 							<Tab label="Guest Master" {...a11yProps(1)} />
@@ -113,22 +113,92 @@ export default function FullWidthTabs() {
 					</MDBox>
 				</AppBar>
 			</Card>
-			<MDBox mt={3}>
-				<Card>
-					<TabPanel value={value} index={0} dir={theme.direction}>
-						<TransactionDetails />
-					</TabPanel>
+			<MDBox mt={2}>
+				<TabPanel value={value} index={0} dir={theme.direction}>
+					<Card>
+						<MDBox
+							mx={3}
+							mt={-3}
+							py={2}
+							px={2}
+							variant="gradient"
+							bgColor="info"
+							borderRadius="lg"
+							coloredShadow="info"
+						>
+							<MDTypography variant="h6" color="white">
+								TRANSACTION REPORT
+							</MDTypography>
+						</MDBox>
+						<MDBox pt={3}>
+							<TransactionDetails />
+						</MDBox>
+					</Card>
+				</TabPanel>
 
-					<TabPanel value={value} index={1} dir={theme.direction}>
-						<GuestDetails />
-					</TabPanel>
-					<TabPanel value={value} index={2} dir={theme.direction}>
-						<Occupancy />
-					</TabPanel>
-					<TabPanel value={value} index={3} dir={theme.direction}>
-						<Notices />
-					</TabPanel>
-				</Card>
+				<TabPanel value={value} index={1} dir={theme.direction}>
+					<Card>
+						<MDBox
+							mx={3}
+							mt={-3}
+							py={2}
+							px={2}
+							variant="gradient"
+							bgColor="info"
+							borderRadius="lg"
+							coloredShadow="info"
+						>
+							<MDTypography variant="h6" color="white">
+								GUEST REPORT
+							</MDTypography>
+						</MDBox>
+						<MDBox pt={3}>
+							<GuestDetails />
+						</MDBox>
+					</Card>
+				</TabPanel>
+				<TabPanel value={value} index={2} dir={theme.direction}>
+					<Card>
+						<MDBox
+							mx={3}
+							mt={-3}
+							py={2}
+							px={2}
+							variant="gradient"
+							bgColor="info"
+							borderRadius="lg"
+							coloredShadow="info"
+						>
+							<MDTypography variant="h6" color="white">
+								OCCUPANCY REPORT
+							</MDTypography>
+						</MDBox>
+						<MDBox pt={3}>
+							<Occupancy />
+						</MDBox>
+					</Card>
+				</TabPanel>
+				<TabPanel value={value} index={3} dir={theme.direction}>
+					<Card>
+						<MDBox
+							mx={3}
+							mt={-3}
+							py={2}
+							px={2}
+							variant="gradient"
+							bgColor="info"
+							borderRadius="lg"
+							coloredShadow="info"
+						>
+							<MDTypography variant="h6" color="white">
+								UPCOMING CHECKOUTS
+							</MDTypography>
+						</MDBox>
+						<MDBox pt={3}>
+							<Notices />
+						</MDBox>
+					</Card>
+				</TabPanel>
 			</MDBox>
 		</DashboardLayout>
 	);
