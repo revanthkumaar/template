@@ -5,6 +5,12 @@ import Notifications from "layouts/notifications";
 import Profile from "layouts/profile";
 import SignIn from "layouts/authentication/sign-in";
 import Tables from "layouts/tables";
+import Main from "layouts/main"
+import Payments from "layouts/payments"
+import Inventory from "layouts/inventory"
+import Issues from "layouts/issues"
+import Announcements from "layouts/announcements"
+import Employees from "layouts/employees"
 // import SignUp from "layouts/authentication/sign-up";
 
 // @mui icons
@@ -18,6 +24,54 @@ const routes = [
     icon: <Icon fontSize="small">dashboard</Icon>,
     route: "/dashboard",
     component: <Dashboard />,
+  },
+  {
+    type: "collapse",
+    name: "Main",
+    key: "main",
+    icon: <Icon fontSize="small">dashboard</Icon>,
+    route: "/main",
+    component: <main />,
+  },
+  {
+    type: "collapse",
+    name: "Payments",
+    key: "payments",
+    icon: <Icon fontSize="small">dashboard</Icon>,
+    route: "/payments",
+    component: <payments />,
+  },
+  {
+    type: "collapse",
+    name: "Inventory",
+    key: "inventory",
+    icon: <Icon fontSize="small">dashboard</Icon>,
+    route: "/inventory",
+    component: <inventory />,
+  },
+  {
+    type: "collapse",
+    name: "Issues",
+    key: "payments",
+    icon: <Icon fontSize="small">dashboard</Icon>,
+    route: "/issues",
+    component: <issues />,
+  },
+  {
+    type: "collapse",
+    name: "Announcements",
+    key: "announcements",
+    icon: <Icon fontSize="small">dashboard</Icon>,
+    route: "/announcements",
+    component: <announcements />,
+  },
+  {
+    type: "collapse",
+    name: "Employees",
+    key: "emplolyees",
+    icon: <Icon fontSize="small">dashboard</Icon>,
+    route: "/employees",
+    component: <employees />,
   },
   {
     type: "collapse",
