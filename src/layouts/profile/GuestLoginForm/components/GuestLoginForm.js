@@ -144,14 +144,8 @@ const GuestLoginForm = () => {
                 <Grid container spacing={2}>
                   <Grid item xs={12}>
                     <Typography>
-                      <Divider>
-                        <h4>
-                          <Chip
-                            label="Guest's Personal Details"
-                            color="info"
-                          />
-                        </h4>
-                      </Divider>
+                      <h4 align="center">Guest's Personal Information</h4>
+
                       <br />
                     </Typography>
                   </Grid>
@@ -205,11 +199,7 @@ const GuestLoginForm = () => {
 
                   <Grid item xs={12}>
                     <Typography>
-                      <Divider>
-                        <h4>
-                          <Chip label="Permanent Address" color="info" />
-                        </h4>
-                      </Divider>
+                      <h4 align="center">Permanent Address</h4>
                       <br />
                     </Typography>
                   </Grid>
@@ -240,11 +230,7 @@ const GuestLoginForm = () => {
                   <Divider variant="middle" />
                   <Grid item xs={12}>
                     <Typography>
-                      <Divider>
-                        <h4>
-                          <Chip label="Work Details" color="info" />
-                        </h4>
-                      </Divider>
+                      <h4 align="center">Work Related Information</h4>
                     </Typography>
                     <br />
                     <Grid item xs={6}>
@@ -287,11 +273,7 @@ const GuestLoginForm = () => {
                   <Divider variant="middle" />
                   <Grid item xs={12}>
                     <Typography>
-                      <Divider>
-                        <h4>
-                          <Chip label="Upload Documents" color="info" />
-                        </h4>
-                      </Divider>
+                      <h4 align="center">Upload Documents</h4>
                       <br />
                     </Typography>
                   </Grid>
@@ -318,11 +300,7 @@ const GuestLoginForm = () => {
                   <Divider variant="middle" />
                   <Grid item xs={12}>
                     <Typography>
-                      <Divider>
-                        <h4>
-                          <Chip label="Booking Details" color="info" />
-                        </h4>
-                      </Divider>
+                      <h4 align="center">Booking Details</h4>
                       <br />
                     </Typography>
                   </Grid>
@@ -370,8 +348,7 @@ const GuestLoginForm = () => {
                   </Grid>
                   <Divider variant="middle" />
                   <Grid item xs={4} justifyContent="center">
-                    <Button>
-                      <Divider />
+                    <Button variant="contained" disableElevation>
                       Submit
                     </Button>
                   </Grid>
