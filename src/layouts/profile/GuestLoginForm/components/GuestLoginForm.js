@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-comment-textnodes */
 import React from "react";
 // import Header from '../Components/Header';
 import { Formik, Form } from "formik";
@@ -126,7 +125,6 @@ const FORM_VALIDATION = Yup.object().shape({
   passport: Yup.mixed().required("File is required"),
 });
 
-// eslint-disable-next-line arrow-body-style
 const GuestLoginForm = () => {
   // const classes = useStyles();
 
@@ -148,9 +146,13 @@ const GuestLoginForm = () => {
                     <Typography>
                       <Divider>
                         <h4>
-                          <Chip label="Guest's Personal Details" />
+                          <Chip
+                            label="Guest's Personal Details"
+                            color="primary"
+                          />
                         </h4>
                       </Divider>
+                      <br />
                     </Typography>
                   </Grid>
 
@@ -165,7 +167,11 @@ const GuestLoginForm = () => {
                     <Textfield name="email" label="Email" />
                   </Grid>
                   <Grid item xs={6}>
-                    <DateTimePicker maxDate={new Date()} name="dateOfBirth" label="Date of Birth" />
+                    <DateTimePicker
+                      maxDate={new Date()}
+                      name="dateOfBirth"
+                      label="Date of Birth"
+                    />
                   </Grid>
 
                   <Grid item xs={6}>
@@ -180,13 +186,18 @@ const GuestLoginForm = () => {
                   <Grid item xs={6}>
                     <Textfield name="fatherPhone" label="Father's Phone" />
                   </Grid>
-                  // eslint-disable-next-line react/jsx-no-comment-textnodes
+
                   <Grid item xs={6}>
-                    // eslint-disable-next-line prettier/prettier
-                    <Textfield name="localGaurdianName" label="Local Gaurdian's Name" />
+                    <Textfield
+                      name="localGaurdianName"
+                      label="Local Gaurdian's Name"
+                    />
                   </Grid>
                   <Grid item xs={6}>
-                    <Textfield name="localGaurdianPhone" label="Local Gaurdian's Phone" />
+                    <Textfield
+                      name="localGaurdianPhone"
+                      label="Local Gaurdian's Phone"
+                    />
                   </Grid>
                   <Grid item xs={6}>
                     <Textfield name="bloodGroup" label="Blood Group" />
@@ -196,9 +207,10 @@ const GuestLoginForm = () => {
                     <Typography>
                       <Divider>
                         <h4>
-                          <Chip label="Permanent Address" />
+                          <Chip label="Permanent Address" color="primary" />
                         </h4>
                       </Divider>
+                      <br />
                     </Typography>
                   </Grid>
 
@@ -207,7 +219,10 @@ const GuestLoginForm = () => {
                   </Grid>
 
                   <Grid item xs={12}>
-                    <Textfield name="addressLine2" label="Address Line 2 With PinCode" />
+                    <Textfield
+                      name="addressLine2"
+                      label="Address Line 2 With PinCode"
+                    />
                   </Grid>
 
                   <Grid item xs={6}>
@@ -219,14 +234,15 @@ const GuestLoginForm = () => {
                   </Grid>
 
                   <Grid item xs={12}>
-                    <Select name="country" label="Country" options={countries} />
+                    <h6>Country</h6>
+                    <Select name="country" options={countries} />
                   </Grid>
                   <Divider variant="middle" />
                   <Grid item xs={12}>
                     <Typography>
                       <Divider>
                         <h4>
-                          <Chip label="Work Details" />
+                          <Chip label="Work Details" color="primary" />
                         </h4>
                       </Divider>
                     </Typography>
@@ -255,11 +271,17 @@ const GuestLoginForm = () => {
                   </Grid>
 
                   <Grid item xs={12}>
-                    <Textfield name="workAddressLine1" label="Work Address Line 1" />
+                    <Textfield
+                      name="workAddressLine1"
+                      label="Work Address Line 1"
+                    />
                   </Grid>
 
                   <Grid item xs={12}>
-                    <Textfield name="workAddressLine2" label="Work Address Line 2 " />
+                    <Textfield
+                      name="workAddressLine2"
+                      label="Work Address Line 2 "
+                    />
                   </Grid>
 
                   <Divider variant="middle" />
@@ -267,15 +289,22 @@ const GuestLoginForm = () => {
                     <Typography>
                       <Divider>
                         <h4>
-                          <Chip label="Upload Documents" />
+                          <Chip label="Upload Documents" color="primary" />
                         </h4>
                       </Divider>
+                      <br />
                     </Typography>
                   </Grid>
 
                   <Grid item xs={12}>
-                    <h4>ID Proof:(Pancard/AadharCard/VoterID/DrivingLicence)</h4>
-                    <Textfield name="Idproof" helperText="Govt ID Proof" type="file" />
+                    <h6>
+                      ID Proof:(Pancard/AadharCard/VoterID/DrivingLicence)
+                    </h6>
+                    <Textfield
+                      name="Idproof"
+                      helperText="Govt ID Proof"
+                      type="file"
+                    />
                   </Grid>
 
                   <Grid item xs={12}>
@@ -291,9 +320,10 @@ const GuestLoginForm = () => {
                     <Typography>
                       <Divider>
                         <h4>
-                          <Chip label="Booking Details" />
+                          <Chip label="Booking Details" color="primary" />
                         </h4>
                       </Divider>
+                      <br />
                     </Typography>
                   </Grid>
 
@@ -301,7 +331,10 @@ const GuestLoginForm = () => {
                     <DateTimePicker name="bookingDate" label="Booking Date" />
                   </Grid>
                   <Grid item xs={6}>
-                    <DateTimePicker name="checkoutDate" label="Check-Out date" />
+                    <DateTimePicker
+                      name="checkoutDate"
+                      label="Check-Out date"
+                    />
                   </Grid>
                   <Grid item xs={6}>
                     <DateTimePicker name="arrivalDate" label="Check-In date" />
@@ -313,15 +346,27 @@ const GuestLoginForm = () => {
                     <Textfield name="roomRent" label="Room Rent" />
                   </Grid>
                   <Grid item xs={6}>
-                    <Textfield name="securityDeposit" label="Security Deposit" />
+                    <Textfield
+                      name="securityDeposit"
+                      label="Security Deposit"
+                    />
                   </Grid>
 
                   <Grid item xs={12}>
-                    <Textfield name="checkinNotes" label="Check-in Notes" multiline rows={4} />
+                    <Textfield
+                      name="checkinNotes"
+                      label="Check-in Notes"
+                      multiline
+                      rows={4}
+                    />
                   </Grid>
 
                   <Grid item xs={12}>
-                    <Checkbox name="termsOfService" legend="Terms of service" label="I agree" />
+                    <Checkbox
+                      name="termsOfService"
+                      legend="Terms of service"
+                      label="I agree"
+                    />
                   </Grid>
                   <Divider variant="middle" />
                   <Grid item xs={4} justifyContent="center">
