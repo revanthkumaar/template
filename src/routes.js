@@ -5,6 +5,7 @@ import Notifications from "layouts/notifications";
 import Profile from "layouts/profile";
 import SignIn from "layouts/authentication/sign-in";
 import Tables from "layouts/tables";
+import RoomAvailability from "layouts/roomAvailibity";
 // import SignUp from "layouts/authentication/sign-up";
 
 // @mui icons
@@ -30,12 +31,22 @@ const routes = [
 
   {
     type: "collapse",
-    name: "Upcoming Check-outs",
+    name: "Room Availability",
+    key: "roomAvailability",
+    icon: <Icon fontSize="small">person</Icon>,
+    route: "/roomAvailability",
+    component: <RoomAvailability />,
+  },
+
+  {
+    type: "collapse",
+    name: "Upcoming Checkouts",
     key: "billing",
     icon: <Icon fontSize="small">receipt_long</Icon>,
     route: "/billing",
     component: <Tables/>,
   },
+
   {
     type: "collapse",
     name: "Reports",
