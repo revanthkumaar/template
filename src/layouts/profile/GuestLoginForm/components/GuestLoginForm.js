@@ -106,10 +106,14 @@ const FORM_VALIDATION = Yup.object().shape({
       .matches(/^[aA-zZ\s]+$/, "Invalid City Name")
       .required("Required"),
   addressLine1: Yup.string().required("Required"),
-  addressLine2: Yup.string(),
+  addressLine2: Yup.string().required("Required"),
   city: Yup.string()
     .matches(/^[aA-zZ\s]+$/, "Invalid City Name")
     .required("Required"),
+    workAddressLine2:Yup.string().required("Required"),
+    city: Yup.string()
+      .matches(/^[aA-zZ\s]+$/, "Invalid City Name")
+      .required("Required"),
   state: Yup.string()
     .matches(/^[aA-zZ\s]+$/, "Invalid State ")
     .required("Required"),
