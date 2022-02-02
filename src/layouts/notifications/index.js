@@ -13,189 +13,119 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
-import { useState } from "react";
-
 // @mui material components
-import Grid from "@mui/material/Grid";
-import Card from "@mui/material/Card";
-import DataTable from "examples/Tables/DataTable";
-
-// Material Dashboard 2 React components
-import MDBox from "components/MDBox";
-import MDTypography from "components/MDTypography";
-// import MDAlert from "components/MDAlert";
-import MDButton from "components/MDButton";
-import MDSnackbar from "components/MDSnackbar";
+import * as React from 'react';
+import PropTypes from 'prop-types';
+import SwipeableViews from 'react-swipeable-views';
+import { useTheme } from '@mui/material/styles';
+import AppBar from '@mui/material/AppBar';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 
 // Material Dashboard 2 React example components
-import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import DashboardNavbar from "examples/Navbars/DashboardNavbar";
-import Footer from "examples/Footer";
-import authorsTableData from "layouts/tables/data/authorsTableData";
+import DashboardLayout from 'examples/LayoutContainers/DashboardLayout';
+import DashboardNavbar from 'examples/Navbars/DashboardNavbar';
+import { Card } from '@mui/material';
 
-function Notifications() {
-  // const [successSB, setSuccessSB] = useState(false);
-  const [infoSB, setInfoSB] = useState(false);
-  const { columns, rows } = authorsTableData();
+// Material Dashboard 2 React components
+import MDBox from 'components/MDBox';
+import MDTypography from 'components/MDTypography';
 
-  // const [warningSB, setWarningSB] = useState(false);
-  // const [errorSB, setErrorSB] = useState(false);
+function TabPanel(props) {
+	const { children, value, index, ...other } = props;
 
-  // const openSuccessSB = () => setSuccessSB(true);
-  // const closeSuccessSB = () => setSuccessSB(false);
-  const openInfoSB = () => setInfoSB(true);
-  const closeInfoSB = () => setInfoSB(false);
-  // const openWarningSB = () => setWarningSB(true);
-  // const closeWarningSB = () => setWarningSB(false);
-  // const openErrorSB = () => setErrorSB(true);
-  // const closeErrorSB = () => setErrorSB(false);
-
-  // const alertContent = (name) => (
-  //   <MDTypography variant="body2" color="white">
-  //     A simple {name} alert with{" "}
-  //     <MDTypography component="a" href="#" variant="body2" fontWeight="medium" color="white">
-  //       an example link
-  //     </MDTypography>
-  //     . Give it a click if you like.
-  //   </MDTypography>
-  // );
-
-  // const renderSuccessSB = (
-  //   <MDSnackbar
-  //     color="success"
-  //     icon="check"
-  //     title="Material Dashboard"
-  //     content="Hello, world! This is a notification message"
-  //     dateTime="11 mins ago"
-  //     open={successSB}
-  //     onClose={closeSuccessSB}
-  //     close={closeSuccessSB}
-  //     bgWhite
-  //   />
-  // );
-
-  const renderInfoSB = (
-    <MDSnackbar
-      icon="notifications"
-      title="Material Dashboard"
-      content="Hello, world! This is a notification message"
-      dateTime="11 mins ago"
-      open={infoSB}
-      onClose={closeInfoSB}
-      close={closeInfoSB}
-    />
-  );
-
-  // const renderWarningSB = (
-  //   <MDSnackbar
-  //     color="warning"
-  //     icon="star"
-  //     title="Material Dashboard"
-  //     content="Hello, world! This is a notification message"
-  //     dateTime="11 mins ago"
-  //     open={warningSB}
-  //     onClose={closeWarningSB}
-  //     close={closeWarningSB}
-  //     bgWhite
-  //   />
-  // );
-
-  // const renderErrorSB = (
-  //   <MDSnackbar
-  //     color="error"
-  //     icon="warning"
-  //     title="Material Dashboard"
-  //     content="Hello, world! This is a notification message"
-  //     dateTime="11 mins ago"
-  //     open={errorSB}
-  //     onClose={closeErrorSB}
-  //     close={closeErrorSB}
-  //     bgWhite
-  //   />
-  // );
-
-  return (
-    <DashboardLayout>
-      <DashboardNavbar />
-      <MDBox mt={1}>
-        <Grid container spacing={3} justifyContent="center">
-          <Grid item xs={12} lg={12}>
-            <Card>
-              <MDBox p={2} lineHeight={0}>
-                <MDTypography variant="h5">All Reports</MDTypography>
-                <MDTypography variant="button" color="text" fontWeight="regular">
-                  Check all the reports of your properties here
-                </MDTypography>
-              </MDBox>
-              <MDBox p={2}>
-                <Grid container spacing={3}>
-                  <Grid item xs={12} sm={6} lg={3}>
-                    <MDButton variant="gradient" color="info" onClick={openInfoSB} fullWidth>
-                      transaction
-                    </MDButton>
-                    {renderInfoSB}
-                  </Grid>
-
-                  <Grid item xs={12} sm={6} lg={3}>
-                    <MDButton variant="gradient" color="info" onClick={openInfoSB} fullWidth>
-                      guest master
-                    </MDButton>
-                    {renderInfoSB}
-                  </Grid>
-
-                  <Grid item xs={12} sm={6} lg={3}>
-                    <MDButton variant="gradient" color="info" onClick={openInfoSB} fullWidth>
-                      Occupancy
-                    </MDButton>
-                    {renderInfoSB}
-                  </Grid>
-
-                  <Grid item xs={12} sm={6} lg={3}>
-                    <MDButton variant="gradient" color="info" onClick={openInfoSB} fullWidth>
-                      Notices
-                    </MDButton>
-                    {renderInfoSB}
-                  </Grid>
-                </Grid>
-              </MDBox>
-            </Card>
-          </Grid>
-
-          <Grid container mt={2} spacing={3} justifyContent="center" />
-
-          <Grid item xs={12} lg={12}>
-            {" "}
-            <Card>
-              <MDBox
-                mx={2}
-                mt={-3}
-                py={3}
-                px={2}
-                variant="gradient"
-                bgColor="info"
-                borderRadius="lg"
-                coloredShadow="info"
-              >
-                <MDTypography variant="h6" color="white">
-                  TRANSACTION DETAILS
-                </MDTypography>
-              </MDBox>
-              <MDBox pt={3}>
-                <DataTable
-                  table={{ columns, rows }}
-                  isSorted={false}
-                  entriesPerPage={false}
-                  showTotalEntries={false}
-                  noEndBorder
-                />
-              </MDBox>
-            </Card>
-          </Grid>
-        </Grid>
-      </MDBox>
-      <Footer />
-    </DashboardLayout>
-  );
+	return (
+		<div
+			role="tabpanel"
+			hidden={value !== index}
+			id={`full-width-tabpanel-${index}`}
+			aria-labelledby={`full-width-tab-${index}`}
+			{...other}
+		>
+			{value === index && (
+				<Box sx={{ p: 3 }}>
+					<Typography>{children}</Typography>
+				</Box>
+			)}
+		</div>
+	);
 }
 
-export default Notifications;
+TabPanel.propTypes = {
+	children: PropTypes.node,
+	index: PropTypes.number.isRequired,
+	value: PropTypes.number.isRequired
+};
+
+function a11yProps(index) {
+	return {
+		id: `full-width-tab-${index}`,
+		'aria-controls': `full-width-tabpanel-${index}`
+	};
+}
+
+export default function FullWidthTabs() {
+	const theme = useTheme();
+	const [ value, setValue ] = React.useState(0);
+
+	const handleChange = (event, newValue) => {
+		setValue(newValue);
+	};
+
+	const handleChangeIndex = (index) => {
+		setValue(index);
+	};
+
+	return (
+		<DashboardLayout>
+			<DashboardNavbar />
+			<Card>
+				<MDBox p={2} lineHeight={0}>
+					<MDTypography variant="h5">All Reports</MDTypography>
+					<MDTypography variant="button" color="text" fontWeight="regular">
+						Check all the reports of your properties here
+					</MDTypography>
+				</MDBox>
+				<AppBar position="static">
+					<MDBox p={2}>
+						<Tabs
+							value={value}
+							onChange={handleChange}
+							indicatorColor="secondary"
+							textColor="inherit"
+							variant="fullWidth"
+							aria-label="full width tabs example"
+							style={{ background: '#6495ED' }}
+						>
+							<Tab label="Transactions" {...a11yProps(0)} />
+							<Tab label="Guest Master" {...a11yProps(1)} />
+							<Tab label="Occupancy" {...a11yProps(2)} />
+							<Tab label="Notices" {...a11yProps(3)} />
+						</Tabs>
+					</MDBox>
+				</AppBar>
+			</Card>
+
+			<SwipeableViews
+				axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+				index={value}
+				onChangeIndex={handleChangeIndex}
+			>
+				<TabPanel value={value} index={0} dir={theme.direction}>
+					Transactions
+				</TabPanel>
+				<TabPanel value={value} index={1} dir={theme.direction}>
+					Guest Master
+				</TabPanel>
+				<TabPanel value={value} index={2} dir={theme.direction}>
+					Occupancy
+				</TabPanel>
+				<TabPanel value={value} index={3} dir={theme.direction}>
+					Notices
+				</TabPanel>
+			</SwipeableViews>
+		</DashboardLayout>
+	);
+}
