@@ -74,25 +74,37 @@ const FORM_VALIDATION = Yup.object().shape({
   bloodGroup: Yup.string().matches(/^(A|B|AB|O)[+-]$/, {
     message: "Please enter valid Blood Group.",
     excludeEmptyString: false,
-  }),
+  }).required("Required"),
   phone: Yup.string().matches(/^[6-9]\d{9}$/, {
     message: "Please enter Valid Mobile Number",
     excludeEmptyString: false,
-  }),
+  }).required("Required"),
   secondaryPhone: Yup.string().matches(/^[6-9]\d{9}$/, {
     message: "Please enter Valid Mobile Number",
     excludeEmptyString: false,
-  }),
-  securityDeposit: Yup.number(),
-  roomRent: Yup.number(),
+  }).required("Required"),
+  workPhone:Yup.string().matches(/^[6-9]\d{9}$/, {
+    message: "Please enter Valid Mobile Number",
+    excludeEmptyString: false,
+  }).required("Required"),
+  securityDeposit: Yup.number().required("Required"),
+  roomRent: Yup.number().required("Required"),
   fatherPhone: Yup.string().matches(/^[6-9]\d{9}$/, {
     message: "Please enter valid Mobile number.",
     excludeEmptyString: false,
-  }),
+  }).required("Required"),
   localGaurdianPhone: Yup.string().matches(/^[6-9]\d{9}$/, {
     message: "Please enter valid Mobile number.",
     excludeEmptyString: false,
-  }),
+  }).required("Required"),
+  workAddressLine1:Yup.string().required("Required"),
+  city: Yup.string()
+    .matches(/^[aA-zZ\s]+$/, "Invalid City Name")
+    .required("Required"),
+    workAddressLine2:Yup.string().required("Required"),
+    city: Yup.string()
+      .matches(/^[aA-zZ\s]+$/, "Invalid City Name")
+      .required("Required"),
   addressLine1: Yup.string().required("Required"),
   addressLine2: Yup.string(),
   city: Yup.string()
@@ -109,6 +121,7 @@ const FORM_VALIDATION = Yup.object().shape({
     .required("Required"),
   country: Yup.string().required("Required"),
   arrivalDate: Yup.date().required("Required"),
+  bookingDate:Yup.date().required("Required"),
   dateOfBirth: Yup.string()
     .required("DOB is Required")
     .test(
@@ -117,7 +130,7 @@ const FORM_VALIDATION = Yup.object().shape({
       (date) => moment().diff(moment(date), "years") >= 12
     ),
   departureDate: Yup.date().required("Required"),
-  checkinNotes: Yup.string(),
+  checkinNotes: Yup.string().required("Required"),
   termsOfService: Yup.boolean()
     .oneOf([true], "The terms and conditions must be accepted.")
     .required("The terms and conditions must be accepted."),
