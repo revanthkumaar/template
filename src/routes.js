@@ -30,7 +30,7 @@ const routes = [
 
   {
     type: "collapse",
-    name: "UP Coming Checkouts",
+    name: "Upcoming Check-outs",
     key: "billing",
     icon: <Icon fontSize="small">receipt_long</Icon>,
     route: "/billing",
@@ -44,15 +44,12 @@ const routes = [
     route: "/notifications",
     component: <Notifications />,
   },
-
-  {
-    type: "collapse",
-    name: "Sign In",
-    key: "sign-in",
-    icon: <Icon fontSize="small">login</Icon>,
-    route: "/authentication/sign-in",
-    component: <SignIn />,
-  },
-];
-
-export default routes;
+{
+  type: "main",
+  name: "Sign In",
+  key: "sign-in",
+  icon: <Icon fontSize="small">login</Icon>,
+  route: "/authentication/sign-in",
+  component: <SignIn />,
+} ];
+export  default routes ;
