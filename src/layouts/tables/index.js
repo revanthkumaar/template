@@ -38,7 +38,7 @@ function Tables() {
                 coloredShadow="info"
               >
                 <MDTypography variant="h6" color="white">
-                  NOTICE LIST
+                  UP COMING CHECK OUTS
                 </MDTypography>
               </MDBox>
               <MDBox pt={3}>
