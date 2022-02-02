@@ -148,7 +148,7 @@ const GuestLoginForm = () => {
                         <h4>
                           <Chip
                             label="Guest's Personal Details"
-                            color="primary"
+                            color="info"
                           />
                         </h4>
                       </Divider>
@@ -207,7 +207,7 @@ const GuestLoginForm = () => {
                     <Typography>
                       <Divider>
                         <h4>
-                          <Chip label="Permanent Address" color="primary" />
+                          <Chip label="Permanent Address" color="info" />
                         </h4>
                       </Divider>
                       <br />
@@ -242,7 +242,7 @@ const GuestLoginForm = () => {
                     <Typography>
                       <Divider>
                         <h4>
-                          <Chip label="Work Details" color="primary" />
+                          <Chip label="Work Details" color="info" />
                         </h4>
                       </Divider>
                     </Typography>
@@ -289,7 +289,7 @@ const GuestLoginForm = () => {
                     <Typography>
                       <Divider>
                         <h4>
-                          <Chip label="Upload Documents" color="primary" />
+                          <Chip label="Upload Documents" color="info" />
                         </h4>
                       </Divider>
                       <br />
@@ -320,7 +320,7 @@ const GuestLoginForm = () => {
                     <Typography>
                       <Divider>
                         <h4>
-                          <Chip label="Booking Details" color="primary" />
+                          <Chip label="Booking Details" color="info" />
                         </h4>
                       </Divider>
                       <br />

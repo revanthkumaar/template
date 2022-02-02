@@ -41,182 +41,227 @@ export default function data() {
 
   return {
     columns: [
-      { Header: "fullname", accessor: "fullname", align: "left" },
-      { Header: "contactnumber", accessor: "contactnumber", align: "center" },
-      { Header: "fathername", accessor: "fathername", align: "center" },
-      { Header: "fathernumber", accessor: "fathernumber", align: "center" },
-      { Header: "bloodgroup", accessor: "bloodgroup", align: "center" },
-      { Header: "checkindate", accessor: "checkindate", align: "center" },
-      { Header: "email", accessor: "email", align: "center" },
-      { Header: "occupation", accessor: "occupation", align: "center" },
-      { Header: "workaddress", accessor: "workaddress", align: "center" },
-      { Header: "worknumber", accessor: "worknumber", align: "center" },
-      { Header: "permanentaddress", accessor: "permanentaddress", align: "center" },
-      { Header: "roomrent", accessor: "roomrent", align: "center" },
-      { Header: "securitydeposit", accessor: "securitydeposit", align: "center" },
-      { Header: "transactionid", accessor: "transactionid", align: "center" },
-      { Header: "nameofmanager", accessor: "nameofmanager", align: "center" },
+      { Header: "BedId", accessor: "BedId", align: "left" },
+      { Header: "Name", accessor: "Name", align: "center" },
+      { Header: "Due", accessor: "Due", align: "center" },
+      { Header: "Lastpaidon ", accessor: "Lastpaidon", align: "center" },
+      { Header: "NoticeGivenOn", accessor: "NoticeGivenOn", align: "center" },
+      { Header: "CheckoutOn", accessor: "CheckoutOn", align: "center" }, 
     ],
 
     rows: [
       {
-        fullname: <Project name="Jhon" />,
-        budget: (
+        BedId: <Project name="P1C" />,
+        Name: (
           <MDTypography component="a" href="#" variant="button" color="text" fontWeight="medium">
-            $2,500
+            Utkarsh Kamuni
           </MDTypography>
         ),
-        contactnumber: (
+        Due: (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            8645433243456
+            0
           </MDTypography>
         ),
         completion: <Progress color="info" value={60} />,
-        fathername: (
+        Lastpaidon: (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            Abhraham
+            09-oct-21
           </MDTypography>
         ),
-        fathernumber: (
+        NoticeGivenOn: (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            8765433456
+            09-oct-21
           </MDTypography>
         ),
-        bloodgroup: (
+        CheckoutOn: (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            B+ve
+            31-oct-21
           </MDTypography>
         ),
-        checkindate: (
-          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            23-08-2021
-          </MDTypography>
-        ),
-        email: (
-          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            srivedaannaparthi99@gmail.com
-          </MDTypography>
-        ),
-        occupation: (
-          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            Software
-          </MDTypography>
-        ),
-        workaddress: (
-          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            Hyderabad
-          </MDTypography>
-        ),
-        worknumber: (
-          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            45678987654
-          </MDTypography>
-        ),
-        permanentaddress: (
-          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            Guntur
-          </MDTypography>
-        ),
-        roomrent: (
-          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            6000
-          </MDTypography>
-        ),
-        securitydeposit: (
-          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            1000
-          </MDTypography>
-        ),
-        transactionid: (
-          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            87654323456788
-          </MDTypography>
-        ),
-        nameofmanager: (
-          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            Linkan
-          </MDTypography>
-        ),
+       
       },
       {
-        fullname: <Project name="Karthik" />,
-        budget: (
+        BedId: <Project name="G7A" />,
+        Name: (
           <MDTypography component="a" href="#" variant="button" color="text" fontWeight="medium">
-            $2,500
+            Suresh Kumar Dogra
           </MDTypography>
         ),
-        contactnumber: (
+        Due: (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            8645433243456
+            4000
           </MDTypography>
         ),
         completion: <Progress color="info" value={60} />,
-        fathername: (
+        Lastpaidon: (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            Kiran
+            23-oct-21
           </MDTypography>
         ),
-        fathernumber: (
+        NoticeGivenOn: (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            23456787654
+            16-oct-21
           </MDTypography>
         ),
-        bloodgroup: (
+        CheckoutOn: (
           <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            O+ve
+            31-oct-21
           </MDTypography>
         ),
-        checkindate: (
-          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            25-09-2021
-          </MDTypography>
-        ),
-        email: (
-          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            kiran33@gmail.com
-          </MDTypography>
-        ),
-        occupation: (
-          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            Software
-          </MDTypography>
-        ),
-        workaddress: (
-          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            Hyderabad
-          </MDTypography>
-        ),
-        worknumber: (
-          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            987654334567
-          </MDTypography>
-        ),
-        permanentaddress: (
-          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            Vijayawada
-          </MDTypography>
-        ),
-        roomrent: (
-          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            7000
-          </MDTypography>
-        ),
-        securitydeposit: (
-          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            2000
-          </MDTypography>
-        ),
-        transactionid: (
-          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            87654323456788
-          </MDTypography>
-        ),
-        nameofmanager: (
-          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            Michael
-          </MDTypography>
-        ),
+       
       },
+      {
+        BedId: <Project name="30BA" />,
+        Name: (
+          <MDTypography component="a" href="#" variant="button" color="text" fontWeight="medium">
+            Saptarshi Sarkar
+          </MDTypography>
+        ),
+        Due: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            0
+          </MDTypography>
+        ),
+        completion: <Progress color="info" value={60} />,
+        Lastpaidon: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            05-oct-21
+          </MDTypography>
+        ),
+        NoticeGivenOn: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            17-oct-21
+          </MDTypography>
+        ),
+        CheckoutOn: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            02-nov-21
+          </MDTypography>
+        ),
+       
+      },
+      {
+        BedId: <Project name="307A" />,
+        Name: (
+          <MDTypography component="a" href="#" variant="button" color="text" fontWeight="medium">
+            Om Pandey
+          </MDTypography>
+        ),
+        Due: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            0
+          </MDTypography>
+        ),
+        completion: <Progress color="info" value={60} />,
+        Lastpaidon: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            01-oct-21
+          </MDTypography>
+        ),
+        NoticeGivenOn: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            17-oct-21
+          </MDTypography>
+        ),
+        CheckoutOn: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            02-nov-21
+          </MDTypography>
+        ),
+       
+      },
+      {
+        BedId: <Project name="408B" />,
+        Name: (
+          <MDTypography component="a" href="#" variant="button" color="text" fontWeight="medium">
+            Gaurav Dhameeja
+          </MDTypography>
+        ),
+        Due: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            0
+          </MDTypography>
+        ),
+        completion: <Progress color="info" value={60} />,
+        Lastpaidon: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            01-oct-21
+          </MDTypography>
+        ),
+        NoticeGivenOn: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            17-oct-21
+          </MDTypography>
+        ),
+        CheckoutOn: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            02-nov-21
+          </MDTypography>
+        ),
+       
+      },
+      {
+        BedId: <Project name="501B" />,
+        Name: (
+          <MDTypography component="a" href="#" variant="button" color="text" fontWeight="medium">
+            P Charan Kumar
+          </MDTypography>
+        ),
+        Due: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            0
+          </MDTypography>
+        ),
+        completion: <Progress color="info" value={60} />,
+        Lastpaidon: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            19-oct-21
+          </MDTypography>
+        ),
+        NoticeGivenOn: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            19-oct-21
+          </MDTypography>
+        ),
+        CheckoutOn: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            04-nov-21
+          </MDTypography>
+        ),
+       
+      },
+      {
+        BedId: <Project name="107A" />,
+        Name: (
+          <MDTypography component="a" href="#" variant="button" color="text" fontWeight="medium">
+            Thota Chendra Sekharam
+          </MDTypography>
+        ),
+        Due: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            0
+          </MDTypography>
+        ),
+        completion: <Progress color="info" value={60} />,
+        Lastpaidon: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            19-oct-21
+          </MDTypography>
+        ),
+        NoticeGivenOn: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            28-oct-21
+          </MDTypography>
+        ),
+        CheckoutOn: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            12-oct-21
+          </MDTypography>
+        ),
+       
+      },
+      
+      
     ],
   };
 }
