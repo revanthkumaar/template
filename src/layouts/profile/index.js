@@ -26,10 +26,10 @@ function Dashboard() {
   return (
     <DashboardLayout>
       <DashboardNavbar />
-      <MDBox py={3}>
+      <MDBox py={1}>
         <MDBox mt={4.5}>
-          <Grid container spacing={3}>
-            <Grid item xs={12} md={6} lg={4}>
+          <Grid container spacing={6}>
+            <Grid item xs={20} md={10} lg={20}>
               <TabBar />
             </Grid>
           </Grid>
