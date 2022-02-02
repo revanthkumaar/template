@@ -33,7 +33,7 @@ function TimelineItem({ color, icon, title, dateTime, description, lastItem }) {
   const isDark = useTimeline();
 
   return (
-    <MDBox position="relative" mb={3} sx={(theme) => timelineItem(theme, { lastItem, isDark })}>
+    <MDBox position="relative" mb={5} sx={(theme) => timelineItem(theme, { lastItem, isDark })}>
       <MDBox
         display="flex"
         justifyContent="center"
