@@ -30,7 +30,7 @@ const routes = [
 
   {
     type: "collapse",
-    name: "Notice List",
+    name: "UP Coming Checkouts",
     key: "billing",
     icon: <Icon fontSize="small">receipt_long</Icon>,
     route: "/billing",
