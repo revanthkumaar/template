@@ -5,7 +5,6 @@ import Notifications from "layouts/notifications";
 import Profile from "layouts/profile";
 import SignIn from "layouts/authentication/sign-in";
 import Tables from "layouts/tables";
-import RoomAvailability from "layouts/roomAvailibity/index"
 // import SignUp from "layouts/authentication/sign-up";
 
 // @mui icons
@@ -27,14 +26,6 @@ const routes = [
     icon: <Icon fontSize="small">person</Icon>,
     route: "/profile",
     component: <Profile />,
-  },
-  {
-    type: "collapse",
-    name: "Room Availability",
-    key: "roomAvailability",
-    icon: <Icon fontSize="small">person</Icon>,
-    route: "/roomAvailability",
-    component: <RoomAvailability />,
   },
 
   {
