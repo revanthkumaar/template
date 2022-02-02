@@ -348,8 +348,7 @@ const GuestLoginForm = () => {
                   </Grid>
                   <Divider variant="middle" />
                   <Grid item xs={4} justifyContent="center">
-                    <Button>
-                      <Divider />
+                    <Button variant="contained" disableElevation>
                       Submit
                     </Button>
                   </Grid>
