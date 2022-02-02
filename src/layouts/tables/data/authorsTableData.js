@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-
 // Soft UI Dashboard React components
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
