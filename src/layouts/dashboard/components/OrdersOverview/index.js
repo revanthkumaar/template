@@ -15,7 +15,7 @@ import Card from "@mui/material/Card";
 
 // Material Dashboard 2 React components
 
-// import MDBox from "components/MDBox";
+import MDBox from "components/MDBox";
 // import MDTypography from "components/MDTypography";
 
 // Material Dashboard 2 React example components
@@ -24,8 +24,8 @@ import Card from "@mui/material/Card";
 function OrdersOverview() {
   return (
     <Card sx={{ height: "100%" }}>
-      {/* <MDBox pt={3} px={3}>
-        <MDTypography variant="h6" fontWeight="medium">
+       <MDBox pt={3} px={3}>
+        {/* <MDTypography variant="h6" fontWeight="medium">
           Orders overview
         </MDTypography>
         <MDBox mt={0} mb={2}>
@@ -39,7 +39,7 @@ function OrdersOverview() {
             </MDTypography>{" "}
             this month
           </MDTypography>
-        </MDBox>
+        </MDBox> */}
       </MDBox>
       <MDBox p={2}>
         <TimelineItem
@@ -73,7 +73,7 @@ function OrdersOverview() {
           dateTime="18 DEC 4:54 AM"
           lastItem
         />
-      </MDBox> */}
+      </MDBox> 
     </Card>
   );
 }
