@@ -33,6 +33,12 @@ import { Card } from '@mui/material';
 import MDBox from 'components/MDBox';
 import MDTypography from 'components/MDTypography';
 
+//DataTable
+import TransactionDetails from './data/TransactionDetails';
+import GuestDetails from './data/GuestDetails';
+import Occupancy from './data/Occupancy';
+import Notices from './data/Notices';
+
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
 
@@ -81,7 +87,7 @@ export default function FullWidthTabs() {
 	return (
 		<DashboardLayout>
 			<DashboardNavbar />
-			<Card>
+			<Card mt={2}>
 				<MDBox p={2} lineHeight={0}>
 					<MDTypography variant="h5">All Reports</MDTypography>
 					<MDTypography variant="button" color="text" fontWeight="regular">
@@ -97,7 +103,7 @@ export default function FullWidthTabs() {
 							textColor="inherit"
 							variant="fullWidth"
 							aria-label="full width tabs example"
-							style={{ background: '#6495ED' }}
+							style={{ background: '#4169E1' }}
 						>
 							<Tab label="Transactions" {...a11yProps(0)} />
 							<Tab label="Guest Master" {...a11yProps(1)} />
@@ -107,25 +113,23 @@ export default function FullWidthTabs() {
 					</MDBox>
 				</AppBar>
 			</Card>
+			<MDBox mt={3}>
+				<Card>
+					<TabPanel value={value} index={0} dir={theme.direction}>
+						<TransactionDetails />
+					</TabPanel>
 
-			<SwipeableViews
-				axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-				index={value}
-				onChangeIndex={handleChangeIndex}
-			>
-				<TabPanel value={value} index={0} dir={theme.direction}>
-					Transactions
-				</TabPanel>
-				<TabPanel value={value} index={1} dir={theme.direction}>
-					Guest Master
-				</TabPanel>
-				<TabPanel value={value} index={2} dir={theme.direction}>
-					Occupancy
-				</TabPanel>
-				<TabPanel value={value} index={3} dir={theme.direction}>
-					Notices
-				</TabPanel>
-			</SwipeableViews>
+					<TabPanel value={value} index={1} dir={theme.direction}>
+						<GuestDetails />
+					</TabPanel>
+					<TabPanel value={value} index={2} dir={theme.direction}>
+						<Occupancy />
+					</TabPanel>
+					<TabPanel value={value} index={3} dir={theme.direction}>
+						<Notices />
+					</TabPanel>
+				</Card>
+			</MDBox>
 		</DashboardLayout>
 	);
 }
