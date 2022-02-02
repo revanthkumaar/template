@@ -1,70 +1,78 @@
-import * as React from "react";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
-import CheckBox from "@mui/material/Checkbox";
-import { Grid } from "@mui/material";
-//import Divider from "@mui/material/Divider";
+import * as React from 'react';
+import { DataGrid } from '@mui/x-data-grid';
+import CheckBox from '@mui/material/Checkbox'
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
+const columns = [
 
-const rows = [
-  createData("1 Sharing", 18000, 20000),
-  createData( "2 Sharing", 10000, 11500),
-  createData( "3 Sharing", 7500, 8500),
-  createData( "4 Sharing", 6500, 7500),
+  {
+    field: 'firstName',
+    headerName: 'Room Number',
+    width: 160,
+    editable: true,
+  },
+ 
+  {
+    field: 'age',
+    headerName: 'A/c',
+    type: 'number',
+    width: 160,
+    editable: true,
+  },
+  {
+    field: 'bed_id',
+    headerName: 'Bed Number',
+    description: 'This column has a value getter and is not sortable.',
+    sortable: false,
+    width: 160,
+   
+  },
+  
+  {
+    field: 'shelf',
+    headerName: 'Shelf Number',
+    type: 'number',
+    width: 160,
+    editable: true,
+  },
+  {
+    field: 'monthlyrent',
+    headerName: 'Monthly Rent',
+    type: 'number',
+    width: 160,
+    editable: true,
+  },
+  {
+    field: 'dailyrent',
+    headerName: 'Daily Rent',
+    type: 'number',
+    width: 160,
+    editable: true,
+  },
 ];
 
-export default function Payments() {
+const rows = [
+  { id: 1, lastName: '18,000', firstName: 'B101', age: "Yes/No",bed_id:"G12",shelf:3,monthlyrent:"20000",dailyrent:800},
+  { id: 2, lastName: '10,000', firstName: 'A101', age: "Yes/No",bed_id:"P1C",shelf:4 ,monthlyrent:"11500",dailyrent:600},
+  { id: 3, lastName: '7,500', firstName: 'C102', age: "Yes/No",bed_id:"G1A" ,shelf:5,monthlyrent:"8500",dailyrent:500},
+  { id: 4, lastName: '6,500', firstName: 'D100', age: "Yes/No",bed_id:"B1A",shelf:1,monthlyrent:"7500",dailyrent:400},
+]
+
+export default function DataGridDemo() {
   return (
-    
-        <TableContainer
-          component={Paper}
-          display="flex"
-          justifyContent="flex-end"
-        >
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                
-                <TableCell align="right">Room</TableCell>
-                <TableCell align="right">Non A/C Room&nbsp;</TableCell>
-                <TableCell align="right">A/C Room&nbsp;</TableCell>
-                <TableCell align="right">Room &nbsp;</TableCell>
-                <TableCell align="right">BED &nbsp;</TableCell>
-                <TableCell align="right">SHELF&nbsp;</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {rows.map((row) => (
-                <TableRow
-                  key={row.name}
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                >
-                  <TableCell component="th" scope="row">
-                    {row.name}
-                  </TableCell>
-                  <TableCell align="right">{row.calories} <CheckBox /></TableCell>
-                  <TableCell align="right">
-                    {row.fat}
-                    <CheckBox />
-                  </TableCell>
-                  <TableCell align="right">
-                    {row.carbs}
-                   
-                  </TableCell>
-                  <TableCell align="right">{row.protein}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+    <div style={{ height: 400, width: '100%' }}>
+      
+      <DataGrid
+        rows={rows}
+        checkboxSelection
+        columns={columns}
+
+        pageSize={5}
+        rowsPerPageOptions={[5]}
+       
+        disableSelectionOnClick
+      />
+      
      
+    </div>
   );
 }

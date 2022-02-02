@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import GuestLoginForm from "./GuestLoginForm";
 import Payments from "./Payments";
+import Building from "./Building";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -64,6 +65,10 @@ export default function TabBar() {
         <GuestLoginForm />
       </TabPanel>
       <TabPanel value={value} index={1}>
+        <h4 align='center'>Available Rooms/Beds</h4>
+        <br/>
+        <Building />
+        <br/>
         <Payments />
       </TabPanel>
     </Box>
