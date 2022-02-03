@@ -87,8 +87,9 @@ function Dashboard() {
          
          
         </Grid>
-        <h5 > Building Wise Summary</h5>
-          <br/>
+        
+        <h5 style={{paddingBottom:'10px'}} > Building Wise Summary</h5>
+         
         <Grid container spacing={3}>
           <Grid item xs={12} md={6} lg={3}>
             <MDBox mb={1.5}>
