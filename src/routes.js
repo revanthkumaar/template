@@ -48,9 +48,9 @@ const routes = [
   {
     type: "collapse",
     name: "Upcoming Checkouts",
-    key: "billing",
+    key: "upcoming checkouts",
     icon: <Icon fontSize="small">receipt_long</Icon>,
-    route: "/billing",
+    route: "/upcomingcheckouts",
     component: <Tables />,
   },
   {

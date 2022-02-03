@@ -11,6 +11,7 @@ import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
 import DataTable from "examples/Tables/DataTable";
+import Building from "./data/Building"
 
 // Data
 // import authorsTableData from "layouts/tables/data/authorsTableData";
@@ -38,6 +39,9 @@ function Tables() {
                 coloredShadow="info"
               >
                 <MDTypography variant="h6" color="white">
+                  <br />
+                  <Building />
+                  <br />
                   UPCOMING CHECK-OUTS
                 </MDTypography>
               </MDBox>
@@ -52,7 +56,7 @@ function Tables() {
               </MDBox>
             </Card>
           </Grid>
-          
+
         </Grid>
       </MDBox>
       <Footer />
