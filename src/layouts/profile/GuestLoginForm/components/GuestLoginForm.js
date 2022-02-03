@@ -255,24 +255,7 @@ const GuestLoginForm = () => {
                     <Grid item xs={6}>
                       <Textfield name="workPhone" label="Work Phone Number" />
                     </Grid>
-                    {/* <Grid item xs={6}>
-                      
-                      <Select onChange="if(this.options[this.selectedIndex].value=='customOption'){toggleField(this, this.nextSibling); this.selectedIndex='0';}"// value={selectedAnswer}
-  >
-                      <option value="0" name="optionA">
-                        Salaried Employee
-                      </option><option value="1" name="optionB">
-                        Self Employee</option><option value="customOption" name="customInput">
-                        CustomInput
-                      </option><option value="-1" name="landing">
-                        Select one
-                      </option>
-                    </Select> 
-                    
-
-
-
-                  </Grid> */}{" "}
+               
                   </Grid>
 
                   <Grid item xs={12}>
@@ -367,7 +350,7 @@ const GuestLoginForm = () => {
                   </Grid>
                   <Divider variant="middle" />
                   <Grid item xs={4} justifyContent="center">
-                    <MDButton variant="outlined" color="info" size="small">
+                    <MDButton variant="outlined" color="info" size="large">
                      Submit
                     </MDButton>
                   </Grid>
