@@ -108,7 +108,7 @@ export default function FullWidthTabs() {
 							<Tab label="Transactions" {...a11yProps(0)} />
 							<Tab label="Guest Master" {...a11yProps(1)} />
 							<Tab label="Occupancy" {...a11yProps(2)} />
-							<Tab label="Notices" {...a11yProps(3)} />
+							<Tab label="Upcoming Checkouts" {...a11yProps(3)} />
 						</Tabs>
 					</MDBox>
 				</AppBar>

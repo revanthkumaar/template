@@ -58,7 +58,7 @@ const routes = [
     name: "Reports",
     key: "notifications",
     icon: <Icon fontSize="small">receipt_long</Icon>,
-    route: "/notifications",
+    route: "/allReports",
     component: <Notifications />,
   },
   {
