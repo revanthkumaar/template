@@ -5,6 +5,7 @@ import Notifications from "layouts/notifications";
 import Profile from "layouts/profile";
 import SignIn from "layouts/authentication/sign-in";
 import Tables from "layouts/tables";
+import Branch from "layouts/branch/index"
 
 import RoomAvailability from "layouts/roomAvailibity";
 
@@ -60,6 +61,14 @@ const routes = [
     icon: <Icon fontSize="small">receipt_long</Icon>,
     route: "/notifications",
     component: <Notifications />,
+  },
+  {
+    type: "collapse",
+    name: "Branch",
+    key: "branch",
+    icon: <Icon fontSize="small">Leader Board</Icon>,
+    route: "/branch",
+    component: <Branch />,
   },
   {
     type: "collapse",
