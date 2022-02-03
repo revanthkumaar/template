@@ -39,6 +39,7 @@ import BuildingTwo from 'layouts/dashboard/components/BuildingTwo';
 import BuildingThree from 'layouts/dashboard/components/BuildingThree';
 import BuildingFour from 'layouts/dashboard/components/BuildingFour';
 import FinancialDetails from 'layouts/dashboard/components/FinancialDetails';
+import SecurityDeposit from 'layouts/dashboard/components/SecurityDeposit';
 
 function Dashboard() {
 	// const { sales, tasks } = reportsLineChartData;
@@ -75,7 +76,7 @@ function Dashboard() {
 					</Grid>
 				</Grid>
 
-				<h5 style={{ paddingBottom: '10px' }}> Building Wise Summary</h5>
+				<h4 style={{ paddingBottom: '10px' }}> Building Wise Summary</h4>
 
 				<Grid container spacing={3}>
 					<Grid item xs={12} md={6} lg={3}>
@@ -100,8 +101,8 @@ function Dashboard() {
 					</Grid>
 				</Grid>
 				<h4>Financial Details</h4>
-				<MDBox mt={1.5}>
-					<MDBox mt={4}>
+				<MDBox mt={1}>
+					<MDBox mt={2}>
 						<Grid container spacing={5}>
 							<Grid item xs={12}>
 								<FinancialDetails name="Rent Payments" />
@@ -110,10 +111,7 @@ function Dashboard() {
 								<FinancialDetails name="Day-Wise Payments" />
 							</Grid>
 							<Grid item xs={12}>
-								<FinancialDetails name="Security Deposit" />
-							</Grid>
-							<Grid item xs={8}>
-								<FinancialDetails name="Advance Bookings" />
+								<SecurityDeposit name="Security Deposit" />
 							</Grid>
 						</Grid>
 					</MDBox>
