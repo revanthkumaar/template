@@ -6,7 +6,7 @@ import Profile from "layouts/profile";
 import SignIn from "layouts/authentication/sign-in";
 import Tables from "layouts/tables";
 import Branch from "layouts/branch/index"
-
+import ReportGenerator from 'layouts/reportGenerator/index'
 import RoomAvailability from "layouts/roomAvailibity";
 import BulkEntries from "layouts/bulkEntries"
 //import Payments from "layouts/payments/paymentmodule/payment";
@@ -65,6 +65,14 @@ const routes = [
     icon: <Icon fontSize="small">receipt_long</Icon>,
     route: "/upcomingcheckouts",
     component: <Tables />,
+  },
+  {
+    type: "collapse",
+    name: "Report Generator",
+    key: "ReportGenerator",
+    icon: <Icon fontSize="small">receipt_long</Icon>,
+    route: "/Report_Generator",
+    component: <ReportGenerator />,
   },
   {
     type: "collapse",
