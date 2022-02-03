@@ -7,18 +7,21 @@ import SignIn from "layouts/authentication/sign-in";
 import Tables from "layouts/tables";
 
 import RoomAvailability from "layouts/roomAvailibity";
+//import Payments from "layouts/payments/paymentmodule/payment";
 
-import Main from "layouts/main"
-import Payments from "layouts/payments"
-import Inventory from "layouts/inventory"
-import Issues from "layouts/issues"
-import Announcements from "layouts/announcements"
-import Employees from "layouts/employees"
+// import Main from "layouts/main"
+// import Payments from "layouts/payments"
+// import Inventory from "layouts/inventory"
+// import Issues from "layouts/issues"
+
+// import Announcements from "layouts/announcements"
+// import Employees from "layouts/employees"
 
 // import SignUp from "layouts/authentication/sign-up";
 
 // @mui icons
 import Icon from "@mui/material/Icon";
+import PaymentModules from "layouts/payments";
 
 const routes = [
   {
@@ -76,7 +79,7 @@ const routes = [
     key: "payments",
     icon: <Icon fontSize="small">payment</Icon>,
     route: "/payments",
-    component: <payments />,
+    component: <PaymentModules />,
   },
   {
     type: "collapse",
