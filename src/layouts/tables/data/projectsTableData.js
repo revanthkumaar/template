@@ -260,6 +260,96 @@ export default function data() {
         ),
        
       },
+      {
+        BedId: <Project name="P1C" />,
+        Name: (
+          <MDTypography component="a" href="#" variant="button" color="text" fontWeight="medium">
+            Utkarsh Kamuni
+          </MDTypography>
+        ),
+        Due: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            0
+          </MDTypography>
+        ),
+        completion: <Progress color="info" value={60} />,
+        Lastpaidon: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            09-oct-21
+          </MDTypography>
+        ),
+        NoticeGivenOn: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            09-oct-21
+          </MDTypography>
+        ),
+        CheckoutOn: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            31-oct-21
+          </MDTypography>
+        ),
+       
+      },
+      {
+        BedId: <Project name="G7A" />,
+        Name: (
+          <MDTypography component="a" href="#" variant="button" color="text" fontWeight="medium">
+            Suresh Kumar Dogra
+          </MDTypography>
+        ),
+        Due: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            4000
+          </MDTypography>
+        ),
+        completion: <Progress color="info" value={60} />,
+        Lastpaidon: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            23-oct-21
+          </MDTypography>
+        ),
+        NoticeGivenOn: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            16-oct-21
+          </MDTypography>
+        ),
+        CheckoutOn: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            31-oct-21
+          </MDTypography>
+        ),
+       
+      },
+      {
+        BedId: <Project name="30BA" />,
+        Name: (
+          <MDTypography component="a" href="#" variant="button" color="text" fontWeight="medium">
+            Saptarshi Sarkar
+          </MDTypography>
+        ),
+        Due: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            0
+          </MDTypography>
+        ),
+        completion: <Progress color="info" value={60} />,
+        Lastpaidon: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            05-oct-21
+          </MDTypography>
+        ),
+        NoticeGivenOn: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            17-oct-21
+          </MDTypography>
+        ),
+        CheckoutOn: (
+          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
+            02-nov-21
+          </MDTypography>
+        ),
+       
+      },
       
       
     ],
