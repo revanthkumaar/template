@@ -42,7 +42,7 @@ const routes = [
     name: "Room Availability",
     key: "roomAvailability",
     icon: <Icon fontSize="small">person</Icon>,
-    route: "/roomAvailability",
+    route: "/room_Availability",
     component: <RoomAvailability />,
   },
   {

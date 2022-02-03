@@ -187,7 +187,7 @@ const GuestLoginForm = () => {
                                 <Grid item xs={3}>
                                     <FormControl fullWidth>
                                         <InputLabel id="demo-simple-select-label">Property</InputLabel>
-                                        <Select
+                                        <Select sx={{ minHeight: 44 }}
                                             labelId="demo-simple-select-label"
                                             id="demo-simple-select"
                                             value={property}
@@ -208,7 +208,7 @@ const GuestLoginForm = () => {
                                 <Grid item xs={3}>
                                     <FormControl fullWidth>
                                         <InputLabel id="demo-simple-select-label">Room Type</InputLabel>
-                                        <Select
+                                        <Select sx={{ minHeight: 44 }}
                                             labelId="demo-simple-select-label"
                                             id="demo-simple-select"
                                             value={roomType}
@@ -227,7 +227,7 @@ const GuestLoginForm = () => {
                                 <Grid item xs={3}>
                                     <FormControl fullWidth>
                                         <InputLabel id="demo-simple-select-label">Sharing</InputLabel>
-                                        <Select
+                                        <Select sx={{ minHeight: 44 }}
                                             labelId="demo-simple-select-label"
                                             id="demo-simple-select"
                                             value={sharing}
@@ -245,7 +245,7 @@ const GuestLoginForm = () => {
                                 <Grid item xs={3}>
                                     <FormControl fullWidth>
                                         <InputLabel id="demo-simple-select-label">Room No.</InputLabel>
-                                        <Select
+                                        <Select sx={{ minHeight: 44 }}
                                             labelId="demo-simple-select-label"
                                             id="demo-simple-select"
                                             value={roomNo}
@@ -263,7 +263,7 @@ const GuestLoginForm = () => {
                                 <Grid item xs={3}>
                                     <FormControl fullWidth>
                                         <InputLabel id="demo-simple-select-label">Bed No.</InputLabel>
-                                        <Select
+                                        <Select sx={{ minHeight: 44 }}
                                             labelId="demo-simple-select-label"
                                             id="demo-simple-select"
                                             value={bedNo}
@@ -282,7 +282,7 @@ const GuestLoginForm = () => {
                                 <Grid item xs={3}>
                                     <FormControl fullWidth>
                                         <InputLabel id="demo-simple-select-label">Shelf No.</InputLabel>
-                                        <Select
+                                        <Select sx={{ minHeight: 44 }}
                                             labelId="demo-simple-select-label"
                                             id="demo-simple-select"
                                             value={shelfNo}
