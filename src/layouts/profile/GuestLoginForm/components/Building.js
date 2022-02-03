@@ -40,8 +40,8 @@ function Building() {
   return (
     <div className="App">
       <label value="Select Building: ">Select Building: </label>
-      <Select
-        style={{ width: "30%" }}
+      <Select sx={{minHeight:44}}
+        style={{ width: "30%",height:"10%" }}
         value={selected}
         onChange={handleChange}
         name="country"
