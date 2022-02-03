@@ -7,6 +7,7 @@ import SignIn from "layouts/authentication/sign-in";
 import Tables from "layouts/tables";
 
 import RoomAvailability from "layouts/roomAvailibity";
+import BulkEntries from "layouts/bulkEntries"
 //import Payments from "layouts/payments/paymentmodule/payment";
 
 // import Main from "layouts/main"
@@ -71,6 +72,14 @@ const routes = [
     icon: <Icon fontSize="small">receipt_long</Icon>,
     route: "/allReports",
     component: <Notifications />,
+  },
+  {
+    type: "collapse",
+    name: "Bulk Entries",
+    key: "bulkEntries",
+    icon: <Icon fontSize="small">person_add</Icon>,
+    route: "/bulk_Entries",
+    component: <BulkEntries />,
   },
 
   {
