@@ -22,7 +22,7 @@ import MDBox from "components/MDBox";
 import TimelineItem from "examples/Timeline/TimelineItem";
 import Divider from '@mui/material/Divider';
 
-function OrdersOverview() {
+function BuildingFour() {
   return (
     <Card sx={{ height: "100%" }}>
        <MDBox pt={3} px={3}>
@@ -47,13 +47,14 @@ function OrdersOverview() {
         <TimelineItem
           color="success"
           icon="home"
-          title="Building 1"
+          title="Building 4"
+        
         />
         
         <TimelineItem
           color="error"
           icon="beds"
-          title="Available beds "
+          title="Available beds   "
         />
         <TimelineItem
           color="info"
@@ -79,4 +80,4 @@ function OrdersOverview() {
   );
 }
 
-export default OrdersOverview;
+export default BuildingFour;

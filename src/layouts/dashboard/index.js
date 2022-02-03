@@ -34,7 +34,9 @@ import ComplexStatisticsCard from "examples/Cards/StatisticsCards/ComplexStatist
 // Dashboard components
 // import Projects from "layouts/dashboard/components/Projects";
 import OrdersOverview from "layouts/dashboard/components/OrdersOverview";
-
+import BuildingTwo from "layouts/dashboard/components/BuildingTwo";
+import BuildingThree from "layouts/dashboard/components/BuildingThree";
+import BuildingFour from "layouts/dashboard/components/BuildingFour";
 function Dashboard() {
   // const { sales, tasks } = reportsLineChartData;
 
@@ -82,8 +84,11 @@ function Dashboard() {
               />
             </MDBox>
           </Grid>
+         
+         
         </Grid>
-
+        <h5 > Building Wise Summary</h5>
+          <br/>
         <Grid container spacing={3}>
           <Grid item xs={12} md={6} lg={3}>
             <MDBox mb={1.5}>
@@ -92,21 +97,20 @@ function Dashboard() {
           </Grid>
           <Grid item xs={12} md={6} lg={3}>
             <MDBox mb={1.5}>
-            <OrdersOverview />
+            <BuildingTwo/>
             </MDBox>
           </Grid>
           <Grid item xs={12} md={6} lg={3}>
             <MDBox mb={1.5}>
-            <OrdersOverview />
+            <BuildingThree/>
             </MDBox>
           </Grid>
           <Grid item xs={12} md={6} lg={3}>
             <MDBox mb={1.5}>
-            <OrdersOverview />
+            <BuildingFour />
             </MDBox>
           </Grid>
         </Grid>
-
         <MDBox mt={4.5}>
           <Grid container spacing={3}>
             <Grid item xs={12} md={6} lg={4} />
