@@ -1,171 +1,78 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 //import Header from '../Components/Header';
-import { Formik, Form } from 'formik';
-import * as Yup from 'yup';
+import { Formik, Form } from "formik";
+import * as Yup from "yup";
 //import { createStyles, makeStyles } from '@mui/styles';
 //import { createTheme, ThemeProvider } from '@mui/material/styles';
-import {
-    Container,
-    Grid,
-    Typography
-} from '@mui/material';
-import Textfield from './Components/Textfield';
-import Button from './Components/Button';
+import { Card, Container, Grid, Typography } from "@mui/material";
+import Textfield from "./Components/Textfield";
 
-import moment from 'moment'
+import moment from "moment";
 //import Divider from '@mui/material/Divider';
-import Divider from '@mui/material/Divider';
-
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import MDButton from 'components/MDButton';
-
-
-// const useStyles = makeStyles((theme) => createStyles({
-//     root: {
-//       marginTop: theme.spacing(5),
-//       marginBottom: theme.spacing(8),
-//     },
-//   }),
-//   )
-//   const theme = createTheme();
-function createData(name, calories, fat, carbs, protein) {
-    return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-    createData(1, '1 Sharing', 18000, 20000),
-    createData(2, '2 Sharing', 10000, 11500),
-    createData(3, '3 Sharing', 7500, 8500),
-    createData(4, '4 Sharing', 6500, 7500),
-
-];
+import Divider from "@mui/material/Divider";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import MDButton from "components/MDButton";
 
 const INITIAL_FORM_STATE = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    dateOfBirth: '',
-    bedNum: '',
-    secondaryPhone: '',
-    fatherName: '',
-    fatherPhone: '',
-    localGaurdianName: '',
-    bloodGroup: '',
-    addressLine1: '',
-    addressLine2: '',
-    city: '',
-    state: '',
-    country: '',
-    workPhone: '',
-    workAddressLine1: '',
-    workAddressLine2: '',
-    Idproof: '',
-    passport: '',
-    workCity: '',
-    workState: '',
-    bookingDate: '',
-    checkoutDate: '',
-    arrivalDate: '',
-    roomRent: '',
-    securityDeposit: '',
-    checkinNotes: '',
-    termsOfService: false
+
+  property: "",
+  roomType: "",
+  sharing: "",
+  roomNo: "",
+  bedNo: "",
+  shelfNo: ""
+  
 };
 
 const FORM_VALIDATION = Yup.object().shape({
-    firstName: Yup.string().matches(/^[aA-zZ\s]+$/, "Invalid FirstName ")
-        .required('Required'),
-    lastName: Yup.string().matches(/^[aA-zZ\s]+$/, "Invalid LastName ")
-        .required('Required'),
-    fatherName: Yup.string().matches(/^[aA-zZ\s]+$/, "Invalid FatherName ")
-        .required('Required'),
-    localGaurdianName: Yup.string().matches(/^[aA-zZ\s]+$/, "Invalid FatherName ")
-        .required('Required'),
-    email: Yup.string()
-        .email('Invalid email.')
-        .required('Required'),
-    bloodGroup: Yup.string().matches(/^(A|B|AB|O)[+-]$/, { message: "Please enter valid Blood Group.", excludeEmptyString: false }),
-    bedNum: Yup.string().matches(/^[6-9]\d{9}$/, { message: "Please enter valid Bed number", excludeEmptyString: false }),
-    secondaryPhone: Yup.string().matches(/^[6-9]\d{9}$/, { message: "Please enter Valid Mobile Number", excludeEmptyString: false }),
-    securityDeposit: Yup.number(),
-    roomRent: Yup.number(),
-    fatherPhone: Yup.string().matches(/^[6-9]\d{9}$/, { message: "Please enter valid Mobile number.", excludeEmptyString: false }),
-    localGaurdianPhone: Yup.string().matches(/^[6-9]\d{9}$/, { message: "Please enter valid Mobile number.", excludeEmptyString: false }),
-    addressLine1: Yup.string()
-        .required('Required'),
-    addressLine2: Yup.string(),
-    city: Yup.string().matches(/^[aA-zZ\s]+$/, "Invalid City Name")
-        .required('Required'),
-    state: Yup.string().matches(/^[aA-zZ\s]+$/, "Invalid State ")
-        .required('Required'),
-    workCity: Yup.string().matches(/^[aA-zZ\s]+$/, "Invalid City Name")
-        .required('Required'),
-    workState: Yup.string().matches(/^[aA-zZ\s]+$/, "Invalid State ")
-        .required('Required'),
-    country: Yup.string()
-        .required('Required'),
-    arrivalDate: Yup.date()
-        .required('Required'),
-    dateOfBirth: Yup.string()
-        .required("DOB is Required")
-        .test(
-            "DOB",
-            "Please choose a valid date of birth",
-            (date) => moment().diff(moment(date), "years") >= 12
-        ),
-    departureDate: Yup.date()
-        .required('Required'),
-    checkinNotes: Yup.string(),
-    termsOfService: Yup.boolean()
-        .oneOf([true], 'The terms and conditions must be accepted.')
-        .required('The terms and conditions must be accepted.'),
-    Idproof: Yup.mixed().required('File is required'),
-    passport: Yup.mixed().required('File is required'),
+  roomNo: Yup.number(),
+  bedNo: Yup.number(),
 });
 
-const GuestLoginForm = () => {
-    //const classes = useStyles();
+const RoomAvailabilityForm = () => {
+  //const classes = useStyles();
 
-    const [property, setProperty] = React.useState('');
+  const [property, setProperty] = React.useState("");
 
-    const handleChangeOption = (event) => {
-        setProperty(event.target.value);
-    }
-    const [roomType, setRoomType] = React.useState('');
+  const handleChangeOption = (event) => {
+    setProperty(event.target.value);
+  };
+  const [roomType, setRoomType] = React.useState("");
 
-    const handleChangeRoomType = (event) => {
-        setRoomType(event.target.value);
-    }
+  const handleChangeRoomType = (event) => {
+    setRoomType(event.target.value);
+  };
 
-    const [sharing, setSharing] = React.useState('');
+  const [sharing, setSharing] = React.useState("");
 
-    const handleChangeSharing = (event) => {
-        setSharing(event.target.value);
-    }
+  const handleChangeSharing = (event) => {
+    setSharing(event.target.value);
+  };
 
-    const [roomNo, setRoomNo] = React.useState('');
+  const [roomNo, setRoomNo] = React.useState("");
 
-    const handleChangeRoomNo = (event) => {
-        setRoomNo(event.target.value);
-    }
+  const handleChangeRoomNo = (event) => {
+    setRoomNo(event.target.value);
+  };
 
-    const [bedNo, setBedNo] = React.useState('');
+  const [bedNo, setBedNo] = React.useState("");
 
-    const handleChangeBedNo = (event) => {
-        setBedNo(event.target.value);
-    }
+  const handleChangeBedNo = (event) => {
+    setBedNo(event.target.value);
+  };
 
-    const [shelfNo, setShelfNo] = React.useState('');
+  const [shelfNo, setShelfNo] = React.useState("");
 
-    const handleChangeShelfNo = (event) => {
-        setShelfNo(event.target.value);
-    }
-    return (
+  const handleChangeShelfNo = (event) => {
+    setShelfNo(event.target.value);
+  };
+  return (
+    <>
       <Grid container>
-        <Grid item xs={12}>
+        <Grid  item xs={12}>
           <Container maxWidth="md">
             <div>
               <Formik
@@ -188,6 +95,7 @@ const GuestLoginForm = () => {
                           id="demo-simple-select"
                           value={property}
                           label="Property"
+                          name="property"
                           onChange={handleChangeOption}
                         >
                           <MenuItem value={10}>Building A</MenuItem>
@@ -210,6 +118,7 @@ const GuestLoginForm = () => {
                           id="demo-simple-select"
                           value={roomType}
                           label="Room Type"
+                          name="roomType"
                           onChange={handleChangeRoomType}
                         >
                           <MenuItem value={11}>AC Room</MenuItem>
@@ -229,6 +138,7 @@ const GuestLoginForm = () => {
                           id="demo-simple-select"
                           value={sharing}
                           label="Sharing"
+                          name="sharing"
                           onChange={handleChangeSharing}
                         >
                           <MenuItem value={13}>1 sharing</MenuItem>
@@ -249,6 +159,7 @@ const GuestLoginForm = () => {
                           id="demo-simple-select"
                           value={roomNo}
                           label="Room No."
+                          name="roomNo"
                           onChange={handleChangeRoomNo}
                         >
                           <MenuItem value={17}>A1</MenuItem>
@@ -270,6 +181,7 @@ const GuestLoginForm = () => {
                           id="demo-simple-select"
                           value={bedNo}
                           label="Bed No."
+                          name="bedNo"
                           onChange={handleChangeBedNo}
                         >
                           <MenuItem value={2}>A1-B1</MenuItem>
@@ -292,6 +204,7 @@ const GuestLoginForm = () => {
                           id="demo-simple-select"
                           value={shelfNo}
                           label="Shelf No."
+                          name="shelfNo"
                           onChange={handleChangeShelfNo}
                         >
                           <MenuItem value={27}>A1-S1</MenuItem>
@@ -303,16 +216,16 @@ const GuestLoginForm = () => {
                       </FormControl>
                     </Grid>
                     <Grid item xs={3}>
-                      <Textfield name="secondaryPhone" label="Room No." />
+                      <Textfield name="roomNo" label="Room No." />
                     </Grid>
                     <Grid item xs={3}>
-                      <Textfield name="bedNum" label="Bed No." />
+                      <Textfield name="bedNo" label="Bed No." />
                     </Grid>
 
                     <Divider variant="middle" />
                     <Grid item xs={4} justifyContent="center">
                       <MDButton variant="outlined" color="info" size="medium">
-                        SEARCH
+                        ADD ROOM
                       </MDButton>
                     </Grid>
                   </Grid>
@@ -320,54 +233,10 @@ const GuestLoginForm = () => {
               </Formik>
             </div>
           </Container>
-          {/* <Container>
-                    <div>
-                    <Grid container spacing={2} columns={16}>
-    <Grid item xs={3}>
-
-    </Grid>
-    <Grid item xs={12}>
-    <TableContainer component={Paper} display="flex" justifyContent="flex-end">
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Sl No</TableCell>
-            <TableCell align="right">Room</TableCell>
-            <TableCell align="right">Non A/C Room&nbsp;</TableCell>
-            <TableCell align="right">A/C Room&nbsp;</TableCell>
-            <TableCell align="right">Room &nbsp;</TableCell>
-            <TableCell align="right">BED &nbsp;</TableCell>
-            <TableCell align="right">SHELF&nbsp;</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow
-              key={row.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}<CheckBox/></TableCell>
-              <TableCell align="right">{row.carbs}<CheckBox/></TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-     
-    </Grid>
-  
-   
-    </Grid>
-                    </div>
-                </Container> */}
         </Grid>
       </Grid>
-    );
 
+    </>
+  );
 };
-export default GuestLoginForm;
+export default RoomAvailabilityForm;
