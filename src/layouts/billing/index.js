@@ -35,5 +35,4 @@ Coded by www.creative-tim.com
 function Billing() {
   return <div />;
 }
-
 export default Billing;
