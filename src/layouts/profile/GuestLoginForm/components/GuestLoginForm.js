@@ -14,6 +14,8 @@ import Checkbox from "./CheckBox";
 import DateTimePicker from "./DataTimePicker";
 import Button from "./Button";
 import countries from "./countries.json";
+import MDButton from "components/MDButton";
+
 // import Divider from '@mui/material/Divider';
 
 // const useStyles = makeStyles((theme) => createStyles({
@@ -365,9 +367,9 @@ const GuestLoginForm = () => {
                   </Grid>
                   <Divider variant="middle" />
                   <Grid item xs={4} justifyContent="center">
-                    <Button variant="contained" disableElevation>
-                      Submit
-                    </Button>
+                    <MDButton variant="outlined" color="info" size="small">
+                     Submit
+                    </MDButton>
                   </Grid>
                 </Grid>
               </Form>
