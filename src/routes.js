@@ -32,6 +32,14 @@ const routes = [
   },
   {
     type: "collapse",
+    name: "Main",
+    key: "main",
+    icon: <Icon fontSize="small">table_view</Icon>,
+    route: "/main",
+    component: <main />,
+  },
+  {
+    type: "collapse",
     name: "Guest Onboarding",
     key: "profile",
     icon: <Icon fontSize="small">person</Icon>,
@@ -49,9 +57,9 @@ const routes = [
   {
     type: "collapse",
     name: "Upcoming Checkouts",
-    key: "billing",
+    key: "upcoming checkouts",
     icon: <Icon fontSize="small">receipt_long</Icon>,
-    route: "/billing",
+    route: "/upcomingcheckouts",
     component: <Tables />,
   },
   {
@@ -78,6 +86,7 @@ const routes = [
     route: "/main",
     component: <main />,
   },
+
   {
     type: "collapse",
     name: "Payments",
@@ -125,6 +134,6 @@ const routes = [
     icon: <Icon fontSize="small">logout</Icon>,
     route: "/authentication/sign-in",
     component: <SignIn />,
-  }
+  },
 ];
 export default routes;

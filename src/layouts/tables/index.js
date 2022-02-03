@@ -11,6 +11,7 @@ import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
 import DataTable from "examples/Tables/DataTable";
+import Building from "./data/Building";
 
 // Data
 // import authorsTableData from "layouts/tables/data/authorsTableData";
@@ -25,6 +26,10 @@ function Tables() {
       <DashboardNavbar />
       <MDBox pt={6} pb={3}>
         <Grid container spacing={6}>
+          <Grid item xs={12}>
+            <Building />
+          </Grid>
+
           <Grid item xs={12}>
             <Card>
               <MDBox
@@ -52,7 +57,6 @@ function Tables() {
               </MDBox>
             </Card>
           </Grid>
-          
         </Grid>
       </MDBox>
       <Footer />
