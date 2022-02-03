@@ -21,9 +21,9 @@ import MDBox from 'components/MDBox';
 import MDTypography from 'components/MDTypography';
 
 // Billing page components
-import Finance from 'layouts/dashboard/components/Finance';
+import SD from 'layouts/dashboard/components/SecurityDeposit/SecurityDeposit';
 
-function FinancialDetails({ name }) {
+function SecurityDeposit({ name }) {
 	return (
 		<Card id="delete-account">
 			<MDBox pt={3} px={2}>
@@ -33,11 +33,11 @@ function FinancialDetails({ name }) {
 			</MDBox>
 			<MDBox pt={1} pb={2} px={2}>
 				<MDBox component="ul" display="flex" flexDirection="column" p={0} m={0}>
-					<Finance />
+					<SD />
 				</MDBox>
 			</MDBox>
 		</Card>
 	);
 }
 
-export default FinancialDetails;
+export default SecurityDeposit;

@@ -28,7 +28,7 @@ import MDButton from 'components/MDButton';
 import { useMaterialUIController } from 'context';
 import { Grid } from '@mui/material';
 
-function Finance({ name, company, email, vat, noGutter }) {
+function SD({ name, company, email, vat, noGutter }) {
 	const [ controller ] = useMaterialUIController();
 	const { darkMode } = controller;
 
@@ -46,34 +46,28 @@ function Finance({ name, company, email, vat, noGutter }) {
 		>
 			<MDBox width="100%" display="flex" flexDirection="column">
 				<Grid container spacing={3}>
-					<Grid align="center" style={{ color: 'blue' }} item xs={2.4}>
+					<Grid align="center" style={{ color: 'blue' }} item xs={3}>
 						INR 7500
 						<MDTypography mt={2} align="center" variant="h6" fontWeight="medium">
 							Total
 						</MDTypography>
 					</Grid>
-					<Grid align="center" style={{ color: 'green' }} item xs={2.4}>
+					<Grid align="center" style={{ color: 'green' }} item xs={3}>
 						INR 5000
 						<MDTypography mt={2} align="center" variant="h6" fontWeight="medium">
-							Paid
+							Active Guests
 						</MDTypography>
 					</Grid>
-					<Grid align="center" style={{ color: 'orange' }} item xs={2.4}>
+					<Grid align="center" style={{ color: 'orange' }} item xs={3}>
 						INR 0
 						<MDTypography mt={2} align="center" variant="h6" fontWeight="medium">
-							Partial
+							Vacated Guests
 						</MDTypography>
 					</Grid>
-					<Grid align="center" style={{ color: 'orange' }} item xs={2.4}>
+					<Grid align="center" style={{ color: 'red' }} item xs={3}>
 						INR 500
 						<MDTypography mt={2} align="center" variant="h6" fontWeight="medium">
-							Discount
-						</MDTypography>
-					</Grid>
-					<Grid align="center" style={{ color: 'red' }} item xs={2.4}>
-						INR 2000
-						<MDTypography mt={2} align="center" variant="h6" fontWeight="medium">
-							Pending
+							Checkout Refund Amount
 						</MDTypography>
 					</Grid>
 				</Grid>
@@ -83,12 +77,12 @@ function Finance({ name, company, email, vat, noGutter }) {
 }
 
 // Setting default values for the props of Bill
-Finance.defaultProps = {
+SD.defaultProps = {
 	noGutter: false
 };
 
 // Typechecking props for the Bill
-Finance.propTypes = {
+SD.propTypes = {
 	name: PropTypes.string.isRequired,
 	company: PropTypes.string.isRequired,
 	email: PropTypes.string.isRequired,
@@ -96,4 +90,4 @@ Finance.propTypes = {
 	noGutter: PropTypes.bool
 };
 
-export default Finance;
+export default SD;
