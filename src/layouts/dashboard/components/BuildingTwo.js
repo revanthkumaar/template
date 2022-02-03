@@ -50,32 +50,31 @@ function BuildingTwo() {
           color="success"
           icon="home"
           title="Building 2"
-          
         />
       
         <TimelineItem
           color="error"
           icon="beds"
-          title="Available beds  "
+          title="Available Beds  "
+          dateTime="23"
         />
         <TimelineItem
           color="info"
           icon="checkout"
           title="Check-outs (this month) "
-          
+          dateTime="15"
         />
         <TimelineItem
           color="warning"
           icon="payment"
-          title="Due payments"
-         
+          title="Due Payments  "
+          dateTime="11"
         />
         <TimelineItem
           color="primary"
           icon="money"
           title="Counts"
-          
-         
+          dateTime="10000"
         />
       </MDBox> 
     </Card>

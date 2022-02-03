@@ -53,25 +53,26 @@ function OrdersOverview() {
         <TimelineItem
           color="error"
           icon="beds"
-          title="Available beds "
-        />
+          title="Available Beds  "
+          dateTime="22"
+                  />
         <TimelineItem
           color="info"
           icon="checkout"
           title="Check-outs (this month) "
-          
+          dateTime="20"
         />
         <TimelineItem
           color="warning"
           icon="payment"
-          title="Due payments"
-         
+          title="Due Payments"
+          dateTime="20"
         />
         <TimelineItem
           color="primary"
           icon="money"
           title="Counts"
-          
+          dateTime="21454"
          
         />
       </MDBox> 
