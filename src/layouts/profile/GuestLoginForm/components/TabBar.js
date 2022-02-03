@@ -58,14 +58,14 @@ export default function TabBar() {
           centered
         >
           <Tab label="Admission Form" {...a11yProps(0)} />
-          <Tab label="Payments" {...a11yProps(1)} />
+          <Tab label="Allocate Room" {...a11yProps(1)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
         <GuestLoginForm />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <h4 align='center'>Available Rooms/Beds</h4>
+        <h4 align='center'>Room Allocation</h4>
         <br/>
         <Building />
         <br/>

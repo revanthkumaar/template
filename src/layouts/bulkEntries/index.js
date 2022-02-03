@@ -34,10 +34,11 @@ import MDBox from 'components/MDBox';
 import MDTypography from 'components/MDTypography';
 
 //DataTable
-import TransactionDetails from './data/TransactionDetails';
-import GuestDetails from './data/GuestDetails';
-import Occupancy from './data/Occupancy';
-import Notices from './data/Notices';
+import Bulk from "./bulk"
+// import TransactionDetails from './data/TransactionDetails';
+// import GuestDetails from './data/GuestDetails';
+// import Occupancy from './data/Occupancy';
+// import Notices from './data/Notices';
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
@@ -89,9 +90,9 @@ export default function FullWidthTabs() {
 			<DashboardNavbar />
 			<Card mt={2}>
 				<MDBox p={2} lineHeight={0}>
-					<MDTypography variant="h5">All Reports</MDTypography>
+					<MDTypography variant="h5">All Bulk Entries</MDTypography>
 					<MDTypography variant="button" color="text" fontWeight="regular">
-						Check all the reports of your properties here
+						Check all the bulk entries of your properties here
 					</MDTypography>
 				</MDBox>
 				<AppBar position="static">
@@ -105,10 +106,10 @@ export default function FullWidthTabs() {
 							aria-label="full width tabs example"
 							style={{ background: '#1E90FF' }}
 						>
-							<Tab label="Transactions" {...a11yProps(0)} />
-							<Tab label="Guest Master" {...a11yProps(1)} />
-							<Tab label="Occupancy" {...a11yProps(2)} />
-							<Tab label="Upcoming Checkouts" {...a11yProps(3)} />
+							<Tab label="Monthly Guest Entries" {...a11yProps(0)} />
+							<Tab label="Bulk Payments" {...a11yProps(1)} />
+							<Tab label="Bulk Security Deposit" {...a11yProps(2)} />
+							<Tab label="Bulk Addons" {...a11yProps(3)} />
 						</Tabs>
 					</MDBox>
 				</AppBar>
@@ -133,11 +134,11 @@ export default function FullWidthTabs() {
 								coloredShadow="info"
 							>
 								<MDTypography variant="h6" color="white">
-									TRANSACTION REPORT
+									MONTHLY GUEST REPORTS
 								</MDTypography>
 							</MDBox>
 							<MDBox pt={3}>
-								<TransactionDetails />
+								<Bulk />
 							</MDBox>
 						</Card>
 					</TabPanel>
@@ -155,11 +156,11 @@ export default function FullWidthTabs() {
 								coloredShadow="info"
 							>
 								<MDTypography variant="h6" color="white">
-									GUEST REPORT
+									BULK PAYMENTS
 								</MDTypography>
 							</MDBox>
 							<MDBox pt={3}>
-								<GuestDetails />
+								<Bulk />
 							</MDBox>
 						</Card>
 					</TabPanel>
@@ -176,11 +177,11 @@ export default function FullWidthTabs() {
 								coloredShadow="info"
 							>
 								<MDTypography variant="h6" color="white">
-									OCCUPANCY REPORT
+									BULK SECURITY DEPOSIT
 								</MDTypography>
 							</MDBox>
 							<MDBox pt={3}>
-								<Occupancy />
+								<Bulk />
 							</MDBox>
 						</Card>
 					</TabPanel>
@@ -197,11 +198,11 @@ export default function FullWidthTabs() {
 								coloredShadow="info"
 							>
 								<MDTypography variant="h6" color="white">
-									UPCOMING CHECKOUTS
+									BULK ADDONS
 								</MDTypography>
 							</MDBox>
 							<MDBox pt={3}>
-								<Notices />
+								<Bulk />
 							</MDBox>
 						</Card>
 					</TabPanel>

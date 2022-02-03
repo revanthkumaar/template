@@ -48,7 +48,7 @@ function Building() {
         displayEmpty
         // className={classes.selectEmpty}
       >
-        <MenuItem value="">Buildings</MenuItem>
+        <MenuItem value="">All Buildings</MenuItem>
         <MenuItem value="Building-1">Building-1</MenuItem>
         <MenuItem value="Building-2">Building-2</MenuItem>
         <MenuItem value="Building-3">Building-3</MenuItem>

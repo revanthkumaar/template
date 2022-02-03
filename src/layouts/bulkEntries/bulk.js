@@ -7,25 +7,22 @@ import MDBox from "components/MDBox";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
-import Payments from "./paymentmodule/payment";
+import Main from "./TabBar/Main";
 
 
-
-function PaymentModules() {
+function RoomAvailability() {
   // const { sales, tasks } = reportsLineChartData;
 
   return (
     <DashboardLayout>
       <DashboardNavbar />
-      <MDBox py={1}>
-        <MDBox mt={4}>
-          <MDBox bgColor="white">
-            <Grid container spacing={6}>
-              <Grid item xs={20} md={10} lg={20}>
-                <Payments />
-              </Grid>
+      <MDBox>
+        <MDBox >
+          <Grid container spacing={6}>
+            <Grid item xs={20} md={10} lg={20}>
+            <Main display="flex" justifyContent="flex-end" />
             </Grid>
-          </MDBox>
+          </Grid>
         </MDBox>
       </MDBox>
       <Footer />
@@ -33,4 +30,4 @@ function PaymentModules() {
   );
 }
 
-export default PaymentModules;
+export default RoomAvailability;

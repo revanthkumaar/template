@@ -8,18 +8,22 @@ import Tables from "layouts/tables";
 import Branch from "layouts/branch/index"
 
 import RoomAvailability from "layouts/roomAvailibity";
+import BulkEntries from "layouts/bulkEntries"
+//import Payments from "layouts/payments/paymentmodule/payment";
 
-import Main from "layouts/main"
-import Payments from "layouts/payments"
-import Inventory from "layouts/inventory"
-import Issues from "layouts/issues"
-import Announcements from "layouts/announcements"
-import Employees from "layouts/employees"
+// import Main from "layouts/main"
+// import Payments from "layouts/payments"
+// import Inventory from "layouts/inventory"
+// import Issues from "layouts/issues"
+
+// import Announcements from "layouts/announcements"
+// import Employees from "layouts/employees"
 
 // import SignUp from "layouts/authentication/sign-up";
 
 // @mui icons
 import Icon from "@mui/material/Icon";
+import PaymentModules from "layouts/payments";
 
 const routes = [
   {
@@ -67,7 +71,7 @@ const routes = [
     name: "Reports",
     key: "notifications",
     icon: <Icon fontSize="small">receipt_long</Icon>,
-    route: "/notifications",
+    route: "/allReports",
     component: <Notifications />,
   },
   {
@@ -80,11 +84,11 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Main",
-    key: "main",
-    icon: <Icon fontSize="small">table_view</Icon>,
-    route: "/main",
-    component: <main />,
+    name: "Bulk Entries",
+    key: "bulkEntries",
+    icon: <Icon fontSize="small">person_add</Icon>,
+    route: "/bulk_Entries",
+    component: <BulkEntries />,
   },
 
   {
@@ -93,7 +97,7 @@ const routes = [
     key: "payments",
     icon: <Icon fontSize="small">payment</Icon>,
     route: "/payments",
-    component: <payments />,
+    component: <PaymentModules />,
   },
   {
     type: "collapse",
