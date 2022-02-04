@@ -1,6 +1,5 @@
 // Material Dashboard 2 React layouts
 import Dashboard from "layouts/dashboard";
-import Billing from "layouts/billing";
 import Notifications from "layouts/notifications";
 import Profile from "layouts/profile";
 import SignIn from "layouts/authentication/sign-in";
@@ -9,18 +8,7 @@ import Branch from "layouts/branch/index"
 import ReportGenerator from 'layouts/reportGenerator/index'
 import RoomAvailability from "layouts/roomAvailibity";
 import BulkEntries from "layouts/bulkEntries"
-//import Payments from "layouts/payments/paymentmodule/payment";
-
-// import Main from "layouts/main"
-// import Payments from "layouts/payments"
-// import Inventory from "layouts/inventory"
-// import Issues from "layouts/issues"
-
-// import Announcements from "layouts/announcements"
-// import Employees from "layouts/employees"
-
-// import SignUp from "layouts/authentication/sign-up";
-
+import Expenses from "layouts/expenses"
 // @mui icons
 import Icon from "@mui/material/Icon";
 import PaymentModules from "layouts/payments";
@@ -97,6 +85,14 @@ const routes = [
     icon: <Icon fontSize="small">person_add</Icon>,
     route: "/bulk_Entries",
     component: <BulkEntries />,
+  },
+  {
+    type: "collapse",
+    name: "Expenses",
+    key: "enxpenses",
+    icon: <Icon fontSize="small">S</Icon>,
+    route: "/expenses",
+    component: <Expenses />,
   },
 
   {

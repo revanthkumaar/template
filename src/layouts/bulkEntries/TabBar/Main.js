@@ -12,9 +12,9 @@ export default function Main() {
   };
 
   return (
-    <Box sx={{ width: '100%' }}  >
+    <Box sx={{ width: '100%' }} align ='center'  >
       
-        <Typography align='center' sx={{pb:3}} variant='h5'>Monthly Bulk Entries</Typography>
+        <Typography align='center' sx={{pb:3}} variant='h4'>Monthly Bulk Entries</Typography>
      
       <div value={value} index={0}>
         <RoomAvailabilityCheck/>

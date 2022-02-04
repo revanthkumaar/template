@@ -171,7 +171,7 @@ const RoomAvailabilityCheck = () => {
 
         <Grid container>
             <Grid item xs={12}>
-                <Container maxWidth="md">
+                <Container maxWidth="centre">
                     <div >
 
                         <Formik
@@ -215,7 +215,6 @@ const RoomAvailabilityCheck = () => {
                                             >
                                                 <MenuItem value={11}>AC Room</MenuItem>
                                                 <MenuItem value={12}>Non AC Room</MenuItem>
-
                                             </Select>
                                         </FormControl>
                                     </Grid>
@@ -273,7 +272,6 @@ const RoomAvailabilityCheck = () => {
                                             </Select>
                                         </FormControl>
                                     </Grid>
-
                                     <Grid item xs={3}>
                                         <FormControl fullWidth>
                                             <InputLabel id="demo-simple-select-label">Shelf No.</InputLabel>
@@ -305,18 +303,6 @@ const RoomAvailabilityCheck = () => {
                                             label="Bed No."
                                         />
                                     </Grid>
-
-                                    <Grid item xs={12}>
-                                        <Textfield
-                                            name="checkinNotes"
-
-                                            label="Remarks"
-                                            multiline={true}
-                                            rows={4}
-                                        />
-                                    </Grid>
-
-
                                     <Divider variant="middle" />
                                     <Grid item xs={4} justifyContent='center'>
                                         <Stack spacing={2} direction="row">
@@ -331,68 +317,13 @@ const RoomAvailabilityCheck = () => {
                                             </MDButton>
                                         </Stack>
                                     </Grid>
-
-
-
                                 </Grid>
-
                             </Form>
-
-
                         </Formik>
-
                     </div>
-
                 </Container>
-                {/* <Container>
-                    <div>
-                    <Grid container spacing={2} columns={16}>
-    <Grid item xs={3}>
-
-    </Grid>
-    <Grid item xs={12}>
-    <TableContainer component={Paper} display="flex" justifyContent="flex-end">
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Sl No</TableCell>
-            <TableCell align="right">Room</TableCell>
-            <TableCell align="right">Non A/C Room&nbsp;</TableCell>
-            <TableCell align="right">A/C Room&nbsp;</TableCell>
-            <TableCell align="right">Room &nbsp;</TableCell>
-            <TableCell align="right">BED &nbsp;</TableCell>
-            <TableCell align="right">SHELF&nbsp;</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow
-              key={row.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}<CheckBox/></TableCell>
-              <TableCell align="right">{row.carbs}<CheckBox/></TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-     
-    </Grid>
-  
-   
-    </Grid>
-                    </div>
-                </Container> */}
             </Grid>
         </Grid >
-
     );
-
 };
 export default RoomAvailabilityCheck;
