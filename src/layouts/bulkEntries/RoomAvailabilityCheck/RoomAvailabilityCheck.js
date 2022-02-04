@@ -18,14 +18,14 @@ import Button from '../Components/FormsUI/Button/index';
 import moment from 'moment'
 //import Divider from '@mui/material/Divider';
 import Divider from '@mui/material/Divider';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import CheckBox from '@mui/material/Checkbox'
+// import Table from '@mui/material/Table';
+// import TableBody from '@mui/material/TableBody';
+// import TableCell from '@mui/material/TableCell';
+// import TableContainer from '@mui/material/TableContainer';
+// import TableHead from '@mui/material/TableHead';
+// import TableRow from '@mui/material/TableRow';
+// import Paper from '@mui/material/Paper';
+// import CheckBox from '@mui/material/Checkbox'
 
 
 import InputLabel from '@mui/material/InputLabel';
@@ -34,14 +34,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 
-// const useStyles = makeStyles((theme) => createStyles({
-//     root: {
-//       marginTop: theme.spacing(5),
-//       marginBottom: theme.spacing(8),
-//     },
-//   }),
-//   )
-//   const theme = createTheme();
+
 function createData(name, calories, fat, carbs, protein) {
     return { name, calories, fat, carbs, protein };
 }
@@ -190,12 +183,8 @@ const RoomAvailabilityCheck = () => {
                                 console.log(values);
                             }}
                         >
-
-
                             <Form>
-
                                 <Grid container spacing={2}>
-
                                     <Grid item xs={3}>
                                         <FormControl fullWidth>
                                             <InputLabel id="demo-simple-select-label">Property</InputLabel>
@@ -214,9 +203,6 @@ const RoomAvailabilityCheck = () => {
                                             </Select>
                                         </FormControl>
                                     </Grid>
-
-
-
                                     <Grid item xs={3}>
                                         <FormControl fullWidth>
                                             <InputLabel id="demo-simple-select-label">Room Type</InputLabel>
@@ -233,9 +219,6 @@ const RoomAvailabilityCheck = () => {
                                             </Select>
                                         </FormControl>
                                     </Grid>
-
-
-
                                     <Grid item xs={3}>
                                         <FormControl fullWidth>
                                             <InputLabel id="demo-simple-select-label">Sharing</InputLabel>

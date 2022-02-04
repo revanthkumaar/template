@@ -5,8 +5,7 @@ import MDBox from "components/MDBox";
 
 // Material Dashboard 2 React example components
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import DashboardNavbar from "examples/Navbars/DashboardNavbar";
-import Footer from "examples/Footer";
+// import Footer from "examples/Footer";
 import Main from "./TabBar/Main";
 
 
@@ -15,17 +14,17 @@ function RoomAvailability() {
 
   return (
     <DashboardLayout>
-      <DashboardNavbar />
-      <MDBox>
-        <MDBox >
-          <Grid container spacing={6}>
+      <MDBox
+      mx={2}>
+        
+          <Grid container spacing={2}>
             <Grid item xs={20} md={10} lg={20}>
-            <Main display="flex" justifyContent="flex-end" />
+              <Main display="flex" justifyContent="flex-end" />
             </Grid>
           </Grid>
-        </MDBox>
+        
       </MDBox>
-      <Footer />
+      {/* <Footer /> */}
     </DashboardLayout>
   );
 }

@@ -75,7 +75,7 @@ function a11yProps(index) {
 
 export default function FullWidthTabs() {
 	const theme = useTheme();
-	const [ value, setValue ] = React.useState(0);
+	const [value, setValue] = React.useState(0);
 
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
@@ -137,7 +137,7 @@ export default function FullWidthTabs() {
 									MONTHLY GUEST REPORTS
 								</MDTypography>
 							</MDBox>
-							<MDBox pt={3}>
+							<MDBox component="ul" display="flex" flexDirection="column" p={0} m={0} >
 								<Bulk />
 							</MDBox>
 						</Card>
@@ -201,9 +201,8 @@ export default function FullWidthTabs() {
 									BULK ADDONS
 								</MDTypography>
 							</MDBox>
-							<MDBox pt={3}>
-								<Bulk />
-							</MDBox>
+							
+							<Bulk />
 						</Card>
 					</TabPanel>
 				</SwipeableViews>
