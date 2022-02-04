@@ -14,14 +14,13 @@ export default function Main() {
   return (
     <Box sx={{ width: "100%" }}>
       <Typography align="center" sx={{ pb: 3 }} variant="h5">
-        Room Availability Check
-      </Typography>
+Add Room      </Typography>
       <div value={value} index={0}>
         <RoomAvailabilityForm />
         </div>
 
         <Typography align="center" sx={{ pb: 3 }} variant="h5">
-          Room Availability
+         Room Details
         </Typography>
         <div >
         <Payments />

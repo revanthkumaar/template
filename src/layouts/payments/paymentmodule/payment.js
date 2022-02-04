@@ -14,7 +14,6 @@ import Select from "@mui/material/Select";
 import MDButton from "components/MDButton";
 import MDTypography from "components/MDTypography";
 
-
 function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
 }
@@ -167,12 +166,11 @@ const Payments = () => {
     <Grid container>
       <Grid item xs={12}>
         <Container maxWidth="md">
-          
-              <MDTypography>
-                <h4>Record a Payment</h4>
-              </MDTypography>
-          
-    <br/> 
+          <MDTypography>
+            <h4>Record a Payment</h4>
+          </MDTypography>
+
+          <br />
           <div>
             <Formik
               initialValues={INITIAL_FORM_STATE}
@@ -184,9 +182,25 @@ const Payments = () => {
               <Form>
                 <Grid container spacing={2}>
                   <Grid item xs={4}>
-                    <Textfield name="Payment Amount" label="Payment Amount" />
+                    <FormControl fullWidth>
+                      <InputLabel id="demo-simple-select-label">
+                        Guest Id
+                      </InputLabel>
+                      <Select
+                        sx={{ minHeight: 44 }}
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={sharing}
+                        label="Sharing"
+                        onChange={handleChangeSharing}
+                      >
+                        <MenuItem value={13}>01</MenuItem>
+                        <MenuItem value={14}>02</MenuItem>
+                        <MenuItem value={15}>03 </MenuItem>
+                        <MenuItem value={16}>04</MenuItem>
+                      </Select>
+                    </FormControl>
                   </Grid>
-
                   <Grid item xs={4}>
                     <FormControl fullWidth>
                       <InputLabel id="demo-simple-select-label">
@@ -207,26 +221,8 @@ const Payments = () => {
                       </Select>
                     </FormControl>
                   </Grid>
-
                   <Grid item xs={4}>
-                    <FormControl fullWidth>
-                      <InputLabel id="demo-simple-select-label">
-                        Guest Id
-                      </InputLabel>
-                      <Select
-                        sx={{ minHeight: 44 }}
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={sharing}
-                        label="Sharing"
-                        onChange={handleChangeSharing}
-                      >
-                        <MenuItem value={13}>01</MenuItem>
-                        <MenuItem value={14}>02</MenuItem>
-                        <MenuItem value={15}>03 </MenuItem>
-                        <MenuItem value={16}>04</MenuItem>
-                      </Select>
-                    </FormControl>
+                    <Textfield name="Payment Amount" label="Payment Amount" />
                   </Grid>
                   <Grid item xs={4}>
                     <FormControl fullWidth>
@@ -277,11 +273,10 @@ const Payments = () => {
                       Cancel
                     </MDButton>{" "}
                   </Grid>
-                 
                 </Grid>
               </Form>
             </Formik>
-            <br/>
+            <br />
           </div>
         </Container>
       </Grid>

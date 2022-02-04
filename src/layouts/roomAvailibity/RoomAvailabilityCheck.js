@@ -223,7 +223,7 @@ const RoomAvailabilityForm = () => {
                     </Grid>
 
                     <Divider variant="middle" />
-                    <Grid item xs={4} justifyContent="center">
+                    <Grid item xs={12} align="right">
                       <MDButton variant="outlined" color="info" size="medium">
                         ADD ROOM
                       </MDButton>
