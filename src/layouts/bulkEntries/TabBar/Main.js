@@ -14,7 +14,7 @@ export default function Main() {
   return (
     <Box sx={{ width: '100%' }}  >
       
-        <Typography align='center' sx={{pb:3}} variant='h5'>Room Availability Check</Typography>
+        <Typography align='center' sx={{pb:3}} variant='h5'>Monthly Bulk Entries</Typography>
      
       <div value={value} index={0}>
         <RoomAvailabilityCheck/>
