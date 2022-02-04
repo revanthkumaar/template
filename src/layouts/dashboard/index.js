@@ -15,6 +15,9 @@ Coded by www.creative-tim.com
 
 // @mui material components
 import Grid from '@mui/material/Grid';
+// import Card from '@mui/material/Card';
+// import ArrowCircleRightRoundedIcon from '@mui/icons-material/ArrowCircleRightRounded';
+// import IconButton from '@mui/material/IconButton';
 
 // Material Dashboard 2 React components
 import MDBox from 'components/MDBox';
@@ -40,6 +43,8 @@ import BuildingThree from 'layouts/dashboard/components/BuildingThree';
 import BuildingFour from 'layouts/dashboard/components/BuildingFour';
 import FinancialDetails from 'layouts/dashboard/components/FinancialDetails';
 import SecurityDeposit from 'layouts/dashboard/components/SecurityDeposit';
+import BedandBill from 'layouts/dashboard/components/BedandBIll';
+import Expenditures from 'layouts/dashboard/components/expenditures';
 
 function Dashboard() {
 	// const { sales, tasks } = reportsLineChartData;
@@ -48,36 +53,9 @@ function Dashboard() {
 		<DashboardLayout>
 			<DashboardNavbar />
 			<MDBox py={3}>
-				<Grid container spacing={3}>
-					<Grid item xs={12} md={6} lg={3}>
-						<MDBox mb={1.5}>
-							<ComplexStatisticsCard color="dark" icon="weekend" title="Available Beds" count={80} />
-						</MDBox>
-					</Grid>
-					<Grid item xs={12} md={6} lg={3}>
-						<MDBox mb={1.5}>
-							<ComplexStatisticsCard icon="leaderboard" title="Total Number of Beds" count="2,300" />
-						</MDBox>
-					</Grid>
-					<Grid item xs={12} md={6} lg={3}>
-						<MDBox mb={1.5}>
-							<ComplexStatisticsCard color="success" icon="store" title="Due Payments" count="109" />
-						</MDBox>
-					</Grid>
-					<Grid item xs={12} md={6} lg={3}>
-						<MDBox mb={1.5}>
-							<ComplexStatisticsCard
-								color="primary"
-								icon="person_add"
-								title="Recieved Payments"
-								count="91"
-							/>
-						</MDBox>
-					</Grid>
-				</Grid>
-
+				<BedandBill total="7" info="Total Beds" more="More Info" />
+				<Expenditures />
 				<h4 style={{ paddingBottom: '10px' }}> Building Wise Summary</h4>
-
 				<Grid container spacing={3}>
 					<Grid item xs={12} md={6} lg={3}>
 						<MDBox mb={1.5}>
