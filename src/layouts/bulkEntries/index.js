@@ -137,9 +137,7 @@ export default function FullWidthTabs() {
 									MONTHLY GUEST REPORTS
 								</MDTypography>
 							</MDBox>
-							<MDBox component="ul" display="flex" flexDirection="column" p={0} m={0} >
-								<Bulk />
-							</MDBox>
+							<Bulk />
 						</Card>
 					</TabPanel>
 
@@ -159,9 +157,7 @@ export default function FullWidthTabs() {
 									BULK PAYMENTS
 								</MDTypography>
 							</MDBox>
-							<MDBox pt={3}>
-								<Bulk />
-							</MDBox>
+							<Bulk />
 						</Card>
 					</TabPanel>
 					<TabPanel value={value} index={2} dir={theme.direction}>
@@ -180,9 +176,7 @@ export default function FullWidthTabs() {
 									BULK SECURITY DEPOSIT
 								</MDTypography>
 							</MDBox>
-							<MDBox pt={3}>
-								<Bulk />
-							</MDBox>
+							<Bulk />
 						</Card>
 					</TabPanel>
 					<TabPanel value={value} index={3} dir={theme.direction}>
@@ -201,7 +195,6 @@ export default function FullWidthTabs() {
 									BULK ADDONS
 								</MDTypography>
 							</MDBox>
-							
 							<Bulk />
 						</Card>
 					</TabPanel>

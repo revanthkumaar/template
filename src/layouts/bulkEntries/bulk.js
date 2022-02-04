@@ -15,16 +15,16 @@ function RoomAvailability() {
   return (
     <DashboardLayout>
       <MDBox
-      mx={2}>
+       mx={2}>
         
           <Grid container spacing={2}>
             <Grid item xs={20} md={10} lg={20}>
-              <Main display="flex" justifyContent="flex-end" />
+              <Main display="flex" justifyContent="flex-centre" alignItems="center"/>
             </Grid>
           </Grid>
         
       </MDBox>
-      {/* <Footer /> */}
+      
     </DashboardLayout>
   );
 }
