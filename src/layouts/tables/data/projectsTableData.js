@@ -1,24 +1,14 @@
-// @mui material components
-// import Icon from "@mui/material/Icon";
 
-// Soft UI Dashboard React components
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
-// import MDAvatar from "components/MDAvatar";
+
 import MDProgress from "components/MDProgress";
 
-// Images
-// import LogoAsana from "assets/images/small-logos/logo-asana.svg";
-// import logoGithub from "assets/images/small-logos/github.svg";
-// import logoAtlassian from "assets/images/small-logos/logo-atlassian.svg";
-// import logoSlack from "assets/images/small-logos/logo-slack.svg";
-// import logoSpotify from "assets/images/small-logos/logo-spotify.svg";
-// import logoInvesion from "assets/images/small-logos/logo-invision.svg";
 
 export default function data() {
   const Project = ({ name, email }) => (
     <MDBox display="flex" alignItems="center" lineHeight={1}>
-      {/* <MDAvatar src={image} name={name} size="sm" /> */}
+     
       <MDBox ml={2} lineHeight={1}>
         <MDTypography display="block" variant="button" fontWeight="medium">
           {name}

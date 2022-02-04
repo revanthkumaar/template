@@ -34,12 +34,12 @@ import MDBox from 'components/MDBox';
 import MDTypography from 'components/MDTypography';
 
 //DataTable
-import Bulk from "./bulk"
+
 // import TransactionDetails from './data/TransactionDetails';
 // import GuestDetails from './data/GuestDetails';
 // import Occupancy from './data/Occupancy';
 // import Notices from './data/Notices';
-
+import BulkEntries from "./monthlyGuestBulkEntries/index"
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
 
@@ -137,7 +137,7 @@ export default function FullWidthTabs() {
 									MONTHLY GUEST REPORTS
 								</MDTypography>
 							</MDBox>
-							<Bulk />
+							
 						</Card>
 					</TabPanel>
 
@@ -157,7 +157,7 @@ export default function FullWidthTabs() {
 									BULK PAYMENTS
 								</MDTypography>
 							</MDBox>
-							<Bulk />
+					
 						</Card>
 					</TabPanel>
 					<TabPanel value={value} index={2} dir={theme.direction}>
@@ -176,7 +176,7 @@ export default function FullWidthTabs() {
 									BULK SECURITY DEPOSIT
 								</MDTypography>
 							</MDBox>
-							<Bulk />
+						
 						</Card>
 					</TabPanel>
 					<TabPanel value={value} index={3} dir={theme.direction}>
@@ -195,7 +195,7 @@ export default function FullWidthTabs() {
 									BULK ADDONS
 								</MDTypography>
 							</MDBox>
-							<Bulk />
+							<BulkEntries />
 						</Card>
 					</TabPanel>
 				</SwipeableViews>
