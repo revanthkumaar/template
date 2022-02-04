@@ -8,28 +8,27 @@ import MDBox from "components/MDBox";
 
 // Material Dashboard 2 React example components
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import DashboardNavbar from "examples/Navbars/DashboardNavbar";
-import Footer from "examples/Footer";
+
 import DataTable from "examples/Tables/DataTable";
 
 // Data
 // import authorsTableData from "layouts/tables/data/authorsTableData";
-import Expenses from "./Expenses";
+import BulkEntries from "./BulkEntries";
 import Branch from "./Branch";
 import CreateBranch from "./CreateExpense"
 
 function Tables() {
   // const { columns, rows } = authorsTableData();
-  const { columns, rows } = Expenses();
+  const { columns, rows } = BulkEntries();
 
   return (
     <DashboardLayout>
-      <DashboardNavbar />
+     
       <CreateBranch colour="inherit"/>
       
       <MDBox pt={6} pb={3}>
       <Branch/>
-        <Grid container spacing={6}>
+        <Grid container spacing={-6}>
           <Grid item xs={12}>
             
           </Grid>
@@ -49,7 +48,7 @@ function Tables() {
           </Grid>
         </Grid>
       </MDBox>
-      <Footer />
+      
     </DashboardLayout>
   );
 }
