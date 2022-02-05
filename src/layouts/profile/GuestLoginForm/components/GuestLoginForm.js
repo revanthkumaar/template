@@ -73,49 +73,61 @@ const FORM_VALIDATION = Yup.object().shape({
     .matches(/^[aA-zZ\s]+$/, "Invalid FatherName ")
     .required("Required"),
   email: Yup.string().email("Invalid email.").required("Required"),
-  bloodGroup: Yup.string().matches(/^(A|B|AB|O)[+-]$/, {
-    message: "Please enter valid Blood Group.",
-    excludeEmptyString: false,
-  }).required("Required"),
-  phone: Yup.string().matches(/^[6-9]\d{9}$/, {
-    message: "Please enter Valid Mobile Number",
-    excludeEmptyString: false,
-  }).required("Required"),
-  secondaryPhone: Yup.string().matches(/^[6-9]\d{9}$/, {
-    message: "Please enter Valid Mobile Number",
-    excludeEmptyString: false,
-  }).required("Required"),
-  workPhone:Yup.string().matches(/^[6-9]\d{9}$/, {
-    message: "Please enter Valid Mobile Number",
-    excludeEmptyString: false,
-  }).required("Required"),
+  bloodGroup: Yup.string()
+    .matches(/^(A|B|AB|O)[+-]$/, {
+      message: "Please enter valid Blood Group.",
+      excludeEmptyString: false,
+    })
+    .required("Required"),
+  phone: Yup.string()
+    .matches(/^[6-9]\d{9}$/, {
+      message: "Please enter Valid Mobile Number",
+      excludeEmptyString: false,
+    })
+    .required("Required"),
+  secondaryPhone: Yup.string()
+    .matches(/^[6-9]\d{9}$/, {
+      message: "Please enter Valid Mobile Number",
+      excludeEmptyString: false,
+    })
+    .required("Required"),
+  workPhone: Yup.string()
+    .matches(/^[6-9]\d{9}$/, {
+      message: "Please enter Valid Mobile Number",
+      excludeEmptyString: false,
+    })
+    .required("Required"),
   securityDeposit: Yup.number().required("Required"),
   roomRent: Yup.number().required("Required"),
-  fatherPhone: Yup.string().matches(/^[6-9]\d{9}$/, {
-    message: "Please enter valid Mobile number.",
-    excludeEmptyString: false,
-  }).required("Required"),
-  localGaurdianPhone: Yup.string().matches(/^[6-9]\d{9}$/, {
-    message: "Please enter valid Mobile number.",
-    excludeEmptyString: false,
-  }).required("Required"),
-  workAddressLine1:Yup.string().required("Required"),
+  fatherPhone: Yup.string()
+    .matches(/^[6-9]\d{9}$/, {
+      message: "Please enter valid Mobile number.",
+      excludeEmptyString: false,
+    })
+    .required("Required"),
+  localGaurdianPhone: Yup.string()
+    .matches(/^[6-9]\d{9}$/, {
+      message: "Please enter valid Mobile number.",
+      excludeEmptyString: false,
+    })
+    .required("Required"),
+  workAddressLine1: Yup.string().required("Required"),
   city: Yup.string()
     .matches(/^[aA-zZ\s]+$/, "Invalid City Name")
     .required("Required"),
-    workAddressLine2:Yup.string().required("Required"),
-    city: Yup.string()
-      .matches(/^[aA-zZ\s]+$/, "Invalid City Name")
-      .required("Required"),
+  workAddressLine2: Yup.string().required("Required"),
+  city: Yup.string()
+    .matches(/^[aA-zZ\s]+$/, "Invalid City Name")
+    .required("Required"),
   addressLine1: Yup.string().required("Required"),
   addressLine2: Yup.string().required("Required"),
   city: Yup.string()
     .matches(/^[aA-zZ\s]+$/, "Invalid City Name")
     .required("Required"),
-    workAddressLine2:Yup.string().required("Required"),
-    city: Yup.string()
-      .matches(/^[aA-zZ\s]+$/, "Invalid City Name")
-      .required("Required"),
+  workAddressLine2: Yup.string().required("Required"),
+  city: Yup.string()
+    .matches(/^[aA-zZ\s]+$/, "Invalid City Name")
+    .required("Required"),
   state: Yup.string()
     .matches(/^[aA-zZ\s]+$/, "Invalid State ")
     .required("Required"),
@@ -127,7 +139,7 @@ const FORM_VALIDATION = Yup.object().shape({
     .required("Required"),
   country: Yup.string().required("Required"),
   arrivalDate: Yup.date().required("Required"),
-  bookingDate:Yup.date().required("Required"),
+  bookingDate: Yup.date().required("Required"),
   dateOfBirth: Yup.string()
     .required("DOB is Required")
     .test(
@@ -255,7 +267,6 @@ const GuestLoginForm = () => {
                     <Grid item xs={6}>
                       <Textfield name="workPhone" label="Work Phone Number" />
                     </Grid>
-               
                   </Grid>
 
                   <Grid item xs={12}>
@@ -351,7 +362,7 @@ const GuestLoginForm = () => {
                   <Divider variant="middle" />
                   <Grid item xs={4} justifyContent="center">
                     <MDButton variant="outlined" color="info" size="large">
-                     Submit
+                      Submit
                     </MDButton>
                   </Grid>
                 </Grid>

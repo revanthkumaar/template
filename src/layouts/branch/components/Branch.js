@@ -4,14 +4,16 @@ import { DataGrid, GridColDef, GridApi, GridCellValue } from '@mui/x-data-grid';
 const columns= [
   
 
-  { field: 'name', headerName: 'Name', width: 130 },
+  { field: 'buildingName', headerName: 'Building Name', width: 150 },
   
   {
-    field: 'code',
-    headerName: 'Code',
+    field: 'buildingNumber',
+    headerName: 'Building Number',
     type: 'number',
-    width: 90,
+    width: 150,
   },
+ 
+  { field: 'manager', headerName: 'Manager', width: 130 },
   {
     field: 'mobile',
     headerName: 'Mobile Number',
@@ -20,7 +22,6 @@ const columns= [
     width: 160,
     
   },
-  { field: 'address', headerName: 'Address', width: 130 },
   {
     field: 'action',
     headerName: 'Action',
@@ -54,7 +55,7 @@ const columns= [
 ];
 
 const rows = [
-  { id: 1, name:"Jon",code: 35 ,mobile:882828223,address:"India"},
+  { id: 1, buildingName:"Buildig-1",buildingNumber: "B1A" ,manager:"Sivayya",mobile:882828223},
  
 ];
 
