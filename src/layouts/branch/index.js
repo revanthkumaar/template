@@ -7,8 +7,9 @@ import MDBox from "components/MDBox";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
-import Branch from "./components/Branch";
-import CreateBranch from "./components/CreateBranch";
+//import Branch from "./components/Branch";
+//import CreateBranch from "./components/CreateBranch";
+import Actions from "./components/Actions";
 //import TabBar from "./GuestLoginForm/components/TabBar";
 // import ReportsBarChart from "examples/Charts/BarCharts/ReportsBarChart";
 // import ReportsLineChart from "examples/Charts/LineCharts/ReportsLineChart";
@@ -27,15 +28,13 @@ function Dashboard() {
 
   return (
     <DashboardLayout>
-      <MDBox bgColor="white" py={0.01}>
+      <DashboardNavbar />
+      <br />
+      <MDBox bgColor="white" py={1}>
         <MDBox>
-          <Grid container justify="flex-end">
-            <CreateBranch />
-          </Grid>
-
           <Grid container spacing={6}>
-            <Grid item xs={12} md={10} lg={20}>
-              <Branch />
+            <Grid item xs={20} md={10} lg={20}>
+              <Actions />
             </Grid>
           </Grid>
         </MDBox>
