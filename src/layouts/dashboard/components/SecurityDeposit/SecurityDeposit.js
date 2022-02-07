@@ -48,25 +48,25 @@ function SD({ name, company, email, vat, noGutter }) {
 				<Grid container spacing={3}>
 					<Grid align="center" style={{ color: 'blue' }} item xs={3}>
 						INR 7500
-						<MDTypography mt={2} align="center" variant="h6" fontWeight="medium">
+						<MDTypography align="center" variant="h6" fontWeight="medium">
 							Total
 						</MDTypography>
 					</Grid>
 					<Grid align="center" style={{ color: 'green' }} item xs={3}>
 						INR 5000
-						<MDTypography mt={2} align="center" variant="h6" fontWeight="medium">
+						<MDTypography align="center" variant="h6" fontWeight="medium">
 							Active Guests
 						</MDTypography>
 					</Grid>
 					<Grid align="center" style={{ color: 'orange' }} item xs={3}>
 						INR 0
-						<MDTypography mt={2} align="center" variant="h6" fontWeight="medium">
+						<MDTypography align="center" variant="h6" fontWeight="medium">
 							Vacated Guests
 						</MDTypography>
 					</Grid>
 					<Grid align="center" style={{ color: 'red' }} item xs={3}>
 						INR 500
-						<MDTypography mt={2} align="center" variant="h6" fontWeight="medium">
+						<MDTypography align="center" variant="h6" fontWeight="medium">
 							Checkout Refund Amount
 						</MDTypography>
 					</Grid>

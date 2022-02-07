@@ -48,31 +48,31 @@ function Finance({ name, company, email, vat, noGutter }) {
 				<Grid container spacing={3}>
 					<Grid align="center" style={{ color: 'blue' }} item xs={2.4}>
 						INR 7500
-						<MDTypography mt={2} align="center" variant="h6" fontWeight="medium">
+						<MDTypography align="center" variant="h6" fontWeight="medium">
 							Total
 						</MDTypography>
 					</Grid>
 					<Grid align="center" style={{ color: 'green' }} item xs={2.4}>
 						INR 5000
-						<MDTypography mt={2} align="center" variant="h6" fontWeight="medium">
+						<MDTypography  align="center" variant="h6" fontWeight="medium">
 							Paid
 						</MDTypography>
 					</Grid>
 					<Grid align="center" style={{ color: 'orange' }} item xs={2.4}>
 						INR 0
-						<MDTypography mt={2} align="center" variant="h6" fontWeight="medium">
+						<MDTypography align="center" variant="h6" fontWeight="medium">
 							Partial
 						</MDTypography>
 					</Grid>
 					<Grid align="center" style={{ color: 'orange' }} item xs={2.4}>
 						INR 500
-						<MDTypography mt={2} align="center" variant="h6" fontWeight="medium">
+						<MDTypography align="center" variant="h6" fontWeight="medium">
 							Discount
 						</MDTypography>
 					</Grid>
 					<Grid align="center" style={{ color: 'red' }} item xs={2.4}>
 						INR 2000
-						<MDTypography mt={2} align="center" variant="h6" fontWeight="medium">
+						<MDTypography align="center" variant="h6" fontWeight="medium">
 							Pending
 						</MDTypography>
 					</Grid>

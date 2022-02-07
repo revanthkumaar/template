@@ -18,7 +18,7 @@ function BedandBill(props) {
 						<Card sx={{ minWidth: 275, minHeight: 100, background: '#A52A2A' }}>
 							<CardContent sx={{ align: 'center' }}>
 								<MDTypography color="light" mt={1} fontWeight="bold" style={{fontSize: '2em'}}>
-									7
+									1000
 								</MDTypography>
 								<MDTypography color="light" fontWeight="bold">
 									Total Beds
@@ -44,7 +44,7 @@ function BedandBill(props) {
 						<Card sx={{ minWidth: 275, minHeight: 100, background: '#2E8B57' }}>
 							<CardContent sx={{ align: 'center' }}>
 								<MDTypography color="light" mt={1} fontWeight="bold" style={{fontSize: '2em'}}>
-									4
+									420
 								</MDTypography>
 								<MDTypography color="light" fontWeight="bold">
 									Available Beds
@@ -70,7 +70,7 @@ function BedandBill(props) {
 						<Card sx={{ minWidth: 275, minHeight: 100, background: '#FF6347' }}>
 							<CardContent sx={{ align: 'center' }}>
 								<MDTypography color="light" mt={1} fontWeight="bold" style={{fontSize: '2em'}}>
-									3
+									302
 								</MDTypography>
 								<MDTypography color="light" fontWeight="bold">
 									Total Bills
@@ -96,7 +96,7 @@ function BedandBill(props) {
 						<Card sx={{ minWidth: 275, minHeight: 100, background: '#800080' }}>
 							<CardContent sx={{ align: 'center' }}>
 								<MDTypography color="light" mt={1} fontWeight="bold" style={{fontSize: '2em'}}>
-									2
+									125
 								</MDTypography>
 								<MDTypography color="light" fontWeight="bold">
 									Pending payments
