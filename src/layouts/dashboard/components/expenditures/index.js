@@ -18,10 +18,10 @@ function BedandBill(props) {
 						<Card sx={{ minWidth: 275, minHeight: 100, background: '#00008B' }}>
 							<CardContent sx={{ align: 'center' }}>
 								<MDTypography color="light" mt={1} fontWeight="regular" style={{ fontSize: '2em' }}>
-									3
+									45,000
 								</MDTypography>
 								<MDTypography color="light" fontWeight="light">
-									Total Complaints
+								Overdue amount
 								</MDTypography>
 								<Divider variant="insent" fullWidth />
 								<MDTypography
@@ -44,11 +44,10 @@ function BedandBill(props) {
 						<Card sx={{ minWidth: 275, minHeight: 100, background: '#2F4F4F' }}>
 							<CardContent sx={{ align: 'center' }}>
 								<MDTypography color="light" mt={1} fontWeight="regular" style={{ fontSize: '2em' }}>
-									4
+									25
 								</MDTypography>
 								<MDTypography color="light" fontWeight="light">
-									Total Maintenance
-								</MDTypography>
+	Upcoming Checkouts 							</MDTypography>
 								<Divider variant="insent" fullWidth />
 								<MDTypography
 									color="light"
@@ -99,7 +98,7 @@ function BedandBill(props) {
 									25400
 								</MDTypography>
 								<MDTypography color="light" fontWeight="light">
-									Expenses
+									Expenditure
 								</MDTypography>
 								<Divider variant="insent" fullWidth />
 								<MDTypography
