@@ -37,7 +37,12 @@
     "stylis": "4.0.10",
     "stylis-plugin-rtl": "2.1.0",
     "web-vitals": "1.0.1",
-    "yup": "0.32.9"
+    "yup": "0.32.9",
+    "ag-grid-community": "^23.2.0",
+    "ag-grid-enterprise": "^23.2.0",
+    "ag-grid-react": "^23.2.0",
+    "axios": "^0.19.2",
+    "material-table": "^1.69.3"
   },
   "scripts": {
     "start": "react-scripts start",
