@@ -48,7 +48,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Report Generator",
+    name: "Download Reports",
     key: "ReportGenerator",
     icon: <Icon fontSize="small">receipt_long</Icon>,
     route: "/Report_Generator",
