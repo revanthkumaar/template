@@ -26,12 +26,12 @@ import Finance from 'layouts/dashboard/components/Finance';
 function FinancialDetails({ name }) {
 	return (
 		<Card id="delete-account">
-			<MDBox pt={3} px={2}>
+			<MDBox px={2}>
 				<MDTypography align="center" variant="h5" fontWeight="medium">
 					{name}
 				</MDTypography>
 			</MDBox>
-			<MDBox pt={1} pb={2} px={2}>
+			<MDBox>
 				<MDBox component="ul" display="flex" flexDirection="column" p={0} m={0}>
 					<Finance />
 				</MDBox>

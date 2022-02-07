@@ -17,18 +17,27 @@ import Select from "@mui/material/Select";
 import MDButton from "components/MDButton";
 
 const INITIAL_FORM_STATE = {
-  property: "",
-  roomType: "",
-  sharing: "",
-  roomNo: "",
-  bedNo: "",
-  shelfNo: "",
+
+  branch: "",
+  reportType: "",
+  status: "",
+  guestStatu: "",
+  checkoutDate: "",
+  arrivalDate: "",
 };
 
 const FORM_VALIDATION = Yup.object().shape({
-  roomNo: Yup.number(),
-  bedNo: Yup.number(),
+
+  branch: Yup.number().required("Required"),
+  roomType: Yup.string().required("Required"),
+  status: Yup.number().required("Required"),
+  guestStatus: Yup.number().required("Required"),
+  checkoutDate: Yup.date().required("Required"),
+  arrivalDate: Yup.date().required("Required")
+
 });
+
+
 
 const ReportGeneratorForm = () => {
   //const classes = useStyles();
@@ -56,6 +65,12 @@ const ReportGeneratorForm = () => {
     setRoomNo(event.target.value);
   };
 
+
+  const submitField = () => {
+		alert('Confirm to Add Fields');
+	};
+
+
   return (
     <>
       <Grid container pt={3}>
@@ -81,6 +96,7 @@ const ReportGeneratorForm = () => {
                       id="demo-simple-select"
                       value={roomType}
                       label="Filter by Branch"
+                      name="branch"
                       name="roomType"
                       onChange={handleChangeRoomType}
                     >
@@ -102,6 +118,7 @@ const ReportGeneratorForm = () => {
                       id="demo-simple-select"
                       value={roomType}
                       label="Filter by Report type"
+                      name="reportType"
                       name="roomType"
                       onChange={handleChangeRoomType}
                     >
@@ -123,6 +140,7 @@ const ReportGeneratorForm = () => {
                       id="demo-simple-select"
                       value={sharing}
                       label="Filter by Status"
+                      name="status"
                       name="sharing"
                       onChange={handleChangeSharing}
                     >
@@ -145,6 +163,7 @@ const ReportGeneratorForm = () => {
                       id="demo-simple-select"
                       value={roomNo}
                       label="Filter by Guest Status "
+                      name="guestStatus"
                       name="roomNo"
                       onChange={handleChangeRoomNo}
                     >
@@ -174,7 +193,7 @@ const ReportGeneratorForm = () => {
                 </Grid>
                 <Divider variant="middle" />
                 <Grid item xs={4} justifyContent="center">
-                  <MDButton variant="outlined" color="info" size="medium">
+                  <MDButton variant="outlined" color="info" size="medium"onClick={submitField}>
                     Generate Report
                   </MDButton>
                 </Grid>
