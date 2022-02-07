@@ -103,7 +103,7 @@ export default function FullWidthTabs() {
 							textColor="inherit"
 							variant="fullWidth"
 							aria-label="full width tabs example"
-							style={{ background: '#1E90FF' }}
+							style={{ background: '#7FFFD4' }}
 						>
 							<Tab label="Transactions" {...a11yProps(0)} />
 							<Tab label="Guest Master" {...a11yProps(1)} />

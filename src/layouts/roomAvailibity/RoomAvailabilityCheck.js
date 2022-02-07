@@ -7,7 +7,6 @@ import * as Yup from "yup";
 import { Card, Container, Grid, Typography } from "@mui/material";
 import Textfield from "./Components/Textfield";
 
-import moment from "moment";
 //import Divider from '@mui/material/Divider';
 import Divider from "@mui/material/Divider";
 import InputLabel from "@mui/material/InputLabel";
@@ -27,10 +26,22 @@ const INITIAL_FORM_STATE = {
   
 };
 
+
 const FORM_VALIDATION = Yup.object().shape({
-  roomNo: Yup.number(),
-  bedNo: Yup.number(),
+  
+  property: Yup.string().required("Required"),
+  roomType: Yup.string().required("Required"),
+  roomNo: Yup.number().required("Required"),
+  bedNo: Yup.number().required("Required"),
+  sharing: Yup.number().required("Required"),
+  checkoutDate: Yup.date().required("Required"),
+  arrivalDate: Yup.date().required("Required"),
+  shelfNo: Yup.number().required("Required"),
+  bedNum: Yup.number().required("Required"),
+  roomNum: Yup.number().required("Required"),
+
 });
+
 
 const RoomAvailabilityForm = () => {
   //const classes = useStyles();
@@ -69,6 +80,10 @@ const RoomAvailabilityForm = () => {
   const handleChangeShelfNo = (event) => {
     setShelfNo(event.target.value);
   };
+
+  const submitField = () => {
+		alert('Confirm to Add Fields');
+	};
   return (
     <>
       <Grid container>
@@ -216,15 +231,15 @@ const RoomAvailabilityForm = () => {
                       </FormControl>
                     </Grid>
                     <Grid item xs={3}>
-                      <Textfield name="roomNo" label="Room No." />
+                      <Textfield name="roomNum" label="Room No." />
                     </Grid>
                     <Grid item xs={3}>
-                      <Textfield name="bedNo" label="Bed No." />
+                      <Textfield name="bedNum" label="Bed No." />
                     </Grid>
 
                     <Divider variant="middle" />
                     <Grid item xs={12} align="right">
-                      <MDButton variant="outlined" color="info" size="medium">
+                      <MDButton variant="outlined" color="info" size="medium" onClick={submitField}>
                         ADD ROOM
                       </MDButton>
                     </Grid>
@@ -236,7 +251,7 @@ const RoomAvailabilityForm = () => {
         </Grid>
       </Grid>
 
-    </>
+      </>
   );
 };
 export default RoomAvailabilityForm;
