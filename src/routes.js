@@ -24,14 +24,6 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Main",
-    key: "main",
-    icon: <Icon fontSize="small">table_view</Icon>,
-    route: "/main",
-    component: <main />,
-  },
-  {
-    type: "collapse",
     name: "Guest Onboarding",
     key: "profile",
     icon: <Icon fontSize="small">person</Icon>,
