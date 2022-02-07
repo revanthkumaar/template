@@ -6,50 +6,95 @@ import { Grid } from "@mui/material";
 const empList = [
   {
     id: 1,
-    name: "Building-1",
-    email: "A12",
-    city: "Sivayya",
-    phone: 9876543210,
+    name: "Building 1",
+    title: "Daily Needs",
+    date: "12/01/2022",
+    amount: 9210,
+    reason: "Inventory Report"
   },
   {
     id: 2,
-    name: "Building-2",
-    email: "B11",
-    city: "Subramanyam",
-    phone: 9812345678,
+    name: "Building 2",
+    title: "Material Change",
+    date: "12/02/2022",
+    amount: 9910,
+    reason: "Material Brokage"
   },
   {
     id: 3,
-    name: "Building-3",
-    email: "C03",
-    city: "HariBabu",
-    phone: 7896536289,
+    name: "Building 3",
+    title: "Electrical Repair",
+    date: "11/01/2022",
+    amount: 9210,
+    reason: "Electrical Repair"
   },
   {
     id: 4,
-    name: "Building-4",
-    email: "B11",
-    city: "Suresh",
-    phone: 9087654321,
+    name: "Building 1",
+    title: "Daily Needs",
+    date: "12/01/2022",
+    amount: 9210,
+    reason: "Inventory Report"
   },
+  {
+    id: 5,
+    name: "Building 2",
+    title: "Material Change",
+    date: "12/02/2022",
+    amount: 9910,
+    reason: "Material Brokage"
+  },
+  {
+    id: 6,
+    name: "Building 3",
+    title: "Electrical Repair",
+    date: "11/01/2022",
+    amount: 9210,
+    reason: "Electrical Repair"
+  },
+  {
+    id: 7,
+    name: "Building 1",
+    title: "Daily Needs",
+    date: "12/01/2022",
+    amount: 9210,
+    reason: "Inventory Report"
+  },
+  {
+    id: 8,
+    name: "Building 2",
+    title: "Material Change",
+    date: "12/02/2022",
+    amount: 9910,
+    reason: "Material Brokage"
+  },
+  {
+    id: 9,
+    name: "Building 3",
+    title: "Electrical Repair",
+    date: "11/01/2022",
+    amount: 9210,
+    reason: "Electrical Repair"
+  },
+  
 ];
 
 function Actions() {
   const [data, setData] = useState(empList);
   const columns = [
-    { title: "ID", field: "id", editable: false,headerStyle: {
+    { title: "Branch Name", field: "name", editable: false,headerStyle: {
       backgroundColor: "#0096FF",color:"white"
     } },
-    { title: "Building Name", field: "name" , headerStyle: {
+    { title: "Title", field: "title" , headerStyle: {
       backgroundColor: "#0096FF",color:"white"
     }},
-    { title: "Building Number", field: "email" ,headerStyle: {
+    { title: "Expense Date", field: "date" ,headerStyle: {
       backgroundColor: "#0096FF",color:"white"
     }},
-    { title: "Manager Name", field: "city" ,headerStyle: {
+    { title: "Amount", field: "amount" ,headerStyle: {
       backgroundColor: "#0096FF",color:"white"
     }},
-    { title: "Phone Number", field: "phone" ,headerStyle: {
+    { title: "Reason", field: "reason" ,headerStyle: {
       backgroundColor: "#0096FF",color:"white"
     }},
   ];
@@ -61,7 +106,7 @@ function Actions() {
       <h4 align='center'></h4> */}
       <Grid xs={12}>
         <MaterialTable
-          title="Managers Data"
+          title="Expenses Information"
           data={data}
         
           sx={{color:"white"}}

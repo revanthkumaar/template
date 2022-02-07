@@ -29,7 +29,9 @@ function Dashboard() {
 	return (
 		<DashboardLayout>
 			<DashboardNavbar />
-			<MDBox bgColor="white" py={0.01}>
+			<br/>
+			<MDBox borderRadius="lg"
+                coloredShadow="info" py={0.01} >
 				<MDBox>
 					<Grid container spacing={6}>
 						<Grid item xs={12} md={10} lg={20}>
