@@ -4,12 +4,12 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 //import { createStyles, makeStyles } from '@mui/styles';
 //import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Card, Container, Grid, Typography } from "@mui/material";
-import Textfield from "./Components/Textfeild/index";
+import { Card, Container, Grid, TextField, Typography } from "@mui/material";
+// import Textfield from "./Components/Textfeild/index";
 
 
 //import Divider from '@mui/material/Divider';
-import Divider from "@mui/material/Divider";
+// import Divider from "@mui/material/Divider";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -60,9 +60,16 @@ const BulkImportForm = () => {
         setRole(event.target.value);
     };
 
+    const [file, setFile] = React.useState("");
+
+    const handleChangeFile = (event) => {
+        setFile(event.target.value);
+    };
+
+
     return (
         <>
-            <Grid container pt={5} borderRadius={0.5}>
+            <Grid container pt={4} borderRadius={0.5}>
                 <Container maxWidth="md">
                     <div>
                         <Formik
@@ -77,7 +84,7 @@ const BulkImportForm = () => {
                                     <h6> Building</h6>
                                     <FormControl fullWidth>
                                         <InputLabel id="demo-simple-select-label">
-                                           Select Buildling
+                                            Select Buildling
                                         </InputLabel>
                                         <Select
                                             sx={{ minHeight: 44 }}
@@ -111,7 +118,7 @@ const BulkImportForm = () => {
                                             value={reportType}
                                             label="Select Report type"
                                             name="reportType"
-                                        
+
                                             onChange={handleChangeReportType}
                                         >
                                             <MenuItem value={11}>Transaction Report</MenuItem>
@@ -134,7 +141,7 @@ const BulkImportForm = () => {
                                             id="demo-simple-select"
                                             value={role}
                                             label="Select Role"
-                                            name="role" 
+                                            name="role"
                                             onChange={handleChangeRole}
                                         >
                                             <MenuItem value={13}>Manager-1</MenuItem>
@@ -144,15 +151,32 @@ const BulkImportForm = () => {
                                         </Select>
                                     </FormControl>
                                 </Grid>
+                                <Grid item xs={6} pt={3}>
+                                    <h6> Reason to Upload</h6>
+                                    <TextField name="reason to upload"
+                                        label="Reason to Upload"
+                                        rows={1} fullWidth></TextField>
+                                </Grid>
+                                <Grid item xs={6} pt={3}>
+                                    <h6>Upload File</h6>
+                                    <TextField name="file upload"
+                                       
+                                        rows={1} fullWidth
+                                        type="file"></TextField>
+                                </Grid>
+
 
                             </Form>
                         </Formik>
                     </div>
                 </Container>
+
+
             </Grid>
-           <br/>
-            <MDBox display="flex" alignItems="center" sx={{pl:5}} pb={5}>
-                <Grid item xs={2} justifyContent="center">
+
+            <br />
+            <MDBox display="flex" alignItems="center" sx={{ pl: 3 }} pb={5}>
+                <Grid item xs={1} justifyContent="center">
                     <MDButton variant="gradient" color="info" size="small" >
                         Submit
                     </MDButton>
