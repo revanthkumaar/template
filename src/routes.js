@@ -7,7 +7,7 @@ import Tables from "layouts/tables";
 import Branch from "layouts/branch/index"
 import ReportGenerator from 'layouts/reportGenerator/index'
 import RoomAvailability from "layouts/roomAvailibity";
-import BulkEntries from "layouts/bulkEntries"
+ import BulkImport from "layouts/bulkImport"
 import Expenses from "layouts/expenses"
 // @mui icons
 import Icon from "@mui/material/Icon";
@@ -80,11 +80,11 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Bulk Entries",
-    key: "bulkEntries",
+    name: "Bulk Import",
+    key: "bulkImport",
     icon: <Icon fontSize="small">person_add</Icon>,
-    route: "/bulk_Entries",
-    component: <BulkEntries />,
+    route: "/bulk_Import",
+    component: <BulkImport />,
   },
   {
     type: "collapse",

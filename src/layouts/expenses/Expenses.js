@@ -21,9 +21,7 @@ import MDProgress from "components/MDProgress";
 export default function data() {
    const Progress = ({ color, value }) => (
     <MDBox display="flex" alignItems="center">
-      <MDTypography variant="caption" color="text" fontWeight="medium">
-        {value}%
-      </MDTypography>
+      
       <MDBox ml={0.5} width="9rem">
         <MDProgress variant="gradient" color={color} value={value} />
       </MDBox>
@@ -75,6 +73,7 @@ export default function data() {
               <MDButton variant="text" color="error">
                 <Icon>delete</Icon>&nbsp;delete
               </MDButton>
+              
             
             
           ),
