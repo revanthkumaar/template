@@ -9,6 +9,7 @@ function ReportGenerator() {
   return (
     <DashboardLayout>
       <DashboardNavbar />
+     
       <MDBox
                 mx={2}
                 mt={3}
