@@ -61,7 +61,7 @@ function Actions() {
       <h4 align='center'></h4> */}
       <Grid xs={12}>
         <MaterialTable
-          title="Managers Data"
+          title="Manage Employees"
           data={data}
         
           sx={{color:"white"}}
