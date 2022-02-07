@@ -128,11 +128,11 @@ export default function FullWidthTabs() {
 								py={2}
 								px={2}
 								variant="gradient"
-								bgColor="info"
+								sx={{ background: '#7FFFD4' }}
 								borderRadius="lg"
 								coloredShadow="info"
 							>
-								<MDTypography variant="h6" color="white">
+								<MDTypography variant="h6" color="dark">
 									TRANSACTION REPORT
 								</MDTypography>
 							</MDBox>
@@ -150,11 +150,11 @@ export default function FullWidthTabs() {
 								py={2}
 								px={2}
 								variant="gradient"
-								bgColor="info"
+								sx={{ background: '#7FFFD4' }}
 								borderRadius="lg"
 								coloredShadow="info"
 							>
-								<MDTypography variant="h6" color="white">
+								<MDTypography variant="h6" color="dark">
 									GUEST REPORT
 								</MDTypography>
 							</MDBox>
@@ -171,11 +171,11 @@ export default function FullWidthTabs() {
 								py={2}
 								px={2}
 								variant="gradient"
-								bgColor="info"
+								sx={{ background: '#7FFFD4' }}
 								borderRadius="lg"
 								coloredShadow="info"
 							>
-								<MDTypography variant="h6" color="white">
+								<MDTypography variant="h6" color="dark">
 									OCCUPANCY REPORT
 								</MDTypography>
 							</MDBox>
@@ -192,11 +192,11 @@ export default function FullWidthTabs() {
 								py={2}
 								px={2}
 								variant="gradient"
-								bgColor="info"
+								sx={{ background: '#7FFFD4' }}
 								borderRadius="lg"
 								coloredShadow="info"
 							>
-								<MDTypography variant="h6" color="white">
+								<MDTypography variant="h6" color="dark">
 									UPCOMING CHECKOUTS
 								</MDTypography>
 							</MDBox>

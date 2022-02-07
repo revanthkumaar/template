@@ -2,9 +2,8 @@ import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 
 const columns = [
-	{ field: 'id', headerName: 'SLNO', width: 70 },
-	{ field: 'bedId', headerName: 'BED ID', width: 130 },
-	{ field: 'name', headerName: 'NAME', width: 200 },
+	{ field: 'id', headerName: 'BED ID', width: 70 },
+	{ field: 'name', headerName: 'NAME', width: 150 },
 	{
 		field: 'due',
 		headerName: 'DUE',
@@ -18,8 +17,7 @@ const columns = [
 
 const rows = [
 	{
-		id: 1,
-		bedId: 'P1C',
+		id: 'P1C',
 		name: 'Utkarsh Kamuni',
 		due: 0,
 		lastPaid: '09-Oct-21',
@@ -27,8 +25,7 @@ const rows = [
 		checkoutOn: '31-Oct-21'
 	},
 	{
-		id: 2,
-		bedId: 'G7A',
+		id: 'G7A',
 		name: 'Suresh Kumar Dogra',
 		due: 4000,
 		lastPaid: '09-Oct-21',
@@ -36,8 +33,7 @@ const rows = [
 		checkoutOn: '31-Oct-21'
 	},
 	{
-		id: 3,
-		bedId: '308A',
+		id: '308A',
 		name: 'Saptarshi Sarkar',
 		due: 0,
 		lastPaid: '09-Oct-21',
@@ -45,8 +41,7 @@ const rows = [
 		checkoutOn: '02-Nov-21'
 	},
 	{
-		id: 4,
-		bedId: '307A',
+		id: '307A',
 		name: 'Om Pandey',
 		due: 0,
 		lastPaid: '09-Oct-21',
@@ -54,8 +49,7 @@ const rows = [
 		checkoutOn: '02-Nov-21'
 	},
 	{
-		id: 5,
-		bedId: '408B',
+		id: '408B',
 		name: 'Gaurav Dhameeja',
 		due: 0,
 		lastPaid: '09-Oct-21',
@@ -63,8 +57,7 @@ const rows = [
 		checkoutOn: '04-Nov-21'
 	},
 	{
-		id: 6,
-		bedId: '510B',
+		id: '510B',
 		name: 'P. Charan Kumar',
 		due: 0,
 		lastPaid: '09-Oct-21',
@@ -72,8 +65,7 @@ const rows = [
 		checkoutOn: '05-Nov-21'
 	},
 	{
-		id: 7,
-		bedId: '107A',
+		id: '107A',
 		name: 'Thota Chandra Shekaram',
 		due: 0,
 		lastPaid: '09-Oct-21',
