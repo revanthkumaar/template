@@ -5,7 +5,7 @@ import Profile from 'layouts/profile';
 import SignIn from 'layouts/authentication/sign-in';
 import Tables from 'layouts/tables';
 import Branch from 'layouts/branch/index';
-import ReportGenerator from 'layouts/reportGenerator/index';
+// import ReportGenerator from 'layouts/reportGenerator/index';
 import RoomAvailability from 'layouts/roomAvailibity';
 import BulkImport from 'layouts/bulkImport';
 import Expenses from 'layouts/expenses';
@@ -37,15 +37,6 @@ const routes = [
 		icon: <Icon fontSize="small">person</Icon>,
 		route: '/room_Details',
 		component: <RoomAvailability />
-	},
-
-	{
-		type: 'collapse',
-		name: 'Download Reports',
-		key: 'ReportGenerator',
-		icon: <Icon fontSize="small">receipt_long</Icon>,
-		route: '/Report_Generator',
-		component: <ReportGenerator />
 	},
 	{
 		type: 'collapse',

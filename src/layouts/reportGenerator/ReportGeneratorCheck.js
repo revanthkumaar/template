@@ -20,7 +20,7 @@ const INITIAL_FORM_STATE = {
   branch: "",
   reportType: "",
   status: "",
-  guestStatu: "",
+  guestStatus: "",
   checkoutDate: "",
   arrivalDate: "",
 };
@@ -103,28 +103,6 @@ const ReportGeneratorForm = () => {
                     </Select>
                   </FormControl>
                 </Grid>
-
-                <Grid item xs={6} pt={3}>
-                  <h6>Select Report Type</h6>
-                  <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">
-                      Report Type
-                    </InputLabel>
-                    <Select
-                      sx={{ minHeight: 44 }}
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
-                      value={reportType}
-                      label="Filter by Report type"
-                      name="reportType"
-                      onChange={handleChangeRoomType}
-                    >
-                      <MenuItem value={11}>Static</MenuItem>
-                      <MenuItem value={12}>Dynamic</MenuItem>
-                    </Select>
-                  </FormControl>
-                </Grid>
-
                 <Grid item xs={6} pt={3}>
                   <h6>Select Payment Status</h6>
                   <FormControl fullWidth>
