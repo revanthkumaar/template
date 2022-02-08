@@ -153,56 +153,24 @@ const rows = [
 
 export default function DataGridDemo() {
 	return (
-		<Box>
-			<div
-				style={{
-					height: 400,
-					width: '100%',
-					'& .super-app-theme--header': {
-						backgroundColor: '#1E90FF',
-						color: 'white'
-					}
-				}}
-			>
-				<Box
-					sx={{
-						height: 300,
-						width: 1,
-						'& .super-app-theme--header': {
-							backgroundColor: '#1E90FF',
-							color: 'white'
-						}
-					}}
-				>
-					<DataGrid
-						rows={rows}
-						checkboxSelection
-						columns={columns}
-						pageSize={15}
-						rowsPerPageOptions={[ 15 ]}
-						disableSelectionOnClick
-						sx={{
-							height: 300,
-							width: 1,
-							'& .super-app-theme--header': {
-								backgroundColor: '#1E90FF'
-							}
-						}}
-					/>
-				</Box>
+		<Grid container>
+			<div style={{ height: 400, width: '100%' }}>
+				<DataGrid
+					rows={rows}
+					checkboxSelection
+					columns={columns}
+					pageSize={15}
+					rowsPerPageOptions={[ 15 ]}
+					disableSelectionOnClick
+				/>
 			</div>
 
-			<Box sx={{ flexGrow: 1 }}>
-				<Grid container spacing={3}>
-					<Grid item xs={5} />
-					<Grid item xs={2}>
-						<MDButton variant="outlined" color="info" size="large">
-							Submit
-						</MDButton>
-					</Grid>
-					<Grid item xs={5} />
-				</Grid>
-			</Box>
-		</Box>
+			<Grid>
+				<br />
+				<MDButton variant="outlined" color="info" size="large" ml="50%" mr="50%" sx={{ ml: '380%' }}>
+					Book
+				</MDButton>
+			</Grid>
+		</Grid>
 	);
 }

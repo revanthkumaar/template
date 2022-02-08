@@ -153,11 +153,7 @@ function RoomTable() {
             actionsColumnIndex: -1,
             addRowPosition: "first",
             headerStyle: {
-
-
-
               backgroundColor: "#0096FF",color:"white",fontSize:"20px",fontWeight:"bold"
-
               
             },
             rowStyle: {
