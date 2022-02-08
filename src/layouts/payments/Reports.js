@@ -11,7 +11,7 @@ const empList = [
    mode: "UPI",
     shelfNo: "S4",
     Date: "20-10-2020",
-   
+   remark:""
   },
   {
     id:2,
@@ -20,7 +20,7 @@ const empList = [
     mode: "UPI",
     shelfNo: "S4",
     Date: "12-05-2020",
-  
+    remark:""
   },
   {
     id:3,
@@ -29,7 +29,7 @@ const empList = [
     mode: "UPI",
     shelfNo: "S3",
     Date:"22-09-2020",
- 
+    remark:""
   },
   {
     id:4,
@@ -38,7 +38,7 @@ const empList = [
     mode: "UPI",
     shelfNo: "S1",
     Date: "22-09-2020",
-    
+    remark:""
   },
   {
     id:5,
@@ -47,7 +47,7 @@ const empList = [
     mode: "UPI",
     shelfNo: "S4",
     Date: "02-09-2021",
-    
+    remark:""
   },
   {
     id:6,
@@ -56,7 +56,7 @@ const empList = [
     mode: "UPI",
     shelfNo: "S4",
     Date: "22-11-2021",
-   
+    remark:""
   },
   {
     id:7,
@@ -65,7 +65,7 @@ const empList = [
     mode: "UPI",
     shelfNo: "S3",
     Date: "29-09-2021",
-    
+    remark:""
   },
   {
     id:8,
@@ -74,7 +74,7 @@ const empList = [
     mode: "UPI",
     shelfNo: "S1",
     Date:"14-07-2021",
-    
+    remark:""
   },
 ];
 
@@ -82,22 +82,22 @@ function PaymentReport() {
   const [data, setData] = useState(empList);
   const columns = [
     { title: " GUEST ID", field: "id", editable: false,headerStyle: {
-        backgroundColor: "#87CEFA",color:"white"
+        backgroundColor: "#0096FF",color:"white"
       } },
     { title: "Payment Towards", field: "roomNo", headerStyle: {
-      backgroundColor: "#87CEFA",color:"white"
+      backgroundColor: "#0096FF",color:"white"
     } },
     { title: "Amount", field: "a_c" , headerStyle: {
-      backgroundColor: "#87CEFA",color:"white"
+      backgroundColor: "#0096FF",color:"white"
     }},
     { title: "Payment Method", field: "mode" ,headerStyle: {
-      backgroundColor: "#87CEFA",color:"white"
+      backgroundColor: "#0096FF",color:"white"
     }},
     { title: "Transaction Id", field: "shelfNo" ,headerStyle: {
-      backgroundColor: "#87CEFA",color:"white"
+      backgroundColor: "#0096FF",color:"white"
     }},
     { title: "Transaction Date", field: "Date" ,headerStyle: {
-      backgroundColor: "#87CEFA",color:"white"
+      backgroundColor: "#0096FF",color:"white"
     }},
     
   ];
@@ -109,7 +109,7 @@ function PaymentReport() {
       <h4 align='center'></h4> */}
       <Grid xs={12}>
         <MaterialTable
-          title="Room Details"
+          title="Record Payments"
           data={data}
         
           sx={{color:"white"}}
@@ -151,7 +151,7 @@ function PaymentReport() {
             actionsColumnIndex: -1,
             addRowPosition: "first",
             headerStyle: {
-              backgroundColor: "#87CEFA",color:"white",fontSize:"20px",fontWeight:"bold"
+              backgroundColor: "#0096FF",color:"white",fontSize:"20px",fontWeight:"bold"
               
             },
             rowStyle: {

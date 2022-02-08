@@ -22,14 +22,7 @@ function PaymentModules() {
       <MDBox py={1}>
         <MDBox mt={4}>
           <MDBox bgColor="white">
-            <Grid container spacing={6}>
-              <Grid item xs={20} md={10} lg={20}>
-                <Payments />
-              </Grid>
-              <Grid item xs={20} md={10} lg={20}>
-              
-              </Grid>
-            </Grid>
+           
             <MDBox 
 								mx={3}
 								mt={-3}
