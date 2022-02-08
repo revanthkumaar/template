@@ -103,7 +103,7 @@ export default function FullWidthTabs() {
 							textColor="inherit"
 							variant="fullWidth"
 							aria-label="full width tabs example"
-							style={{ background: '#7FFFD4' }}
+							style={{ background: '#6495ED' }}
 						>
 							<Tab label="Transactions" {...a11yProps(0)} />
 							<Tab label="Guest Master" {...a11yProps(1)} />
@@ -128,7 +128,7 @@ export default function FullWidthTabs() {
 								py={2}
 								px={2}
 								variant="gradient"
-								sx={{ background: '#7FFFD4' }}
+								sx={{ background: '#6495ED' }}
 								borderRadius="lg"
 								coloredShadow="info"
 							>
@@ -150,7 +150,7 @@ export default function FullWidthTabs() {
 								py={2}
 								px={2}
 								variant="gradient"
-								sx={{ background: '#7FFFD4' }}
+								sx={{ background: '#6495ED' }}
 								borderRadius="lg"
 								coloredShadow="info"
 							>
@@ -171,7 +171,7 @@ export default function FullWidthTabs() {
 								py={2}
 								px={2}
 								variant="gradient"
-								sx={{ background: '#7FFFD4' }}
+								sx={{ background: '#6495ED' }}
 								borderRadius="lg"
 								coloredShadow="info"
 							>
@@ -192,7 +192,7 @@ export default function FullWidthTabs() {
 								py={2}
 								px={2}
 								variant="gradient"
-								sx={{ background: '#7FFFD4' }}
+								sx={{ background: '#6495ED' }}
 								borderRadius="lg"
 								coloredShadow="info"
 							>
