@@ -39,6 +39,7 @@ import GuestDetails from './data/GuestDetails';
 import Occupancy from './data/Occupancy';
 import Notices from './data/Notices';
 import ReportGenerator from 'layouts/reportGenerator/';
+import Building from 'layouts/profile/GuestLoginForm/components/Building';
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
@@ -94,9 +95,12 @@ export default function FullWidthTabs() {
 					<MDTypography variant="button" color="text" fontWeight="regular">
 						Check all the reports of your properties here
 					</MDTypography>
+					<MDBox mt={2}>
+					<Building />
+					</MDBox>
 				</MDBox>
 				<AppBar position="static">
-					<MDBox p={2}>
+					<MDBox p={1}>
 						<Tabs
 							value={value}
 							onChange={handleChange}

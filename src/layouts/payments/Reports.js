@@ -109,7 +109,7 @@ function PaymentReport() {
       <h4 align='center'></h4> */}
       <Grid xs={12}>
         <MaterialTable
-          title="Room Details"
+          title="Record Payments"
           data={data}
         
           sx={{color:"white"}}

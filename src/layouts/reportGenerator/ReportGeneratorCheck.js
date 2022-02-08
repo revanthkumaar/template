@@ -83,11 +83,11 @@ const ReportGeneratorForm = () => {
               }}
             >
               <Form>
-                <Grid item xs={6} pt={1}>
-                  <h6>Select Branch</h6>
+                <Grid item xs={3} pt={1}>
+                  <h6>Report Type</h6>
                   <FormControl fullWidth>
                     <InputLabel id="demo-simple-select-label">
-                      Branch
+                      Report Type
                     </InputLabel>
                     <Select
                       sx={{ minHeight: 44 }}
@@ -98,12 +98,15 @@ const ReportGeneratorForm = () => {
                       name="branch"
                       onChange={handleChangeRoomType}
                     >
-                      <MenuItem value={11}>Madhapur</MenuItem>
-                      <MenuItem value={12}>Hi-Tech city</MenuItem>
+                      <MenuItem value={11}>Transactions</MenuItem>
+                      <MenuItem value={12}>Check-In</MenuItem>
+                      <MenuItem value={13}>Check-Out</MenuItem>
+                      <MenuItem value={14}>Available Beds</MenuItem>
+                      <MenuItem value={15}>Available Rooms</MenuItem>
                     </Select>
                   </FormControl>
                 </Grid>
-                <Grid item xs={6} pt={3}>
+                <Grid item xs={3} pt={3}>
                   <h6>Select Payment Status</h6>
                   <FormControl fullWidth>
                     <InputLabel id="demo-simple-select-label">
@@ -125,7 +128,7 @@ const ReportGeneratorForm = () => {
                   </FormControl>
                 </Grid>
 
-                <Grid item xs={6} pt={3}>
+                <Grid item xs={3} pt={3}>
                   <h6>Select Guest Status</h6>
                   <FormControl fullWidth>
                     <InputLabel id="demo-simple-select-label">
@@ -150,13 +153,13 @@ const ReportGeneratorForm = () => {
                 <Grid item xs={12}>
                   <Grid item xs={12} pt={3}>
                     <h6>Selcet Report Duration</h6>
-                    <Grid item xs={6} pt={2}>
+                    <Grid item xs={3} pt={2}>
                       <DateTimePicker
                         name="checkoutDate"
                         label="From"
                       />
                     </Grid>
-                    <Grid item xs={6} pt={2}>
+                    <Grid item xs={3} pt={2}>
                       <DateTimePicker
                         name="arrivalDate"
                         label="To"
