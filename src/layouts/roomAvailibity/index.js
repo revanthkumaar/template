@@ -9,7 +9,7 @@ import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
 //import Main from "./Main";
 import RoomTable from "./RoomTable";
-import UnAllocatedInventory from "./UnAllocatedInventory";
+import UnAllocatedInventory from "./UnallocatedInventory";
 
 
 
@@ -25,7 +25,7 @@ function RoomAvailability() {
             <Grid item xs={20} md={10} lg={20}>
             <RoomTable display="flex" justifyContent="flex-end" />
             </Grid>
-            <Grid item xs={20} md={10} lg={20} pt={3}>
+            <Grid item xs={20} md={10} lg={20} pt={4}>
             <UnAllocatedInventory display="flex" justifyContent="flex-end" />
             </Grid>
           </Grid>

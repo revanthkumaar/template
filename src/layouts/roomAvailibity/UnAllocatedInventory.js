@@ -7,7 +7,7 @@ const empList = [
   {
     id:1,
     bedNumber: "A12",
-    shelfNo: "S4",
+    shelfNo: "S3",
   },
   {
     id:2,
