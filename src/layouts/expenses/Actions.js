@@ -83,7 +83,7 @@ function Actions() {
   const [data, setData] = useState(empList);
   const columns = [
     { title: "Branch Name", field: "name", editable: false,headerStyle: {
-      backgroundColor: "#0096FF",color:"white"
+      backgroundColor: "#0096FF",color:"white",
     } },
     { title: "Title", field: "title" , headerStyle: {
       backgroundColor: "#0096FF",color:"white"
@@ -149,6 +149,8 @@ function Actions() {
             addRowPosition: "first",
             headerStyle: {
               backgroundColor: "#0096FF",color:"white",fontSize:"20px",fontWeight:"bold"
+            },rowStyle: {
+              fontSize: 16,
             }
           }}
         />
