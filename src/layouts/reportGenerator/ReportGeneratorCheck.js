@@ -5,7 +5,6 @@ import * as Yup from "yup";
 //import { createStyles, makeStyles } from '@mui/styles';
 //import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Card, Container, Grid, Typography } from "@mui/material";
-import Textfield from "./Components/Textfield";
 import DateTimePicker from "./Components/DataTimePicker";
 
 //import Divider from '@mui/material/Divider';
@@ -29,7 +28,7 @@ const INITIAL_FORM_STATE = {
 const FORM_VALIDATION = Yup.object().shape({
 
   branch: Yup.number().required("Required"),
-  roomType: Yup.string().required("Required"),
+  reportType: Yup.string().required("Required"),
   status: Yup.number().required("Required"),
   guestStatus: Yup.number().required("Required"),
   checkoutDate: Yup.date().required("Required"),
@@ -42,27 +41,27 @@ const FORM_VALIDATION = Yup.object().shape({
 const ReportGeneratorForm = () => {
   //const classes = useStyles();
 
-  const [property, setProperty] = React.useState("");
+  const [guestStatus, setGuestStatus] = React.useState("");
 
   const handleChangeOption = (event) => {
-    setProperty(event.target.value);
+    setGuestStatus(event.target.value);
   };
-  const [roomType, setRoomType] = React.useState("");
+  const [branch, setBranch] = React.useState("");
 
   const handleChangeRoomType = (event) => {
-    setRoomType(event.target.value);
+    setBranch(event.target.value);
   };
 
-  const [sharing, setSharing] = React.useState("");
+  const [reportType, setReportType] = React.useState("");
 
   const handleChangeSharing = (event) => {
-    setSharing(event.target.value);
+    setReportType(event.target.value);
   };
 
-  const [roomNo, setRoomNo] = React.useState("");
+  const [status, setStatus] = React.useState("");
 
   const handleChangeRoomNo = (event) => {
-    setRoomNo(event.target.value);
+    setStatus(event.target.value);
   };
 
 
@@ -94,7 +93,7 @@ const ReportGeneratorForm = () => {
                       sx={{ minHeight: 44 }}
                       labelId="demo-simple-select-label"
                       id="demo-simple-select"
-                      value={roomType}
+                      value={branch}
                       label="Filter by Branch"
                       name="branch"
                       onChange={handleChangeRoomType}
@@ -115,7 +114,7 @@ const ReportGeneratorForm = () => {
                       sx={{ minHeight: 44 }}
                       labelId="demo-simple-select-label"
                       id="demo-simple-select"
-                      value={roomType}
+                      value={reportType}
                       label="Filter by Report type"
                       name="reportType"
                       onChange={handleChangeRoomType}
@@ -136,7 +135,7 @@ const ReportGeneratorForm = () => {
                       sx={{ minHeight: 44 }}
                       labelId="demo-simple-select-label"
                       id="demo-simple-select"
-                      value={sharing}
+                      value={status}
                       label="Filter by Status"
                       name="status"
                       onChange={handleChangeSharing}
@@ -158,7 +157,7 @@ const ReportGeneratorForm = () => {
                       sx={{ minHeight: 44 }}
                       labelId="demo-simple-select-label"
                       id="demo-simple-select"
-                      value={roomNo}
+                      value={guestStatus}
                       label="Filter by Guest Status "
                       name="guestStatus"
                       onChange={handleChangeRoomNo}

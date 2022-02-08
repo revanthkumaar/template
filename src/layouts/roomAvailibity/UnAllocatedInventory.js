@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import MaterialTable from "material-table";
 import { Grid } from "@mui/material";
 
-const empList = [
+const List = [
   {
     id:1,
     bedNumber: "A12",
@@ -53,7 +53,7 @@ const empList = [
 ];
 
 function UnAllocatedInventory() {
-  const [data, setData] = useState(empList);
+  const [data, setData] = useState(List);
   const columns = [
     { title: "ID", field: "id", editable: false,headerStyle: {
         backgroundColor: "#0096FF",color:"white"
