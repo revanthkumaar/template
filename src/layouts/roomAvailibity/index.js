@@ -9,7 +9,7 @@ import DashboardNavbar from 'examples/Navbars/DashboardNavbar';
 import Footer from 'examples/Footer';
 //import Main from "./Main";
 import RoomTable from './RoomTable';
-import UnAllocatedInventory from 'layouts/roomAvailibity';
+import UnAllocatedInventory from 'layouts/roomAvailibity/UnAllocatedInventory';
 
 function RoomAvailability() {
 	// const { sales, tasks } = reportsLineChartData;
@@ -22,6 +22,9 @@ function RoomAvailability() {
 					<Grid container spacing={6}>
 						<Grid item xs={20} md={10} lg={20}>
 							<RoomTable display="flex" justifyContent="flex-end" />
+						</Grid>
+						<Grid item xs={20} md={10} lg={20}>
+							<UnAllocatedInventory />
 						</Grid>
 					</Grid>
 				</MDBox>
