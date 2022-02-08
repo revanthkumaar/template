@@ -16,7 +16,6 @@
     "@mui/icons-material": "5.2.0",
     "@mui/material": "5.2.0",
     "@mui/styled-engine": "5.2.0",
-    "@mui/styles": "^5.3.0",
     "@mui/x-data-grid": "latest",
     "@testing-library/jest-dom": "5.11.4",
     "@testing-library/react": "11.1.0",
