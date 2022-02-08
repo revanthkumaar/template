@@ -7,101 +7,99 @@ const empList = [
   {
     id:1,
     roomNo: 101,
-    a_c: "Yes",
-    bedNumber: "A12",
+    a_c: 10000,
+   mode: "UPI",
     shelfNo: "S4",
-    monthlyRent: 987,
-    dailyRent:200,
+    Date: "20-10-2020",
+   remark:""
   },
   {
     id:2,
     roomNo: 102,
-    a_c: "Yes",
-    bedNumber: "A12",
+    a_c: 6500,
+    mode: "UPI",
     shelfNo: "S4",
-    monthlyRent: 987,
-    dailyRent:200,
+    Date: "12-05-2020",
+    remark:""
   },
   {
     id:3,
     roomNo: 103,
-    a_c: "No",
-    bedNumber: "A12",
+    a_c: 8000,
+    mode: "UPI",
     shelfNo: "S3",
-    monthlyRent: 987,
-    dailyRent:200,
+    Date:"22-09-2020",
+    remark:""
   },
   {
     id:4,
     roomNo: 104,
-    a_c: "Yes",
-    bedNumber: "A12",
+    a_c: 8000,
+    mode: "UPI",
     shelfNo: "S1",
-    monthlyRent: 987,
-    dailyRent:200,
+    Date: "22-09-2020",
+    remark:""
   },
   {
     id:5,
     roomNo: 101,
-    a_c: "Yes",
-    bedNumber: "A12",
+    a_c: 8000,
+    mode: "UPI",
     shelfNo: "S4",
-    monthlyRent: 987,
-    dailyRent:200,
+    Date: "02-09-2021",
+    remark:""
   },
   {
     id:6,
     roomNo: 102,
-    a_c: "Yes",
-    bedNumber: "A12",
+    a_c: 8000,
+    mode: "UPI",
     shelfNo: "S4",
-    monthlyRent: 987,
-    dailyRent:200,
+    Date: "22-11-2021",
+    remark:""
   },
   {
     id:7,
     roomNo: 103,
-    a_c: "No",
-    bedNumber: "A12",
+    a_c: 8000,
+    mode: "UPI",
     shelfNo: "S3",
-    monthlyRent: 987,
-    dailyRent:200,
+    Date: "29-09-2021",
+    remark:""
   },
   {
     id:8,
     roomNo: 104,
-    a_c: "Yes",
-    bedNumber: "A12",
+    a_c: 8000,
+    mode: "UPI",
     shelfNo: "S1",
-    monthlyRent: 987,
-    dailyRent:200,
+    Date:"14-07-2021",
+    remark:""
   },
 ];
 
-function RoomTable() {
+function PaymentReport() {
   const [data, setData] = useState(empList);
   const columns = [
-    { title: "ID", field: "id", editable: false,headerStyle: {
+    { title: " GUEST ID", field: "id", editable: false,headerStyle: {
         backgroundColor: "#0096FF",color:"white"
       } },
-    { title: "Room No", field: "roomNo", headerStyle: {
+    { title: "Payment Towards", field: "roomNo", headerStyle: {
       backgroundColor: "#0096FF",color:"white"
     } },
-    { title: "A/C", field: "a_c" , headerStyle: {
+    { title: "Amount", field: "a_c" , headerStyle: {
       backgroundColor: "#0096FF",color:"white"
     }},
-    { title: "Bed Number", field: "bedNumber" ,headerStyle: {
+    { title: "Payment Method", field: "mode" ,headerStyle: {
       backgroundColor: "#0096FF",color:"white"
     }},
-    { title: "Shelf Number", field: "shelfNo" ,headerStyle: {
+    { title: "Transaction Id", field: "shelfNo" ,headerStyle: {
       backgroundColor: "#0096FF",color:"white"
     }},
-    { title: "Monthly Rent", field: "monthlyRent" ,headerStyle: {
+    { title: "Transaction Date", field: "Date" ,headerStyle: {
       backgroundColor: "#0096FF",color:"white"
     }},
-    { title: "Daily Rent", field: "dailyRent" ,headerStyle: {
-        backgroundColor: "#0096FF",color:"white"
-      }},
+    
   ];
 
   return (
@@ -111,7 +109,7 @@ function RoomTable() {
       <h4 align='center'></h4> */}
       <Grid xs={12}>
         <MaterialTable
-          title="Room Details"
+          title="Record Payments"
           data={data}
         
           sx={{color:"white"}}
@@ -153,11 +151,7 @@ function RoomTable() {
             actionsColumnIndex: -1,
             addRowPosition: "first",
             headerStyle: {
-
-
-
               backgroundColor: "#0096FF",color:"white",fontSize:"20px",fontWeight:"bold"
-
               
             },
             rowStyle: {
@@ -171,4 +165,4 @@ function RoomTable() {
   );
 }
 
-export default RoomTable;
+export default PaymentReport;

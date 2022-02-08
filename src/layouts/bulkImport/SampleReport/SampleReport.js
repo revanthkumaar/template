@@ -31,7 +31,7 @@ export default function data() {
 
   return {
     columns: [
-      { Header: "BedId", accessor: "BedId", align: "left", fontWeight:"medium",fontSize: 20},
+      { Header: "BedId", accessor: "BedId", align: "left", fontWeight:"medium" , fontSize:20},
       { Header: "Name", accessor: "Name", align: "center" },
       { Header: "Due", accessor: "Due", align: "center" },
       { Header: "Lastpaidon ", accessor: "Lastpaidon", align: "center" },

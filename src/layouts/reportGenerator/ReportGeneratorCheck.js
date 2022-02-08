@@ -5,7 +5,6 @@ import * as Yup from "yup";
 //import { createStyles, makeStyles } from '@mui/styles';
 //import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Card, Container, Grid, Typography } from "@mui/material";
-import Textfield from "./Components/Textfield";
 import DateTimePicker from "./Components/DataTimePicker";
 
 //import Divider from '@mui/material/Divider';
@@ -21,7 +20,7 @@ const INITIAL_FORM_STATE = {
   branch: "",
   reportType: "",
   status: "",
-  guestStatu: "",
+  guestStatus: "",
   checkoutDate: "",
   arrivalDate: "",
 };
@@ -29,7 +28,7 @@ const INITIAL_FORM_STATE = {
 const FORM_VALIDATION = Yup.object().shape({
 
   branch: Yup.number().required("Required"),
-  roomType: Yup.string().required("Required"),
+  reportType: Yup.string().required("Required"),
   status: Yup.number().required("Required"),
   guestStatus: Yup.number().required("Required"),
   checkoutDate: Yup.date().required("Required"),
@@ -42,27 +41,27 @@ const FORM_VALIDATION = Yup.object().shape({
 const ReportGeneratorForm = () => {
   //const classes = useStyles();
 
-  const [property, setProperty] = React.useState("");
+  const [guestStatus, setGuestStatus] = React.useState("");
 
   const handleChangeOption = (event) => {
-    setProperty(event.target.value);
+    setGuestStatus(event.target.value);
   };
-  const [roomType, setRoomType] = React.useState("");
+  const [branch, setBranch] = React.useState("");
 
   const handleChangeRoomType = (event) => {
-    setRoomType(event.target.value);
+    setBranch(event.target.value);
   };
 
-  const [sharing, setSharing] = React.useState("");
+  const [reportType, setReportType] = React.useState("");
 
   const handleChangeSharing = (event) => {
-    setSharing(event.target.value);
+    setReportType(event.target.value);
   };
 
-  const [roomNo, setRoomNo] = React.useState("");
+  const [status, setStatus] = React.useState("");
 
   const handleChangeRoomNo = (event) => {
-    setRoomNo(event.target.value);
+    setStatus(event.target.value);
   };
 
 
@@ -84,30 +83,8 @@ const ReportGeneratorForm = () => {
               }}
             >
               <Form>
-                <Grid item xs={6} pt={1}>
-                  <h6>Select Branch</h6>
-                  <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">
-                      Branch
-                    </InputLabel>
-                    <Select
-                      sx={{ minHeight: 44 }}
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
-                      value={roomType}
-                      label="Filter by Branch"
-                      name="branch"
-                      name="roomType"
-                      onChange={handleChangeRoomType}
-                    >
-                      <MenuItem value={11}>Madhapur</MenuItem>
-                      <MenuItem value={12}>Hi-Tech city</MenuItem>
-                    </Select>
-                  </FormControl>
-                </Grid>
-
-                <Grid item xs={6} pt={3}>
-                  <h6>Select Report Type</h6>
+                <Grid item xs={3} pt={1}>
+                  <h6>Report Type</h6>
                   <FormControl fullWidth>
                     <InputLabel id="demo-simple-select-label">
                       Report Type
@@ -116,19 +93,20 @@ const ReportGeneratorForm = () => {
                       sx={{ minHeight: 44 }}
                       labelId="demo-simple-select-label"
                       id="demo-simple-select"
-                      value={roomType}
-                      label="Filter by Report type"
-                      name="reportType"
-                      name="roomType"
+                      value={branch}
+                      label="Filter by Branch"
+                      name="branch"
                       onChange={handleChangeRoomType}
                     >
-                      <MenuItem value={11}>Static</MenuItem>
-                      <MenuItem value={12}>Dynamic</MenuItem>
+                      <MenuItem value={11}>Transactions</MenuItem>
+                      <MenuItem value={12}>Check-In</MenuItem>
+                      <MenuItem value={13}>Check-Out</MenuItem>
+                      <MenuItem value={14}>Available Beds</MenuItem>
+                      <MenuItem value={15}>Available Rooms</MenuItem>
                     </Select>
                   </FormControl>
                 </Grid>
-
-                <Grid item xs={6} pt={3}>
+                <Grid item xs={3} pt={3}>
                   <h6>Select Payment Status</h6>
                   <FormControl fullWidth>
                     <InputLabel id="demo-simple-select-label">
@@ -138,10 +116,9 @@ const ReportGeneratorForm = () => {
                       sx={{ minHeight: 44 }}
                       labelId="demo-simple-select-label"
                       id="demo-simple-select"
-                      value={sharing}
+                      value={status}
                       label="Filter by Status"
                       name="status"
-                      name="sharing"
                       onChange={handleChangeSharing}
                     >
                       <MenuItem value={13}>Pending</MenuItem>
@@ -151,7 +128,7 @@ const ReportGeneratorForm = () => {
                   </FormControl>
                 </Grid>
 
-                <Grid item xs={6} pt={3}>
+                <Grid item xs={3} pt={3}>
                   <h6>Select Guest Status</h6>
                   <FormControl fullWidth>
                     <InputLabel id="demo-simple-select-label">
@@ -161,10 +138,9 @@ const ReportGeneratorForm = () => {
                       sx={{ minHeight: 44 }}
                       labelId="demo-simple-select-label"
                       id="demo-simple-select"
-                      value={roomNo}
+                      value={guestStatus}
                       label="Filter by Guest Status "
                       name="guestStatus"
-                      name="roomNo"
                       onChange={handleChangeRoomNo}
                     >
                       <MenuItem value={17}>available</MenuItem>
@@ -177,13 +153,13 @@ const ReportGeneratorForm = () => {
                 <Grid item xs={12}>
                   <Grid item xs={12} pt={3}>
                     <h6>Selcet Report Duration</h6>
-                    <Grid item xs={6} pt={2}>
+                    <Grid item xs={3} pt={2}>
                       <DateTimePicker
                         name="checkoutDate"
                         label="From"
                       />
                     </Grid>
-                    <Grid item xs={6} pt={2}>
+                    <Grid item xs={3} pt={2}>
                       <DateTimePicker
                         name="arrivalDate"
                         label="To"

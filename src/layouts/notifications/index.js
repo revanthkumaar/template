@@ -38,6 +38,8 @@ import TransactionDetails from './data/TransactionDetails';
 import GuestDetails from './data/GuestDetails';
 import Occupancy from './data/Occupancy';
 import Notices from './data/Notices';
+import ReportGenerator from 'layouts/reportGenerator/';
+import Building from 'layouts/profile/GuestLoginForm/components/Building';
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
@@ -89,13 +91,16 @@ export default function FullWidthTabs() {
 			<DashboardNavbar />
 			<Card mt={2}>
 				<MDBox p={2} lineHeight={0}>
-					<MDTypography variant="h5">All Reports</MDTypography>
+					<MDTypography variant="h5">Reports</MDTypography>
 					<MDTypography variant="button" color="text" fontWeight="regular">
 						Check all the reports of your properties here
 					</MDTypography>
+					<MDBox mt={2}>
+					<Building />
+					</MDBox>
 				</MDBox>
 				<AppBar position="static">
-					<MDBox p={2}>
+					<MDBox p={1}>
 						<Tabs
 							value={value}
 							onChange={handleChange}
@@ -109,6 +114,7 @@ export default function FullWidthTabs() {
 							<Tab label="Guest Master" {...a11yProps(1)} />
 							<Tab label="Occupancy" {...a11yProps(2)} />
 							<Tab label="Upcoming Checkouts" {...a11yProps(3)} />
+							<Tab label="Additional Reports" {...a11yProps(4)} />
 						</Tabs>
 					</MDBox>
 				</AppBar>
@@ -132,7 +138,7 @@ export default function FullWidthTabs() {
 								borderRadius="lg"
 								coloredShadow="info"
 							>
-								<MDTypography variant="h6" color="dark">
+								<MDTypography variant="h6" color="light">
 									TRANSACTION REPORT
 								</MDTypography>
 							</MDBox>
@@ -154,7 +160,7 @@ export default function FullWidthTabs() {
 								borderRadius="lg"
 								coloredShadow="info"
 							>
-								<MDTypography variant="h6" color="dark">
+								<MDTypography variant="h6" color="light">
 									GUEST REPORT
 								</MDTypography>
 							</MDBox>
@@ -175,7 +181,7 @@ export default function FullWidthTabs() {
 								borderRadius="lg"
 								coloredShadow="info"
 							>
-								<MDTypography variant="h6" color="dark">
+								<MDTypography variant="h6" color="light">
 									OCCUPANCY REPORT
 								</MDTypography>
 							</MDBox>
@@ -196,12 +202,33 @@ export default function FullWidthTabs() {
 								borderRadius="lg"
 								coloredShadow="info"
 							>
-								<MDTypography variant="h6" color="dark">
+								<MDTypography variant="h6" color="light">
 									UPCOMING CHECKOUTS
 								</MDTypography>
 							</MDBox>
 							<MDBox pt={3}>
 								<Notices />
+							</MDBox>
+						</Card>
+					</TabPanel>
+					<TabPanel value={value} index={4} dir={theme.direction}>
+						<Card>
+							<MDBox
+								mx={3}
+								mt={-3}
+								py={2}
+								px={2}
+								variant="gradient"
+								sx={{ background: '#6495ED' }}
+								borderRadius="lg"
+								coloredShadow="info"
+							>
+								<MDTypography variant="h6" color="light">
+									REPORT GENERATOR
+								</MDTypography>
+							</MDBox>
+							<MDBox>
+								<ReportGenerator />
 							</MDBox>
 						</Card>
 					</TabPanel>

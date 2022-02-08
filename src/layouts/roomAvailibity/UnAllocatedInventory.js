@@ -3,105 +3,68 @@ import React, { useState } from "react";
 import MaterialTable from "material-table";
 import { Grid } from "@mui/material";
 
-const empList = [
+const List = [
   {
     id:1,
-    roomNo: 101,
-    a_c: "Yes",
     bedNumber: "A12",
-    shelfNo: "S4",
-    monthlyRent: 987,
-    dailyRent:200,
+    shelfNo: "S3",
   },
   {
     id:2,
-    roomNo: 102,
-    a_c: "Yes",
-    bedNumber: "A12",
+     bedNumber: "A12",
     shelfNo: "S4",
-    monthlyRent: 987,
-    dailyRent:200,
+   
   },
   {
     id:3,
-    roomNo: 103,
-    a_c: "No",
-    bedNumber: "A12",
+   bedNumber: "A12",
     shelfNo: "S3",
-    monthlyRent: 987,
-    dailyRent:200,
+    
   },
   {
     id:4,
-    roomNo: 104,
-    a_c: "Yes",
-    bedNumber: "A12",
+   bedNumber: "A12",
     shelfNo: "S1",
-    monthlyRent: 987,
-    dailyRent:200,
+   
   },
   {
-    id:5,
-    roomNo: 101,
-    a_c: "Yes",
     bedNumber: "A12",
     shelfNo: "S4",
-    monthlyRent: 987,
-    dailyRent:200,
+    
   },
   {
     id:6,
-    roomNo: 102,
-    a_c: "Yes",
-    bedNumber: "A12",
+   bedNumber: "A12",
     shelfNo: "S4",
-    monthlyRent: 987,
-    dailyRent:200,
+   
   },
   {
     id:7,
-    roomNo: 103,
-    a_c: "No",
     bedNumber: "A12",
     shelfNo: "S3",
-    monthlyRent: 987,
-    dailyRent:200,
+   
   },
   {
     id:8,
-    roomNo: 104,
-    a_c: "Yes",
-    bedNumber: "A12",
+   bedNumber: "A12",
     shelfNo: "S1",
-    monthlyRent: 987,
-    dailyRent:200,
+   
   },
 ];
 
-function RoomTable() {
-  const [data, setData] = useState(empList);
+function UnAllocatedInventory() {
+  const [data, setData] = useState(List);
   const columns = [
     { title: "ID", field: "id", editable: false,headerStyle: {
         backgroundColor: "#0096FF",color:"white"
       } },
-    { title: "Room No", field: "roomNo", headerStyle: {
-      backgroundColor: "#0096FF",color:"white"
-    } },
-    { title: "A/C", field: "a_c" , headerStyle: {
-      backgroundColor: "#0096FF",color:"white"
-    }},
+    
     { title: "Bed Number", field: "bedNumber" ,headerStyle: {
       backgroundColor: "#0096FF",color:"white"
     }},
     { title: "Shelf Number", field: "shelfNo" ,headerStyle: {
       backgroundColor: "#0096FF",color:"white"
     }},
-    { title: "Monthly Rent", field: "monthlyRent" ,headerStyle: {
-      backgroundColor: "#0096FF",color:"white"
-    }},
-    { title: "Daily Rent", field: "dailyRent" ,headerStyle: {
-        backgroundColor: "#0096FF",color:"white"
-      }},
   ];
 
   return (
@@ -111,7 +74,7 @@ function RoomTable() {
       <h4 align='center'></h4> */}
       <Grid xs={12}>
         <MaterialTable
-          title="Room Details"
+          title="Unallocated Inventory"
           data={data}
         
           sx={{color:"white"}}
@@ -153,11 +116,7 @@ function RoomTable() {
             actionsColumnIndex: -1,
             addRowPosition: "first",
             headerStyle: {
-
-
-
               backgroundColor: "#0096FF",color:"white",fontSize:"20px",fontWeight:"bold"
-
               
             },
             rowStyle: {
@@ -171,4 +130,4 @@ function RoomTable() {
   );
 }
 
-export default RoomTable;
+export default UnAllocatedInventory;
