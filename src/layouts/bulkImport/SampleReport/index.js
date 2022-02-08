@@ -26,17 +26,15 @@ function Tables() {
       
       <MDBox pt={6} pb={3}>
         <Grid container spacing={6}>
-          <Grid item xs={12}>
-            
-          </Grid>
+     
 
           <Grid item xs={12}>
             <Card>
               <MDBox
                 mx={2}
-                mt={-3}
-                py={3}
-                px={2}
+                mt={-2}
+                py={1}
+                px={1}
                 variant="gradient"
                 bgColor="info"
                 borderRadius="lg"
@@ -52,7 +50,7 @@ function Tables() {
                   isSorted={false}
                   entriesPerPage={false}
                   showTotalEntries={false}
-                  noEndBorder
+                  
                 />
               </MDBox>
             </Card>
