@@ -119,14 +119,7 @@ const routes = [
     route: "/announcements",
     component: <announcements />,
   },
-  {
-    type: "collapse",
-    name: "Employees",
-    key: "employees",
-    icon: <Icon fontSize="small">person_add</Icon>,
-    route: "/employees",
-    component: <employees />,
-  },
+
   {
     type: "collapse",
     name: "Sign Out",
