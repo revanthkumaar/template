@@ -97,7 +97,6 @@ const ReportGeneratorForm = () => {
                       value={roomType}
                       label="Filter by Branch"
                       name="branch"
-                      name="roomType"
                       onChange={handleChangeRoomType}
                     >
                       <MenuItem value={11}>Madhapur</MenuItem>
@@ -119,7 +118,6 @@ const ReportGeneratorForm = () => {
                       value={roomType}
                       label="Filter by Report type"
                       name="reportType"
-                      name="roomType"
                       onChange={handleChangeRoomType}
                     >
                       <MenuItem value={11}>Static</MenuItem>
@@ -141,7 +139,6 @@ const ReportGeneratorForm = () => {
                       value={sharing}
                       label="Filter by Status"
                       name="status"
-                      name="sharing"
                       onChange={handleChangeSharing}
                     >
                       <MenuItem value={13}>Pending</MenuItem>
@@ -164,7 +161,6 @@ const ReportGeneratorForm = () => {
                       value={roomNo}
                       label="Filter by Guest Status "
                       name="guestStatus"
-                      name="roomNo"
                       onChange={handleChangeRoomNo}
                     >
                       <MenuItem value={17}>available</MenuItem>
