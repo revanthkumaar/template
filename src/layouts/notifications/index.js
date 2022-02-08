@@ -38,6 +38,7 @@ import TransactionDetails from './data/TransactionDetails';
 import GuestDetails from './data/GuestDetails';
 import Occupancy from './data/Occupancy';
 import Notices from './data/Notices';
+import ReportGenerator from 'layouts/reportGenerator/';
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
@@ -133,7 +134,7 @@ export default function FullWidthTabs() {
                 borderRadius="lg"
                 coloredShadow="info"
               >
-                <MDTypography variant="h6" color="dark">
+                <MDTypography variant="h6" color="light">
                   TRANSACTION REPORT
                 </MDTypography>
               </MDBox>
@@ -155,7 +156,7 @@ export default function FullWidthTabs() {
                 borderRadius="lg"
                 coloredShadow="info"
               >
-                <MDTypography variant="h6" color="dark">
+                <MDTypography variant="h6" color="light">
                   GUEST REPORT
                 </MDTypography>
               </MDBox>
@@ -176,7 +177,7 @@ export default function FullWidthTabs() {
                 borderRadius="lg"
                 coloredShadow="info"
               >
-                <MDTypography variant="h6" color="dark">
+                <MDTypography variant="h6" color="light">
                   OCCUPANCY REPORT
                 </MDTypography>
               </MDBox>
@@ -197,12 +198,33 @@ export default function FullWidthTabs() {
                 borderRadius="lg"
                 coloredShadow="info"
               >
-                <MDTypography variant="h6" color="dark">
+                <MDTypography variant="h6" color="light">
                   UPCOMING CHECKOUTS
                 </MDTypography>
               </MDBox>
               <MDBox pt={3}>
                 <Notices />
+              </MDBox>
+            </Card>
+          </TabPanel>
+          <TabPanel value={value} index={4} dir={theme.direction}>
+            <Card>
+              <MDBox
+                mx={3}
+                mt={-3}
+                py={2}
+                px={2}
+                variant="gradient"
+                sx={{ background: "#6495ED" }}
+                borderRadius="lg"
+                coloredShadow="info"
+              >
+                <MDTypography variant="h6" color="light">
+                  REPORT GENERATOR
+                </MDTypography>
+              </MDBox>
+              <MDBox pt={3}>
+                <ReportGenerator />
               </MDBox>
             </Card>
           </TabPanel>
