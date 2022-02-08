@@ -16,6 +16,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import MDButton from "components/MDButton";
 import MDBox from "components/MDBox";
+import SampleReport from "./SampleReport"
 
 const INITIAL_FORM_STATE = {
 
@@ -69,7 +70,7 @@ const BulkImportForm = () => {
 
     return (
         <>
-            <Grid container pt={4} borderRadius={0.5}>
+            <MDBox><MDBox> <Grid container pt={4} borderRadius={0.5}>
                 <Container maxWidth="md">
                     <div>
                         <Formik
@@ -160,29 +161,32 @@ const BulkImportForm = () => {
                                 <Grid item xs={6} pt={3}>
                                     <h6>Upload File</h6>
                                     <TextField name="file upload"
-                                       
+
                                         rows={1} fullWidth
                                         type="file"></TextField>
                                 </Grid>
-
-
                             </Form>
                         </Formik>
                     </div>
                 </Container>
-
-
             </Grid>
-
-            <br />
-            <MDBox display="flex" alignItems="center" sx={{ pl: 3 }} pb={5}>
-                <Grid item xs={1} justifyContent="center">
-                    <MDButton variant="gradient" color="info" size="small" >
-                        Submit
-                    </MDButton>
-                </Grid>
-
             </MDBox>
+             <MDBox sx={{ ml: -35 }} >
+                    <SampleReport />
+                </MDBox>
+                <br />
+                <MDBox display="flex" alignItems="center" sx={{ pl: 3 }} pb={5}>
+                    <Grid item xs={1} justifyContent="center">
+                        <MDButton variant="gradient" color="info" size="small" >
+                            Submit
+                        </MDButton>
+                    </Grid>
+
+                </MDBox>
+            </MDBox>
+
+
+
         </>
 
     );
