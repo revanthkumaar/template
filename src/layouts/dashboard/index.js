@@ -192,7 +192,7 @@ function Dashboard() {
 						</MDBox>
 					</Grid>
 				</Grid> */}
-				<h4 style={{ paddingTop: '10px' }}>Financial Details</h4>
+				{/* <h4 style={{ paddingTop: '10px' }}>Financial Details</h4>
 				<MDBox mt={1}>
 					<MDBox mt={2}>
 						<Grid container spacing={3}>
@@ -205,7 +205,7 @@ function Dashboard() {
 							</Grid>
 						</Grid>
 					</MDBox>
-				</MDBox>
+				</MDBox> */}
 			</MDBox>
 			<Footer />
 		</DashboardLayout>
