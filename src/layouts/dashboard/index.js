@@ -196,13 +196,11 @@ function Dashboard() {
 				<MDBox mt={1}>
 					<MDBox mt={2}>
 						<Grid container spacing={3}>
-							<Grid item xs={12}>
+							<Grid item xs={6}>
 								<FinancialDetails name="Rent Payments" />
 							</Grid>
-							<Grid item xs={12}>
-								<FinancialDetails name="Day-Wise Payments" />
-							</Grid>
-							<Grid item xs={12}>
+							
+							<Grid item xs={6}>
 								<SecurityDeposit name="Security Deposit" />
 							</Grid>
 						</Grid>
