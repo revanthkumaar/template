@@ -5,109 +5,103 @@ import { Grid } from "@mui/material";
 
 const empList = [
   {
-    id: 1,
-    name: "Building-1",
-    email: "A12",
-    city: "Sivayya",
-    phone: 9876543210,
+    id:1,
+    roomNo: 101,
+    a_c: "Yes",
+    bedNumber: "A12",
+    shelfNo: "S4",
+    monthlyRent: 987,
+    dailyRent:200,
   },
   {
-    id: 2,
-    name: "Building-2",
-    email: "B11",
-    city: "Subramanyam",
-    phone: 9812345678,
+    id:2,
+    roomNo: 102,
+    a_c: "Yes",
+    bedNumber: "A12",
+    shelfNo: "S4",
+    monthlyRent: 987,
+    dailyRent:200,
   },
   {
-    id: 3,
-    name: "Building-3",
-    email: "C03",
-    city: "HariBabu",
-    phone: 7896536289,
+    id:3,
+    roomNo: 103,
+    a_c: "No",
+    bedNumber: "A12",
+    shelfNo: "S3",
+    monthlyRent: 987,
+    dailyRent:200,
   },
   {
-    id: 4,
-    name: "Building-4",
-    email: "B11",
-    city: "Suresh",
-    phone: 9087654321,
+    id:4,
+    roomNo: 104,
+    a_c: "Yes",
+    bedNumber: "A12",
+    shelfNo: "S1",
+    monthlyRent: 987,
+    dailyRent:200,
   },
   {
-    id: 5,
-    name: "Building-1",
-    email: "A12",
-    city: "Sivayya",
-    phone: 9876543210,
+    id:5,
+    roomNo: 101,
+    a_c: "Yes",
+    bedNumber: "A12",
+    shelfNo: "S4",
+    monthlyRent: 987,
+    dailyRent:200,
   },
   {
-    id: 6,
-    name: "Building-2",
-    email: "B11",
-    city: "Subramanyam",
-    phone: 9812345678,
+    id:6,
+    roomNo: 102,
+    a_c: "Yes",
+    bedNumber: "A12",
+    shelfNo: "S4",
+    monthlyRent: 987,
+    dailyRent:200,
   },
   {
-    id: 7,
-    name: "Building-3",
-    email: "C03",
-    city: "HariBabu",
-    phone: 7896536289,
+    id:7,
+    roomNo: 103,
+    a_c: "No",
+    bedNumber: "A12",
+    shelfNo: "S3",
+    monthlyRent: 987,
+    dailyRent:200,
   },
   {
-    id: 8,
-    name: "Building-4",
-    email: "B11",
-    city: "Suresh",
-    phone: 9087654321,
-  },
-  {
-    id: 9,
-    name: "Building-1",
-    email: "A12",
-    city: "Sivayya",
-    phone: 9876543210,
-  },
-  {
-    id: 10,
-    name: "Building-2",
-    email: "B11",
-    city: "Subramanyam",
-    phone: 9812345678,
-  },
-  {
-    id: 11,
-    name: "Building-3",
-    email: "C03",
-    city: "HariBabu",
-    phone: 7896536289,
-  },
-  {
-    id: 12,
-    name: "Building-4",
-    email: "B11",
-    city: "Suresh",
-    phone: 9087654321,
+    id:8,
+    roomNo: 104,
+    a_c: "Yes",
+    bedNumber: "A12",
+    shelfNo: "S1",
+    monthlyRent: 987,
+    dailyRent:200,
   },
 ];
 
-function Actions() {
+function RoomTable() {
   const [data, setData] = useState(empList);
   const columns = [
     { title: "ID", field: "id", editable: false,headerStyle: {
+        backgroundColor: "#0096FF",color:"white"
+      } },
+    { title: "Room No", field: "roomNo", headerStyle: {
       backgroundColor: "#0096FF",color:"white"
     } },
-    { title: "Building Name", field: "name" , headerStyle: {
+    { title: "A/C", field: "a_c" , headerStyle: {
       backgroundColor: "#0096FF",color:"white"
     }},
-    { title: "Building Number", field: "email" ,headerStyle: {
+    { title: "Bed Number", field: "bedNumber" ,headerStyle: {
       backgroundColor: "#0096FF",color:"white"
     }},
-    { title: "Manager Name", field: "city" ,headerStyle: {
+    { title: "Shelf Number", field: "shelfNo" ,headerStyle: {
       backgroundColor: "#0096FF",color:"white"
     }},
-    { title: "Phone Number", field: "phone" ,headerStyle: {
+    { title: "Monthly Rent", field: "monthlyRent" ,headerStyle: {
       backgroundColor: "#0096FF",color:"white"
     }},
+    { title: "Daily Rent", field: "dailyRent" ,headerStyle: {
+        backgroundColor: "#0096FF",color:"white"
+      }},
   ];
 
   return (
@@ -117,7 +111,7 @@ function Actions() {
       <h4 align='center'></h4> */}
       <Grid xs={12}>
         <MaterialTable
-          title="Manage Employees"
+          title="Room Details"
           data={data}
         
           sx={{color:"white"}}
@@ -160,10 +154,11 @@ function Actions() {
             addRowPosition: "first",
             headerStyle: {
               backgroundColor: "#0096FF",color:"white",fontSize:"20px",fontWeight:"bold"
+              
             },
             rowStyle: {
-              fontSize: 16,
-            }
+                fontSize: 16,
+              }
           }}
         />
       </Grid>
@@ -172,4 +167,4 @@ function Actions() {
   );
 }
 
-export default Actions;
+export default RoomTable;
