@@ -85,7 +85,7 @@ function Dashboard() {
 								<MDBox
 									mx={3}
 									mt={-3}
-									py={2}
+									py={1}
 									px={2}
 									variant="gradient"
 									bgColor="info"
@@ -106,7 +106,7 @@ function Dashboard() {
 								<MDBox
 									mx={3}
 									mt={-3}
-									py={2}
+									py={1}
 									px={2}
 									variant="gradient"
 									bgColor="info"
@@ -131,7 +131,7 @@ function Dashboard() {
 								<MDBox
 									mx={3}
 									mt={-3}
-									py={2}
+									py={1}
 									px={2}
 									variant="gradient"
 									bgColor="info"
@@ -152,7 +152,7 @@ function Dashboard() {
 								<MDBox
 									mx={3}
 									mt={-3}
-									py={2}
+									py={1}
 									px={2}
 									variant="gradient"
 									bgColor="info"

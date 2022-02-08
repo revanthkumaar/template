@@ -11,7 +11,6 @@ const columns = [
 		width: 90
 	},
 	{ field: 'lastPaid', headerName: 'LAST PAID ON', width: 130 },
-	
 	{ field: 'checkoutOn', headerName: 'CHECKOUT ON', width: 130 }
 ];
 
