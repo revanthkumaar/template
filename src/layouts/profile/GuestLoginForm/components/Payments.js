@@ -4,51 +4,59 @@ import CheckBox from "@mui/material/Checkbox";
 import MDButton from "components/MDButton";
 import Button from "@mui/material/Button";
 import { Grid } from "@mui/material";
+import Box from '@mui/material/Box'
 
 const columns = [
   {
     field: "firstName",
     headerName: "Room Number",
-    width: 160,
-    editable: true,
+    width: 200,
+    editable: true, 
+    headerClassName: 'super-app-theme--header'
   },
 
   {
     field: "age",
     headerName: "A/c",
     type: "number",
-    width: 160,
+    width: 250,
     editable: true,
+    headerClassName: 'super-app-theme--header'
   },
   {
     field: "bed_id",
     headerName: "Bed Number",
     description: "This column has a value getter and is not sortable.",
     sortable: false,
-    width: 160,
+    width: 250,
+    headerClassName: 'super-app-theme--header'
   },
 
   {
     field: "shelf",
     headerName: "Shelf Number",
     type: "number",
-    width: 160,
+    width: 240,
     editable: true,
+    headerClassName: 'super-app-theme--header'
   },
   {
     field: "monthlyrent",
     headerName: "Monthly Rent",
     type: "number",
-    width: 160,
+    width: 270,
     editable: true,
+    headerClassName: 'super-app-theme--header'
   },
   {
     field: "dailyrent",
     headerName: "Daily Rent",
     type: "number",
-    width: 160,
+    width: 270,
     editable: true,
+    headerClassName: 'super-app-theme--header'
   },
+  
 ];
 
 const rows = [
@@ -147,7 +155,18 @@ const rows = [
 export default function DataGridDemo() {
   return (
     <Grid container>
-      <div style={{ height: 400, width: "100%" }}>
+      <div style={{ height: 400, width: "100%", '& .super-app-theme--header': {
+          backgroundColor: '#87CEFA',
+        }, }}>
+      <Box
+      sx={{
+        height: 300,
+        width: 1,
+        '& .super-app-theme--header': {
+          backgroundColor: '#87CEFA',
+        },
+      }}
+    >
         <DataGrid
           rows={rows}
           checkboxSelection
@@ -155,8 +174,17 @@ export default function DataGridDemo() {
           pageSize={15}
           rowsPerPageOptions={[15]}
           disableSelectionOnClick
+          sx={{
+            height: 300,
+            width: 1,
+            '& .super-app-theme--header': {
+              backgroundColor: '#87CEFA',
+            }}}
+          
         />
+         </Box>
       </div>
+     
       
       <Grid>
         <br/>

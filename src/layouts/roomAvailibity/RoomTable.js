@@ -82,25 +82,25 @@ function RoomTable() {
   const [data, setData] = useState(empList);
   const columns = [
     { title: "ID", field: "id", editable: false,headerStyle: {
-        backgroundColor: "#87CEFA",color:"white"
+        backgroundColor: "#00BFFF",color:"white"
       } },
     { title: "Room No", field: "roomNo", headerStyle: {
-      backgroundColor: "#87CEFA",color:"white"
+      backgroundColor: "#00BFFF",color:"white"
     } },
     { title: "A/C", field: "a_c" , headerStyle: {
-      backgroundColor: "#87CEFA",color:"white"
+      backgroundColor: "#00BFFF",color:"white"
     }},
     { title: "Bed Number", field: "bedNumber" ,headerStyle: {
-      backgroundColor: "#87CEFA",color:"white"
+      backgroundColor: "#00BFFF",color:"white"
     }},
     { title: "Shelf Number", field: "shelfNo" ,headerStyle: {
-      backgroundColor: "#87CEFA",color:"white"
+      backgroundColor: "#00BFFF",color:"white"
     }},
     { title: "Monthly Rent", field: "monthlyRent" ,headerStyle: {
-      backgroundColor: "#87CEFA",color:"white"
+      backgroundColor: "#00BFFF",color:"white"
     }},
     { title: "Daily Rent", field: "dailyRent" ,headerStyle: {
-        backgroundColor: "#87CEFA",color:"white"
+        backgroundColor: "#00BFFF",color:"white"
       }},
   ];
 
@@ -153,7 +153,7 @@ function RoomTable() {
             actionsColumnIndex: -1,
             addRowPosition: "first",
             headerStyle: {
-              backgroundColor: "#87CEFA",color:"white",fontSize:"20px",fontWeight:"bold"
+              backgroundColor: "#00BFFF",color:"white",fontSize:"20px",fontWeight:"bold"
               
             },
             rowStyle: {
