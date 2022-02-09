@@ -2,14 +2,13 @@ import Grid from "@mui/material/Grid";
 import MDBox from "components/MDBox";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
-import BulkImportCheck from "./BulkImportCheck";
+import BulkImport from "./BulkImport";
 import Footer from "examples/Footer";
 
-function BulkImport() {
+function Bulk() {
   return (
     <DashboardLayout>
       <DashboardNavbar />
-     
       <MDBox
                 mx={2}
                 mt={3}
@@ -23,7 +22,7 @@ function BulkImport() {
         <MDBox>
           <Grid container spacing={6}>
             <Grid item xs={20} md={10} lg={20}>
-              <BulkImportCheck />
+              <BulkImport/>
             </Grid>
           </Grid>
         </MDBox>
@@ -34,4 +33,4 @@ function BulkImport() {
   );
 }
 
-export default BulkImport;
+export default Bulk;

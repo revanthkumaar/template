@@ -55,7 +55,7 @@ const routes = [
 	},
 	{
 		type: 'collapse',
-		name: 'Bulk Import',
+		name: 'BulkImport',
 		key: 'bulkImport',
 		icon: <Icon fontSize="small">person_add</Icon>,
 		route: '/bulk_Import',
