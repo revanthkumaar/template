@@ -5,7 +5,7 @@ import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import BulkImportCheck from "./BulkImportCheck";
 import Footer from "examples/Footer";
 
-function ReportGenerator() {
+function BulkImport() {
   return (
     <DashboardLayout>
       <DashboardNavbar />
@@ -34,4 +34,4 @@ function ReportGenerator() {
   );
 }
 
-export default ReportGenerator;
+export default BulkImport;
