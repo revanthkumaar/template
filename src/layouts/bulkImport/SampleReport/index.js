@@ -36,7 +36,7 @@ function Tables() {
                 py={1}
                 px={1}
                 variant="gradient"
-                bgColor="info"
+                sx={{ background: '#1E90FF' }}
                 borderRadius="lg"
                 coloredShadow="info"
               >
