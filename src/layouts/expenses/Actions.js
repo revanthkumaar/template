@@ -83,19 +83,19 @@ function Actions() {
   const [data, setData] = useState(empList);
   const columns = [
     { title: "Branch Name", field: "name", editable: false,headerStyle: {
-      backgroundColor: "#007FFF",color:"white",
+      backgroundColor: "#1E90FF",color:"white",
     } },
     { title: "Title", field: "title" , headerStyle: {
-      backgroundColor: "#007FFF",color:"white"
+      backgroundColor: "#1E90FF",color:"white"
     }},
     { title: "Expense Date", field: "date" ,headerStyle: {
-      backgroundColor: "#007FFF",color:"white"
+      backgroundColor: "#1E90FF",color:"white"
     }},
     { title: "Amount", field: "amount" ,headerStyle: {
-      backgroundColor: "#007FFF",color:"white"
+      backgroundColor: "#1E90FF",color:"white"
     }},
     { title: "Reason", field: "reason" ,headerStyle: {
-      backgroundColor: "#007FFF",color:"white"
+      backgroundColor: "#1E90FF",color:"white"
     }},
   ];
 
@@ -148,7 +148,7 @@ function Actions() {
             actionsColumnIndex: -1,
             addRowPosition: "first",
             headerStyle: {
-              backgroundColor: "#007FFF",color:"white",fontSize:"20px",fontWeight:"bold"
+              backgroundColor: "#1E90FF",color:"white",fontSize:"20px",fontWeight:"bold"
             },rowStyle: {
               fontSize: 16,
             }

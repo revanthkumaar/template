@@ -56,7 +56,7 @@ export default function TabBar() {
 					onChange={handleChange}
 					aria-label="basic tabs example"
 					centered
-					style={{ background: '#6495ED', textColor: 'black' }}
+					TabIndicatorProps={{ style: { background: '#1E90FF' } }}
 				>
 					<Tab label="Admission Form" {...a11yProps(0)} />
 					<Tab label="Allocate Room" {...a11yProps(1)} />
