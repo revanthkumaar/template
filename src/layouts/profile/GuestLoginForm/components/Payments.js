@@ -155,6 +155,15 @@ export default function DataGridDemo() {
 	return (
 		<Grid container>
 			<div style={{ height: 400, width: '100%' }}>
+      <Box
+      sx={{
+        height: 400,
+        width: 1,
+        '& .super-app-theme--header': {
+          backgroundColor: '#007FFF',color:'#FFFAFA',
+        },
+      }}
+    >
 				<DataGrid
 					rows={rows}
 					checkboxSelection
@@ -163,6 +172,7 @@ export default function DataGridDemo() {
 					rowsPerPageOptions={[ 15 ]}
 					disableSelectionOnClick
 				/>
+        </Box>
 			</div>
 
 			<Grid>
