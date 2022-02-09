@@ -165,6 +165,15 @@ const BulkImportForm = () => {
                                         rows={1} fullWidth
                                         type="file"></TextField>
                                 </Grid>
+                                <MDBox display="flex" alignItems="center"  pb={6} pt={3}>
+                    <Grid item xs={1} justifyContent="center">
+                    <MDButton variant="outlined" color="info" size="large">
+                      View&Validate
+                    </MDButton>
+                    </Grid>
+
+                </MDBox>
+
                             </Form>
                         </Formik>
                     </div>
@@ -177,9 +186,9 @@ const BulkImportForm = () => {
                 <br />
                 <MDBox display="flex" alignItems="center" sx={{ pl: 3 }} pb={5}>
                     <Grid item xs={1} justifyContent="center">
-                        <MDButton variant="gradient" color="info" size="small" >
-                            Submit
-                        </MDButton>
+                    <MDButton variant="outlined" color="info" size="large">
+                      Confrim&Upload
+                    </MDButton>
                     </Grid>
 
                 </MDBox>

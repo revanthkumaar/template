@@ -97,6 +97,7 @@ function RoomTable() {
       backgroundColor: "#1E90FF",color:"white"
     }},
     { title: "Monthly Rent", field: "monthlyRent" ,headerStyle: {
+
       backgroundColor: "#1E90FF",color:"white"
     }},
     { title: "Daily Rent", field: "dailyRent" ,headerStyle: {

@@ -41,7 +41,7 @@ function Tables() {
                 coloredShadow="info"
               >
                 <MDTypography variant="h6" color="white">
-                  TRANSACTION REPORT
+                  VIEW AND VALIDATE
                 </MDTypography>
               </MDBox>
               <MDBox pt={3}>
