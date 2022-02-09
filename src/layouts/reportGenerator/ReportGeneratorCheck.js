@@ -145,7 +145,7 @@ const ReportGeneratorForm = () => {
 							</Grid>
 							<Grid item xs={3} mt={3.5} justifyContent="center">
 								<MDButton variant="outlined" color="info" size="medium" onClick={submitField}>
-									Generate Report
+									Download Report
 								</MDButton>
 							</Grid>
 						</Grid>

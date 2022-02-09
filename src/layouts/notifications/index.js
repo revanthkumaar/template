@@ -222,7 +222,7 @@ export default function FullWidthTabs() {
 								coloredShadow="info"
 							>
 								<MDTypography variant="h6" color="light">
-									REPORT GENERATOR
+									DOWNLOAD REPORT
 								</MDTypography>
 							</MDBox>
 							<MDBox m={1} pl={1}>
