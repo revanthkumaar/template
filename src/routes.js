@@ -3,7 +3,7 @@ import Dashboard from 'layouts/dashboard';
 import Notifications from 'layouts/notifications';
 import Profile from 'layouts/profile';
 import SignIn from 'layouts/authentication/sign-in';
-import Tables from 'layouts/tables';
+// import Tables from 'layouts/tables';
 import Branch from 'layouts/branch/index';
 // import ReportGenerator from 'layouts/reportGenerator/index';
 import RoomAvailability from 'layouts/roomAvailibity';
