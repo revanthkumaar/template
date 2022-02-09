@@ -10,7 +10,7 @@ const columns = [
 	{
 		field: 'firstName',
 		headerName: 'Room Number',
-		width: 200,
+		width: 150,
 		editable: true,
 		headerClassName: 'super-app-theme--header'
 	},
@@ -19,7 +19,7 @@ const columns = [
 		field: 'age',
 		headerName: 'A/c',
 		type: 'number',
-		width: 200,
+		width: 100,
 		editable: true,
 		headerClassName: 'super-app-theme--header'
 	},
@@ -28,7 +28,7 @@ const columns = [
 		headerName: 'Bed Number',
 		description: 'This column has a value getter and is not sortable.',
 		sortable: false,
-		width: 250,
+		width: 150,
 		headerClassName: 'super-app-theme--header'
 	},
 
@@ -36,7 +36,7 @@ const columns = [
 		field: 'shelf',
 		headerName: 'Shelf Number',
 		type: 'number',
-		width: 200,
+		width: 150,
 		editable: true,
 		headerClassName: 'super-app-theme--header'
 	},
@@ -44,7 +44,7 @@ const columns = [
 		field: 'monthlyrent',
 		headerName: 'Monthly Rent',
 		type: 'number',
-		width: 250,
+		width: 200,
 		editable: true,
 		headerClassName: 'super-app-theme--header'
 	},
@@ -52,7 +52,7 @@ const columns = [
 		field: 'dailyrent',
 		headerName: 'Daily Rent',
 		type: 'number',
-		width: 250,
+		width: 150,
 		editable: true,
 		headerClassName: 'super-app-theme--header'
 	},
@@ -60,7 +60,7 @@ const columns = [
 		field: 'action',
 		headerName: 'Action',
 		sortable: false,
-		width: 200,
+		width: 180,
 		headerClassName: 'super-app-theme--header',
 		renderCell: (params) => {
 			const onClick = (e) => {

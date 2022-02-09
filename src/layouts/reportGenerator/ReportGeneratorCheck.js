@@ -78,7 +78,7 @@ const ReportGeneratorForm = () => {
 				>
 					<Form>
 						<Grid container spacing={3} pt={1}>
-							<Grid item xs={3} pt={1}>
+							<Grid item xs={3} mt={1}>
 								<h6>Report Type</h6>
 								<FormControl fullWidth>
 									<Select
@@ -136,16 +136,14 @@ const ReportGeneratorForm = () => {
 									</Select>
 								</FormControl>
 							</Grid> */}
-							<Grid item xs={3} pt={1}>
+							<Grid item xs={3} mt={1}>
 								<h6>Select Report Duration</h6>
 								<DateTimePicker name="arrivalDate" label="From" />
 							</Grid>
-							<Grid item xs={3} pt={3}>
+							<Grid item xs={3} mt={3.5}>
 								<DateTimePicker name="checkoutDate" label="To" />
 							</Grid>
-
-							<Divider variant="middle" />
-							<Grid item xs={3} justifyContent="center">
+							<Grid item xs={3} mt={3.5} justifyContent="center">
 								<MDButton variant="outlined" color="info" size="medium" onClick={submitField}>
 									Generate Report
 								</MDButton>
