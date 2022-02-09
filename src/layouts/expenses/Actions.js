@@ -8,16 +8,16 @@ const empList = [
     id: 1,
     name: "Building 1",
     title: "Daily Needs",
-    date: "12/01/2022",
-    amount: 9210,
+    date: "08/09/2021",
+    amount: 12345,
     reason: "Inventory Report"
   },
   {
     id: 2,
     name: "Building 2",
     title: "Material Change",
-    date: "12/02/2022",
-    amount: 9910,
+    date: "16/05/2021",
+    amount: 34500,
     reason: "Material Brokage"
   },
   {
@@ -25,47 +25,47 @@ const empList = [
     name: "Building 3",
     title: "Electrical Repair",
     date: "11/01/2022",
-    amount: 9210,
+    amount: 2420,
     reason: "Electrical Repair"
   },
   {
     id: 4,
     name: "Building 1",
     title: "Daily Needs",
-    date: "12/01/2022",
-    amount: 9210,
+    date: "12/11/2021",
+    amount: 10454,
     reason: "Inventory Report"
   },
   {
     id: 5,
     name: "Building 2",
     title: "Material Change",
-    date: "12/02/2022",
-    amount: 9910,
+    date: "02/06/2021",
+    amount: 12545,
     reason: "Material Brokage"
   },
   {
     id: 6,
     name: "Building 3",
     title: "Electrical Repair",
-    date: "11/01/2022",
-    amount: 9210,
+    date: "29/04/2021",
+    amount: 3650,
     reason: "Electrical Repair"
   },
   {
     id: 7,
     name: "Building 1",
     title: "Daily Needs",
-    date: "12/01/2022",
-    amount: 9210,
+    date: "21/01/2021",
+    amount: 9565,
     reason: "Inventory Report"
   },
   {
     id: 8,
     name: "Building 2",
     title: "Material Change",
-    date: "12/02/2022",
-    amount: 9910,
+    date: "27/08/2021",
+    amount: 21500,
     reason: "Material Brokage"
   },
   {
@@ -73,7 +73,7 @@ const empList = [
     name: "Building 3",
     title: "Electrical Repair",
     date: "11/01/2022",
-    amount: 9210,
+    amount: 7675,
     reason: "Electrical Repair"
   },
   
