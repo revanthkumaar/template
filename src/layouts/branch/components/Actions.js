@@ -97,6 +97,7 @@ function Actions() {
 			title: 'ID',
 			field: 'id',
 			editable: false,
+      width: "4%",
 			headerStyle: {
 				backgroundColor: '#1E90FF',
 				color: 'white',
