@@ -1,4 +1,3 @@
-// Material Dashboard 2 React layouts
 import Dashboard from 'layouts/dashboard';
 import Notifications from 'layouts/notifications';
 import Profile from 'layouts/profile';
@@ -56,7 +55,7 @@ const routes = [
 	},
 	{
 		type: 'collapse',
-		name: 'Bulk Import',
+		name: 'BulkImport',
 		key: 'bulkImport',
 		icon: <Icon fontSize="small">person_add</Icon>,
 		route: '/bulk_Import',
