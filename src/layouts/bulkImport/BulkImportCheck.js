@@ -168,7 +168,7 @@ const BulkImportForm = () => {
                                 <MDBox display="flex" alignItems="center"  pb={6} pt={3}>
                     <Grid item xs={1} justifyContent="center">
                     <MDButton variant="outlined" color="info" size="large">
-                      Confrim&Upload
+                      View&Validate
                     </MDButton>
                     </Grid>
 
