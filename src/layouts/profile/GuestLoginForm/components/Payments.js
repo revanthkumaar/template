@@ -4,50 +4,73 @@ import CheckBox from "@mui/material/Checkbox";
 import MDButton from "components/MDButton";
 import Button from "@mui/material/Button";
 import { Grid } from "@mui/material";
+import Box from "@mui/material/Box";
 
 const columns = [
   {
     field: "firstName",
     headerName: "Room Number",
-    width: 160,
+    width: 200,
     editable: true,
+    headerClassName: "super-app-theme--header",
   },
 
   {
     field: "age",
     headerName: "A/c",
     type: "number",
-    width: 160,
+    width: 200,
     editable: true,
+    headerClassName: "super-app-theme--header",
   },
   {
     field: "bed_id",
     headerName: "Bed Number",
     description: "This column has a value getter and is not sortable.",
     sortable: false,
-    width: 160,
+    width: 250,
+    headerClassName: "super-app-theme--header",
   },
 
   {
     field: "shelf",
     headerName: "Shelf Number",
     type: "number",
-    width: 160,
+    width: 200,
     editable: true,
+    headerClassName: "super-app-theme--header",
   },
   {
     field: "monthlyrent",
     headerName: "Monthly Rent",
     type: "number",
-    width: 160,
+    width: 250,
     editable: true,
+    headerClassName: "super-app-theme--header",
   },
   {
     field: "dailyrent",
     headerName: "Daily Rent",
     type: "number",
-    width: 160,
+    width: 250,
     editable: true,
+    headerClassName: "super-app-theme--header",
+  },
+  {
+    field: 'action',
+    headerName: 'Action',
+    sortable: false,
+	width: 200,
+	headerClassName: "super-app-theme--header",
+    renderCell: (params) => {
+      const onClick = (e) => {
+        e.stopPropagation(); 
+
+        return alert("Booked");
+      };
+
+      return <MDButton onClick={onClick} variant="outlined" color="info" size="small">Book</MDButton>;
+    },
   },
 ];
 
@@ -146,24 +169,28 @@ const rows = [
 
 export default function DataGridDemo() {
   return (
-    <Grid container>
-      <div style={{ height: 400, width: "100%" }}>
+    <Grid container style={{ height: 400, width: "100%" }}>
+      <Box
+        sx={{
+          height: 400,
+          width: 1,
+          "& .super-app-theme--header": {
+            backgroundColor: "#007FFF",
+            color: "#FFFAFA",
+          },
+        }}
+      >
         <DataGrid
           rows={rows}
-          checkboxSelection
+          
           columns={columns}
           pageSize={15}
           rowsPerPageOptions={[15]}
           disableSelectionOnClick
         />
-      </div>
-      
-      <Grid>
-        <br/>
-        <MDButton variant="outlined" color="info" size="large" ml="50%" mr="50%" sx={{ml:"380%"}}>
-          Book
-        </MDButton>
-      </Grid>
+      </Box>
+
+     
     </Grid>
   );
 }

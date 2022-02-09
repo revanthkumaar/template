@@ -94,19 +94,19 @@ function Actions() {
   const [data, setData] = useState(empList);
   const columns = [
     { title: "ID", field: "id", editable: false,headerStyle: {
-      backgroundColor: "#87CEFA",color:"white", mt:2,mb:2
+      backgroundColor: "#007FFF",color:"white", mt:2,mb:2,height:10
     } },
     { title: "Building Name", field: "name" , headerStyle: {
-      backgroundColor: "#87CEFA",color:"white"
+      backgroundColor: "#007FFF",color:"white",height:10
     }},
     { title: "Building Number", field: "email" ,headerStyle: {
-      backgroundColor: "#87CEFA",color:"white"
+      backgroundColor: "#007FFF",color:"white",height:10
     }},
     { title: "Manager Name", field: "city" ,headerStyle: {
-      backgroundColor: "#87CEFA",color:"white"
+      backgroundColor: "#007FFF",color:"white",height:10
     }},
     { title: "Phone Number", field: "phone" ,headerStyle: {
-      backgroundColor: "#87CEFA",color:"white"
+      backgroundColor: "#007FFF",color:"white",height:10
     }},
   ];
 
@@ -159,7 +159,7 @@ function Actions() {
             actionsColumnIndex: -1,
             addRowPosition: "first",
             headerStyle: {
-              backgroundColor: "#87CEFA",color:"white",fontSize:"20px",fontWeight:"bold"
+              backgroundColor: "#007FFF",color:"white",fontSize:"20px",fontWeight:"bold",height:10
             },
             rowStyle: {
               fontSize: 16,
