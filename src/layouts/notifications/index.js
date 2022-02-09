@@ -39,6 +39,7 @@ import GuestDetails from './data/GuestDetails';
 import Occupancy from './data/Occupancy';
 import Notices from './data/Notices';
 import ReportGenerator from 'layouts/reportGenerator/';
+import Building from 'layouts/profile/GuestLoginForm/components/Building';
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
@@ -94,23 +95,24 @@ export default function FullWidthTabs() {
 					<MDTypography variant="button" color="text" fontWeight="regular">
 						Check all the reports of your properties here
 					</MDTypography>
+					<MDBox mt={2}>
+						<Building />
+					</MDBox>
 				</MDBox>
 				<AppBar position="static">
-					<MDBox p={2}>
+					<MDBox p={1}>
 						<Tabs
 							value={value}
 							onChange={handleChange}
-							indicatorColor="secondary"
-							textColor="inherit"
-							variant="fullWidth"
+							variant="gradient"
 							aria-label="full width tabs example"
-							style={{ background: '#6495ED' }}
+							TabIndicatorProps={{ style: { background: '#1E90FF' } }}
 						>
 							<Tab label="Transactions" {...a11yProps(0)} />
 							<Tab label="Guest Master" {...a11yProps(1)} />
 							<Tab label="Occupancy" {...a11yProps(2)} />
 							<Tab label="Upcoming Checkouts" {...a11yProps(3)} />
-							<Tab label="Additional Reports" {...a11yProps(4)} />
+							<Tab label="Download Reports" {...a11yProps(4)} />
 						</Tabs>
 					</MDBox>
 				</AppBar>
@@ -127,10 +129,10 @@ export default function FullWidthTabs() {
 							<MDBox
 								mx={3}
 								mt={-3}
-								py={2}
+								py={1}
 								px={2}
 								variant="gradient"
-								sx={{ background: '#6495ED' }}
+								sx={{ background: '#1E90FF' }}
 								borderRadius="lg"
 								coloredShadow="info"
 							>
@@ -149,10 +151,10 @@ export default function FullWidthTabs() {
 							<MDBox
 								mx={3}
 								mt={-3}
-								py={2}
+								py={1}
 								px={2}
 								variant="gradient"
-								sx={{ background: '#6495ED' }}
+								sx={{ background: '#1E90FF' }}
 								borderRadius="lg"
 								coloredShadow="info"
 							>
@@ -170,10 +172,10 @@ export default function FullWidthTabs() {
 							<MDBox
 								mx={3}
 								mt={-3}
-								py={2}
+								py={1}
 								px={2}
 								variant="gradient"
-								sx={{ background: '#6495ED' }}
+								sx={{ background: '#1E90FF' }}
 								borderRadius="lg"
 								coloredShadow="info"
 							>
@@ -191,10 +193,10 @@ export default function FullWidthTabs() {
 							<MDBox
 								mx={3}
 								mt={-3}
-								py={2}
+								py={1}
 								px={2}
 								variant="gradient"
-								sx={{ background: '#6495ED' }}
+								sx={{ background: '#1E90FF' }}
 								borderRadius="lg"
 								coloredShadow="info"
 							>
@@ -212,10 +214,10 @@ export default function FullWidthTabs() {
 							<MDBox
 								mx={3}
 								mt={-3}
-								py={2}
+								py={1}
 								px={2}
 								variant="gradient"
-								sx={{ background: '#6495ED' }}
+								sx={{ background: '#1E90FF' }}
 								borderRadius="lg"
 								coloredShadow="info"
 							>
@@ -223,7 +225,7 @@ export default function FullWidthTabs() {
 									REPORT GENERATOR
 								</MDTypography>
 							</MDBox>
-							<MDBox>
+							<MDBox m={1} pl={1}>
 								<ReportGenerator />
 							</MDBox>
 						</Card>

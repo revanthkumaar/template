@@ -88,7 +88,7 @@ function Dashboard() {
 									py={1}
 									px={2}
 									variant="gradient"
-									bgColor="info"
+									sx={{ background: '#1E90FF' }}
 									borderRadius="lg"
 									coloredShadow="info"
 								>
@@ -109,7 +109,7 @@ function Dashboard() {
 									py={1}
 									px={2}
 									variant="gradient"
-									bgColor="info"
+									sx={{ background: '#1E90FF' }}
 									borderRadius="lg"
 									coloredShadow="info"
 								>
@@ -134,7 +134,7 @@ function Dashboard() {
 									py={1}
 									px={2}
 									variant="gradient"
-									bgColor="info"
+									sx={{ background: '#1E90FF' }}
 									borderRadius="lg"
 									coloredShadow="info"
 								>
@@ -155,7 +155,7 @@ function Dashboard() {
 									py={1}
 									px={2}
 									variant="gradient"
-									bgColor="info"
+									sx={{ background: '#1E90FF' }}
 									borderRadius="lg"
 									coloredShadow="info"
 								>
