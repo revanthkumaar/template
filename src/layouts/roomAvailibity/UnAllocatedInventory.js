@@ -25,6 +25,7 @@ const List = [
 		shelfNo: 'S1'
 	},
 	{
+		id: 5,
 		bedNumber: 'A12',
 		shelfNo: 'S4'
 	},
