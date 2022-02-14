@@ -1,14 +1,12 @@
-/* eslint-disable react/prop-types */
-// @mui material components
+
 import Tooltip from "@mui/material/Tooltip";
 
-// Soft UI Dashboard React components
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 import MDAvatar from "components/MDAvatar";
 import MDProgress from "components/MDProgress";
 
-// Images
+
 import logoXD from "assets/images/small-logos/logo-xd.svg";
 import logoAtlassian from "assets/images/small-logos/logo-atlassian.svg";
 import logoSlack from "assets/images/small-logos/logo-slack.svg";

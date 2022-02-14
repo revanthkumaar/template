@@ -147,8 +147,7 @@ function Actions() {
 	return (
 		<div className="App">
 			<Grid container>
-				{/* <h1 align="center"></h1>
-      <h4 align='center'></h4> */}
+				
 				<Grid xs={12}>
 					<MaterialTable
 						title="Manage Employees"
