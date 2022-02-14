@@ -25,7 +25,7 @@ function Building() {
 				onChange={handleChange}
 				name="country"
 				displayEmpty
-				// className={classes.selectEmpty}
+				
 			>
 				<MenuItem value="">All Buildings</MenuItem>
 				<MenuItem value="Building-1">Building-1</MenuItem>
