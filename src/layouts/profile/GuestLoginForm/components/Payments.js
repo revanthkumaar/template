@@ -32,14 +32,7 @@ const columns = [
 		headerClassName: 'super-app-theme--header'
 	},
 
-	{
-		field: 'shelf',
-		headerName: 'Shelf Number',
-		type: 'number',
-		width: 150,
-		editable: true,
-		headerClassName: 'super-app-theme--header'
-	},
+	
 	{
 		field: 'monthlyrent',
 		headerName: 'Monthly Rent',
@@ -85,7 +78,7 @@ const rows = [
 		firstName: 'B101',
 		age: 'Yes',
 		bed_id: 'G12',
-		shelf: 3,
+	
 		monthlyrent: '20000',
 		dailyrent: 800
 	},
@@ -95,7 +88,7 @@ const rows = [
 		firstName: 'A101',
 		age: 'Yes',
 		bed_id: 'P1C',
-		shelf: 4,
+	
 		monthlyrent: '11500',
 		dailyrent: 600
 	},
@@ -105,7 +98,7 @@ const rows = [
 		firstName: 'C102',
 		age: 'Yes',
 		bed_id: 'G1A',
-		shelf: 5,
+	
 		monthlyrent: '8500',
 		dailyrent: 500
 	},
@@ -115,7 +108,7 @@ const rows = [
 		firstName: 'D100',
 		age: 'No',
 		bed_id: 'B1A',
-		shelf: 1,
+	
 		monthlyrent: '7500',
 		dailyrent: 400
 	},
@@ -125,7 +118,7 @@ const rows = [
 		firstName: 'C101',
 		age: 'Yes',
 		bed_id: 'B2A',
-		shelf: 2,
+	
 		monthlyrent: '8500',
 		dailyrent: 500
 	},
@@ -135,7 +128,7 @@ const rows = [
 		firstName: 'A101',
 		age: 'No',
 		bed_id: 'B2A',
-		shelf: 3,
+	
 		monthlyrent: '7500',
 		dailyrent: 400
 	},
@@ -145,7 +138,7 @@ const rows = [
 		firstName: 'P101',
 		age: 'Yes',
 		bed_id: 'B2B',
-		shelf: 4,
+	
 		monthlyrent: '8500',
 		dailyrent: 600
 	},
@@ -155,7 +148,7 @@ const rows = [
 		firstName: 'G101',
 		age: 'No',
 		bed_id: 'B22',
-		shelf: 1,
+	
 		monthlyrent: '7500',
 		dailyrent: 400
 	},
@@ -165,7 +158,7 @@ const rows = [
 		firstName: 'F101',
 		age: 'Yes',
 		bed_id: 'D2A',
-		shelf: 2,
+	
 		monthlyrent: '6500',
 		dailyrent: 500
 	}
