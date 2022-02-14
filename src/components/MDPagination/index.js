@@ -1,30 +1,15 @@
-/**
-=========================================================
-* Material Dashboard 2 React - v2.0.0
-=========================================================
 
-* Product Page: https://www.creative-tim.com/product/material-dashboard-react
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
 
 import { useContext, forwardRef, createContext } from "react";
 
-// prop-types is a library for typechecking of props
+
 import PropTypes from "prop-types";
 
-// Material Dashboard 2 React components
 import MDBox from "components/MDBox";
 
-// Custom styles for MDPagination
 import MDPaginationItemRoot from "components/MDPagination/MDPaginationItemRoot";
 
-// The Pagination main context
+
 const Context = createContext();
 
 const MDPagination = forwardRef(
@@ -61,7 +46,7 @@ const MDPagination = forwardRef(
   }
 );
 
-// Setting default values for the props of MDPagination
+
 MDPagination.defaultProps = {
   item: false,
   variant: "gradient",
@@ -70,7 +55,6 @@ MDPagination.defaultProps = {
   active: false,
 };
 
-// Typechecking props for the MDPagination
 MDPagination.propTypes = {
   item: PropTypes.bool,
   variant: PropTypes.oneOf(["gradient", "contained"]),

@@ -141,7 +141,7 @@ export default function App() {
                   ? brandDark
                   : brandWhite
               }
-              brandName="SRI LAKSHMI HEAVEN"
+              brandName="SRI LAKSHMI HEAVEN "
               routes={routes}
               onMouseEnter={handleOnMouseEnter}
               onMouseLeave={handleOnMouseLeave}
