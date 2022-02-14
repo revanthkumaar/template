@@ -10,7 +10,7 @@ const empList = [
 		roomNo: 101,
 		a_c: 'Yes',
 		bedNumber: 'A12',
-		shelfNo: 'S4',
+		
 		monthlyRent: 987,
 		dailyRent: 200
 	},
@@ -19,7 +19,7 @@ const empList = [
 		roomNo: 102,
 		a_c: 'Yes',
 		bedNumber: 'A12',
-		shelfNo: 'S4',
+	
 		monthlyRent: 987,
 		dailyRent: 200
 	},
@@ -28,7 +28,7 @@ const empList = [
 		roomNo: 103,
 		a_c: 'No',
 		bedNumber: 'A12',
-		shelfNo: 'S3',
+		
 		monthlyRent: 987,
 		dailyRent: 200
 	},
@@ -37,7 +37,7 @@ const empList = [
 		roomNo: 104,
 		a_c: 'Yes',
 		bedNumber: 'A12',
-		shelfNo: 'S1',
+	
 		monthlyRent: 987,
 		dailyRent: 200
 	},
@@ -46,7 +46,7 @@ const empList = [
 		roomNo: 101,
 		a_c: 'Yes',
 		bedNumber: 'A12',
-		shelfNo: 'S4',
+	
 		monthlyRent: 987,
 		dailyRent: 200
 	},
@@ -55,7 +55,7 @@ const empList = [
 		roomNo: 102,
 		a_c: 'Yes',
 		bedNumber: 'A12',
-		shelfNo: 'S4',
+	
 		monthlyRent: 987,
 		dailyRent: 200
 	},
@@ -64,7 +64,7 @@ const empList = [
 		roomNo: 103,
 		a_c: 'No',
 		bedNumber: 'A12',
-		shelfNo: 'S3',
+	
 		monthlyRent: 987,
 		dailyRent: 200
 	},
@@ -73,7 +73,7 @@ const empList = [
 		roomNo: 104,
 		a_c: 'Yes',
 		bedNumber: 'A12',
-		shelfNo: 'S1',
+	
 		monthlyRent: 987,
 		dailyRent: 200
 	}
@@ -115,14 +115,8 @@ function RoomTable() {
 				color: 'white'
 			}
 		},
-		{
-			title: 'Shelf Number',
-			field: 'shelfNo',
-			headerStyle: {
-				backgroundColor: '#1E90FF',
-				color: 'white'
-			}
-		},
+		
+	
 		{
 			title: 'Monthly Rent',
 			field: 'monthlyRent',

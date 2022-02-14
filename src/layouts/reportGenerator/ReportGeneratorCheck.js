@@ -1,18 +1,15 @@
 import React, { useState } from 'react';
-//import Header from '../Components/Header';
+
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 
-//custom imports
+
 import MDBox from 'components/MDBox';
-//import { createStyles, makeStyles } from '@mui/styles';
-//import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Card, Container, Grid, Typography } from '@mui/material';
+
+import { Grid } from '@mui/material';
 import DateTimePicker from './Components/DataTimePicker';
 
-//import Divider from '@mui/material/Divider';
-import Divider from '@mui/material/Divider';
-import InputLabel from '@mui/material/InputLabel';
+
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
@@ -37,7 +34,7 @@ const FORM_VALIDATION = Yup.object().shape({
 });
 
 const ReportGeneratorForm = () => {
-	//const classes = useStyles();
+	
 
 	const [ guestStatus, setGuestStatus ] = React.useState('');
 
@@ -98,44 +95,7 @@ const ReportGeneratorForm = () => {
 									</Select>
 								</FormControl>
 							</Grid>
-							{/* <Grid item xs={6} pt={1}>
-								<h6>Select Payment Status</h6>
-								<FormControl fullWidth>
-									<InputLabel id="demo-simple-select-label">Filter by Status</InputLabel>
-									<Select
-										sx={{ minHeight: 44 }}
-										labelId="demo-simple-select-label"
-										id="demo-simple-select"
-										value={status}
-										label="Filter by Status"
-										name="status"
-										onChange={handleChangeSharing}
-									>
-										<MenuItem value={13}>Pending</MenuItem>
-										<MenuItem value={14}>Completed</MenuItem>
-										<MenuItem value={15}>PrePaid</MenuItem>
-									</Select>
-								</FormControl>
-							</Grid>
-							<Grid item xs={6} pt={1}>
-								<h6>Select Guest Status</h6>
-								<FormControl fullWidth>
-									<InputLabel id="demo-simple-select-label">Filter by Status</InputLabel>
-									<Select
-										sx={{ minHeight: 44 }}
-										labelId="demo-simple-select-label"
-										id="demo-simple-select"
-										value={guestStatus}
-										label="Filter by Guest Status "
-										name="guestStatus"
-										onChange={handleChangeRoomNo}
-									>
-										<MenuItem value={17}>available</MenuItem>
-										<MenuItem value={18}>Filled</MenuItem>
-										<MenuItem value={19}>Pending</MenuItem>
-									</Select>
-								</FormControl>
-							</Grid> */}
+							
 							<Grid item xs={3} mt={1}>
 								<h6>Select Report Duration</h6>
 								<DateTimePicker name="arrivalDate" label="From" />

@@ -1,11 +1,10 @@
-// @mui material components
+
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import ArrowCircleRightRoundedIcon from '@mui/icons-material/ArrowCircleRightRounded';
 import IconButton from '@mui/material/IconButton';
 import { CardContent, Divider } from '@mui/material';
 
-// Material Dashboard 2 React components
 import MDBox from 'components/MDBox';
 import MDTypography from 'components/MDTypography';
 
