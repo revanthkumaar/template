@@ -31,7 +31,7 @@ function Building() {
         onChange={handleChange}
         name="country"
         displayEmpty
-        // className={classes.selectEmpty}
+        
       >
         <MenuItem value="">All Branches</MenuItem>
         <MenuItem value="Building-1">Branch-1</MenuItem>

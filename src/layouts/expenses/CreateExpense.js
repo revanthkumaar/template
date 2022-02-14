@@ -1,14 +1,12 @@
 import * as React from "react";
-//import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
+
 import MDButton from "components/MDButton";
-// import Typography from "@mui/material/Typography";
-// import Modal from "@mui/material/Modal";
-import { TextField, Grid, MenuItem } from "@mui/material";
+
+import { TextField, Grid } from "@mui/material";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-//import DialogContentText from '@mui/material/DialogContentText';
+
 import DialogTitle from "@mui/material/DialogTitle";
 import { Select } from "@mui/material";
 import { FormControl } from "@mui/material";
@@ -26,7 +24,6 @@ const style = {
   p: 4,
 };
 
-
 export default function BasicModal() {
   const [open, setOpen] = React.useState(false);
   const [manager, setManager] = React.useState("Manager");
@@ -42,74 +39,73 @@ export default function BasicModal() {
   const handleClose = () => {
     setOpen(false);
   };
-  const Add =(a)=>{
+  const Add = (a) => {
     a.stopPropagation();
-    alert("New expense is added")
-  }
+    alert("New expense is added");
+  };
 
   return (
     <div>
-      
-      <MDButton color="info" onClick={handleClickOpen}>+ Create Expense</MDButton>
+      <MDButton color="info" onClick={handleClickOpen}>
+        + Create Expense
+      </MDButton>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Create Expense</DialogTitle>
         <DialogContent>
-          <Grid container >
-          <TextField
-            margin="dense"
-            id="outlined-basic"
-            label="Select Branch"
-            variant="outlined"
-            fullWidth
-          />
+          <Grid container>
+            <TextField
+              margin="dense"
+              id="outlined-basic"
+              label="Select Branch"
+              variant="outlined"
+              fullWidth
+            />
 
-          <TextField
-            margin="dense"
-            id="outlined-basic1"
-            label="Select Title"
-            variant="outlined"
-            fullWidth
-          />
-          
-          <FormControl fullWidth margin="dense">
-            <InputLabel id="demo-simple-select-label">
-              Expense Amount
-            </InputLabel>
-            <Select
-              sx={{ minHeight: 44 }}
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={manager}
-              label="Select Manager"
-              name="manager"
-              onChange={handleChange}
-            >
-              
-            </Select>
-          </FormControl>
+            <TextField
+              margin="dense"
+              id="outlined-basic1"
+              label="Select Title"
+              variant="outlined"
+              fullWidth
+            />
 
-          <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Expense Date"
-            type="number"
-            fullWidth
-            variant="outlined"
-          />
-          <TextField
-            margin="dense"
-            id="outlined-basic1"
-            label="Comments"
-            variant="outlined"
-            fullWidth
-          />
+            <FormControl fullWidth margin="dense">
+              <InputLabel id="demo-simple-select-label">
+                Expense Amount
+              </InputLabel>
+              <Select
+                sx={{ minHeight: 44 }}
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={manager}
+                label="Select Manager"
+                name="manager"
+                onChange={handleChange}
+              ></Select>
+            </FormControl>
+
+            <TextField
+              autoFocus
+              margin="dense"
+              id="name"
+              label="Expense Date"
+              type="number"
+              fullWidth
+              variant="outlined"
+            />
+            <TextField
+              margin="dense"
+              id="outlined-basic1"
+              label="Comments"
+              variant="outlined"
+              fullWidth
+            />
           </Grid>
         </DialogContent>
         <DialogActions>
-        <MDButton variant="outlined" color="info" size="small"onClick={Add}>
-                      Add Expense
-                    </MDButton>
+          <MDButton variant="outlined" color="info" size="small" onClick={Add}>
+            Add Expense
+          </MDButton>
         </DialogActions>
       </Dialog>
     </div>

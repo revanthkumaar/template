@@ -1,8 +1,8 @@
 {
   "name": "properteaseapplication",
+  "homepage": "https://manohar519.github.io/template",
   "version": "2.0.0",
   "private": true,
-  "homepage": "https://manohar519.github.io",
   "author": "",
   "license": "",
   "description": "",
@@ -50,7 +50,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build", 
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start"
   },
