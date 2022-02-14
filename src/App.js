@@ -29,8 +29,8 @@ import {
   setOpenConfigurator,
 } from "context";
 
-import brandWhite from "assets/images/logo-ct.png";
-import brandDark from "assets/images/logo-ct-dark.png";
+import brandWhite from "assets/images/hostel1.png";
+import brandDark from "assets/images/hostel1.png";
 
 export default function App() {
   const [controller, dispatch] = useMaterialUIController();
