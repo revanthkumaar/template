@@ -1,35 +1,11 @@
-/**
-=========================================================
-* Material Dashboard 2 React - v2.0.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-react
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
-/**
-  This file is used for controlling the global states of the components,
-  you can customize the states for the different components here.
-*/
-
 import { createContext, useContext, useReducer } from "react";
 
-// prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
 
-// The Soft UI Dashboard PRO Material main context
 const MaterialUI = createContext();
 
-// Setting custom name for the context which is visible on react dev tools
 MaterialUI.displayName = "MaterialUIContext";
 
-// Material Dashboard 2 PRO React reducer
 function reducer(state, action) {
   switch (action.type) {
     case "MINI_SIDENAV": {
@@ -98,9 +74,6 @@ function reducer(state, action) {
   }
 }
 
-// Material Dashboard 2 PRO React context provider
-
-// Material Dashboard 2 PRO React custom hook for using context
 function useMaterialUIController() {
   const context = useContext(MaterialUI);
 
@@ -129,7 +102,12 @@ function MaterialUIControllerProvider({ children }) {
 
   const [controller, dispatch] = useReducer(reducer, initialState);
 
-  return <MaterialUI.Provider value={[controller, dispatch]}> {children} </MaterialUI.Provider>;
+  return (
+    <MaterialUI.Provider value={[controller, dispatch]}>
+      {" "}
+      {children}{" "}
+    </MaterialUI.Provider>
+  );
 }
 
 // Typechecking props for the MaterialUIControllerProvider
