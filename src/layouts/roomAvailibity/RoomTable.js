@@ -105,6 +105,7 @@ function RoomTable() {
 				backgroundColor: '#1E90FF',
 				color: 'white'
 			}
+			
 		},
 		{
 			title: 'Bed Number',

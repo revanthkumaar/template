@@ -185,6 +185,8 @@ function Actions() {
 								})
 						}}
 						options={{
+							exportButton:true,
+							grouping:true,
 							actionsColumnIndex: -1,
 							addRowPosition: 'first',
 							headerStyle: {
