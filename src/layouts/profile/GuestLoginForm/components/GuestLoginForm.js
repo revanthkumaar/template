@@ -364,7 +364,7 @@ const GuestLoginForm = () => {
                     {/* <MDButton variant="outlined" color="info" size="large">
                       Submit
                     </MDButton> */}
-                    <Button>Submit</Button>
+                    <Button type="submit">Submit</Button>
                   </Grid>
                 </Grid>
               </Form>
