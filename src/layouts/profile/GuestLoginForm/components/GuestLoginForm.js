@@ -1,31 +1,18 @@
 import React from "react";
-// import Header from '../Components/Header';
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-// import { createStyles, makeStyles } from '@mui/styles';
-// import { createTheme, ThemeProvider } from '@mui/material/styles';
+
 import { Container, Grid, Typography } from "@mui/material";
 import moment from "moment";
 import Divider from "@mui/material/Divider";
-//import Chip from "@mui/material/Chip";
+
 import Textfield from "./TextField";
-import Select from "../../../../Select";
+import Select from "./Select";
 import Checkbox from "./CheckBox";
 import DateTimePicker from "./DataTimePicker";
 import Button from "./Button";
 import countries from "./countries.json";
 import MDButton from "components/MDButton";
-
-// import Divider from '@mui/material/Divider';
-
-// const useStyles = makeStyles((theme) => createStyles({
-//     root: {
-//       marginTop: theme.spacing(5),
-//       marginBottom: theme.spacing(8),
-//     },
-// }),
-// )
-// const theme = createTheme();
 
 const INITIAL_FORM_STATE = {
   firstName: "",
@@ -37,6 +24,7 @@ const INITIAL_FORM_STATE = {
   fatherName: "",
   fatherPhone: "",
   localGaurdianName: "",
+  localGaurdianPhone: "",
   bloodGroup: "",
   addressLine1: "",
   addressLine2: "",
@@ -48,8 +36,6 @@ const INITIAL_FORM_STATE = {
   workAddressLine2: "",
   Idproof: "",
   passport: "",
-  workCity: "",
-  workState: "",
   bookingDate: "",
   checkoutDate: "",
   arrivalDate: "",
@@ -66,19 +52,14 @@ const FORM_VALIDATION = Yup.object().shape({
   lastName: Yup.string()
     .matches(/^[aA-zZ\s]+$/, "Invalid LastName ")
     .required("Required"),
-  fatherName: Yup.string()
-    .matches(/^[aA-zZ\s]+$/, "Invalid FatherName ")
-    .required("Required"),
-  localGaurdianName: Yup.string()
-    .matches(/^[aA-zZ\s]+$/, "Invalid FatherName ")
-    .required("Required"),
   email: Yup.string().email("Invalid email.").required("Required"),
-  bloodGroup: Yup.string()
-    .matches(/^(A|B|AB|O)[+-]$/, {
-      message: "Please enter valid Blood Group.",
-      excludeEmptyString: false,
-    })
-    .required("Required"),
+  dateOfBirth: Yup.string()
+    .required("DOB is Required")
+    .test(
+      "DOB",
+      "Please choose a valid date of birth",
+      (date) => moment().diff(moment(date), "years") >= 12
+    ),
   phone: Yup.string()
     .matches(/^[6-9]\d{9}$/, {
       message: "Please enter Valid Mobile Number",
@@ -91,81 +72,65 @@ const FORM_VALIDATION = Yup.object().shape({
       excludeEmptyString: false,
     })
     .required("Required"),
-  workPhone: Yup.string()
-    .matches(/^[6-9]\d{9}$/, {
-      message: "Please enter Valid Mobile Number",
-      excludeEmptyString: false,
-    })
+  fatherName: Yup.string()
+    .matches(/^[aA-zZ\s]+$/, "Invalid FatherName ")
     .required("Required"),
-  securityDeposit: Yup.number().required("Required"),
-  roomRent: Yup.number().required("Required"),
   fatherPhone: Yup.string()
     .matches(/^[6-9]\d{9}$/, {
       message: "Please enter valid Mobile number.",
       excludeEmptyString: false,
     })
     .required("Required"),
-  localGaurdianPhone: Yup.string()
-    .matches(/^[6-9]\d{9}$/, {
-      message: "Please enter valid Mobile number.",
+  localGaurdianName: Yup.string()
+    .matches(/^[aA-zZ\s]+$/, "Invalid FatherName ")
+    .required("Required"),
+
+  bloodGroup: Yup.string()
+    .matches(/^(A|B|AB|O)[+-]$/, {
+      message: "Please enter valid Blood Group.",
       excludeEmptyString: false,
     })
     .required("Required"),
-  workAddressLine1: Yup.string().required("Required"),
-  city: Yup.string()
-    .matches(/^[aA-zZ\s]+$/, "Invalid City Name")
-    .required("Required"),
-  workAddressLine2: Yup.string().required("Required"),
-  city: Yup.string()
-    .matches(/^[aA-zZ\s]+$/, "Invalid City Name")
-    .required("Required"),
+
   addressLine1: Yup.string().required("Required"),
   addressLine2: Yup.string().required("Required"),
-  city: Yup.string()
-    .matches(/^[aA-zZ\s]+$/, "Invalid City Name")
-    .required("Required"),
-  workAddressLine2: Yup.string().required("Required"),
   city: Yup.string()
     .matches(/^[aA-zZ\s]+$/, "Invalid City Name")
     .required("Required"),
   state: Yup.string()
     .matches(/^[aA-zZ\s]+$/, "Invalid State ")
     .required("Required"),
-  workCity: Yup.string()
-    .matches(/^[aA-zZ\s]+$/, "Invalid City Name")
-    .required("Required"),
-  workState: Yup.string()
-    .matches(/^[aA-zZ\s]+$/, "Invalid State ")
-    .required("Required"),
   country: Yup.string().required("Required"),
-  arrivalDate: Yup.date().required("Required"),
+  workPhone: Yup.string()
+    .matches(/^[6-9]\d{9}$/, {
+      message: "Please enter Valid Mobile Number",
+      excludeEmptyString: false,
+    })
+    .required("Required"),
+  workAddressLine1: Yup.string().required("Required"),
+
+  workAddressLine2: Yup.string().required("Required"),
+  Idproof: Yup.mixed().required("File is required"),
+  passport: Yup.mixed().required("File is required"),
   bookingDate: Yup.date().required("Required"),
-  dateOfBirth: Yup.string()
-    .required("DOB is Required")
-    .test(
-      "DOB",
-      "Please choose a valid date of birth",
-      (date) => moment().diff(moment(date), "years") >= 12
-    ),
-  departureDate: Yup.date().required("Required"),
+  checkoutDate: Yup.date().required("Required"),
+  arrivalDate: Yup.date().required("Required"),
+  roomRent: Yup.number().required("Required"),
+  securityDeposit: Yup.number().required("Required"),
   checkinNotes: Yup.string().required("Required"),
   termsOfService: Yup.boolean()
     .oneOf([true], "The terms and conditions must be accepted.")
     .required("The terms and conditions must be accepted."),
-  Idproof: Yup.mixed().required("File is required"),
-  passport: Yup.mixed().required("File is required"),
 });
 
 const GuestLoginForm = () => {
-  // const classes = useStyles();
-
   return (
     <Grid container>
       <Grid item xs={12}>
         <Container maxWidth="md">
           <div>
             <Formik
-              initialValues={{...INITIAL_FORM_STATE}}
+              initialValues={{ ...INITIAL_FORM_STATE }}
               validationSchema={FORM_VALIDATION}
               onSubmit={(values) => {
                 console.log(values);
@@ -361,10 +326,10 @@ const GuestLoginForm = () => {
                   </Grid>
                   <Divider variant="middle" />
                   <Grid item xs={4} justifyContent="center">
-                    {/* <MDButton variant="outlined" color="info" size="large">
+                    {/* <MDButton variant="outlined" color="info" size="large" onClick>
                       Submit
                     </MDButton> */}
-                    <Button type="submit">Submit</Button>
+                    <Button>Submit</Button>
                   </Grid>
                 </Grid>
               </Form>
