@@ -11,6 +11,7 @@ import Expenses from "layouts/expenses";
 
 import Icon from "@mui/material/Icon";
 import PaymentModules from "layouts/payments";
+import Tracker from 'layouts/roomavailabilitytracker'
 
 const routes = [
   {
@@ -21,6 +22,21 @@ const routes = [
     route: "/dashboard",
     component: <Dashboard />,
   },
+  {
+
+    type: 'collapse',
+
+    name: 'Room Availability Tracker',
+
+    key: 'tracker',
+
+    icon: <Icon fontSize="small">booking</Icon>,
+
+    route: '/tracker',
+
+    component: <Tracker />
+
+},
   {
     type: "collapse",
     name: "Guest Onboarding",

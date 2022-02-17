@@ -7,7 +7,7 @@ import * as Yup from "yup";
 import { Container, Grid, Typography } from "@mui/material";
 import moment from "moment";
 import Divider from "@mui/material/Divider";
-import Chip from "@mui/material/Chip";
+//import Chip from "@mui/material/Chip";
 import Textfield from "./TextField";
 import Select from "../../../../Select";
 import Checkbox from "./CheckBox";
@@ -165,7 +165,7 @@ const GuestLoginForm = () => {
         <Container maxWidth="md">
           <div>
             <Formik
-              initialValues={INITIAL_FORM_STATE}
+              initialValues={{...INITIAL_FORM_STATE}}
               validationSchema={FORM_VALIDATION}
               onSubmit={(values) => {
                 console.log(values);
@@ -361,9 +361,10 @@ const GuestLoginForm = () => {
                   </Grid>
                   <Divider variant="middle" />
                   <Grid item xs={4} justifyContent="center">
-                    <MDButton variant="outlined" color="info" size="large">
+                    {/* <MDButton variant="outlined" color="info" size="large">
                       Submit
-                    </MDButton>
+                    </MDButton> */}
+                    <Button>Submit</Button>
                   </Grid>
                 </Grid>
               </Form>
