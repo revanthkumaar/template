@@ -1,93 +1,89 @@
 const buildings = [{
     buildingname: "Building 1",
     floors: [{
-          floor: "Floor1",
+          floorName: "FLOOR-1",
           rooms: [{
-                roomno: "101",
+                roomNumber: "101", 
                 beds: [{
-                      bedno: "A",
+                      bedNumber: "A",
                       guestId: "ram 1",
                       available: true
                 },
                 {
-                      bedno: "B",
+                      bedNumber: "B",
                       guestId: "ram2"
                 },
                 {
-                      bedno: "C",
+                      bedNumber: "C",
                       guestId: "ram2",
                       available: true
-                },
-                {
-                      bedno: "D",
-                      guestId: "ram2"
                 }
                 ]
           },
           {
-                roomno: "102",
+                roomNumber: "102",
                 beds: [{
-                      bedno: "A",
+                      bedNumber: "A",
                       guestId: "akhil1",
                       available: true
                 },
                 {
-                      bedno: "B",
+                      bedNumber: "B",
                       guestId: "akhil1"
                 },
                 {
-                      bedno: "C",
+                      bedNumber: "C",
                       guestId: "akhil1",
                       available: true
                 },
                 {
-                      bedno: "D",
+                      bedNumber: "D",
                       guestId: "akhil1",
                       available: true
                 }
                 ]
           },
           {
-                roomno: "103",
+                roomNumber: "103",
                 beds: [{
-                      bedno: "A",
+                      bedNumber: "A",
                       guestId: "akhil1"
                 },
                 {
-                      bedno: "B",
+                      bedNumber: "B",
                       guestId: "akhil1",
                       available: true
                 },
                 {
-                      bedno: "C",
+                      bedNumber: "C",
                       guestId: "akhil1",
                       available: true
                 },
                 {
-                      bedno: "D",
+                      bedNumber: "D",
                       guestId: "akhil1"
                 }
                 ]
           },
           {
-                roomno: "104",
+                roomNumber: "104",
                 beds: [{
-                      bedno: "A",
+                      bedNumber: "A",
                       guestId: "akhil1",
                       available: true
                 },
                 {
-                      bedno: "B",
+                      bedNumber: "B",
                       guestId: "akhil1",
                       available: true
                 },
                 {
-                      bedno: "C",
+                      bedNumber: "C",
                       guestId: "akhil1",
                       available: true
                 },
                 {
-                      bedno: "D",
+                      bedNumber: "D",
                       guestId: "akhil1"
                 }
                 ]
@@ -95,48 +91,48 @@ const buildings = [{
           ]
     },
     {
-          floor: "Floor 2",
+          floorName: "FLOOR-2",
           rooms: [{
-                roomno: "201",
+                roomNumber: "201",
                 beds: [{
-                      bedno: "A",
+                      bedNumber: "A",
                       guestId: "ram 1"
                 },
                 {
-                      bedno: "B",
+                      bedNumber: "B",
                       guestId: "ram2",
                       available: true
                 },
                 {
-                      bedno: "C",
+                      bedNumber: "C",
                       guestId: "ram2",
                       available: true
                 },
                 {
-                      bedno: "D",
+                      bedNumber: "D",
                       guestId: "ram2",
                       available: true
                 }
                 ]
           },
           {
-                roomno: "202",
+                roomNumber: "202",
                 beds: [{
-                      bedno: "A",
+                      bedNumber: "A",
                       guestId: "akhil1"
                 },
                 {
-                      bedno: "B",
+                      bedNumber: "B",
                       guestId: "akhil1",
                       available: true
                 },
                 {
-                      bedno: "C",
+                      bedNumber: "C",
                       guestId: "akhil1",
                       available: true
                 },
                 {
-                      bedno: "D",
+                      bedNumber: "D",
                       guestId: "akhil1",
                       available: true
                 }
@@ -147,47 +143,47 @@ const buildings = [{
           ]
     },
     {
-          floor: "Floor 3",
+          floorName: "FLOOR-3",
           rooms: [{
-                roomno: "301",
+                roomNumber: "301",
                 beds: [{
-                      bedno: "A",
+                      bedNumber: "A",
                       guestId: "ram 1"
                 },
                 {
-                      bedno: "B",
+                      bedNumber: "B",
                       guestId: "ram2",
                       available: true
                 },
                 {
-                      bedno: "C",
+                      bedNumber: "C",
                       guestId: "ram2",
                       available: true
                 },
                 {
-                      bedno: "D",
+                      bedNumber: "D",
                       guestId: "ram2",
                       available: true
                 }
                 ]
           },
           {
-                roomno: "302",
+                roomNumber: "302",
                 beds: [{
-                      bedno: "A",
+                      bedNumber: "A",
                       guestId: "akhil1"
                 },
                 {
-                      bedno: "B",
+                      bedNumber: "B",
                       guestId: "akhil1",
                       available: true
                 },
                 {
-                      bedno: "C",
+                      bedNumber: "C",
                       guestId: "akhil1"
                 },
                 {
-                      bedno: "D",
+                      bedNumber: "D",
                       guestId: "akhil1",
                       available: true
                 }
@@ -195,45 +191,45 @@ const buildings = [{
                 
           },
           {
-                roomno: "303",
+                roomNumber: "303",
                 beds: [{
-                      bedno: "A",
+                      bedNumber: "A",
                       guestId: "akhil1",
                       available: true
                 },
                 {
-                      bedno: "B",
+                      bedNumber: "B",
                       guestId: "akhil1"
                 },
                 {
-                      bedno: "C",
+                      bedNumber: "C",
                       guestId: "akhil1"
                 },
                 {
-                      bedno: "D",
+                      bedNumber: "D",
                       guestId: "akhil1",
                       available: true
                 }
                 ]
           },
           {
-                roomno: "304",
+                roomNumber: "304",
                 beds: [{
-                      bedno: "A",
+                      bedNumber: "A",
                       guestId: "akhil1",
                       available: true
                 },
                 {
-                      bedno: "B",
+                      bedNumber: "B",
                       guestId: "akhil1",
                       available: true
                 },
                 {
-                      bedno: "C",
+                      bedNumber: "C",
                       guestId: "akhil1"
                 },
                 {
-                      bedno: "D",
+                      bedNumber: "D",
                       guestId: "akhil1",
                       available: true
                 }
@@ -243,6 +239,63 @@ const buildings = [{
     }],
    
 },
+{
+      buildingname: "Building 2",
+      floors: [{
+            floorName: "FLOOR-1",
+            rooms: [{
+                  roomNumber: "101",
+                  beds: [{
+                        bedNumber: "A",
+                        guestId: "ram 1",
+                        available: true
+                  },
+                  {
+                        bedNumber: "B",
+                        guestId: "ram2"
+                  },
+                  {
+                        bedNumber: "C",
+                        guestId: "ram2",
+                        available: true
+                  },
+                  {
+                        bedNumber: "D",
+                        guestId: "ram2"
+                  }
+                  ]
+            },
+            {
+                  roomNumber: "102",
+                  beds: [{
+                        bedNumber: "A",
+                        guestId: "akhil1",
+                        available: true
+                  },
+                  {
+                        bedNumber: "B",
+                        guestId: "akhil1"
+                  },
+                  {
+                        bedNumber: "C",
+                        guestId: "akhil1",
+                        available: true
+                  },
+                  {
+                        bedNumber: "D",
+                        guestId: "akhil1",
+                        available: true
+                  }
+                  ]
+            },
+            
+            
+            ]
+      }
+      
+      ],
+     
+  }
 
 ]
 export default buildings
