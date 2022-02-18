@@ -87,14 +87,7 @@ const routes = [
 		route: '/payments',
 		component: <PaymentModules />
 	},
-	{
-		type: 'collapse',
-		name: 'Inventory',
-		key: 'inventory',
-		icon: <Icon fontSize="small">store</Icon>,
-		route: '/inventory',
-		component: <inventory />
-	},
+	
 	{
 		type: 'collapse',
 		name: 'Issues',

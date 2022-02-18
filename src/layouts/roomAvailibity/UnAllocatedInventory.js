@@ -68,7 +68,7 @@ function UnAllocatedInventory() {
       <h4 align='center'></h4> */}
         <Grid xs={12}>
           <MaterialTable
-            title="Unallocated Inventory"
+            title="Unallocated Beds"
             data={data}
             sx={{ color: "white" }}
             columns={columns}
