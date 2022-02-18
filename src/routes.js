@@ -88,22 +88,6 @@ const routes = [
 		component: <PaymentModules />
 	},
 	
-	{
-		type: 'collapse',
-		name: 'Issues',
-		key: 'issues',
-		icon: <Icon fontSize="small">receipt</Icon>,
-		route: '/issues',
-		component: <issues />
-	},
-	{
-		type: 'collapse',
-		name: 'Announcements',
-		key: 'announcements',
-		icon: <Icon fontSize="small">assignment</Icon>,
-		route: '/announcements',
-		component: <announcements />
-	},
 
 	{
 		type: 'collapse',
