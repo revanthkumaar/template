@@ -3,10 +3,12 @@ import PropTypes from "prop-types";
 import MDButtonRoot from "components/MDButton/MDButtonRoot";
 import { useMaterialUIController } from "context";
 
+
 const MDButton = forwardRef(
   ({ color, variant, size, circular, iconOnly, children, ...rest }, ref) => {
     const [controller] = useMaterialUIController();
     const { darkMode } = controller;
+ 
 
     return (
       <MDButtonRoot
@@ -29,6 +31,7 @@ MDButton.defaultProps = {
   color: "white",
   circular: false,
   iconOnly: false,
+  
 };
 
 MDButton.propTypes = {
