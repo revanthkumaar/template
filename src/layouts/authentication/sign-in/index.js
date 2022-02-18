@@ -63,7 +63,7 @@ function Basic() {
 				<MDBox pt={4} pb={3} px={3}>
 					<MDBox component="form" role="form">
 						<MDBox mb={2}>
-							<MDInput
+							<MDInput style ={{width: '100%'}}
 								type="email"
 								name="email"
 								onChange={(e) => setEmail(e.target.value)}
@@ -72,7 +72,7 @@ function Basic() {
 							/>
 						</MDBox>
 						<MDBox mb={2}>
-							<MDInput
+							<MDInput style ={{width: '100%'}}
 								type="password"
 								name="password"
 								onChange={(e) => setPassword(e.target.value)}
