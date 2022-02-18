@@ -29,8 +29,8 @@ const Layout = () => {
                             {rmno.beds.map(bdno => {
                               return (
                                 <>
-                                  <Grid item xs={3}>
-                                    <Grid container rowSpacing={1} >
+                                  <Grid item xs >
+                                    <Grid container Spacing={1} direction="column" alignItems="center" justifyContent="center" >
                                       <Grid item xs={12}>
                                         {bdno.available ? <HotelOutlinedIcon color="success" />
                                           : <HotelOutlinedIcon sx={{ color: pink[500] }} />}

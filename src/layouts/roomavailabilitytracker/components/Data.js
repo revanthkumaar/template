@@ -126,16 +126,7 @@ const buildings = [{
                       guestId: "akhil1",
                       available: true
                 },
-                {
-                      bedNumber: "C",
-                      guestId: "akhil1",
-                      available: true
-                },
-                {
-                      bedNumber: "D",
-                      guestId: "akhil1",
-                      available: true
-                }
+                
                 
                 ]
           }
