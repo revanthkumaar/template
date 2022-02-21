@@ -11,7 +11,7 @@ const empList = [
 		a_c: 'Yes',
 		bedNumber: 'A12',
 		
-		monthlyRent: 987,
+		monthlyRent: "18,000",
 		dailyRent: 200
 	},
 	{
@@ -20,7 +20,7 @@ const empList = [
 		a_c: 'Yes',
 		bedNumber: 'A12',
 	
-		monthlyRent: 987,
+		monthlyRent: "15,000",
 		dailyRent: 200
 	},
 	{
@@ -29,7 +29,7 @@ const empList = [
 		a_c: 'No',
 		bedNumber: 'A12',
 		
-		monthlyRent: 987,
+		monthlyRent: "9,870",
 		dailyRent: 200
 	},
 	{
@@ -38,8 +38,8 @@ const empList = [
 		a_c: 'Yes',
 		bedNumber: 'A12',
 	
-		monthlyRent: 987,
-		dailyRent: 200
+		monthlyRent: "10,000",
+		dailyRent: 300
 	},
 	{
 		id: 5,
@@ -47,8 +47,8 @@ const empList = [
 		a_c: 'Yes',
 		bedNumber: 'A12',
 	
-		monthlyRent: 987,
-		dailyRent: 200
+		monthlyRent: "12,000",
+		dailyRent: 400
 	},
 	{
 		id: 6,
@@ -65,7 +65,7 @@ const empList = [
 		a_c: 'No',
 		bedNumber: 'A12',
 	
-		monthlyRent: 987,
+		monthlyRent: "17,000",
 		dailyRent: 200
 	},
 	{
@@ -74,7 +74,7 @@ const empList = [
 		a_c: 'Yes',
 		bedNumber: 'A12',
 	
-		monthlyRent: 987,
+		monthlyRent: "18,000",
 		dailyRent: 200
 	}
 ];
