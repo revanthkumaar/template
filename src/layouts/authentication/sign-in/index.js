@@ -27,16 +27,30 @@ function Basic() {
 		console.log(email);
 		console.log(password);
 		const res = await axios.get('http://localhost:8000/users');
+		console.log(res.data);
+		// res.data.map((user) => {
+		// 	if (user.email === email && user.password === password) {
+		// 		navigate('/dashboard');
+		// 	} else {
+		// 		alert('Invalid credentials');
+		// 		navigate('/');
+		// 	}
+		// });
 		const result = res.data.filter((u) => u.email === email && u.password === password);
 		console.log(result);
-		result.map((u) => {
-			if (u.email === email && u.password === password) {
-				navigate('/dashboard');
-			} else {
-				alert('Invalid credentials');
-				navigate('/');
-			}
-		});
+		if (result === 'undefined') {
+			alert('Invalid credentials');
+		} else {
+			result.map((u) => {
+				if (u.email === email && u.password === password) {
+					navigate('/dashboard');
+				}
+			});
+		}
+	};
+
+	const callAlert = () => {
+		alert('Invalid credentials');
 	};
 
 	return (
@@ -63,7 +77,8 @@ function Basic() {
 				<MDBox pt={4} pb={3} px={3}>
 					<MDBox component="form" role="form">
 						<MDBox mb={2}>
-							<MDInput style ={{width: '100%'}}
+							<MDInput
+								style={{ width: '100%' }}
 								type="email"
 								name="email"
 								onChange={(e) => setEmail(e.target.value)}
@@ -72,7 +87,8 @@ function Basic() {
 							/>
 						</MDBox>
 						<MDBox mb={2}>
-							<MDInput style ={{width: '100%'}}
+							<MDInput
+								style={{ width: '100%' }}
 								type="password"
 								name="password"
 								onChange={(e) => setPassword(e.target.value)}
@@ -80,7 +96,7 @@ function Basic() {
 								fullwidth
 							/>
 						</MDBox>
-						<MDBox display="flex" alignItems="center" ml={-1}>
+						{/* <MDBox display="flex" alignItems="center" ml={-1}>
 							<Switch checked={rememberMe} onChange={handleSetRememberMe} />
 							<MDTypography
 								variant="button"
@@ -91,7 +107,7 @@ function Basic() {
 							>
 								&nbsp;&nbsp;Remember me
 							</MDTypography>
-						</MDBox>
+						</MDBox> */}
 						<MDBox mt={4} mb={1}>
 							<MDButton onClick={handleSubmit} variant="gradient" color="info" fullWidth>
 								<MDTypography variant="button" color="inherit" fontWeight="medium" textGradient>
