@@ -30,16 +30,14 @@ const Layout = () => {
                               return (
                                 <>
                                   <Grid item xs >
-                                    <Grid container Spacing={1} direction="column" alignItems="center" justifyContent="center" >
+                                    <Grid container Spacing={1} direction="column" alignItems="center" justifyContent="center"  >
                                       <Grid item xs={12} align="center" >
-                                      {/* <img src={bdno.guestimageUrl} style={{width: '5px'}}/>  */}
-                                      {/* {bdno.available ? <img src={bdno.guestimageUrl} style={{width: '30px',height:'30px'}}/> : <IconButton style={{width: '50px' ,height:'30px'}}><HotelOutlinedIcon sx={{ color: pink[500] }} /></IconButton>}  */}
-                                         {/* <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" /> */}
+                                      
 
                                          {bdno.available ? <IconButton><HotelOutlinedIcon color="success" /></IconButton>
-                                          :  <img src={bdno.guestimageUrl} style={{width: '30px',height:'30px'}}/>}
+                                          :  <img src={bdno.guestimageUrl} style={{width: '30px',height:'40px'}}/>}
                                       
-                                        {/* {bdno.available ? <Image src={bdno.guestimageUrl} />:<IconButton><HotelOutlinedIcon sx={{ color: pink[500] }} /></IconButton>}} */}
+                                       
                                         
                                         
                                         <Grid item xs={12}  align="center" ><h6 align="center"  >{bdno.bedNumber}</h6></Grid>
