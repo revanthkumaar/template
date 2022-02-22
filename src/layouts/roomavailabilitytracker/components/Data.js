@@ -7,20 +7,24 @@ const buildings = [{
                 beds: [{
                       bedNumber: "A",
                       guestId: "ram 1",
-                      available: true
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 },
                 {
                       bedNumber: "B",
-                      guestId: "ram2"
+                      guestId: "ram2",
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 },
                 {
                       bedNumber: "C",
                       guestId: "ram2",
-                      available: true
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 }, {
                   bedNumber: "D",
                   guestId: "ram2",
-                  available: true
+                  available: true,
+                  guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
             }
                 ]
           },
@@ -29,21 +33,25 @@ const buildings = [{
                 beds: [{
                       bedNumber: "A",
                       guestId: "akhil1",
-                      available: true
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 },
                 {
                       bedNumber: "B",
-                      guestId: "akhil1"
+                      guestId: "akhil1",
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 },
                 {
                       bedNumber: "C",
                       guestId: "akhil1",
-                      available: true
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 },
                 {
                       bedNumber: "D",
                       guestId: "akhil1",
-                      available: true
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 }
                 ]
           },
@@ -51,21 +59,25 @@ const buildings = [{
                 roomNumber: "103",
                 beds: [{
                       bedNumber: "A",
-                      guestId: "akhil1"
+                      guestId: "akhil1",
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 },
                 {
                       bedNumber: "B",
                       guestId: "akhil1",
-                      available: true
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 },
                 {
                       bedNumber: "C",
                       guestId: "akhil1",
-                      available: true
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 },
                 {
                       bedNumber: "D",
-                      guestId: "akhil1"
+                      guestId: "akhil1",
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 }
                 ]
           },
@@ -74,21 +86,25 @@ const buildings = [{
                 beds: [{
                       bedNumber: "A",
                       guestId: "akhil1",
-                      available: true
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 },
                 {
                       bedNumber: "B",
                       guestId: "akhil1",
-                      available: true
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 },
                 {
                       bedNumber: "C",
                       guestId: "akhil1",
-                      available: true
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 },
                 {
                       bedNumber: "D",
-                      guestId: "akhil1"
+                      guestId: "akhil1",
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 }
                 ]
           }
@@ -100,22 +116,26 @@ const buildings = [{
                 roomNumber: "201",
                 beds: [{
                       bedNumber: "A",
-                      guestId: "ram 1"
+                      guestId: "ram 1",
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 },
                 {
                       bedNumber: "B",
                       guestId: "ram2",
-                      available: true
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 },
                 {
                       bedNumber: "C",
                       guestId: "ram2",
-                      available: true
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 },
                 {
                       bedNumber: "D",
                       guestId: "ram2",
-                      available: true
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 }
                 ]
           },
@@ -123,12 +143,14 @@ const buildings = [{
                 roomNumber: "202",
                 beds: [{
                       bedNumber: "A",
-                      guestId: "akhil1"
+                      guestId: "akhil1",
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 },
                 {
                       bedNumber: "B",
                       guestId: "akhil1",
-                      available: true
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 },
                 
                 
@@ -143,22 +165,26 @@ const buildings = [{
                 roomNumber: "301",
                 beds: [{
                       bedNumber: "A",
-                      guestId: "ram 1"
+                      guestId: "ram 1",
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 },
                 {
                       bedNumber: "B",
                       guestId: "ram2",
-                      available: true
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 },
                 {
                       bedNumber: "C",
                       guestId: "ram2",
-                      available: true
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 },
                 {
                       bedNumber: "D",
                       guestId: "ram2",
-                      available: true
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 }
                 ]
           },
@@ -166,21 +192,25 @@ const buildings = [{
                 roomNumber: "302",
                 beds: [{
                       bedNumber: "A",
-                      guestId: "akhil1"
+                      guestId: "akhil1",
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 },
                 {
                       bedNumber: "B",
                       guestId: "akhil1",
-                      available: true
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 },
                 {
                       bedNumber: "C",
-                      guestId: "akhil1"
+                      guestId: "akhil1",
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 },
                 {
                       bedNumber: "D",
                       guestId: "akhil1",
-                      available: true
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 }
                 ]
                 
@@ -190,20 +220,24 @@ const buildings = [{
                 beds: [{
                       bedNumber: "A",
                       guestId: "akhil1",
-                      available: true
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 },
                 {
                       bedNumber: "B",
-                      guestId: "akhil1"
+                      guestId: "akhil1",
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 },
                 {
                       bedNumber: "C",
-                      guestId: "akhil1"
+                      guestId: "akhil1",
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 },
                 {
                       bedNumber: "D",
                       guestId: "akhil1",
-                      available: true
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 }
                 ]
           },
@@ -212,21 +246,25 @@ const buildings = [{
                 beds: [{
                       bedNumber: "A",
                       guestId: "akhil1",
-                      available: true
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 },
                 {
                       bedNumber: "B",
                       guestId: "akhil1",
-                      available: true
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 },
                 {
                       bedNumber: "C",
-                      guestId: "akhil1"
+                      guestId: "akhil1",
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 },
                 {
                       bedNumber: "D",
                       guestId: "akhil1",
-                      available: true
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 }
                 ]
           }
@@ -243,20 +281,24 @@ const buildings = [{
                   beds: [{
                         bedNumber: "A",
                         guestId: "ram 1",
-                        available: true
+                        available: true,
+                        guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                   },
                   {
                         bedNumber: "B",
-                        guestId: "ram2"
+                        guestId: "ram2",
+                        guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                   },
                   {
                         bedNumber: "C",
                         guestId: "ram2",
-                        available: true
+                        available: true,
+                        guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                   },
                   {
                         bedNumber: "D",
-                        guestId: "ram2"
+                        guestId: "ram2",
+                        guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                   }
                   ]
             },
@@ -265,21 +307,25 @@ const buildings = [{
                   beds: [{
                         bedNumber: "A",
                         guestId: "akhil1",
-                        available: true
+                        available: true,
+                        guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                   },
                   {
                         bedNumber: "B",
-                        guestId: "akhil1"
+                        guestId: "akhil1",
+                        guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                   },
                   {
                         bedNumber: "C",
                         guestId: "akhil1",
-                        available: true
+                        available: true,
+                        guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                   },
                   {
                         bedNumber: "D",
                         guestId: "akhil1",
-                        available: true
+                        available: true,
+                        guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                   }
                   ]
             },
