@@ -16,21 +16,22 @@ const Tracker = () => {
     return (
         <DashboardLayout>
             <DashboardNavbar />
-            <MDBox  bgColor="white" padding="8px" border={1}>
+            <MDBox bgColor="white" padding="8px"   >
+                <Building  />
+            </MDBox>
+            <br/>
+
+            <MDBox bgColor="white" padding="4px" border={1}>
                 <Grid Container direction="row" justifyContent="center" alignItems="center">
-                    
-                        <Grid item xs={12}>
-                            <Building />
-                        </Grid>
-                   
-                     <Grid  item xs={12} direction="row" justifyContent="center" alignItems="center" border={1}>
-                         <Grid Container >
-                         <Grid item xs={3} border={1}><ChartOne /></Grid>
-                        <Grid item xs={3} border={1} ><ChartTwo /></Grid>
-                         </Grid>
-                         </Grid>
-                    <Grid item xs={12} border={1} ><Layout /></Grid>
-                  
+
+                    <Grid container direction="row" justifyContent="center" alignItems="center" >
+
+                        <Grid item xs={6} sx={{ pl: 20}}><ChartOne /></Grid>
+                        <Grid item xs={6}  ><ChartTwo /></Grid>
+
+                    </Grid>
+                    <Grid item xs={12}  ><Layout /></Grid>
+
                 </Grid>
             </MDBox>
         </DashboardLayout>
