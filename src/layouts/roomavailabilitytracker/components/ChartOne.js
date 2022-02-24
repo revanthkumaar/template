@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3ddeb017fb6936ccac49c6e842c01879fa7361d6
 import React, { useCallback, useState } from "react";
 import { PieChart, Pie, Cell } from "recharts";
 

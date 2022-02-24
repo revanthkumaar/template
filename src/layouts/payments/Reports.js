@@ -1,89 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import MaterialTable from "material-table";
 import { Grid } from "@mui/material";
-
-const empList = [
-  {
-    id: "2020A051019",
-    roomNo: "PG",
-    a_c: 10000,
-    mode: "UPI",
-    shelfNo: "237UH287423",
-    Date: "19-10-2020",
-    remark: "",
-  },
-  {
-    id: "2020A051012",
-    roomNo: "PG",
-    a_c: 6500,
-    mode: "UPI",
-    shelfNo: "5583TF957385",
-    Date: "12-05-2020",
-    remark: "",
-  },
-  {
-    id: "2020A050922",
-    roomNo: "PG",
-    a_c: 8000,
-    mode: "UPI",
-    shelfNo: "7867DE759387",
-    Date: "22-09-2020",
-    remark: "",
-  },
-  {
-    id: "2020A050922",
-    roomNo: "PG",
-    a_c: 8000,
-    mode: "UPI",
-    shelfNo: "6756KI735433",
-    Date: "22-09-2020",
-    remark: "",
-  },
-  {
-    id: "2021A050902",
-    roomNo: "PG",
-    a_c: 8000,
-    mode: "UPI",
-    shelfNo: "2342ML653475",
-    Date: "02-09-2021",
-    remark: "",
-  },
-  {
-    id: "2021A051122",
-    roomNo: "PG",
-    a_c: 8000,
-    mode: "UPI",
-    shelfNo: "7878HU657343",
-    Date: "22-11-2021",
-    remark: "",
-  },
-  {
-    id: "2021A050929",
-    roomNo: "PG",
-    a_c: 8000,
-    mode: "UPI",
-    shelfNo: "8989GY734564",
-    Date: "29-09-2021",
-    remark: "",
-  },
-  {
-    id: "2021A050714",
-    roomNo: "PG",
-    a_c: 8000,
-    mode: "UPI",
-    shelfNo: "4542NA634587",
-    Date: "14-07-2021",
-    remark: "",
-  },
-];
+import axios from "axios";
 
 function PaymentReport() {
-  const [data, setData] = useState(empList);
+  const [data, setData] = useState([]);
+  const url = "http://localhost:8080/api/v1/payments";
   const columns = [
     {
       title: " GUEST ID",
-      field: "id",
+      field: "guestId",
       editable: false,
       headerStyle: {
         backgroundColor: "#0096FF",
@@ -92,7 +19,7 @@ function PaymentReport() {
     },
     {
       title: "Payment Towards",
-      field: "roomNo",
+      field: "paymentTowards",
       headerStyle: {
         backgroundColor: "#0096FF",
         color: "white",
@@ -100,7 +27,7 @@ function PaymentReport() {
     },
     {
       title: "Amount",
-      field: "a_c",
+      field: "amount",
       headerStyle: {
         backgroundColor: "#0096FF",
         color: "white",
@@ -108,7 +35,15 @@ function PaymentReport() {
     },
     {
       title: "Payment Method",
-      field: "mode",
+      field: "paymentMethod",
+      headerStyle: {
+        backgroundColor: "#0096FF",
+        color: "white",
+      },
+    },
+    {
+      title: " Payment ID",
+      field: "paymentId",
       headerStyle: {
         backgroundColor: "#0096FF",
         color: "white",
@@ -116,7 +51,7 @@ function PaymentReport() {
     },
     {
       title: "Transaction Id",
-      field: "shelfNo",
+      field: "transactionId",
       headerStyle: {
         backgroundColor: "#0096FF",
         color: "white",
@@ -124,13 +59,26 @@ function PaymentReport() {
     },
     {
       title: "Transaction Date",
-      field: "Date",
+      field: "transactiondate",
       headerStyle: {
         backgroundColor: "#0096FF",
         color: "white",
       },
     },
   ];
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/api/v1/payments")
+      .then((res) => {
+        setData(res.data);
+
+        console.log(res.data);
+      })
+
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <div className="App">
@@ -149,6 +97,14 @@ function PaymentReport() {
                     { id: Math.floor(Math.random() * 100), ...newRow },
                   ];
                   setTimeout(() => {
+                    const res = axios.post(
+                      "http://localhost:8080/api/v1/payments",
+
+                      newRow
+                    );
+
+                    console.log(res.data);
+                    // console.log(newRow)
                     setData(updatedRows);
                     resolve();
                   }, 2000);
@@ -158,7 +114,13 @@ function PaymentReport() {
                   const index = selectedRow.tableData.id;
                   const updatedRows = [...data];
                   updatedRows.splice(index, 1);
+                  console.log(index);
                   setTimeout(() => {
+                    const res = axios.delete(
+                      `http://localhost:8080/api/v1/payments/${index}`
+                    );
+                    console.log(res);
+                    console.log(updatedRows);
                     setData(updatedRows);
                     resolve();
                   }, 2000);
@@ -169,6 +131,11 @@ function PaymentReport() {
                   const updatedRows = [...data];
                   updatedRows[index] = updatedRow;
                   setTimeout(() => {
+                    // const res = axios.put(
+                    //   `http://localhost:8080/api/v1/payments/${index}`
+                    // );
+                    // console.log(res);
+                    // console.log(updatedRows);
                     setData(updatedRows);
                     resolve();
                   }, 2000);
