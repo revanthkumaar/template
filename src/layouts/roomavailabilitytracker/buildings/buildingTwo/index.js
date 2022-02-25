@@ -25,7 +25,7 @@ const BuildingTwoTracker = () => {
             <MDBox bgColor="white" padding="4px" border={1}>
                 <Grid Container direction="row" justifyContent="center" alignItems="center">
                     <Grid container direction="row" justifyContent="center" alignItems="center" >
-                        <Grid item xs={6} sx={{ pl: 20 }}><BuildingTwoChartOne /></Grid>
+                        <Grid item xs={6} ><BuildingTwoChartOne /></Grid>
                         <Grid item xs={6}  ><BuildingTwoChartTwo /></Grid>
                     </Grid>
                     <Grid item xs={12}  ><BuildingTwoLayout /></Grid>
