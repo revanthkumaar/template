@@ -3,7 +3,7 @@ import { Chart } from "react-google-charts";
 
  const data = [
   ["Task", "Hours per Day"],
-  ["PendingPayments", 11],
+  ["PendingPayments", 8],
   ["CompletedPayments", 2],
  
 ];
