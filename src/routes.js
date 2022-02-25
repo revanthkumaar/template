@@ -12,6 +12,9 @@ import Expenses from 'layouts/expenses';
 import Icon from '@mui/material/Icon';
 import PaymentModules from 'layouts/payments';
 import Tracker from 'layouts/roomavailabilitytracker';
+import BuildingThreeTracker from 'layouts/roomavailabilitytracker/buildings/buildingThree';
+import BuildingOneTracker from 'layouts/roomavailabilitytracker/buildings/buildingOne';
+import BuildingTwoTracker from 'layouts/roomavailabilitytracker/buildings/buildingTwo';
 
 const routes = [
 	{
@@ -96,6 +99,32 @@ const routes = [
 		icon: <Icon fontSize="small">logout</Icon>,
 		route: '/authentication/sign-in',
 		component: <SignIn />
-	}
+	},
+
+	{
+		type: 'main',
+		name: 'Sign Out',
+		key: 'sign-out',
+		icon: <Icon fontSize="small">logout</Icon>,
+		route: '/layouts/roomavailabilitytracker/buildings/buildingThree',
+		component: <BuildingThreeTracker />
+	},
+
+	{
+		type: 'main',
+		name: 'Sign Out',
+		key: 'sign-out',
+		icon: <Icon fontSize="small">logout</Icon>,
+		route: '/layouts/roomavailabilitytracker/buildings/buildingTwo',
+		component: <BuildingTwoTracker />
+	},
+	{
+		type: 'main',
+		name: 'Sign Out',
+		key: 'sign-out',
+		icon: <Icon fontSize="small">logout</Icon>,
+		route: '/layouts/roomavailabilitytracker/buildings/buildingOne',
+		component: <BuildingOneTracker />
+	},
 ];
 export default routes;
