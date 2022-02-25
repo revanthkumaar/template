@@ -24,7 +24,7 @@ import Building from "layouts/profile/GuestLoginForm/components/Building";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
-
+ 
   return (
     <div
       role="tabpanel"
@@ -66,6 +66,7 @@ export default function FullWidthTabs() {
   const handleChangeIndex = (index) => {
     setValue(index);
   };
+
 
   return (
     <DashboardLayout>
