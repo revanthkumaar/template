@@ -3,8 +3,8 @@ import { Chart } from "react-google-charts";
 
 export const data = [
   ["Task", "Hours per Day"],
-  ["AvailableBeds", 1],
-  ["OccupiedBeds", 2],
+  ["AvailableBeds", 11],
+  ["OccupiedBeds", 22],
  
 ];
 
