@@ -25,22 +25,22 @@ const INITIAL_FORM_STATE = {
 	localGaurdianName: '',
 	localGaurdianPhone: '',
 	bloodGroup: '',
-	addressLine1: '',
-	addressLine2: '',
-	city: '',
-	state: '',
-	country: '',
-	workPhone: '',
-	workAddressLine1: '',
-	workAddressLine2: '',
-	Idproof: '',
-	passport: '',
-	bookingDate: '',
-	checkoutDate: '',
-	arrivalDate: '',
-	roomRent: '',
-	securityDeposit: '',
-	checkinNotes: '',
+	// addressLine1: '',
+	// addressLine2: '',
+	// city: '',
+	// state: '',
+	// country: '',
+	// workPhone: '',
+	// workAddressLine1: '',
+	// workAddressLine2: '',
+	// Idproof: '',
+	// passport: '',
+	// bookingDate: '',
+	// checkoutDate: '',
+	// arrivalDate: '',
+	// roomRent: '',
+	// securityDeposit: '',
+	// checkinNotes: '',
 	termsOfService: false
 };
 
@@ -79,28 +79,28 @@ const FORM_VALIDATION = Yup.object().shape({
 		})
 		.required('Required'),
 
-	addressLine1: Yup.string().required('Required'),
-	addressLine2: Yup.string().required('Required'),
-	city: Yup.string().matches(/^[aA-zZ\s]+$/, 'Invalid City Name').required('Required'),
-	state: Yup.string().matches(/^[aA-zZ\s]+$/, 'Invalid State ').required('Required'),
-	country: Yup.string().required('Required'),
-	workPhone: Yup.string()
-		.matches(/^[6-9]\d{9}$/, {
-			message: 'Please enter Valid Mobile Number',
-			excludeEmptyString: false
-		})
-		.required('Required'),
-	workAddressLine1: Yup.string().required('Required'),
+	// addressLine1: Yup.string().required('Required'),
+	// addressLine2: Yup.string().required('Required'),
+	// city: Yup.string().matches(/^[aA-zZ\s]+$/, 'Invalid City Name').required('Required'),
+	// state: Yup.string().matches(/^[aA-zZ\s]+$/, 'Invalid State ').required('Required'),
+	// country: Yup.string().required('Required'),
+	// workPhone: Yup.string()
+	// 	.matches(/^[6-9]\d{9}$/, {
+	// 		message: 'Please enter Valid Mobile Number',
+	// 		excludeEmptyString: false
+	// 	})
+	// 	.required('Required'),
+	// workAddressLine1: Yup.string().required('Required'),
 
-	workAddressLine2: Yup.string().required('Required'),
-	Idproof: Yup.mixed().required('File is required'),
-	passport: Yup.mixed().required('File is required'),
-	bookingDate: Yup.date().required('Required'),
-	checkoutDate: Yup.date().required('Required'),
-	arrivalDate: Yup.date().required('Required'),
-	roomRent: Yup.number().required('Required'),
-	securityDeposit: Yup.number().required('Required'),
-	checkinNotes: Yup.string().required('Required'),
+	// workAddressLine2: Yup.string().required('Required'),
+	// Idproof: Yup.mixed().required('File is required'),
+	// passport: Yup.mixed().required('File is required'),
+	// bookingDate: Yup.date().required('Required'),
+	// checkoutDate: Yup.date().required('Required'),
+	// arrivalDate: Yup.date().required('Required'),
+	// roomRent: Yup.number().required('Required'),
+	// securityDeposit: Yup.number().required('Required'),
+	// checkinNotes: Yup.string().required('Required'),
 	termsOfService: Yup.boolean()
 		.oneOf([ true ], 'The terms and conditions must be accepted.')
 		.required('The terms and conditions must be accepted.')
@@ -166,7 +166,7 @@ const GuestLoginForm = () => {
 										<Textfield name="bloodGroup" label="Blood Group" />
 									</Grid>
 
-									<Grid item xs={12}>
+									{/* <Grid item xs={12}>
 										<Typography>
 											<h4 align="center">Permanent Address</h4>
 											<br />
@@ -262,7 +262,7 @@ const GuestLoginForm = () => {
 
 									<Grid item xs={12}>
 										<Textfield name="checkinNotes" label="Check-in Notes" multiline rows={4} />
-									</Grid>
+									</Grid> */}
 
 									<Grid item xs={12}>
 										<Checkbox name="termsOfService" legend="Terms of service" label="I agree" />
