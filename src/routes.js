@@ -15,6 +15,7 @@ import Tracker from 'layouts/roomavailabilitytracker';
 import BuildingThreeTracker from 'layouts/roomavailabilitytracker/buildings/buildingThree';
 import BuildingOneTracker from 'layouts/roomavailabilitytracker/buildings/buildingOne';
 import BuildingTwoTracker from 'layouts/roomavailabilitytracker/buildings/buildingTwo';
+import BuildingFourTracker from 'layouts/roomavailabilitytracker/buildings/buildingFour';
 
 const routes = [
 	{
@@ -125,6 +126,14 @@ const routes = [
 		icon: <Icon fontSize="small">logout</Icon>,
 		route: '/layouts/roomavailabilitytracker/buildings/buildingOne',
 		component: <BuildingOneTracker />
+	},
+	{
+		type: 'main',
+		name: 'Sign Out',
+		key: 'sign-out',
+		icon: <Icon fontSize="small">logout</Icon>,
+		route: '/layouts/roomavailabilitytracker/buildings/buildingFour',
+		component: <BuildingFourTracker />
 	},
 ];
 export default routes;

@@ -2,6 +2,7 @@ import React from 'react';
 import BuildingOneTracker from './buildings/buildingOne';
 import BuildingTwoTracker from './buildings/buildingTwo';
 import BuildingThreeTracker from './buildings/buildingThree';
+import BuildingFourTracker from './buildings/buildingFour';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 import Select from '@mui/material/Select';
@@ -34,7 +35,7 @@ function BuildingDropdown() {
 				<MenuItem value="Building-1" component={Link} to = "/layouts/roomavailabilitytracker/buildings/buildingOne">Building-1</MenuItem>
 				<MenuItem value="Building-2" component={Link} to = "/layouts/roomavailabilitytracker/buildings/buildingTwo">Building-2</MenuItem>
 				<MenuItem value="Building-3" component={Link} to = "/layouts/roomavailabilitytracker/buildings/buildingThree">Building-3</MenuItem>
-				<MenuItem value="Building-4">Building-4</MenuItem>
+				<MenuItem value="Building-4"   component={Link} to = "/layouts/roomavailabilitytracker/buildings/buildingFour">Building-4</MenuItem>
 			</Select>
 		</div>
 	);
