@@ -1,79 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import MaterialTable from "material-table";
 import { Grid } from "@mui/material";
-
-const empList = [
-  {
-    guestId: "2020A051019",
-    paymentTowards: "PG",
-    amount: 10000,
-    paymentMethod: "UPI",
-    paymentId:"1jwjjwwj",
-    transactionId: "237UH287423",
-    transactionDate: "19-10-2020",
-  },
-  {
-    guestId: "2020A051019",
-    paymentTowards: "PG",
-    amount: 10000,
-    paymentMethod: "UPI",
-    paymentId:"wuwsju211",
-    transactionId: "237UH287423",
-    transactionDate: "19-10-2020",
-  },
-  {
-    guestId: "2020A051019",
-    paymentTowards: "PG",
-    amount: 10000,
-    paymentMethod: "UPI",
-    transactionId: "237UH287423",
-    transactionDate: "19-10-2020",
-  },
-  {
-    guestId: "2020A051019",
-    paymentTowards: "PG",
-    amount: 10000,
-    paymentMethod: "UPI",
-    transactionId: "237UH287423",
-    transactionDate: "19-10-2020",
-  },
-  {
-    guestId: "2020A051019",
-    paymentTowards: "PG",
-    amount: 10000,
-    paymentMethod: "UPI",
-    transactionId: "237UH287423",
-    transactionDate: "19-10-2020",
-  },
-  {
-    guestId: "2020A051019",
-    paymentTowards: "PG",
-    amount: 10000,
-    paymentMethod: "UPI",
-    transactionId: "237UH287423",
-    transactionDate: "19-10-2020",
-  },
-  {
-    guestId: "2020A051019",
-    paymentTowards: "PG",
-    amount: 10000,
-    paymentMethod: "UPI",
-    transactionId: "237UH287423",
-    transactionDate: "19-10-2020",
-  },
-  {
-    guestId: "2020A051019",
-    paymentTowards: "PG",
-    amount: 10000,
-    paymentMethod: "UPI",
-    transactionId: "237UH287423",
-    transactionDate: "19-10-2020",
-  },
-];
+import axios from "axios";
 
 function PaymentReport() {
-  const [data, setData] = useState(empList);
+  const [data, setData] = useState([]);
+  const url = "http://localhost:8080/api/v1/payments";
   const columns = [
     {
       title: " GUEST ID",
@@ -111,7 +44,6 @@ function PaymentReport() {
     {
       title: " Payment ID",
       field: "paymentId",
-      editable: false,
       headerStyle: {
         backgroundColor: "#0096FF",
         color: "white",
@@ -127,13 +59,26 @@ function PaymentReport() {
     },
     {
       title: "Transaction Date",
-      field: "transactionDate",
+      field: "transactiondate",
       headerStyle: {
         backgroundColor: "#0096FF",
         color: "white",
       },
     },
   ];
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/api/v1/payments")
+      .then((res) => {
+        setData(res.data);
+
+        console.log(res.data);
+      })
+
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <div className="App">
@@ -152,6 +97,14 @@ function PaymentReport() {
                     { id: Math.floor(Math.random() * 100), ...newRow },
                   ];
                   setTimeout(() => {
+                    const res = axios.post(
+                      "http://localhost:8080/api/v1/payments",
+
+                      newRow
+                    );
+
+                    console.log(res.data);
+                    // console.log(newRow)
                     setData(updatedRows);
                     resolve();
                   }, 2000);
@@ -161,7 +114,13 @@ function PaymentReport() {
                   const index = selectedRow.tableData.id;
                   const updatedRows = [...data];
                   updatedRows.splice(index, 1);
+                  console.log(index);
                   setTimeout(() => {
+                    const res = axios.delete(
+                      `http://localhost:8080/api/v1/payments/${index}`
+                    );
+                    console.log(res);
+                    console.log(updatedRows);
                     setData(updatedRows);
                     resolve();
                   }, 2000);
@@ -172,6 +131,11 @@ function PaymentReport() {
                   const updatedRows = [...data];
                   updatedRows[index] = updatedRow;
                   setTimeout(() => {
+                    // const res = axios.put(
+                    //   `http://localhost:8080/api/v1/payments/${index}`
+                    // );
+                    // console.log(res);
+                    // console.log(updatedRows);
                     setData(updatedRows);
                     resolve();
                   }, 2000);
