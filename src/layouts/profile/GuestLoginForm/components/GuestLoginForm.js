@@ -1,6 +1,7 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
+import axios from 'axios';
 
 import { Container, Grid, Typography } from '@mui/material';
 import moment from 'moment';
@@ -48,7 +49,7 @@ const FORM_VALIDATION = Yup.object().shape({
 	firstName: Yup.string().matches(/^[aA-zZ\s]+$/, 'Invalid FirstName ').required('Required'),
 	lastName: Yup.string().matches(/^[aA-zZ\s]+$/, 'Invalid LastName ').required('Required'),
 	email: Yup.string().email('Invalid email.').required('Required'),
-	dateOfBirth: Yup.string()
+	dateOfBirth: Yup.date()
 		.required('DOB is Required')
 		.test('DOB', 'Please choose a valid date of birth', (date) => moment().diff(moment(date), 'years') >= 12),
 	phone: Yup.string()
@@ -115,8 +116,10 @@ const GuestLoginForm = () => {
 						<Formik
 							initialValues={{ ...INITIAL_FORM_STATE }}
 							validationSchema={FORM_VALIDATION}
-							onSubmit={(values) => {
+							onSubmit={async (values) => {
 								console.log(values);
+								const res = await axios.post('http://localhost:7000/api/v1/addGuest', values);
+								console.log(res.data);
 							}}
 						>
 							<Form>
