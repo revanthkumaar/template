@@ -3,6 +3,9 @@ import React, { useState, useEffect } from "react";
 import MaterialTable from "material-table";
 import { Grid } from "@mui/material";
 import axios from "axios";
+import Building from "layouts/profile/GuestLoginForm/components/Building";
+
+import FormDialog from "./Components/RecordPayment";
 
 function PaymentReport() {
   const [data, setData] = useState([]);
@@ -83,6 +86,9 @@ function PaymentReport() {
   return (
     <div className="App">
       <Grid container>
+      <Grid item xs={6} ><Building/></Grid>
+      <Grid item xs={6} ><FormDialog/></Grid>
+
         <Grid xs={12}>
           <MaterialTable
             title="Record Payments"

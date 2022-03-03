@@ -9,15 +9,15 @@ import MDTypography from 'components/MDTypography';
 import HotelOutlinedIcon from '@mui/icons-material/HotelOutlined';
 import { IconButton } from '@mui/material';
 // import Layout from './components/Layout'
-import ChartOne from './buildings/buildingOne/buildingOnepieCharts/buildingOneChartOne';
-import ChartTwo from './buildings/buildingOne/buildingOnepieCharts/buildingOneChartTwo';
+import ChartOne from './buildings/buildingspieCharts/buildingChartOne';
+import ChartTwo from './buildings/buildingspieCharts/buildingChartTwo';
 import BuildingDropdown from './BuildingDropdown'
-import BuildingOneTracker from './buildings/buildingOne';
+import BuildingsTracker from './buildings';
 const Tracker = () => {
     return (
         
 
-                <BuildingOneTracker />
+                <BuildingsTracker />
 
                 
            
