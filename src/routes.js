@@ -101,7 +101,7 @@ const routes = [
 	
 
 	{
-		type: 'collapse',
+		type: 'main',
 		name: 'Sign Out',
 		key: 'sign-out',
 		icon: <Icon fontSize="small">logout</Icon>,
@@ -111,7 +111,7 @@ const routes = [
 	
 
 	{
-		type: 'collapse',
+		type: 'main',
 		name: 'Sign Out',
 		key: 'sign-out',
 		icon: <Icon fontSize="small">logout</Icon>,
@@ -121,7 +121,7 @@ const routes = [
 	
 
 	{
-		type: 'collapse',
+		type: 'main',
 		name: 'Sign Out',
 		key: 'sign-out',
 		icon: <Icon fontSize="small">logout</Icon>,
