@@ -14,6 +14,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useState } from 'react';
+import MDButton from 'components/MDButton';
 
 const BuildingsLayout = (props) => { 
 
@@ -78,78 +79,63 @@ const BuildingsData = buildingsData.filter(post => {
                                 id="outlined-textarea"
                                 label="Guest Id"
                                 style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
-                            > NAME :</MDTypography> </Grid>
+                            > Name :</MDTypography> </Grid>
                         <Grid item xs={6}>
-                            <TextField
+                            <MDTypography
                                 id="outlined-textarea"
                                 label="Payment Purpose"
                                 style={{ width: '65%', marginBottom: '20px' }}
-                            /></Grid>
+                            >Room No  :</MDTypography></Grid>
 
                         <Grid item xs={6}>
-                            <TextField
+                            <MDTypography
                                 id="outlined-textarea"
                                 label="Amount"
                                 style={{ width: '65%', marginLeft: '50px', marginBottom: '20px' }}
-                            /></Grid>
+                            >Building  :</MDTypography></Grid>
                         <Grid item xs={6}>
-                            <TextField
+                            <MDTypography
                                 id="outlined-textarea"
                                 label="Payment Method"
                                 style={{ width: '65%', marginBottom: '20px' }}
-                            /></Grid>
+                            >phone :</MDTypography></Grid>
                         <Grid item xs={6}>
-                            <TextField
+                            <MDTypography
                                 id="outlined-textarea"
                                 label="Payment Id"
                                 style={{ width: '65%', marginLeft: '50px', marginBottom: '20px' }}
-                            /></Grid>
+                            >Aadhar  :</MDTypography></Grid>
                         <Grid item xs={6}>
-                            <TextField
+                            <MDTypography
                                 id="outlined-textarea"
                                 label="Transaction Id"
                                 style={{ width: '65%', marginBottom: '20px' }}
-                            /></Grid>
+                            >Email Id :</MDTypography></Grid>
                         <Grid item xs={6}>
-                            <TextField
+                            <MDTypography
                                 id="outlined-textarea"
                                 label="Transaction Date"
                                 style={{ width: '65%', marginLeft: '50px', marginBottom: '20px' }}
-                            /></Grid>
+                            >Parents phone  :</MDTypography></Grid>
                     </Grid>
                 </DialogContent>
-                {/* <DialogActions>
+                <DialogActions>
                     <Grid container alignItems="center" alignContent="center">
-                        <Button
+                        <MDButton
                             width='20%'
                             variant="contained"
                             color="primary" size="large"
                             justify="center"
                             style={{ borderRadius: 10 }}
-                            onClick={handleClose}>Submit</Button>
+                            onClick={handleClose}>Close</MDButton>
                     </Grid>
 
-                </DialogActions> */}
+                </DialogActions>
             </Dialog>
 
 
 
-                                                                                           {/* <Modal
-                                                                                             keepMounted
-                                                                                             open={open}
-                                                                                              onClose={handleClose}
-                                                                                            aria-labelledby="keep-mounted-modal-title"
-                                                                                            aria-describedby="keep-mounted-modal-description"
-                                                                                              >
-                                                                                            <MDBox sx={style}>
-                                                                                             <MDTypography id="keep-mounted-modal-title" variant="h6" component="h2">
-                                                                                                      {bdno.guestId}
-                                                                                               </MDTypography>
-                                                                                               <MDTypography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
-                                                                                                     Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                                                                                               </MDTypography>
-                                                                                                     </MDBox>
-                                                                                                 </Modal> */}
+                                                                                          
                                                                                                  </>}
                                                                             </Grid>
                                                                                 <Grid item xs={12} align="center" ><h6 align="center"  >{bdno.bedNumber}</h6></Grid>
