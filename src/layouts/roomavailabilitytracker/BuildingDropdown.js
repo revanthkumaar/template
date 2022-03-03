@@ -4,7 +4,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 import Select from '@mui/material/Select';
 
-let API_DATA = [ { building: 'Building-1' }, { building: 'Building-2' }, { building: 'Building-3' } ];
+let API_DATA = [ { building: 'Building-1' }, { building: 'ANANDANILAYAM' }, { building: 'Building-3' } ];
 
 function BuildingDropdown() {
 	const [ tableData, setTableData ] = React.useState(API_DATA);
@@ -29,9 +29,9 @@ function BuildingDropdown() {
 				
 			>
 				
-				<MenuItem value="Building-1" component={Link} to = "/layouts/roomavailabilitytracker/buildings/buildingOne">Building-1</MenuItem>
-				<MenuItem value="Building-2" component={Link} to = "/layouts/roomavailabilitytracker/buildings/buildingTwo">Building-2</MenuItem>
-				<MenuItem value="Building-3" component={Link} to = "/layouts/roomavailabilitytracker/buildings/buildingThree">Building-3</MenuItem>
+				<MenuItem value="Building-1" component={Link} to ='/layouts/roomavailabilitytracker/buildings/SreeKalaNilayam'>SREE KALA NILAYAM</MenuItem>
+				<MenuItem value="ANANDANILAYAM" component={Link} to ='/layouts/roomavailabilitytracker/buildings/AnandaNilayam'>ANANDA NILAYAM</MenuItem>
+				<MenuItem value="Building-3" component={Link} to = '/layouts/roomavailabilitytracker/buildings/SreeNilayam'>SREE NILAYAM</MenuItem>
 				<MenuItem value="Building-4"   component={Link} to = "/layouts/roomavailabilitytracker/buildings/buildingFour">Building-4</MenuItem>
 			</Select>
 		</div>
