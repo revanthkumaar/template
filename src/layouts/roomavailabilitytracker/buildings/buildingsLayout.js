@@ -6,8 +6,13 @@ import HotelOutlinedIcon from '@mui/icons-material/HotelOutlined';
 import IconButton from '@material-ui/core/IconButton';
 import { pink } from '@mui/material/colors';
 import MDTypography from 'components/MDTypography';
-
+import TextField from '@mui/material/TextField';
 import Modal from '@mui/material/Modal';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 import { useState } from 'react';
 
 const BuildingsLayout = (props) => { 
@@ -63,7 +68,73 @@ const BuildingsData = buildingsData.filter(post => {
                                                                                           style={{ width: '30px', height: '40px' }} 
                                                                                           onClick={handleOpen}
                                                                                           />
-                                                                                           <Modal
+                                                                                          <Dialog open={open} onClose={handleClose} maxWidth='lg'>
+                <DialogTitle>GUEST DETAILS</DialogTitle>
+                <br />
+                <DialogContent>
+                    <Grid container spacing={1}>
+                        <Grid item xs={6} sx={{ pl: 6 }}>
+                            <MDTypography
+                                id="outlined-textarea"
+                                label="Guest Id"
+                                style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
+                            > NAME :</MDTypography> </Grid>
+                        <Grid item xs={6}>
+                            <TextField
+                                id="outlined-textarea"
+                                label="Payment Purpose"
+                                style={{ width: '65%', marginBottom: '20px' }}
+                            /></Grid>
+
+                        <Grid item xs={6}>
+                            <TextField
+                                id="outlined-textarea"
+                                label="Amount"
+                                style={{ width: '65%', marginLeft: '50px', marginBottom: '20px' }}
+                            /></Grid>
+                        <Grid item xs={6}>
+                            <TextField
+                                id="outlined-textarea"
+                                label="Payment Method"
+                                style={{ width: '65%', marginBottom: '20px' }}
+                            /></Grid>
+                        <Grid item xs={6}>
+                            <TextField
+                                id="outlined-textarea"
+                                label="Payment Id"
+                                style={{ width: '65%', marginLeft: '50px', marginBottom: '20px' }}
+                            /></Grid>
+                        <Grid item xs={6}>
+                            <TextField
+                                id="outlined-textarea"
+                                label="Transaction Id"
+                                style={{ width: '65%', marginBottom: '20px' }}
+                            /></Grid>
+                        <Grid item xs={6}>
+                            <TextField
+                                id="outlined-textarea"
+                                label="Transaction Date"
+                                style={{ width: '65%', marginLeft: '50px', marginBottom: '20px' }}
+                            /></Grid>
+                    </Grid>
+                </DialogContent>
+                {/* <DialogActions>
+                    <Grid container alignItems="center" alignContent="center">
+                        <Button
+                            width='20%'
+                            variant="contained"
+                            color="primary" size="large"
+                            justify="center"
+                            style={{ borderRadius: 10 }}
+                            onClick={handleClose}>Submit</Button>
+                    </Grid>
+
+                </DialogActions> */}
+            </Dialog>
+
+
+
+                                                                                           {/* <Modal
                                                                                              keepMounted
                                                                                              open={open}
                                                                                               onClose={handleClose}
@@ -78,7 +149,8 @@ const BuildingsData = buildingsData.filter(post => {
                                                                                                      Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
                                                                                                </MDTypography>
                                                                                                      </MDBox>
-                                                                                                 </Modal></>}
+                                                                                                 </Modal> */}
+                                                                                                 </>}
                                                                             </Grid>
                                                                                 <Grid item xs={12} align="center" ><h6 align="center"  >{bdno.bedNumber}</h6></Grid>
                                                                             

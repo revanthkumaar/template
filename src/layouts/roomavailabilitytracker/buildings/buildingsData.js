@@ -1,9 +1,9 @@
 const buildings = [{
-    buildingname: "Building 1",
+    buildingname: "SREE KALA NILAYAM",
     floors: [{
           floorName: "FLOOR-1",
           rooms: [{
-                roomNumber: "101", 
+                roomNumber: "110", 
                 beds: [{
                       bedNumber: "A",
                       guestId: "ram 1",
@@ -20,16 +20,11 @@ const buildings = [{
                       guestId: "ram2",
                       available: true,
                       guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
-                }, {
-                  bedNumber: "D",
-                  guestId: "ram2",
-                  available: true,
-                  guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
-            }
+                }
                 ]
           },
           {
-                roomNumber: "102",
+                roomNumber: "111",
                 beds: [{
                       bedNumber: "A",
                       guestId: "akhil1",
@@ -56,7 +51,7 @@ const buildings = [{
                 ]
           },
           {
-                roomNumber: "103",
+                roomNumber: "112",
                 beds: [{
                       bedNumber: "A",
                       guestId: "akhil12",
@@ -82,7 +77,7 @@ const buildings = [{
                 ]
           },
           {
-                roomNumber: "104",
+                roomNumber: "114",
                 beds: [{
                       bedNumber: "A",
                       guestId: "akhil1",
@@ -100,20 +95,104 @@ const buildings = [{
                       guestId: "akhil1",
                       available: true,
                       guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                }
+                ]
+          }
+          ,
+          {
+                roomNumber: "115",
+                beds: [{
+                      bedNumber: "A",
+                      guestId: "akhil1",
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 },
                 {
-                      bedNumber: "D",
+                      bedNumber: "B",
                       guestId: "akhil1",
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                },
+                {
+                      bedNumber: "C",
+                      guestId: "akhil1",
+                      available: true,
                       guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 }
                 ]
           }
+          ,
+          {
+                roomNumber: "116",
+                beds: [{
+                      bedNumber: "A",
+                      guestId: "akhil1",
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                },
+                {
+                      bedNumber: "B",
+                      guestId: "akhil1",
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                },
+                {
+                      bedNumber: "C",
+                      guestId: "akhil1",
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                }
+                ]
+          }
+          ,
+          {
+                roomNumber: "117",
+                beds: [{
+                      bedNumber: "A",
+                      guestId: "akhil1",
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                },
+                {
+                      bedNumber: "B",
+                      guestId: "akhil1",
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                },
+                {
+                      bedNumber: "C",
+                      guestId: "akhil1",
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                }
+                ]
+          }
+          ,
+          {
+                roomNumber: "118",
+                beds: [{
+                      bedNumber: "A",
+                      guestId: "akhil1",
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                },
+                {
+                      bedNumber: "B",
+                      guestId: "akhil1",
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                }
+                ]
+          }
+          
+
+
           ]
     },
     {
           floorName: "FLOOR-2",
           rooms: [{
-                roomNumber: "201",
+                roomNumber: "210",
                 beds: [{
                       bedNumber: "A",
                       guestId: "ram 1",
@@ -130,17 +209,11 @@ const buildings = [{
                       guestId: "ram2",
                       available: true,
                       guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
-                },
-                {
-                      bedNumber: "D",
-                      guestId: "ram2",
-                      available: true,
-                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 }
                 ]
           },
           {
-                roomNumber: "202",
+                roomNumber: "211",
                 beds: [{
                       bedNumber: "A",
                       guestId: "akhil10",
@@ -155,14 +228,140 @@ const buildings = [{
                 
                 
                 ]
-          }
+          },
+          {
+            roomNumber: "212",
+            beds: [{
+                  bedNumber: "A",
+                  guestId: "ram 1",
+                  guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+            },
+            {
+                  bedNumber: "B",
+                  guestId: "ram2",
+                  available: true,
+                  guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+            },
+            {
+                  bedNumber: "C",
+                  guestId: "ram2",
+                  available: true,
+                  guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+            },
+            {
+                  bedNumber: "D",
+                  guestId: "ram2",
+                  available: true,
+                  guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+            }
+            ]
+      },
+      {
+        roomNumber: "214",
+        beds: [{
+              bedNumber: "A",
+              guestId: "ram 1",
+              guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+        },
+        {
+              bedNumber: "B",
+              guestId: "ram2",
+              available: true,
+              guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+        },
+        {
+              bedNumber: "C",
+              guestId: "ram2",
+              available: true,
+              guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+        }
+        ]
+     },
+     {
+    roomNumber: "215",
+    beds: [{
+          bedNumber: "A",
+          guestId: "ram 1",
+          guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+    },
+    {
+          bedNumber: "B",
+          guestId: "ram2",
+          available: true,
+          guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+    },
+    {
+          bedNumber: "C",
+          guestId: "ram2",
+          available: true,
+          guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+    }
+    ]
+     },
+     {
+    roomNumber: "216",
+    beds: [{
+          bedNumber: "A",
+          guestId: "ram 1",
+          guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+    },
+    {
+          bedNumber: "B",
+          guestId: "ram2",
+          available: true,
+          guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+    },
+    {
+          bedNumber: "C",
+          guestId: "ram2",
+          available: true,
+          guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+    }
+    ]
+     },
+     {
+    roomNumber: "217",
+    beds: [{
+          bedNumber: "A",
+          guestId: "ram 1",
+          guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+    },
+    {
+          bedNumber: "B",
+          guestId: "ram2",
+          available: true,
+          guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+    },
+    {
+          bedNumber: "C",
+          guestId: "ram2",
+          available: true,
+          guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+    }
+    ]
+     },
+     {
+    roomNumber: "218",
+    beds: [{
+          bedNumber: "A",
+          guestId: "ram 1",
+          guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+    },
+    {
+          bedNumber: "B",
+          guestId: "ram2",
+          available: true,
+          guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+    }
+    ]
+     }
           
           ]
     },
     {
           floorName: "FLOOR-3",
           rooms: [{
-                roomNumber: "301",
+                roomNumber: "310",
                 beds: [{
                       bedNumber: "A",
                       guestId: "ram 1",
@@ -179,17 +378,11 @@ const buildings = [{
                       guestId: "ram2",
                       available: true,
                       guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
-                },
-                {
-                      bedNumber: "D",
-                      guestId: "ram2",
-                      available: true,
-                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 }
                 ]
           },
           {
-                roomNumber: "302",
+                roomNumber: "311",
                 beds: [{
                       bedNumber: "A",
                       guestId: "akhil9",
@@ -216,7 +409,7 @@ const buildings = [{
                 
           },
           {
-                roomNumber: "303",
+                roomNumber: "312",
                 beds: [{
                       bedNumber: "A",
                       guestId: "akhil6",
@@ -242,7 +435,7 @@ const buildings = [{
                 ]
           },
           {
-                roomNumber: "304",
+                roomNumber: "314",
                 beds: [{
                       bedNumber: "A",
                       guestId: "akhil3",
@@ -259,6 +452,130 @@ const buildings = [{
                       bedNumber: "C",
                       guestId: "akhilaaa1",
                       guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                }
+                ]
+          },
+          {
+                roomNumber: "315",
+                beds: [{
+                      bedNumber: "A",
+                      guestId: "akhil3",
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                },
+                {
+                      bedNumber: "B",
+                      guestId: "akhil2",
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                },
+                {
+                      bedNumber: "C",
+                      guestId: "akhilaaa1",
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                }
+                ]
+          },
+          {
+                roomNumber: "316",
+                beds: [{
+                      bedNumber: "A",
+                      guestId: "akhil3",
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                },
+                {
+                      bedNumber: "B",
+                      guestId: "akhil2",
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                },
+                {
+                      bedNumber: "C",
+                      guestId: "akhilaaa1",
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                }
+                ]
+          },
+          {
+                roomNumber: "317",
+                beds: [{
+                      bedNumber: "A",
+                      guestId: "akhil3",
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                },
+                {
+                      bedNumber: "B",
+                      guestId: "akhil2",
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                },
+                {
+                      bedNumber: "C",
+                      guestId: "akhilaaa1",
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                }
+                ]
+          },
+          {
+                roomNumber: "318",
+                beds: [{
+                      bedNumber: "A",
+                      guestId: "akhil3",
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                },
+                {
+                      bedNumber: "B",
+                      guestId: "akhil2",
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                }
+                ]
+          }
+          ]
+    },
+    {
+          floorName: "FLOOR-4",
+          rooms: [{
+                roomNumber: "410",
+                beds: [{
+                      bedNumber: "A",
+                      guestId: "ram 1",
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                },
+                {
+                      bedNumber: "B",
+                      guestId: "ram2",
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                },
+                {
+                      bedNumber: "C",
+                      guestId: "ram2",
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                }
+                ]
+          },
+          {
+                roomNumber: "411",
+                beds: [{
+                      bedNumber: "A",
+                      guestId: "akhil9",
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                },
+                {
+                      bedNumber: "B",
+                      guestId: "akhil8",
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                },
+                {
+                      bedNumber: "C",
+                      guestId: "akhil7",
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 },
                 {
                       bedNumber: "D",
@@ -267,14 +584,142 @@ const buildings = [{
                       guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
                 }
                 ]
+                
+          },
+          {
+                roomNumber: "412",
+                beds: [{
+                      bedNumber: "A",
+                      guestId: "akhil6",
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                },
+                {
+                      bedNumber: "B",
+                      guestId: "akhil5",
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                },
+                {
+                      bedNumber: "C",
+                      guestId: "akhil4",
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                },
+                {
+                      bedNumber: "D",
+                      guestId: "akhil1",
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                }
+                ]
+          },
+          {
+                roomNumber: "414",
+                beds: [{
+                      bedNumber: "A",
+                      guestId: "akhil3",
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                },
+                {
+                      bedNumber: "B",
+                      guestId: "akhil2",
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                },
+                {
+                      bedNumber: "C",
+                      guestId: "akhilaaa1",
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                }
+                ]
+          },
+          {
+                roomNumber: "415",
+                beds: [{
+                      bedNumber: "A",
+                      guestId: "akhil3",
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                },
+                {
+                      bedNumber: "B",
+                      guestId: "akhil2",
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                },
+                {
+                      bedNumber: "C",
+                      guestId: "akhilaaa1",
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                }
+                ]
+          },
+          {
+                roomNumber: "416",
+                beds: [{
+                      bedNumber: "A",
+                      guestId: "akhil3",
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                },
+                {
+                      bedNumber: "B",
+                      guestId: "akhil2",
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                },
+                {
+                      bedNumber: "C",
+                      guestId: "akhilaaa1",
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                }
+                ]
+          },
+          {
+                roomNumber: "417",
+                beds: [{
+                      bedNumber: "A",
+                      guestId: "akhil3",
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                },
+                {
+                      bedNumber: "B",
+                      guestId: "akhil2",
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                },
+                {
+                      bedNumber: "C",
+                      guestId: "akhilaaa1",
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                }
+                ]
+          },
+          {
+                roomNumber: "418",
+                beds: [{
+                      bedNumber: "A",
+                      guestId: "akhil3",
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                },
+                {
+                      bedNumber: "B",
+                      guestId: "akhil2",
+                      available: true,
+                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                }
+                ]
           }
           ]
-    }],
+    }
+],
     
    
 },
 {
-      buildingname: "Building 2",
+      buildingname: "ANANDA NILAYAM",
       floors: [{
             floorName: "FLOOR-1",
             rooms: [{
@@ -549,7 +994,7 @@ const buildings = [{
      
   },
   {
-        buildingname: "Building 3",
+        buildingname: "SREE NILAYAM",
         floors: [{
               floorName: "FLOOR-1",
               rooms: [{

@@ -29,7 +29,7 @@ const routes = [
 		key: 'tracker',
 		icon: <Icon fontSize="small">booking</Icon>,
 		route: '/tracker',
-		component:<BuildingsTracker buildingname = "Building 1"/>
+		component:<BuildingsTracker buildingname = "SREE KALA NILAYAM"/>
 	},
 	{
 		type: 'collapse',
@@ -98,39 +98,39 @@ const routes = [
 		route: '/authentication/sign-in',
 		component: <SignIn />
 	},
+	
 
 	{
-		type: 'main',
+		type: 'collapse',
 		name: 'Sign Out',
 		key: 'sign-out',
 		icon: <Icon fontSize="small">logout</Icon>,
-		route: '/layouts/roomavailabilitytracker/buildings/buildingThree',
-		component: <BuildingsTracker buildingname = "Building 3"/>
+		route: '/layouts/roomavailabilitytracker/buildings/SreeKalaNilayam',
+		component:<BuildingsTracker buildingname = "SREE KALA NILAYAM"/>
 	},
+	
 
 	{
-		type: 'main',
+		type: 'collapse',
 		name: 'Sign Out',
 		key: 'sign-out',
 		icon: <Icon fontSize="small">logout</Icon>,
-		route: '/layouts/roomavailabilitytracker/buildings/buildingTwo',
-		component: <BuildingsTracker buildingname = "Building 2"/>
+		route: '/layouts/roomavailabilitytracker/buildings/AnandaNilayam',
+		component:<BuildingsTracker buildingname = "ANANDA NILAYAM"/>
 	},
+	
+
 	{
-		type: 'main',
+		type: 'collapse',
 		name: 'Sign Out',
 		key: 'sign-out',
 		icon: <Icon fontSize="small">logout</Icon>,
-		route: '/layouts/roomavailabilitytracker/buildings/buildingOne',
-		component: <BuildingsTracker buildingname = "Building 1"/>
-	},
-	{
-		type: 'main',
-		name: 'Sign Out',
-		key: 'sign-out',
-		icon: <Icon fontSize="small">logout</Icon>,
-		route: '/layouts/roomavailabilitytracker/buildings/buildingFour',
-		component: <BuildingsTracker buildingname = "Building 4"/>
-	},
+		route: '/layouts/roomavailabilitytracker/buildings/SreeNilayam',
+		component:<BuildingsTracker buildingname = "SREE NILAYAM"/>
+	}
+
+	
+	
+	
 ];
 export default routes;
