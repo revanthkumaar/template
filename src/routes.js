@@ -12,10 +12,7 @@ import Expenses from 'layouts/expenses';
 import Icon from '@mui/material/Icon';
 import PaymentModules from 'layouts/payments';
 import Tracker from 'layouts/roomavailabilitytracker';
-import BuildingThreeTracker from 'layouts/roomavailabilitytracker/buildings/buildingThree';
-import BuildingOneTracker from 'layouts/roomavailabilitytracker/buildings/buildingOne';
-import BuildingTwoTracker from 'layouts/roomavailabilitytracker/buildings/buildingTwo';
-import BuildingFourTracker from 'layouts/roomavailabilitytracker/buildings/buildingFour';
+import BuildingsTracker from 'layouts/roomavailabilitytracker/buildings';
 
 const routes = [
 	{
@@ -32,7 +29,7 @@ const routes = [
 		key: 'tracker',
 		icon: <Icon fontSize="small">booking</Icon>,
 		route: '/tracker',
-		component: <Tracker />
+		component:<BuildingsTracker buildingname = "Building 1"/>
 	},
 	{
 		type: 'collapse',
@@ -108,7 +105,7 @@ const routes = [
 		key: 'sign-out',
 		icon: <Icon fontSize="small">logout</Icon>,
 		route: '/layouts/roomavailabilitytracker/buildings/buildingThree',
-		component: <BuildingThreeTracker />
+		component: <BuildingsTracker buildingname = "Building 3"/>
 	},
 
 	{
@@ -117,7 +114,7 @@ const routes = [
 		key: 'sign-out',
 		icon: <Icon fontSize="small">logout</Icon>,
 		route: '/layouts/roomavailabilitytracker/buildings/buildingTwo',
-		component: <BuildingTwoTracker />
+		component: <BuildingsTracker buildingname = "Building 2"/>
 	},
 	{
 		type: 'main',
@@ -125,7 +122,7 @@ const routes = [
 		key: 'sign-out',
 		icon: <Icon fontSize="small">logout</Icon>,
 		route: '/layouts/roomavailabilitytracker/buildings/buildingOne',
-		component: <BuildingOneTracker />
+		component: <BuildingsTracker buildingname = "Building 1"/>
 	},
 	{
 		type: 'main',
@@ -133,7 +130,7 @@ const routes = [
 		key: 'sign-out',
 		icon: <Icon fontSize="small">logout</Icon>,
 		route: '/layouts/roomavailabilitytracker/buildings/buildingFour',
-		component: <BuildingFourTracker />
+		component: <BuildingsTracker buildingname = "Building 4"/>
 	},
 ];
 export default routes;

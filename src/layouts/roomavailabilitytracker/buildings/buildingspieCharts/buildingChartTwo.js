@@ -1,14 +1,14 @@
 import React from "react";
 import { Chart } from "react-google-charts";
 
- const data = [
+const data = [
   ["Task", "Hours per Day"],
-  ["PendingPayments", 8],
+  ["PendingPayments", 11],
   ["CompletedPayments", 2],
- 
+
 ];
 
- const options = {
+const options = {
   slices: [
     {
       color: "#D2691E"
@@ -16,11 +16,11 @@ import { Chart } from "react-google-charts";
     {
       color: "#6495ED"
     },
-    
+
   ],
 };
 
-export default function BuildingTwoChartTwo() {
+export default function BuildingsChartTwo() {
   return (
     <Chart
       chartType="PieChart"

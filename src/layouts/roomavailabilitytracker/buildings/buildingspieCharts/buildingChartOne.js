@@ -1,26 +1,18 @@
 import React from "react";
 import { Chart } from "react-google-charts";
 
- const data = [
+export const data = [
   ["Task", "Hours per Day"],
-  ["PendingPayments", 10],
-  ["CompletedPayments", 22],
+  ["AvailableBeds", 16],
+  ["OccupiedBeds", 6],
  
 ];
 
- const options = {
-  slices: [
-    {
-      color: "#D2691E"
-    },
-    {
-      color: "#6495ED"
-    },
-    
-  ],
+export const options = {
+ 
 };
 
-export default function BuildingThreeChartTwo() {
+export default function BuildingsChartOne() {
   return (
     <Chart
       chartType="PieChart"
