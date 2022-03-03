@@ -21,7 +21,7 @@ function PaymentReport() {
       },
     },
     {
-      title: "Payment Towards",
+      title: "Payment Purpose",
       field: "paymentTowards",
       headerStyle: {
         backgroundColor: "#0096FF",
@@ -29,8 +29,16 @@ function PaymentReport() {
       },
     },
     {
-      title: "Amount",
+      title: "AmountPaid",
       field: "amount",
+      headerStyle: {
+        backgroundColor: "#0096FF",
+        color: "white",
+      },
+    },
+    {
+      title: "Due",
+      field: "Dueamount",
       headerStyle: {
         backgroundColor: "#0096FF",
         color: "white",

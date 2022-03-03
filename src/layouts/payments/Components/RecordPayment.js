@@ -31,10 +31,25 @@ export default function FormDialog() {
                 Record Payment
             </Button> */}
 
-<MDButton onClick={handleClickOpen} variant="outlined" color="info" size="small"
+<MDButton
+
+min-Width="144px"
+
+variant="gradient"
+
+color="info"
+
+size="large"
+
+onClick={handleClickOpen}
+
+style={{ borderRadius: "140px",width:"150px"}}
+
 >
-					Record Payment
-				</MDButton>
+
+Record Payment
+
+</MDButton>
             <Dialog open={open} onClose={handleClose} maxWidth='lg'>
                 <DialogTitle>Record payment</DialogTitle>
                 <br />
@@ -86,16 +101,33 @@ export default function FormDialog() {
                     </Grid>
                 </DialogContent>
                 <DialogActions>
-                    <Grid container alignItems="center" alignContent="center">
-                        <Button
-                            width='20%'
-                            variant="contained"
-                            color="primary" size="large"
-                            justify="center"
-                            style={{ borderRadius: 10 }}
-                            onClick={handleClose}>Submit</Button>
-                    </Grid>
+                <Grid container spacing={2}>
 
+<Grid item xs={5}></Grid>
+
+<Grid item xs={6}>
+
+  <MDButton
+onClick={handleClose}
+    variant="gradient"
+
+    color="info"
+
+    size="small"
+
+    style={{ borderRadius: "120px" }}
+
+  >
+
+    submit
+
+  </MDButton>
+
+</Grid>
+
+<Grid item xs={4}></Grid>
+
+</Grid>
                 </DialogActions>
             </Dialog>
         </div>
