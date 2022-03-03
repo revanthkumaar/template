@@ -9,6 +9,7 @@ const data = [
 ];
 
 const options = {
+  title: "PaymentSummary",
   slices: [
     {
       color: "#D2691E"
