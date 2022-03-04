@@ -10,6 +10,7 @@ import GroupedSelect from './RoomTypeDropDown';
 import BuildingNameDropDown from './BuildingNameDropdown';
 import FloorNumberDropDown from './FloorNumberDropDown';
 import RoomNumberDropDown from './RoomNumberDropDown';
+import CustomizedSnackbars from './PaySnackBar'
 
 import Textfield from './TextField';
 import Select from './Select';
@@ -48,8 +49,10 @@ const INITIAL_FORM_STATE = {
 	roomRent: '',
 	securityDeposit: '',
 	checkinNotes: '',
-	termsOfService: false
+	termsOfService: false,
+	
 };
+
 
 const FORM_VALIDATION = Yup.object().shape({
 	firstName: Yup.string().matches(/^[aA-zZ\s]+$/, 'Invalid FirstName ').required('Required'),
@@ -304,7 +307,10 @@ const GuestLoginForm = () => {
 										<Checkbox name="termsOfService" legend="Terms of service" label="I agree" />
 									</Grid> */}
 									{/* <Divider variant="middle" /> */}
-									<Grid item xs={6}></Grid>
+									<Grid item xs={6}>
+								<CustomizedSnackbars/>
+				
+									</Grid>
 									<Grid item xs={5 }></Grid>
 									<Grid item xs={4} justifyContent="center">
 										<MDButton variant="outlined" color="info" size="large" onClick>
