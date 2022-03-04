@@ -59,19 +59,13 @@ export default function TabBar() {
 					TabIndicatorProps={{ style: { background: '#1E90FF' } }}
 				>
 					<Tab label="Admission Form" {...a11yProps(0)} />
-					<Tab label="Allocate Room" {...a11yProps(1)} />
+					
 				</Tabs>
 			</Box>
 			<TabPanel value={value} index={0}>
-				<GuestLoginForm />
+				
 			</TabPanel>
-			<TabPanel value={value} index={1}>
-				<h4 align="center">Room Allocation</h4>
-				<br />
-				<Building />
-				<br />
-				<Payments />
-			</TabPanel>
+			
 		</Box>
 	);
 }

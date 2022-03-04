@@ -135,8 +135,8 @@ const GuestLoginForm = () => {
 								<Grid container spacing={2}>
 									<Grid item xs={12}>
 										<Typography>
+											<br />
 											<h4 align="center">Guest's Personal Information</h4>
-
 											<br />
 										</Typography>
 									</Grid>
