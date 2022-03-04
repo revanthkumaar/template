@@ -35,7 +35,7 @@ export default function FormDialog() {
 
 min-Width="144px"
 
-variant="gradient"
+variant="outlined"
 
 color="info"
 
@@ -43,7 +43,7 @@ size="large"
 
 onClick={handleClickOpen}
 
-style={{ borderRadius: "140px",width:"150px"}}
+style={{ borderRadius: "140px",width:"150px",backgroundcolor:"blue"}}
 
 >
 
