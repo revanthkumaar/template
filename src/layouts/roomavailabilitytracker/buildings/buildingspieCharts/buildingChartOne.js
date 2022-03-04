@@ -1,6 +1,12 @@
 import React from "react";
 import { Chart } from "react-google-charts";
+import buildingsData from 'layouts/roomavailabilitytracker/buildings/buildingsData'
 
+const DynamicData = (buildingname) => {
+  var aBeds,oBeds;
+
+  return(aBeds,oBeds)
+}
 export const data = [
   ["Task", "Hours per Day"],
   ["AvailableBeds", 1],

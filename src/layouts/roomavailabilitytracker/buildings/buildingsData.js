@@ -8,12 +8,12 @@ const buildings = [{
                       bedNumber: "A",
                       guestId: "ram 1",
                       available: true,
-                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                      guestimageUrl:'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*'
                 },
                 {
                       bedNumber: "B",
                       guestId: "ram2",
-                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                      guestimageUrl:'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*'
                 },
                 {
                       bedNumber: "C",
@@ -692,7 +692,7 @@ const buildings = [{
                 {
                       bedNumber: "C",
                       guestId: "akhilaaa1",
-                      guestimageUrl:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+                      guestimageUrl:'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*'
                 }
                 ]
           },
