@@ -16,7 +16,7 @@ import Select from './Select';
 import Checkbox from './CheckBox';
 import DateTimePicker from './DataTimePicker';
 import Button from './Button';
-import countries from './countries.json';
+// import countries from './countries.json';
 import { padding } from '@mui/system';
 import BedNumberDropDown from './BedNumberDropDown';
 
@@ -174,6 +174,11 @@ const GuestLoginForm = () => {
 									<Grid item xs={6}>
 										<Textfield name="bloodGroup" label="Blood Group" />
 									</Grid><br/>
+									
+									<Grid item xs={6}>
+										<Textfield name="gender" label="Gender" />
+									</Grid><br/>
+									<Grid item xs={12}></Grid>
 									<Grid item xs={12}>
 										<Typography>
 											<h4 align="center">Allocate Room</h4>
@@ -307,7 +312,7 @@ const GuestLoginForm = () => {
 									<Grid item xs={6}></Grid>
 									<Grid item xs={5 }></Grid>
 									<Grid item xs={4} justifyContent="center">
-										<MDButton variant="outlined" color="info" size="large" onClick>
+										<MDButton variant="outlined" color="info" size="medium">
                                             Submit
                                             </MDButton>
 											<Grid item xs={4}></Grid>

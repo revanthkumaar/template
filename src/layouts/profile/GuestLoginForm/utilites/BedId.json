@@ -1,0 +1,147 @@
+[
+
+    {
+
+        "room_name":"101",
+
+        "bed_id":1,
+
+        "name":"101A"
+
+    },
+    {
+
+        "room_name":"101",
+
+        "bed_id":2,
+
+        "name":"101B"
+
+    },
+    {
+
+        "room_name":"101",
+
+        "bed_id":3,
+
+        "name":"101C"
+
+    },
+    {
+
+        "room_name":"101",
+
+        "bed_id":4,
+
+        "name":"101D"
+
+    },
+    {
+
+        "room_name":"102",
+
+        "bed_id":5,
+
+        "name":"102A"
+
+    },
+    {
+
+        "room_name":"102",
+
+        "bed_id":6,
+
+        "name":"102B"
+
+    },
+    {
+
+        "room_name":"102",
+
+        "bed_id":7,
+
+        "name":"102C"
+
+    },
+    {
+
+        "room_name":"102",
+
+        "bed_id":8,
+
+        "name":"102D"
+
+    },
+    {
+
+        "room_name":"103",
+
+        "bed_id":9,
+
+        "name":"103A"
+
+    },
+    {
+
+        "room_name":"103",
+
+        "bed_id":10,
+
+        "name":"103B"
+
+    },
+    {
+
+        "room_name":"103",
+
+        "bed_id":11,
+
+        "name":"103C"
+
+    },
+    {
+
+        "room_name":"103",
+
+        "bed_id":12,
+
+        "name":"103D"
+
+    },
+    {
+
+        "room_name":"104",
+
+        "bed_id":13,
+
+        "name":"104A"
+
+    },
+    {
+
+        "room_name":"104",
+
+        "bed_id":14,
+
+        "name":"104B"
+
+    },
+    {
+
+        "room_name":"104",
+
+        "bed_id":15,
+
+        "name":"104C"
+
+    },
+    {
+
+        "room_name":"104",
+
+        "bed_id":16,
+
+        "name":"104D"
+
+    }
+]
