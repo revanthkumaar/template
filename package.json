@@ -31,6 +31,7 @@
     "axios": "^0.25.0",
     "chart.js": "3.4.1",
     "chroma-js": "2.1.2",
+    "cors": "^2.8.5",
     "formik": "^2.2.9",
     "material-table": "^1.63.0",
     "moment": "^2.29.1",
