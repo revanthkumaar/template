@@ -25,28 +25,23 @@ export default function CustomizedSnackbars() {
   };
 
   return (
-    <Stack spacing={2} sx={{ width: '30%',paddingLeft:'230px' }}>
+    <Stack spacing={2} sx={{ width: '30%' }}>
      <MDButton
 onClick={handleClick}
     variant="gradient"
-
     color="info"
-
     size="medium"
-
     style={{ borderRadius: "120px" }}
-
   >
-
-    Submit
-
-  </MDButton>
-      <Snackbar open={open} autoHideDuration={1000} onClick={handleClose}>
-        <Alert onClick={handleClose} severity="success" sx={{ width: '100%' }}>
-          Room allocated sucessfully!
+        submit
+        </MDButton>
+      
+      <Snackbar open={open} autoHideDuration={1000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+          Room allocated successfully!
         </Alert>
       </Snackbar>
-     
+      
      
     </Stack>
   );

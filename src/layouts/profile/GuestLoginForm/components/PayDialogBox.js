@@ -115,7 +115,7 @@ style={{ borderRadius: "120px"}}
                 <DialogActions>
                 <Grid container spacing={2}>
 
-<Grid item xs={2}></Grid>
+<Grid item xs={5}></Grid>
 
 <Grid item xs={4}>
 
