@@ -38,7 +38,7 @@ onClick={handleClick}
 
   >
 
-    Pay
+    submit
 
   </MDButton>
       <Snackbar open={open} autoHideDuration={1000} onClose={handleClose}>

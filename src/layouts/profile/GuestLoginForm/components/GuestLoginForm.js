@@ -10,7 +10,7 @@ import GroupedSelect from './RoomTypeDropDown';
 import BuildingNameDropDown from './BuildingNameDropdown';
 import FloorNumberDropDown from './FloorNumberDropDown';
 import RoomNumberDropDown from './RoomNumberDropDown';
-import CustomizedSnackbars from './PaySnackBar'
+import CustomizedSnackbars from './PayDialogBox'
 
 import Textfield from './TextField';
 import Select from './Select';
@@ -312,7 +312,8 @@ const GuestLoginForm = () => {
 										<Checkbox name="termsOfService" legend="Terms of service" label="I agree" />
 									</Grid> */}
 									{/* <Divider variant="middle" /> */}
-									<Grid item xs={6}>
+									<Grid item xs={2 }></Grid>
+									<Grid item xs={3}>
 								<CustomizedSnackbars/>
 				
 									</Grid>
