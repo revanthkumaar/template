@@ -11,6 +11,7 @@ import BuildingNameDropDown from './BuildingNameDropdown';
 import FloorNumberDropDown from './FloorNumberDropDown';
 import RoomNumberDropDown from './RoomNumberDropDown';
 import CustomizedSnackbars from './PayDialogBox'
+import Gender from './Gender'
 
 import Textfield from './TextField';
 import Select from './Select';
@@ -179,7 +180,7 @@ const GuestLoginForm = () => {
 									</Grid><br/>
 									
 									<Grid item xs={6}>
-										<Textfield name="gender" label="Gender" />
+										<Gender />
 									</Grid><br/>
 									<Grid item xs={12}></Grid>
 									<Grid item xs={12}>

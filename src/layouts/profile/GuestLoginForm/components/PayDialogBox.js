@@ -71,31 +71,43 @@ style={{ borderRadius: "120px"}}
                         <Grid item xs={6}>
                             <TextField
                                 id="outlined-textarea"
-                                label="Amount"
+                                label="Amount Paid"
                                 style={{ width: '65%', marginLeft: '50px', marginBottom: '20px' }}
+                            /></Grid>
+                        <Grid item xs={6}>
+                            <TextField
+                                id="outlined-textarea"
+                                label="Room Rent"
+                                style={{ width: '65%', marginBottom: '20px' }}
                             /></Grid>
                         <Grid item xs={6}>
                             <TextField
                                 id="outlined-textarea"
                                 label="Payment Method"
-                                style={{ width: '65%', marginBottom: '20px' }}
-                            /></Grid>
-                        <Grid item xs={6}>
-                            <TextField
-                                id="outlined-textarea"
-                                label="Payment Id"
                                 style={{ width: '65%', marginLeft: '50px', marginBottom: '20px' }}
                             /></Grid>
                         <Grid item xs={6}>
                             <TextField
                                 id="outlined-textarea"
-                                label="Transaction Id"
+                                label="Transaction Date"
                                 style={{ width: '65%', marginBottom: '20px' }}
                             /></Grid>
                         <Grid item xs={6}>
                             <TextField
                                 id="outlined-textarea"
-                                label="Transaction Date"
+                                label="Transaction Id"
+                                style={{ width: '65%', marginLeft: '50px', marginBottom: '20px' }}
+                            /></Grid>
+                            <Grid item xs={6}>
+                            <TextField
+                                id="outlined-textarea"
+                                label="Payment Id"
+                                style={{ width: '65%', marginLeft: '2.5px', marginBottom: '20px' }}
+                            /></Grid>
+                            <Grid item xs={6}>
+                            <TextField
+                                id="outlined-textarea"
+                                label="Due Amount"
                                 style={{ width: '65%', marginLeft: '50px', marginBottom: '20px' }}
                             /></Grid>
                     </Grid>
