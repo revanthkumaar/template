@@ -38,11 +38,11 @@ onClick={handleClick}
 
   >
 
-    submit
+    Submit
 
   </MDButton>
-      <Snackbar open={open} autoHideDuration={1000} onClose={handleClose}>
-        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+      <Snackbar open={open} autoHideDuration={1000} onClick={handleClose}>
+        <Alert onClick={handleClose} severity="success" sx={{ width: '100%' }}>
           Room allocated sucessfully!
         </Alert>
       </Snackbar>

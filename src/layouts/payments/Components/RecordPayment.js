@@ -30,26 +30,21 @@ export default function FormDialog() {
                 style={{ borderRadius: 10,width:'190px',bordercolor:"blue" }} onClick={handleClickOpen}>
                 Record Payment
             </Button> */}
-
-<MDButton
-
-min-Width="144px"
-
-variant="outlined"
-
-color="info"
-
-size="large"
-
+ <MDButton
 onClick={handleClickOpen}
+    variant="gradient"
 
-style={{ borderRadius: "140px",width:"150px",backgroundcolor:"blue"}}
+    color="info"
 
->
+    size="small"
 
-Record Payment
+    style={{ borderRadius: "120px" }}
 
-</MDButton>
+  >
+
+    Record Payment
+
+  </MDButton>
             <Dialog open={open} onClose={handleClose} maxWidth='lg'>
                 <DialogTitle>Record payment</DialogTitle>
                 <br />
