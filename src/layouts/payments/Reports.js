@@ -3,6 +3,9 @@ import React, { useState, useEffect } from "react";
 import MaterialTable from "material-table";
 import { Grid } from "@mui/material";
 import axios from "axios";
+import Building from "layouts/profile/GuestLoginForm/components/Building";
+
+import FormDialog from "./Components/RecordPayment";
 
 function PaymentReport() {
   const [data, setData] = useState([]);
@@ -18,7 +21,7 @@ function PaymentReport() {
       },
     },
     {
-      title: "Payment Towards",
+      title: "Payment Purpose",
       field: "paymentTowards",
       headerStyle: {
         backgroundColor: "#0096FF",
@@ -26,8 +29,16 @@ function PaymentReport() {
       },
     },
     {
-      title: "Amount",
+      title: "AmountPaid",
       field: "amount",
+      headerStyle: {
+        backgroundColor: "#0096FF",
+        color: "white",
+      },
+    },
+    {
+      title: "Due",
+      field: "Dueamount",
       headerStyle: {
         backgroundColor: "#0096FF",
         color: "white",
@@ -83,6 +94,9 @@ function PaymentReport() {
   return (
     <div className="App">
       <Grid container>
+      <Grid item xs={6} ><Building/></Grid>
+      <Grid item xs={6} ><FormDialog/></Grid>
+
         <Grid xs={12}>
           <MaterialTable
             title="Record Payments"

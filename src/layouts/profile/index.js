@@ -2,8 +2,7 @@ import Grid from "@mui/material/Grid";
 import MDBox from "components/MDBox";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import Footer from "examples/Footer";
-import TabBar from "./GuestLoginForm/components/TabBar";
-
+import GuestLoginForm from './GuestLoginForm/components/GuestLoginForm';
 
 function Dashboard() {
   return (
@@ -12,7 +11,7 @@ function Dashboard() {
         <MDBox>
           <Grid container spacing={6}>
             <Grid item xs={20} md={10} lg={20}>
-              <TabBar />
+            <GuestLoginForm />
             </Grid>
           </Grid>
         </MDBox>
