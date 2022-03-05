@@ -27,8 +27,8 @@ const INITIAL_FORM_STATE = {
 	lastName: '',
 	email: '',
 	dateOfBirth: '',
-	phone: '',
-	secondaryPhone: '',
+	personalNumber: '',
+	secondaryPhoneNumber: '',
 	fatherName: '',
 	fatherPhone: '',
 	localGaurdianName: '',
@@ -62,13 +62,13 @@ const FORM_VALIDATION = Yup.object().shape({
 	dateOfBirth: Yup.date()
 		.required('DOB is Required')
 		.test('DOB', 'Please choose a valid date of birth', (date) => moment().diff(moment(date), 'years') >= 12),
-	phone: Yup.string()
+		personalNumber: Yup.string()
 		.matches(/^[6-9]\d{9}$/, {
 			message: 'Please enter Valid Mobile Number',
 			excludeEmptyString: false
 		})
 		.required('Required'),
-	secondaryPhone: Yup.string()
+		secondaryPhoneNumber: Yup.string()
 		.matches(/^[6-9]\d{9}$/, {
 			message: 'Please enter Valid Mobile Number',
 			excludeEmptyString: false
@@ -157,10 +157,10 @@ const GuestLoginForm = () => {
 									</Grid>
 
 									<Grid item xs={6}>
-										<Textfield name="phone" label="Personal Phone" />
+										<Textfield name="personalNumber" label="Personal Phone" />
 									</Grid>
 									<Grid item xs={6}>
-										<Textfield name="secondaryPhone" label="Secondary Phone" />
+										<Textfield name="secondaryPhoneNumber" label="Secondary Phone" />
 									</Grid>
 									<Grid item xs={6}>
 										<Textfield name="fatherName" label="Father's Name" />
