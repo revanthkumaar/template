@@ -34,6 +34,7 @@ const INITIAL_FORM_STATE = {
 	localGaurdianName: '',
 	localGaurdianPhoneNumber: '',
 	bloodGroup: '',
+	occuapation:'',
 	addressLine1: '',
 	addressLine2: '',
 	city: '',
@@ -87,6 +88,7 @@ const FORM_VALIDATION = Yup.object().shape({
 			excludeEmptyString: false
 		})
 		.required('Required'),
+		occuapation: Yup.string().matches(/^[aA-zZ\s]+$/, 'Occuaption ').required('Required'),
 
 	// addressLine1: Yup.string().required('Required'),
 	// addressLine2: Yup.string().required('Required'),
@@ -110,9 +112,7 @@ const FORM_VALIDATION = Yup.object().shape({
 	// roomRent: Yup.number().required('Required'),
 	// securityDeposit: Yup.number().required('Required'),
 	// checkinNotes: Yup.string().required('Required'),
-	termsOfService: Yup.boolean()
-		.oneOf([ true ], 'The terms and conditions must be accepted.')
-		.required('The terms and conditions must be accepted.')
+	
 });
 
 const GuestLoginForm = () => {
@@ -178,6 +178,9 @@ const GuestLoginForm = () => {
 									</Grid>
 									<Grid item xs={6}>
 										<Textfield name="bloodGroup" label="Blood Group" />
+									</Grid>
+									<Grid item xs={6}>
+										<Textfield name="occuaption" label="Occuaption" />
 									</Grid>
 									<br />
 
