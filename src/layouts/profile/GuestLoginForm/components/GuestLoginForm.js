@@ -5,13 +5,13 @@ import axios from 'axios';
 import MDButton from 'components/MDButton';
 import { Container, Grid, Typography } from '@mui/material';
 import moment from 'moment';
-import Divider from '@mui/material/Divider'; 
+import Divider from '@mui/material/Divider';
 import GroupedSelect from './RoomTypeDropDown';
 import BuildingNameDropDown from './BuildingNameDropdown';
 import FloorNumberDropDown from './FloorNumberDropDown';
 import RoomNumberDropDown from './RoomNumberDropDown';
-import CustomizedSnackbars from './PayDialogBox'
-import Gender from './Gender'
+import CustomizedSnackbars from './PayDialogBox';
+import Gender from './Gender';
 
 import Textfield from './TextField';
 import Select from './Select';
@@ -50,10 +50,8 @@ const INITIAL_FORM_STATE = {
 	roomRent: '',
 	securityDeposit: '',
 	checkinNotes: '',
-	termsOfService: false,
-	
+	termsOfService: false
 };
-
 
 const FORM_VALIDATION = Yup.object().shape({
 	firstName: Yup.string().matches(/^[aA-zZ\s]+$/, 'Invalid FirstName ').required('Required'),
@@ -62,28 +60,28 @@ const FORM_VALIDATION = Yup.object().shape({
 	dateOfBirth: Yup.date()
 		.required('DOB is Required')
 		.test('DOB', 'Please choose a valid date of birth', (date) => moment().diff(moment(date), 'years') >= 12),
-		personalNumber: Yup.string()
+	personalNumber: Yup.string()
 		.matches(/^[6-9]\d{9}$/, {
 			message: 'Please enter Valid Mobile Number',
 			excludeEmptyString: false
 		})
 		.required('Required'),
-		secondaryPhoneNumber: Yup.string()
+	secondaryPhoneNumber: Yup.string()
 		.matches(/^[6-9]\d{9}$/, {
 			message: 'Please enter Valid Mobile Number',
 			excludeEmptyString: false
 		})
 		.required('Required'),
-		fatherName: Yup.string().matches(/^[aA-zZ\s]+$/, 'Invalid FatherName ').required('Required'),
-		fatherNumber: Yup.string()
+	fatherName: Yup.string().matches(/^[aA-zZ\s]+$/, 'Invalid FatherName ').required('Required'),
+	fatherNumber: Yup.string()
 		.matches(/^[6-9]\d{9}$/, {
 			message: 'Please enter valid Mobile number.',
 			excludeEmptyString: false
 		})
 		.required('Required'),
-		localGaurdianName: Yup.string().matches(/^[aA-zZ\s]+$/, 'Invalid FatherName ').required('Required'),
+	localGaurdianName: Yup.string().matches(/^[aA-zZ\s]+$/, 'Invalid FatherName ').required('Required'),
 
-		bloodGroup: Yup.string()
+	bloodGroup: Yup.string()
 		.matches(/^(A|B|AB|O)[+-]$/, {
 			message: 'Please enter valid Blood Group.',
 			excludeEmptyString: false
@@ -126,9 +124,12 @@ const GuestLoginForm = () => {
 						<Formik
 							initialValues={{ ...INITIAL_FORM_STATE }}
 							validationSchema={FORM_VALIDATION}
-							onSubmit={async (values) => {
-								console.log(values);
-								const res = await axios.post('http://localhost:7000/api/v1/addGuest', values);
+							onSubmit={async (guest, payment) => {
+								console.log(guest);
+								const res = await axios.post('http://localhost:7000/guest-service/addGuest', {
+									guest,
+									payment
+								});
 								console.log(res.data);
 							}}
 						>
@@ -177,12 +178,14 @@ const GuestLoginForm = () => {
 									</Grid>
 									<Grid item xs={6}>
 										<Textfield name="bloodGroup" label="Blood Group" />
-									</Grid><br/>
-									
+									</Grid>
+									<br />
+
 									<Grid item xs={6}>
 										<Gender />
-									</Grid><br/>
-									<Grid item xs={12}></Grid>
+									</Grid>
+									<br />
+									<Grid item xs={12} />
 									<Grid item xs={12}>
 										<Typography>
 											<h4 align="center">Allocate Room</h4>
@@ -198,24 +201,22 @@ const GuestLoginForm = () => {
 									<Grid item xs={6}>
 										<FloorNumberDropDown />
 									</Grid>
-									<Grid item xs={6}  sx={{paddingTop:15}}>
+									<Grid item xs={6} sx={{ paddingTop: 15 }}>
 										<RoomNumberDropDown />
 									</Grid>
 									<Grid item xs={6}>
-										
 										<GroupedSelect />
-										</Grid>
-									
+									</Grid>
+
 									<Grid item xs={6}>
 										<BedNumberDropDown />
 									</Grid>
-									<Grid item xs={2 }></Grid>
+									<Grid item xs={2} />
 									<Grid item xs={3}>
-								<CustomizedSnackbars/>
-				
+										<CustomizedSnackbars />
 									</Grid>
-									<Grid item xs={2 }></Grid> 
-									
+									<Grid item xs={2} />
+
 									{/* <Grid item xs={12}>
 										<Typography>
 											<h4 align="center">Permanent Address</h4>
@@ -316,18 +317,20 @@ const GuestLoginForm = () => {
 
 									<Grid item xs={12}>
 										<Checkbox name="termsOfService" legend="Terms of service" label="I agree" />
-									</Grid> 
+									</Grid>
 									{/* <Divider variant="middle" /> */}
-									 
-									<Grid item xs={5}></Grid>
-										{/* <MDButton variant="outlined" color="info" size="medium" value="submit">
+
+									<Grid item xs={5} />
+									{/* <MDButton variant="outlined" color="info" size="medium" value="submit">
                                             Submit
                                             </MDButton> */}
-											<Grid item xs={3}><Button >Submit</Button></Grid>
-											<Grid item xs={4}></Grid>
-											<br/>
-											<br/>
-											<br/>
+									<Grid item xs={3}>
+										<Button>Submit</Button>
+									</Grid>
+									<Grid item xs={4} />
+									<br />
+									<br />
+									<br />
 								</Grid>
 							</Form>
 						</Formik>
