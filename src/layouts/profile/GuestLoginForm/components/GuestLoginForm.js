@@ -30,9 +30,9 @@ const INITIAL_FORM_STATE = {
 	personalNumber: '',
 	secondaryPhoneNumber: '',
 	fatherName: '',
-	fatherPhone: '',
+	fatherNumber: '',
 	localGaurdianName: '',
-	localGaurdianPhone: '',
+	localGaurdianPhoneNumber: '',
 	bloodGroup: '',
 	addressLine1: '',
 	addressLine2: '',
@@ -74,44 +74,44 @@ const FORM_VALIDATION = Yup.object().shape({
 			excludeEmptyString: false
 		})
 		.required('Required'),
-	fatherName: Yup.string().matches(/^[aA-zZ\s]+$/, 'Invalid FatherName ').required('Required'),
-	fatherPhone: Yup.string()
+		fatherName: Yup.string().matches(/^[aA-zZ\s]+$/, 'Invalid FatherName ').required('Required'),
+		fatherNumber: Yup.string()
 		.matches(/^[6-9]\d{9}$/, {
 			message: 'Please enter valid Mobile number.',
 			excludeEmptyString: false
 		})
 		.required('Required'),
-	localGaurdianName: Yup.string().matches(/^[aA-zZ\s]+$/, 'Invalid FatherName ').required('Required'),
+		localGaurdianName: Yup.string().matches(/^[aA-zZ\s]+$/, 'Invalid FatherName ').required('Required'),
 
-	bloodGroup: Yup.string()
+		bloodGroup: Yup.string()
 		.matches(/^(A|B|AB|O)[+-]$/, {
 			message: 'Please enter valid Blood Group.',
 			excludeEmptyString: false
 		})
 		.required('Required'),
 
-	addressLine1: Yup.string().required('Required'),
-	addressLine2: Yup.string().required('Required'),
-	city: Yup.string().matches(/^[aA-zZ\s]+$/, 'Invalid City Name').required('Required'),
-	state: Yup.string().matches(/^[aA-zZ\s]+$/, 'Invalid State ').required('Required'),
-	country: Yup.string().required('Required'),
-	workPhone: Yup.string()
-		.matches(/^[6-9]\d{9}$/, {
-			message: 'Please enter Valid Mobile Number',
-			excludeEmptyString: false
-		})
-		.required('Required'),
-	workAddressLine1: Yup.string().required('Required'),
+	// addressLine1: Yup.string().required('Required'),
+	// addressLine2: Yup.string().required('Required'),
+	// city: Yup.string().matches(/^[aA-zZ\s]+$/, 'Invalid City Name').required('Required'),
+	// state: Yup.string().matches(/^[aA-zZ\s]+$/, 'Invalid State ').required('Required'),
+	// country: Yup.string().required('Required'),
+	// workPhone: Yup.string()
+	// 	.matches(/^[6-9]\d{9}$/, {
+	// 		message: 'Please enter Valid Mobile Number',
+	// 		excludeEmptyString: false
+	// 	})
+	// 	.required('Required'),
+	// workAddressLine1: Yup.string().required('Required'),
 
-	workAddressLine2: Yup.string().required('Required'),
-	Idproof: Yup.mixed().required('File is required'),
-	passport: Yup.mixed().required('File is required'),
-	bookingDate: Yup.date().required('Required'),
-	checkoutDate: Yup.date().required('Required'),
-	arrivalDate: Yup.date().required('Required'),
-	roomRent: Yup.number().required('Required'),
-	securityDeposit: Yup.number().required('Required'),
-	checkinNotes: Yup.string().required('Required'),
+	// workAddressLine2: Yup.string().required('Required'),
+	// Idproof: Yup.mixed().required('File is required'),
+	// passport: Yup.mixed().required('File is required'),
+	// bookingDate: Yup.date().required('Required'),
+	// checkoutDate: Yup.date().required('Required'),
+	// arrivalDate: Yup.date().required('Required'),
+	// roomRent: Yup.number().required('Required'),
+	// securityDeposit: Yup.number().required('Required'),
+	// checkinNotes: Yup.string().required('Required'),
 	termsOfService: Yup.boolean()
 		.oneOf([ true ], 'The terms and conditions must be accepted.')
 		.required('The terms and conditions must be accepted.')
@@ -166,14 +166,14 @@ const GuestLoginForm = () => {
 										<Textfield name="fatherName" label="Father's Name" />
 									</Grid>
 									<Grid item xs={6}>
-										<Textfield name="fatherPhone" label="Father's Phone" />
+										<Textfield name="fatherNumber" label="Father's Phone" />
 									</Grid>
 
 									<Grid item xs={6}>
 										<Textfield name="localGaurdianName" label="Local Gaurdian's Name" />
 									</Grid>
 									<Grid item xs={6}>
-										<Textfield name="localGaurdianPhone" label="Local Gaurdian's Phone" />
+										<Textfield name="localGaurdianPhoneNumber" label="Local Gaurdian's Phone" />
 									</Grid>
 									<Grid item xs={6}>
 										<Textfield name="bloodGroup" label="Blood Group" />
@@ -209,7 +209,12 @@ const GuestLoginForm = () => {
 									<Grid item xs={6}>
 										<BedNumberDropDown />
 									</Grid>
-
+									<Grid item xs={2 }></Grid>
+									<Grid item xs={3}>
+								<CustomizedSnackbars/>
+				
+									</Grid>
+									<Grid item xs={2 }></Grid> 
 									
 									{/* <Grid item xs={12}>
 										<Typography>
@@ -307,25 +312,22 @@ const GuestLoginForm = () => {
 
 									<Grid item xs={12}>
 										<Textfield name="checkinNotes" label="Check-in Notes" multiline rows={4} />
-									</Grid>
+								</Grid>*/}
 
 									<Grid item xs={12}>
 										<Checkbox name="termsOfService" legend="Terms of service" label="I agree" />
-									</Grid> */}
+									</Grid> 
 									{/* <Divider variant="middle" /> */}
-									<Grid item xs={2 }></Grid>
-									<Grid item xs={3}>
-								<CustomizedSnackbars/>
-				
-									</Grid>
-									<Grid item xs={5 }></Grid>
-									<Grid item xs={4} justifyContent="center">
-										<MDButton variant="outlined" color="info" size="medium">
+									 
+									<Grid item xs={5}></Grid>
+										{/* <MDButton variant="outlined" color="info" size="medium" value="submit">
                                             Submit
-                                            </MDButton>
+                                            </MDButton> */}
+											<Grid item xs={3}><Button >Submit</Button></Grid>
 											<Grid item xs={4}></Grid>
-										{/* <Button>Submit</Button> */}
-									</Grid>
+											<br/>
+											<br/>
+											<br/>
 								</Grid>
 							</Form>
 						</Formik>
