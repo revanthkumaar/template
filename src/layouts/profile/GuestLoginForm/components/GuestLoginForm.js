@@ -34,7 +34,7 @@ const INITIAL_FORM_STATE = {
 	localGaurdianName: '',
 	localGaurdianPhoneNumber: '',
 	bloodGroup: '',
-	occuapation:'',
+	occupation: '',
 	addressLine1: '',
 	addressLine2: '',
 	city: '',
@@ -88,7 +88,7 @@ const FORM_VALIDATION = Yup.object().shape({
 			excludeEmptyString: false
 		})
 		.required('Required'),
-		occuapation: Yup.string().matches(/^[aA-zZ\s]+$/, 'Occuaption ').required('Required'),
+	occupation: Yup.string().matches(/^[aA-zZ\s]+$/, 'Occuaption ').required('Required')
 
 	// addressLine1: Yup.string().required('Required'),
 	// addressLine2: Yup.string().required('Required'),
@@ -112,7 +112,6 @@ const FORM_VALIDATION = Yup.object().shape({
 	// roomRent: Yup.number().required('Required'),
 	// securityDeposit: Yup.number().required('Required'),
 	// checkinNotes: Yup.string().required('Required'),
-	
 });
 
 const GuestLoginForm = () => {
@@ -126,7 +125,7 @@ const GuestLoginForm = () => {
 							validationSchema={FORM_VALIDATION}
 							onSubmit={async (guest, payment) => {
 								console.log(guest);
-								const res = await axios.post('http://localhost:7000/guest-service/addGuest', {
+								const res = await axios.post('http://localhost:8989/guest-service/addGuest', {
 									guest,
 									payment
 								});
@@ -180,7 +179,7 @@ const GuestLoginForm = () => {
 										<Textfield name="bloodGroup" label="Blood Group" />
 									</Grid>
 									<Grid item xs={6}>
-										<Textfield name="occuaption" label="Occuaption" />
+										<Textfield name="occupation" label="Occuaption" />
 									</Grid>
 									<br />
 
