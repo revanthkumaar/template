@@ -15,6 +15,8 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import MDButton from 'components/MDButton';
 import axios from 'axios';
+import GuestPopUp from './dialogbox';
+import { setOpenConfigurator } from 'context';
 
 const BuildingsLayout = (props) => {
     const [buildingInfo, setBuildingInfo] = React.useState({});
@@ -23,6 +25,7 @@ const BuildingsLayout = (props) => {
     const [open, setOpen] = React.useState(false);
          const handleOpen = () => setOpen(true);
         const handleClose = () => setOpen(false);
+   
 
     useEffect(() => {
         const GetData = async () => {
@@ -74,8 +77,9 @@ const BuildingsLayout = (props) => {
                                                                     <Grid item xs={12} align='center'>  {bd.available ?
                                                                             <IconButton><HotelOutlinedIcon color='success' /></IconButton>
                                                                             : <>
-                                                                                <IconButton onClick={handleOpen}><HotelOutlinedIcon color='error' /></IconButton>
-                                                                                <Dialog open={open} onClose={handleClose} maxWidth='lg'>
+                                                                                <IconButton onClick={()=>{setOpen(true)}}><HotelOutlinedIcon color='error' /></IconButton>
+                                                                                <GuestPopUp open={open} handleClose={handleClose}/>
+                                                                                {/* <Dialog open={open} onClose={handleClose} maxWidth='lg'>
                 <DialogTitle>GUEST DETAILS</DialogTitle>
                 <br />
                 <DialogContent>
@@ -159,7 +163,7 @@ const BuildingsLayout = (props) => {
                     </Grid>
 
                 </DialogActions>
-            </Dialog>
+            </Dialog> */}
 
                                                                             </>}
                                                                              </Grid>
