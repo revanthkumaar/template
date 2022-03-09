@@ -6,13 +6,40 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
+import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import DialogTitle from '@mui/material/DialogTitle';
 import TextField from '@mui/material/TextField';
 import { Grid } from '@mui/material';
 import { borderRadius } from '@mui/system';
 import CustomizedSnackbars from './SubmitSnackBar';
+import  { useState, useCallback, useMemo } from "react";
+import ImageCapture from "react-image-data-capture";
 export default function FormDialog() {
     const [open, setOpen] = React.useState(false);
+    const [showImgCapture, setShowImgCapture] = useState(true);
+    const config = useMemo(() => ({ video: true }), []);
+    /*
+      { video: true } - Default Camera View
+      { video: { facingMode: environment } } - Back Camera
+      { video: { facingMode: "user" } } - Front Camera
+    */
+    const [imgSrc, setImgSrc] = useState(null);
+    const [imgFile, setImgFile] = useState(null);
+    const onCapture = (imageData) => {
+      // read as webP
+      setImgSrc(imageData.webP);
+      // read as file
+      setImgFile(imageData.file);
+      // Unmount component to stop the video track and release camera
+      setShowImgCapture(false);
+    };
+    const onError = useCallback((error) => {
+      console.log(error);
+    }, []);
+  
+    // imgFile can be used as a file upload form submission
+    const formData = new FormData();
+    formData.append("file", imgFile);
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -47,86 +74,30 @@ style={{ borderRadius: "120px"}}
 
 >
 
- Pay
+<CameraAltIcon/>
 
 </MDButton>
             <Dialog open={open} onClose={handleClose} maxWidth='lg'>
-                <DialogTitle>Record payment</DialogTitle>
+                <DialogTitle>Capture Image</DialogTitle>
                 <br />
                 <DialogContent>
-                    <Grid container spacing={1}>
-                        <Grid item xs={6} sx={{ pl: 6 }}>
-                            <TextField
-                                id="outlined-textarea"
-                                label="Guest Id"
-                                style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
-                            /> </Grid>
-                        <Grid item xs={6}>
-                            <TextField
-                                id="outlined-textarea"
-                                label="Payment Purpose"
-                                style={{ width: '65%', marginBottom: '20px' }}
-                            /></Grid>
-
-                        <Grid item xs={6}>
-                            <TextField
-                                id="outlined-textarea"
-                                label="Amount Paid"
-                                style={{ width: '65%', marginLeft: '50px', marginBottom: '20px' }}
-                            /></Grid>
-                        <Grid item xs={6}>
-                            <TextField
-                                id="outlined-textarea"
-                                label="Room Rent"
-                                style={{ width: '65%', marginBottom: '20px' }}
-                            /></Grid>
-                        <Grid item xs={6}>
-                            <TextField
-                                id="outlined-textarea"
-                                label="Payment Method"
-                                style={{ width: '65%', marginLeft: '50px', marginBottom: '20px' }}
-                            /></Grid>
-                        <Grid item xs={6}>
-                            <TextField
-                                id="outlined-textarea"
-                                label="Transaction Date"
-                                style={{ width: '65%', marginBottom: '20px' }}
-                            /></Grid>
-                        <Grid item xs={6}>
-                            <TextField
-                                id="outlined-textarea"
-                                label="Transaction Id"
-                                style={{ width: '65%', marginLeft: '50px', marginBottom: '20px' }}
-                            /></Grid>
-                            <Grid item xs={6}>
-                            <TextField
-                                id="outlined-textarea"
-                                label="Payment Id"
-                                style={{ width: '65%', marginLeft: '2.5px', marginBottom: '20px' }}
-                            /></Grid>
-                            <Grid item xs={6}>
-                            <TextField
-                                id="outlined-textarea"
-                                label="Due Amount"
-                                style={{ width: '65%', marginLeft: '50px', marginBottom: '20px' }}
-                            /></Grid>
-                    </Grid>
+                    
+                {showImgCapture && (
+        <ImageCapture
+          onCapture={onCapture}
+          onError={onError}
+          width={300}
+          userMediaConfig={config}
+        />
+      )}
+      {imgSrc && (
+        <div>
+          <div>Captured Image:</div>
+          <img src={imgSrc} alt="captured-img" />
+        </div>)}
+                   
                 </DialogContent>
-                <DialogActions>
-                <Grid container spacing={2}>
-
-<Grid item xs={5}></Grid>
-
-<Grid item xs={4}>
-
-   <CustomizedSnackbars/>
-
-</Grid>
-
-<Grid item xs={4}></Grid>
-
-</Grid>
-                </DialogActions>
+      
             </Dialog>
         </div>
     );
