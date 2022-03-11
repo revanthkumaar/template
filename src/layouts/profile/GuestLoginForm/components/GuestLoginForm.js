@@ -35,22 +35,36 @@ const INITIAL_FORM_STATE = {
 	localGaurdianPhoneNumber: '',
 	bloodGroup: '',
 	occupation: '',
+	gender:'',
 	addressLine1: '',
 	addressLine2: '',
+	pincode:'',
 	city: '',
 	state: '',
-	country: '',
-	workPhone: '',
+	
+	// country: '',
+	aadharNumber:'',
+	//workPhone: '',
+	
 	workAddressLine1: '',
-	workAddressLine2: '',
-	Idproof: '',
-	passport: '',
-	bookingDate: '',
-	checkoutDate: '',
-	arrivalDate: '',
-	roomRent: '',
-	securityDeposit: '',
-	checkinNotes: '',
+	floorNumber:'',
+	roomNumber:'',
+	bedId:'',
+	amountPaid:'',
+	roomType:'',
+	checkInDate:'',
+	transactionDate:'',
+	noticeDate:'',
+	checkOutDate:'',
+	// workAddressLine2: '',
+	// Idproof: '',
+	// passport: '',
+	// bookingDate: '',
+	// checkoutDate: '',
+	// arrivalDate: '',
+	// roomRent: '',
+	// securityDeposit: '',
+	// //checkinNotes: '',
 	termsOfService: false
 };
 
@@ -73,6 +87,7 @@ const FORM_VALIDATION = Yup.object().shape({
 			excludeEmptyString: false
 		})
 		.required('Required'),
+	aadharNumber:Yup.number().required('Required'),
 	fatherName: Yup.string().matches(/^[aA-zZ\s]+$/, 'Invalid FatherName ').required('Required'),
 	fatherNumber: Yup.string()
 		.matches(/^[6-9]\d{9}$/, {
@@ -88,12 +103,12 @@ const FORM_VALIDATION = Yup.object().shape({
 			excludeEmptyString: false
 		})
 		.required('Required'),
-	occupation: Yup.string().matches(/^[aA-zZ\s]+$/, 'Occuaption ').required('Required')
+	occupation: Yup.string().matches(/^[aA-zZ\s]+$/, 'Occuaption ').required('Required'),
 
-	// addressLine1: Yup.string().required('Required'),
-	// addressLine2: Yup.string().required('Required'),
-	// city: Yup.string().matches(/^[aA-zZ\s]+$/, 'Invalid City Name').required('Required'),
-	// state: Yup.string().matches(/^[aA-zZ\s]+$/, 'Invalid State ').required('Required'),
+	addressLine1: Yup.string().required('Required'),
+	addressLine2: Yup.string().required('Required'),
+	city: Yup.string().matches(/^[aA-zZ\s]+$/, 'Invalid City Name').required('Required'),
+	state: Yup.string().matches(/^[aA-zZ\s]+$/, 'Invalid State ').required('Required'),
 	// country: Yup.string().required('Required'),
 	// workPhone: Yup.string()
 	// 	.matches(/^[6-9]\d{9}$/, {
@@ -101,14 +116,14 @@ const FORM_VALIDATION = Yup.object().shape({
 	// 		excludeEmptyString: false
 	// 	})
 	// 	.required('Required'),
-	// workAddressLine1: Yup.string().required('Required'),
+	workAddressLine1: Yup.string().required('Required'),
 
 	// workAddressLine2: Yup.string().required('Required'),
-	// Idproof: Yup.mixed().required('File is required'),
-	// passport: Yup.mixed().required('File is required'),
-	// bookingDate: Yup.date().required('Required'),
-	// checkoutDate: Yup.date().required('Required'),
-	// arrivalDate: Yup.date().required('Required'),
+	//Idproof: Yup.mixed().required('File is required'),
+	//passport: Yup.mixed().required('File is required'),
+	//bookingDate: Yup.date().required('Required'),
+	//checkoutDate: Yup.date().required('Required'),
+	//arrivalDate: Yup.date().required('Required'),
 	// roomRent: Yup.number().required('Required'),
 	// securityDeposit: Yup.number().required('Required'),
 	// checkinNotes: Yup.string().required('Required'),
@@ -126,12 +141,12 @@ const GuestLoginForm = () => {
 							onSubmit={async (guest) => {
 								console.log(guest);
 
-								console.log(guest.Idproof.name);
-								// const res = await axios.post('http://localhost:8989/guest-service/addGuest', {
-								// 	guest,
-								// 	payment
-								// });
-								//console.log(res.data);
+								// console.log(guest.Idproof.name);
+								const res = await axios.post('http://localhost:7001/guest-service/addGuest', {
+									 guest,
+									// payment
+								});
+								console.log(res.data);
 							}}
 						>
 							{(formProps) => (
@@ -193,6 +208,9 @@ const GuestLoginForm = () => {
 										<Grid item xs={6}>
 											<Gender />
 										</Grid>
+										<Grid item xs={6}>
+											<Textfield name="aadharNumber" label="Aadhar Number" />
+										</Grid>
 										<Grid item xs={2} />
 										<Grid item xs={3}>
 											<CustomizedSnackbars />
@@ -225,35 +243,38 @@ const GuestLoginForm = () => {
 											<BedNumberDropDown />
 										</Grid>
 
-										{/* <Grid item xs={12}>
+										<Grid item xs={12}>
 										<Typography>
 											<h4 align="center">Permanent Address</h4>
 											<br />
 										</Typography>
-									</Grid> */}
+									</Grid>
 
-										{/* <Grid item xs={12}>
+										<Grid item xs={12}>
 										<Textfield name="addressLine1" label="Address Line 1" />
 									</Grid>
 
-									<Grid item xs={12}>
-										<Textfield name="addressLine2" label="Address Line 2 With PinCode" />
+									<Grid item xs={6}>
+										<Textfield name="addressLine2" label="Address Line 2 " />
+									</Grid>
+									<Grid item xs={6}>
+										<Textfield name="pincode" label="PinCode" />
 									</Grid>
 
 									<Grid item xs={6}>
 										<Textfield name="city" label="City" />
-									</Grid> */}
+									</Grid>
 
-										{/* <Grid item xs={6}>
+										<Grid item xs={6}>
 										<Textfield name="state" label="State" />
 									</Grid>
 
-									<Grid item xs={6}>
+									{/* <Grid item xs={6}>
 										<h6>Country</h6>
 										<Select name="country" options={countries} widht />
-									</Grid>
-									<Divider variant="middle" /> */}
-										{/* <Grid item xs={12}>
+									</Grid> */}
+									<Divider variant="middle" />
+										<Grid item xs={12}>
 										<Typography>
 											<h4 align="center">Work Related Information</h4>
 										</Typography>
@@ -261,9 +282,9 @@ const GuestLoginForm = () => {
 										<Grid item xs={6}>
 											<Textfield name="workPhone" label="Work Phone Number" />
 										</Grid>
-									</Grid> */}
+									</Grid>
 
-										{/* <Grid item xs={12}>
+										<Grid item xs={12}>
 										<Textfield name="workAddressLine1" label="Work Address Line 1" />
 									</Grid>
 
@@ -277,9 +298,9 @@ const GuestLoginForm = () => {
 											<h4 align="center">Upload Documents</h4>
 											<br />
 										</Typography>
-									</Grid> */}
+									</Grid>
 
-										<Grid item xs={12}>
+										{/* <Grid item xs={12}>
 											<h6>ID Proof:(Pancard/AadharCard/VoterID/DrivingLicence)</h6>
 											<input
 												name="Idproof"
@@ -288,7 +309,7 @@ const GuestLoginForm = () => {
 												onChange={(event) =>
 													formProps.setFieldValue('Idproof', event.target.files[0])}
 											/>
-										</Grid>
+										</Grid> */}
 
 										{/* <Grid item xs={12}>
 										<Textfield
@@ -296,10 +317,10 @@ const GuestLoginForm = () => {
 											helperText="upload passport size photo"
 											type="file"
 										/>
-									</Grid>
+									</Grid> */}
 
-									<Divider variant="middle" /> */}
-										{/* <Grid item xs={12}>
+									<Divider variant="middle" />
+										<Grid item xs={12}>
 										<Typography>
 											<h4 align="center">Booking Details</h4>
 											<br />
@@ -307,27 +328,28 @@ const GuestLoginForm = () => {
 									</Grid>
 
 									<Grid item xs={6}>
-										<DateTimePicker name="bookingDate" label="Booking Date" />
+										<DateTimePicker name="checkInDate" label="Check-In date" />
 									</Grid>
 									<Grid item xs={6}>
-										<DateTimePicker name="checkoutDate" label="Check-Out date" />
+										<DateTimePicker name="noticeDate" label="Notice Date" />
 									</Grid>
 									<Grid item xs={6}>
-										<DateTimePicker name="arrivalDate" label="Check-In date" />
+										<DateTimePicker name="checkOutDate" label="Check-Out date" />
 									</Grid>
+									
 									<Grid item xs={6}>
 										<Textfield name="duration" label="Duration" />
 									</Grid>
 									<Grid item xs={6}>
-										<Textfield name="roomRent" label="Room Rent" />
-									</Grid> */}
-										{/* <Grid item xs={6}>
+										<Textfield name="amountPaid" label="Room Rent" />
+									</Grid>
+										<Grid item xs={6}>
 										<Textfield name="securityDeposit" label="Security Deposit" />
 									</Grid>
 
 									<Grid item xs={12}>
 										<Textfield name="checkinNotes" label="Check-in Notes" multiline rows={4} />
-								</Grid>*/}
+								</Grid>
 
 										<Grid item xs={12}>
 											<Checkbox name="termsOfService" legend="Terms of service" label="I agree" />
@@ -339,12 +361,12 @@ const GuestLoginForm = () => {
                                             Submit
                                             </MDButton> */}
 										<Grid item xs={3}>
-											<Button>Submit</Button>
+											<Button >Submit</Button>
 										</Grid>
 										<Grid item xs={4} />
+										{/* <br />
 										<br />
-										<br />
-										<br />
+										<br /> */}
 									</Grid>
 								</Form>
 							)}
