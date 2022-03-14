@@ -24,7 +24,7 @@ const BuildingsLayout = (props) => {
     const [Floors, setFloors] = React.useState([]);
     useEffect(() => {
         const GetData = async () => {
-            const url = "http://localhost:8084/bed/getBedsByBuildingId/1";
+            const url = "http://localhost:8085/bed/getBedsByBuildingId/1";
             try {
                 const resp = await fetch(url);
                 const build = await resp.json();
