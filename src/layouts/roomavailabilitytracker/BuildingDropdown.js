@@ -32,7 +32,7 @@ function BuildingDropdown() {
 				<MenuItem value="Building-1" component={Link} to ='/layouts/roomavailabilitytracker/buildings/SreeKalaNilayam'>SREE KALA NILAYAM</MenuItem>
 				<MenuItem value="ANANDANILAYAM" component={Link} to ='/layouts/roomavailabilitytracker/buildings/AnandaNilayam'>ANANDA NILAYAM</MenuItem>
 				<MenuItem value="Building-3" component={Link} to = '/layouts/roomavailabilitytracker/buildings/SreeNilayam'>SREE NILAYAM</MenuItem>
-				<MenuItem value="Building-4"   component={Link} to = "/layouts/roomavailabilitytracker/buildings/buildingFour">Building-4</MenuItem>
+				{/* <MenuItem value="Building-4"   component={Link} to = "/layouts/roomavailabilitytracker/buildings/buildingFour">Building-4</MenuItem> */}
 			</Select>
 		</div>
 	);

@@ -29,7 +29,7 @@ const routes = [
 		key: 'tracker',
 		icon: <Icon fontSize="small">booking</Icon>,
 		route: '/tracker',
-		component:<BuildingsTracker buildingname = "SREE KALA NILAYAM"/>
+		component:<BuildingsTracker buildingName = "Sree Kala Nilayam"/>
 	},
 	{
 		type: 'collapse',
@@ -106,7 +106,7 @@ const routes = [
 		key: 'sign-out',
 		icon: <Icon fontSize="small">logout</Icon>,
 		route: '/layouts/roomavailabilitytracker/buildings/SreeKalaNilayam',
-		component:<BuildingsTracker buildingname = "SREE KALA NILAYAM"/>
+		component:<BuildingsTracker buildingName = "Sree Kala Nilayam"/>
 	},
 	
 
@@ -116,7 +116,7 @@ const routes = [
 		key: 'sign-out',
 		icon: <Icon fontSize="small">logout</Icon>,
 		route: '/layouts/roomavailabilitytracker/buildings/AnandaNilayam',
-		component:<BuildingsTracker buildingname = "ANANDA NILAYAM"/>
+		component:<BuildingsTracker buildingName = "Ananda Nilayam"/>
 	},
 	
 
@@ -126,7 +126,7 @@ const routes = [
 		key: 'sign-out',
 		icon: <Icon fontSize="small">logout</Icon>,
 		route: '/layouts/roomavailabilitytracker/buildings/SreeNilayam',
-		component:<BuildingsTracker buildingname = "SREE NILAYAM"/>
+		component:<BuildingsTracker buildingName = "Sree Nilayam"/>
 	}
 
 	

@@ -29,7 +29,7 @@ const BuildingsTracker = (props) => {
                     </Grid>
                     </MDBox>
 
-                    <BuildingsLayout buildingname={props.buildingname}/>
+                    <BuildingsLayout buildingName={props.buildingName}/>
                 
             
             
