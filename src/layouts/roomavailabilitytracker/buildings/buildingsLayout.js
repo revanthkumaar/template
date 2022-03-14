@@ -85,16 +85,10 @@ const BuildingsLayout = (props) => {
                                                                                             style={{ width: '30px', height: '40px' }}
                                                                                             />
                                                                                             </a> */}
-                                                                                        </Grid>
-                                                                                     
-
-
-
-
-                                                                                    </>}
-
+                                                                                        </Grid>                                                                                    
+                                                                                    </>
+                                                                                    }
                                                                                 <Grid item xs={12} align="center" ><h6 align="center"  >{bdno.bedNumber}</h6></Grid>
-
                                                                             </Grid>
                                                                         </Grid>
                                                                     </>

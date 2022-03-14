@@ -85,19 +85,44 @@ export default function GuestPopUp ({open , handleClose}) {
                             </Grid>
                             <Grid item xs={4} sx={{ border: 1 }}><div>
                                                                       </div></Grid>
-                        </Grid>
 
+                      <Grid item xs={4}>
+                        <MDTypography
+                                id="outlined-textarea"
+                                label="Payment Id"
+                                style={{ width: '65%', marginLeft: '50px', marginBottom: '20px' }}
+                            >Due amount :</MDTypography>
+                        </Grid>
+                        
+                       
+                        {/* <Grid item xs={6} alignItems="right">
+                        
+                        </Grid> */}
+                        
+                        </Grid>
                         
                 </DialogContent>
                 <DialogActions>
-                    <Grid container alignItems="center" alignContent="center">
-                        <MDButton
+                    <Grid container style={{ display: "flex" }} >
+                        <Grid item xs={6} ><MDButton
                             width='20%'
                             variant="contained"
-                            color="primary" size="large"
+                            color="error" size="large"
                             justify="center"
                             style={{ borderRadius: 10 }}
-                            onClick={handleClose}>Close</MDButton>
+                            onClick={handleClose}>
+                                Close</MDButton></Grid>
+                        <Grid item xs={6} alignItems="right" ><MDButton
+                            width='20%'
+                            variant="gradient"
+                            color="info" size="large"
+                            justify="center"
+                            style={{ borderRadius: 10 , float: 'right'}}
+                           
+                            >
+                                <MDTypography color='white'>Pay</MDTypography>
+                                </MDButton></Grid>
+                        
                     </Grid>
 
                 </DialogActions>
