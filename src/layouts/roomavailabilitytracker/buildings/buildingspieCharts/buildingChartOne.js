@@ -1,14 +1,30 @@
 import React from "react";
 import { Chart } from "react-google-charts";
-import buildingsData from 'layouts/roomavailabilitytracker/buildings/buildingsData'
 
-const DynamicData = (buildingname) => {
-  var aBeds,oBeds;
+// const [buildingInfo, setBuildingInfo] = React.useState({});
+//     const [Floors, setFloors] = React.useState([]);
 
-  return(aBeds,oBeds)
-}
+//     useEffect(() => {
+//       const GetData = async () => {
+//           const url = "http://localhost:8084/bed/getBedsByBuildingId/1";
+//           try {
+//               const resp = await fetch(url);
+//               const build = await resp.json();
+//               setBuildingInfo(build);
+//               setFloors(build.floors)
+//           }
+//           catch (err) {
+//               console.error(err);
+//           }
+//       }
+//       GetData();
+//   }, []);
+
+// const DynamicData =  
+
+
 export const data = [
-  ["Task", "Hours per Day"],
+  ["Task", "Hours per Day"] ,
   ["AvailableBeds", 1],
   ["OccupiedBeds", 6],
  
