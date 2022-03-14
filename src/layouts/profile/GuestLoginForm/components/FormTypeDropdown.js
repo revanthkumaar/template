@@ -5,15 +5,19 @@ import ListSubheader from '@mui/material/ListSubheader';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-export default function Gender() {
+export default function FormTypeDropdown() {
   return (
     <div>
-      <FormControl sx={{ m: 1, width: 550 }}>
-        <InputLabel htmlFor="grouped-native-select">Gender</InputLabel>
+      <FormControl sx={{ m: 1, width: 330 }}>
+        <InputLabel htmlFor="grouped-native-select">Formtype</InputLabel>
         <Select native defaultValue="" id="grouped-native-select" label="Grouping">/;
-            <option value={1}>Male</option>
-            <option value={2}>Female</option> 
            
+            
+            <option value={1}>Monthly</option>
+            <option value={1}>Regular</option>
+            <option value={1}>Daily</option>
+           
+            
         </Select>
       </FormControl>
       

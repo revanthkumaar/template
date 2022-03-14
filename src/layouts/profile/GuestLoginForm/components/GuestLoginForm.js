@@ -12,7 +12,7 @@ import FloorNumberDropDown from './FloorNumberDropDown';
 import RoomNumberDropDown from './RoomNumberDropDown';
 import CustomizedSnackbars from './PayDialogBox';
 import Gender from './Gender';
-
+import FormTypeDropdown from './FormTypeDropdown';
 import Textfield from './TextField';
 import Select from './Select';
 import Checkbox from './CheckBox';
@@ -152,12 +152,19 @@ const GuestLoginForm = () => {
 							{(formProps) => (
 								<Form>
 									<Grid container spacing={2}>
+										
 										<Grid item xs={12}>
 											<Typography>
 												<br />
 												<h4 align="center">Guest's Personal Information</h4>
 												<br />
 											</Typography>
+										</Grid>
+										<Grid item xs={6} >
+											<FormTypeDropdown/>	
+										</Grid>
+										<Grid item xs={6} >
+											
 										</Grid>
 
 										<Grid item xs={6}>
@@ -211,11 +218,11 @@ const GuestLoginForm = () => {
 										<Grid item xs={6}>
 											<Textfield name="aadharNumber" label="Aadhar Number" />
 										</Grid>
-										<Grid item xs={2} />
+										{/* <Grid item xs={2} />
 										<Grid item xs={3}>
 											<CustomizedSnackbars />
 										</Grid>
-										<br />
+										<br /> */}
 										<Grid item xs={12} />
 										<Grid item xs={12}>
 											<Typography>
@@ -229,7 +236,7 @@ const GuestLoginForm = () => {
 											<BuildingNameDropDown />
 										</Grid>
 
-										<Grid item xs={6}>
+										{/* <Grid item xs={6}>
 											<FloorNumberDropDown />
 										</Grid>
 										<Grid item xs={6} sx={{ paddingTop: 15 }}>
@@ -237,7 +244,7 @@ const GuestLoginForm = () => {
 										</Grid>
 										<Grid item xs={6}>
 											<GroupedSelect />
-										</Grid>
+										</Grid> */}
 
 										<Grid item xs={6}>
 											<BedNumberDropDown />
@@ -356,14 +363,14 @@ const GuestLoginForm = () => {
 										</Grid>
 										{/* <Divider variant="middle" /> */}
 
-										<Grid item xs={5} />
+										
 										{/* <MDButton variant="outlined" color="info" size="medium" value="submit">
                                             Submit
                                             </MDButton> */}
-										<Grid item xs={3}>
-											<Button >Submit</Button>
+										<Grid item xs={3} sx={{ paddingBottom: 3 }}>
+											<Button style="color:red" >Submit</Button>
 										</Grid>
-										<Grid item xs={4} />
+										
 										{/* <br />
 										<br />
 										<br /> */}

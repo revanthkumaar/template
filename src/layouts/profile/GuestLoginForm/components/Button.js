@@ -11,12 +11,14 @@ const ButtonWrapper = ({ children, ...otherProps }) => {
 
   const configButton = {
     variant: "contained",
-    color: "info",
+    color: "warning",
+    
+    
     onClick: handleSubmit,
     
   };
 
-  return <Button {...configButton}>{children}</Button>;
+  return <Button  {...configButton}>{children}</Button>;
 };
 
 export default ButtonWrapper;
