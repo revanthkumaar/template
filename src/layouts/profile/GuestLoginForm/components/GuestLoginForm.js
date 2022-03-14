@@ -35,27 +35,27 @@ const INITIAL_FORM_STATE = {
 	localGaurdianPhoneNumber: '',
 	bloodGroup: '',
 	occupation: '',
-	gender:'',
+	gender: '',
 	addressLine1: '',
 	addressLine2: '',
-	pincode:'',
+	pincode: '',
 	city: '',
 	state: '',
-	
+
 	// country: '',
-	aadharNumber:'',
+	aadharNumber: '',
 	//workPhone: '',
-	
+
 	workAddressLine1: '',
-	floorNumber:'',
-	roomNumber:'',
-	bedId:'',
-	amountPaid:'',
-	roomType:'',
-	checkInDate:'',
-	transactionDate:'',
-	noticeDate:'',
-	checkOutDate:'',
+	floorNumber: '',
+	roomNumber: '',
+	bedId: '',
+	amountPaid: '',
+	roomType: '',
+	checkInDate: '',
+	transactionDate: '',
+	noticeDate: '',
+	checkOutDate: '',
 	// workAddressLine2: '',
 	// Idproof: '',
 	// passport: '',
@@ -87,7 +87,7 @@ const FORM_VALIDATION = Yup.object().shape({
 			excludeEmptyString: false
 		})
 		.required('Required'),
-	aadharNumber:Yup.number().required('Required'),
+	aadharNumber: Yup.number().required('Required'),
 	fatherName: Yup.string().matches(/^[aA-zZ\s]+$/, 'Invalid FatherName ').required('Required'),
 	fatherNumber: Yup.string()
 		.matches(/^[6-9]\d{9}$/, {
@@ -116,7 +116,7 @@ const FORM_VALIDATION = Yup.object().shape({
 	// 		excludeEmptyString: false
 	// 	})
 	// 	.required('Required'),
-	workAddressLine1: Yup.string().required('Required'),
+	workAddressLine1: Yup.string().required('Required')
 
 	// workAddressLine2: Yup.string().required('Required'),
 	//Idproof: Yup.mixed().required('File is required'),
@@ -138,13 +138,13 @@ const GuestLoginForm = () => {
 						<Formik
 							initialValues={{ ...INITIAL_FORM_STATE }}
 							validationSchema={FORM_VALIDATION}
-							onSubmit={async (guest) => {
+							onSubmit={async (guest, payment) => {
 								console.log(guest);
 
 								// console.log(guest.Idproof.name);
-								const res = await axios.post('http://localhost:7001/guest-service/addGuest', {
-									 guest,
-									// payment
+								const res = await axios.post('http://localhost:8989/guest-service/addGuest', {
+									guest,
+									payment
 								});
 								console.log(res.data);
 							}}
@@ -152,7 +152,6 @@ const GuestLoginForm = () => {
 							{(formProps) => (
 								<Form>
 									<Grid container spacing={2}>
-										
 										<Grid item xs={12}>
 											<Typography>
 												<br />
@@ -160,12 +159,10 @@ const GuestLoginForm = () => {
 												<br />
 											</Typography>
 										</Grid>
-										<Grid item xs={6} >
-											<FormTypeDropdown/>	
+										<Grid item xs={6}>
+											<FormTypeDropdown />
 										</Grid>
-										<Grid item xs={6} >
-											
-										</Grid>
+										<Grid item xs={6} />
 
 										<Grid item xs={6}>
 											<Textfield name="firstName" label="First Name" />
@@ -251,61 +248,61 @@ const GuestLoginForm = () => {
 										</Grid>
 
 										<Grid item xs={12}>
-										<Typography>
-											<h4 align="center">Permanent Address</h4>
-											<br />
-										</Typography>
-									</Grid>
+											<Typography>
+												<h4 align="center">Permanent Address</h4>
+												<br />
+											</Typography>
+										</Grid>
 
 										<Grid item xs={12}>
-										<Textfield name="addressLine1" label="Address Line 1" />
-									</Grid>
-
-									<Grid item xs={6}>
-										<Textfield name="addressLine2" label="Address Line 2 " />
-									</Grid>
-									<Grid item xs={6}>
-										<Textfield name="pincode" label="PinCode" />
-									</Grid>
-
-									<Grid item xs={6}>
-										<Textfield name="city" label="City" />
-									</Grid>
+											<Textfield name="addressLine1" label="Address Line 1" />
+										</Grid>
 
 										<Grid item xs={6}>
-										<Textfield name="state" label="State" />
-									</Grid>
+											<Textfield name="addressLine2" label="Address Line 2 " />
+										</Grid>
+										<Grid item xs={6}>
+											<Textfield name="pincode" label="PinCode" />
+										</Grid>
 
-									{/* <Grid item xs={6}>
+										<Grid item xs={6}>
+											<Textfield name="city" label="City" />
+										</Grid>
+
+										<Grid item xs={6}>
+											<Textfield name="state" label="State" />
+										</Grid>
+
+										{/* <Grid item xs={6}>
 										<h6>Country</h6>
 										<Select name="country" options={countries} widht />
 									</Grid> */}
-									<Divider variant="middle" />
+										<Divider variant="middle" />
 										<Grid item xs={12}>
-										<Typography>
-											<h4 align="center">Work Related Information</h4>
-										</Typography>
-										<br />
-										<Grid item xs={6}>
-											<Textfield name="workPhone" label="Work Phone Number" />
-										</Grid>
-									</Grid>
-
-										<Grid item xs={12}>
-										<Textfield name="workAddressLine1" label="Work Address Line 1" />
-									</Grid>
-
-									<Grid item xs={12}>
-										<Textfield name="workAddressLine2" label="Work Address Line 2 " />
-									</Grid>
-
-									<Divider variant="middle" />
-									<Grid item xs={12}>
-										<Typography>
-											<h4 align="center">Upload Documents</h4>
+											<Typography>
+												<h4 align="center">Work Related Information</h4>
+											</Typography>
 											<br />
-										</Typography>
-									</Grid>
+											<Grid item xs={6}>
+												<Textfield name="workPhone" label="Work Phone Number" />
+											</Grid>
+										</Grid>
+
+										<Grid item xs={12}>
+											<Textfield name="workAddressLine1" label="Work Address Line 1" />
+										</Grid>
+
+										<Grid item xs={12}>
+											<Textfield name="workAddressLine2" label="Work Address Line 2 " />
+										</Grid>
+
+										<Divider variant="middle" />
+										<Grid item xs={12}>
+											<Typography>
+												<h4 align="center">Upload Documents</h4>
+												<br />
+											</Typography>
+										</Grid>
 
 										{/* <Grid item xs={12}>
 											<h6>ID Proof:(Pancard/AadharCard/VoterID/DrivingLicence)</h6>
@@ -326,51 +323,50 @@ const GuestLoginForm = () => {
 										/>
 									</Grid> */}
 
-									<Divider variant="middle" />
+										<Divider variant="middle" />
 										<Grid item xs={12}>
-										<Typography>
-											<h4 align="center">Booking Details</h4>
-											<br />
-										</Typography>
-									</Grid>
+											<Typography>
+												<h4 align="center">Booking Details</h4>
+												<br />
+											</Typography>
+										</Grid>
 
-									<Grid item xs={6}>
-										<DateTimePicker name="checkInDate" label="Check-In date" />
-									</Grid>
-									<Grid item xs={6}>
-										<DateTimePicker name="noticeDate" label="Notice Date" />
-									</Grid>
-									<Grid item xs={6}>
-										<DateTimePicker name="checkOutDate" label="Check-Out date" />
-									</Grid>
-									
-									<Grid item xs={6}>
-										<Textfield name="duration" label="Duration" />
-									</Grid>
-									<Grid item xs={6}>
-										<Textfield name="amountPaid" label="Room Rent" />
-									</Grid>
 										<Grid item xs={6}>
-										<Textfield name="securityDeposit" label="Security Deposit" />
-									</Grid>
+											<DateTimePicker name="checkInDate" label="Check-In date" />
+										</Grid>
+										<Grid item xs={6}>
+											<DateTimePicker name="noticeDate" label="Notice Date" />
+										</Grid>
+										<Grid item xs={6}>
+											<DateTimePicker name="checkOutDate" label="Check-Out date" />
+										</Grid>
 
-									<Grid item xs={12}>
-										<Textfield name="checkinNotes" label="Check-in Notes" multiline rows={4} />
-								</Grid>
+										<Grid item xs={6}>
+											<Textfield name="duration" label="Duration" />
+										</Grid>
+										<Grid item xs={6}>
+											<Textfield name="amountPaid" label="Room Rent" />
+										</Grid>
+										<Grid item xs={6}>
+											<Textfield name="securityDeposit" label="Security Deposit" />
+										</Grid>
+
+										<Grid item xs={12}>
+											<Textfield name="checkinNotes" label="Check-in Notes" multiline rows={4} />
+										</Grid>
 
 										<Grid item xs={12}>
 											<Checkbox name="termsOfService" legend="Terms of service" label="I agree" />
 										</Grid>
 										{/* <Divider variant="middle" /> */}
 
-										
 										{/* <MDButton variant="outlined" color="info" size="medium" value="submit">
                                             Submit
                                             </MDButton> */}
 										<Grid item xs={3} sx={{ paddingBottom: 3 }}>
-											<Button style="color:red" >Submit</Button>
+											<Button style="color:red">Submit</Button>
 										</Grid>
-										
+
 										{/* <br />
 										<br />
 										<br /> */}
