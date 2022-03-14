@@ -20,6 +20,7 @@ import { setOpenConfigurator } from 'context';
 
 const BuildingsLayout = (props) => {
     
+    
     const [buildingInfo, setBuildingInfo] = React.useState({});
     const [Floors, setFloors] = React.useState([]);
     useEffect(() => {
