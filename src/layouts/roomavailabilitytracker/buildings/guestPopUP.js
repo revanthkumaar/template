@@ -11,6 +11,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import TextField from '@mui/material/TextField';
 import { Grid } from '@mui/material';
 import { borderRadius } from '@mui/system';
+import { Link } from 'react-router-dom';
 
 export default function GuestPopUp ({open , handleClose}) {
 
@@ -118,7 +119,8 @@ export default function GuestPopUp ({open , handleClose}) {
                             color="info" size="large"
                             justify="center"
                             style={{ borderRadius: 10 , float: 'right'}}
-                           
+                            // onClick={()=>{<PaymentModules/>}}
+                            component={Link} to="/payments"
                             >
                                 <MDTypography color='white'>Pay</MDTypography>
                                 </MDButton></Grid>
