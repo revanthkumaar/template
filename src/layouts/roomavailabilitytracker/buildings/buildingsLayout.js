@@ -76,13 +76,14 @@ const BuildingsLayout = (props) => {
                                                                         <Grid item xs>
                                                                         <Grid container  rowSpacing={1}>
                                                                             
-                                                                        <Grid item xs={12} align="center">  
+                                                                        <Grid item xs={12} align="center">
+                                                                        {/* <HotelOutlinedIcon color="success" /> */}
                                                                         {(() => {
                                                                             if (bdno.bedStatus === true) {
-                                                                                return (<IconButton><HotelOutlinedIcon color="success" /></IconButton>)
+                                                                                return (<HotelOutlinedIcon color="success" />)
                                                                             }
                                                                             else {
-                                                                                return (<IconButton onClick={() => { setOpen(true) }}><HotelOutlinedIcon color="error" /></IconButton>)
+                                                                                return (<HotelOutlinedIcon color="error" onClick={() => { setOpen(true) }} />)
                                                                             }
 
                                                                         })()}

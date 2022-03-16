@@ -1,5 +1,6 @@
 import React from "react";
 import { Chart } from "react-google-charts";
+import BuildingsLayout from "../buildingsLayout";
 
 // const [buildingInfo, setBuildingInfo] = React.useState({});
 //     const [Floors, setFloors] = React.useState([]);
@@ -43,7 +44,7 @@ export const options = {
   ],
 };
 
-export default function BuildingsChartOne() {
+export default function BuildingsChartOne(props) {
   return (
     <Chart
       chartType="PieChart"
