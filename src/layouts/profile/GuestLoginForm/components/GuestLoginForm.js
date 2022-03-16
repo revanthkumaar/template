@@ -210,10 +210,10 @@ const GuestLoginForm = () => {
                 // console.log(guest.Idproof.name);
                 const res = await axios.post(
                   "http://localhost:8989/guest-service/addGuest",
-                  {
-                    guest,
+                  
+                    guest
                     //payment,
-                  }
+                  
                 );
                 console.log(res.data);
               }}
@@ -289,7 +289,7 @@ const GuestLoginForm = () => {
 
                     <Grid item xs={6}>
                       <h6>Gender</h6>
-                      <Select name="country" options={countries} width />
+                      <Select name="gender" options={countries} width />
                     </Grid>
                     <Grid item xs={6}>
                       <Textfield name="aadharNumber" label="Aadhar Number" />
@@ -506,7 +506,7 @@ const GuestLoginForm = () => {
                                             Submit
                                             </MDButton> */}
                     <Grid item xs={3} sx={{ paddingBottom: 3 }}>
-                      <Button style="color:red">Submit</Button>
+                      <Button type ="submit">Submit</Button>
                     </Grid>
 
                     {/* <br />
