@@ -2,21 +2,21 @@ import React, { useEffect, useState } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import MDButton from "components/MDButton";
+// import MDButton from "components/MDButton";
 import { Container, Grid, Typography } from "@mui/material";
 import moment from "moment";
 import Divider from "@mui/material/Divider";
-import GroupedSelect from "./RoomTypeDropDown";
-import BuildingNameDropDown from "./BuildingNameDropdown";
-import FloorNumberDropDown from "./FloorNumberDropDown";
-import RoomNumberDropDown from "./RoomNumberDropDown";
-import CustomizedSnackbars from "./PayDialogBox";
-import Gender from "./Gender";
-import FormTypeDropdown from "./FormTypeDropdown";
+// import GroupedSelect from "./RoomTypeDropDown";
+// import BuildingNameDropDown from "./BuildingNameDropdown";
+// import FloorNumberDropDown from "./FloorNumberDropDown";
+// import RoomNumberDropDown from "./RoomNumberDropDown";
+// import CustomizedSnackbars from "./PayDialogBox";
+
+import Occupancytype from "./OccupancyType";
 import Textfield from "./TextField";
 import Select from "./Select";
 //import {Select,MenuItem} from '@mui/material'
-import countries from "./coutries";
+import Gender from "./Gender";
 import Checkbox from "./CheckBox";
 import DateTimePicker from "./DataTimePicker";
 import Button from "./Button";
@@ -28,6 +28,7 @@ import { padding } from "@mui/system";
 import data from "./getDepartmentCollection";
 import MenuItem from "assets/theme/components/menu/menuItem";
 import { options } from "layouts/roomavailabilitytracker/buildings/buildingspieCharts/buildingChartOne";
+
 
 const INITIAL_FORM_STATE = {
   firstName: "",
@@ -46,6 +47,7 @@ const INITIAL_FORM_STATE = {
   aadharNumber: "",
   buildingName: "",
   bed: "",
+  occupancytype:"",
   roomRent:"",
   securityDeposit:"",
   transactionId:"",
@@ -167,6 +169,8 @@ gender:Yup.string().required("Required"),
   // 	})
   // 	.required('Required'),
   workAddressLine1: Yup.string().required("Required"),
+  workAddressLine2: Yup.string().required("Required"),
+  
 
   // workAddressLine2: Yup.string().required('Required'),
   //Idproof: Yup.mixed().required('File is required'),
@@ -220,6 +224,7 @@ const GuestLoginForm = () => {
             >
               {(formProps) => (
                 <Form>
+                 
                   <Grid container spacing={2}>
                     <Grid item xs={12}>
                       <Typography>
@@ -228,10 +233,8 @@ const GuestLoginForm = () => {
                         <br />
                       </Typography>
                     </Grid>
-                    <Grid item xs={6}>
-                      <FormTypeDropdown />
-                    </Grid>
-                    <Grid item xs={6} />
+                    
+                    
 
                     <Grid item xs={6}>
                       <Textfield name="firstName" label="First Name" />
@@ -270,26 +273,26 @@ const GuestLoginForm = () => {
                     <Grid item xs={6}>
                       <Textfield
                         name="localGaurdianName"
-                        label="Local Gaurdian's Name"
+                        label="Local Guardian's Name"
                       />
                     </Grid>
                     <Grid item xs={6}>
                       <Textfield
                         name="localGaurdianPhoneNumber"
-                        label="Local Gaurdian's Phone"
+                        label="Local Guardian's Phone"
                       />
                     </Grid>
                     <Grid item xs={6}>
                       <Textfield name="bloodGroup" label="Blood Group" />
                     </Grid>
                     <Grid item xs={6}>
-                      <Textfield name="occupation" label="Occuaption" />
+                      <Textfield name="occupation" label="Occupation" />
                     </Grid>
                     <br />
 
                     <Grid item xs={6}>
                       <h6>Gender</h6>
-                      <Select name="country" options={countries} width />
+                      <Select name="gender" options={Gender} width />
                     </Grid>
                     <Grid item xs={6}>
                       <Textfield name="aadharNumber" label="Aadhar Number" />
@@ -338,7 +341,7 @@ const GuestLoginForm = () => {
                       </Grid>
                     </Grid>
                     <Grid item xs={6}>
-					<h6>Select Bed</h6>
+					          <h6>Select Bed</h6>
                         <Select width
                           name="bed"
                           // value={age}
@@ -351,9 +354,12 @@ const GuestLoginForm = () => {
 					<Grid item xs={12}>
                       <Typography>
                         <h4 align="center">Booking Details</h4>
-
                         <br />
                       </Typography>
+                    </Grid>
+                    <Grid item xs={6}>
+                      <h6>OccupancyType</h6>
+                      <Select name="occupancytype" options={Occupancytype} width />
                     </Grid>
                     <Grid item xs={6}>
                       <Textfield name="roomRent" label="Room Rent" />
