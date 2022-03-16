@@ -46,7 +46,7 @@ const INITIAL_FORM_STATE = {
   gender: "",
   aadharNumber: "",
   buildingName: "",
-  bed: "",
+  bedId: "",
   occupancytype:"",
   roomRent:"",
   securityDeposit:"",
@@ -185,13 +185,27 @@ gender:Yup.string().required("Required"),
 
 const GuestLoginForm = () => {
   const [building, setBuilding] = React.useState([]);
+  const [bed,setBed] = React.useState([]);
+
+  let buildingNamesArray = []
+  let bedIdArray = []
   //console.log(building)
   useEffect(() => {
     axios
-      .get("http://localhost:8085/bed/getBedsByAllBuildings")
+      .get("http://localhost:8085/bed/bedStatus/true")
       .then((res) => {
-        res.data.map((info) => setBuilding(info.buildingName));
-
+        res.data.map((data) => {
+			console.log(data)
+			 buildingNamesArray.push(data.buildingName);
+			 bedIdArray.push(data.bedId)});
+            // bedidArray.push(data.bedId)
+			 console.log(buildingNamesArray);
+			 console.log(bedIdArray);
+			 setBuilding(buildingNamesArray)
+			 setBed(bedIdArray)
+		
+		//setBuilding(res.data)
+		//console.log(building)
         console.log(res.data);
       })
 
@@ -212,14 +226,14 @@ const GuestLoginForm = () => {
                 console.log(guest);
 
                 // console.log(guest.Idproof.name);
-                const res = await axios.post(
-                  "http://localhost:8989/guest-service/addGuest",
+                // const res = await axios.post(
+                //   "http://localhost:8989/guest-service/addGuest",
                   
-                    guest
-                    //payment,
+                //     guest
+                //     //payment,
                   
-                );
-                console.log(res.data);
+                // );
+                // console.log(res.data);
               }}
             >
               {(formProps) => (
@@ -273,7 +287,7 @@ const GuestLoginForm = () => {
                     <Grid item xs={6}>
                       <Textfield
                         name="localGaurdianName"
-                        label="Local Guardian's Name"
+                        label="Local Gauardian's Name"
                       />
                     </Grid>
                     <Grid item xs={6}>
@@ -295,7 +309,7 @@ const GuestLoginForm = () => {
 
                       <Select name="gender" options={Gender} width />
 
-                      <Select name="gender" options={countries} width />
+                     
 
                     </Grid>
                     <Grid item xs={6}>
@@ -328,6 +342,8 @@ const GuestLoginForm = () => {
                         // value={age}
 
                         options={building}
+						value={building}
+					
                         // onChange={handleChange}
                       >
                         {/* <MenuItem value={10}>Ten</MenuItem>
@@ -347,10 +363,10 @@ const GuestLoginForm = () => {
                     <Grid item xs={6}>
 					          <h6>Select Bed</h6>
                         <Select width
-                          name="bed"
+                          name="bedId"
                           // value={age}
 
-                          options={building}
+                          options={bed}
                           // onChange={handleChange}
                         ></Select>
                       {/* <Textfield name="duration" label="Duration" /> */}
