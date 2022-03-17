@@ -24,7 +24,7 @@ const BuildingsTracker = (props) => {
             <MDBox bgColor="white" padding="4px" >
                
                     <Grid container direction="row" justifyContent="left" alignItems="left" >
-                        <Grid item xs={6} ><BuildingsChartOne /></Grid>
+                        <Grid item xs={6} ><BuildingsChartOne buildingName={props.buildingName} /></Grid>
                         <Grid item xs={6}  ><BuildingsChartTwo /></Grid>
                     </Grid>
                     </MDBox>
