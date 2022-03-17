@@ -1,9 +1,10 @@
 
 import React from "react";
-import { TextField, MenuItem } from "@mui/material";
+import { Select, MenuItem } from "@mui/material";
 import { useField, useFormikContext } from "formik";
 
-const SelectWrapper = ({ name, options, value, ...otherProps }) => {
+const SelectWrapper = ({ name, options,
+   ...otherProps }) => {
   const { setFieldValue } = useFormikContext();
   const [field, meta] = useField(name);
 
@@ -27,13 +28,13 @@ const SelectWrapper = ({ name, options, value, ...otherProps }) => {
   }
 
   return (
-    <TextField {...configSelect}>
+    <Select {...configSelect}>
       {Object.keys(options).map((item, pos) => (
         <MenuItem key={pos} value={item}>
           {options[item]}
         </MenuItem>
       ))}
-    </TextField>
+    </Select>
   );
 };
 

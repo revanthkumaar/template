@@ -6,6 +6,7 @@ import axios from "axios";
 import { Container, Grid, Typography } from "@mui/material";
 import moment from "moment";
 import Divider from "@mui/material/Divider";
+//import Select from "@mui/material/Select";
 // import GroupedSelect from "./RoomTypeDropDown";
 // import BuildingNameDropDown from "./BuildingNameDropdown";
 // import FloorNumberDropDown from "./FloorNumberDropDown";
@@ -27,8 +28,8 @@ import { padding } from "@mui/system";
 //import getDepartmentCollection from './getDepartmentCollection';
 import data from "./getDepartmentCollection";
 import MenuItem from "assets/theme/components/menu/menuItem";
+//import MenuItem from "@mui/material/MenuItem";
 import { options } from "layouts/roomavailabilitytracker/buildings/buildingspieCharts/buildingChartOne";
-
 
 const INITIAL_FORM_STATE = {
   firstName: "",
@@ -47,29 +48,27 @@ const INITIAL_FORM_STATE = {
   aadharNumber: "",
   buildingName: "",
   bedId: "",
-  occupancytype:"",
-  roomRent:"",
-  securityDeposit:"",
-  transactionId:"",
+  occupancytype: "",
+  roomRent: "",
+  securityDeposit: "",
+  transactionId: "",
   addressLine1: "",
   addressLine2: "",
   pincode: "",
   city: "",
   state: "",
-  workPhone:"",
+  workPhone: "",
   //country: "",
 
   // country: '',
-  
+
   //workPhone: '',
 
   workAddressLine1: "",
   workAddressLine2: "",
   //floorNumber: "",
   //roomNumber: "",
-  
-  
-  
+
   //amountPaid: "",
   //roomType: "",
   //   checkInDate: "",
@@ -84,7 +83,7 @@ const INITIAL_FORM_STATE = {
   // arrivalDate: '',
   // roomRent: '',
   // securityDeposit: '',
-  checkinNotes: '',
+  checkinNotes: "",
   termsOfService: false,
 };
 
@@ -103,19 +102,19 @@ const FORM_VALIDATION = Yup.object().shape({
       "Please choose a valid date of birth",
       (date) => moment().diff(moment(date), "years") >= 12
     ),
-gender:Yup.string().required("Required"),
+  gender: Yup.string().required("Required"),
   personalNumber: Yup.string()
     .matches(/^[6-9]\d{9}$/, {
       message: "Please enter Valid Mobile Number",
       excludeEmptyString: false,
     })
     .required("Required"),
-	localGaurdianPhoneNumber:Yup.string()
+  localGaurdianPhoneNumber: Yup.string()
     .matches(/^[6-9]\d{9}$/, {
       message: "Please enter Valid Mobile Number",
       excludeEmptyString: false,
     })
-    .required("Required"),	
+    .required("Required"),
   secondaryPhoneNumber: Yup.string()
     .matches(/^[6-9]\d{9}$/, {
       message: "Please enter Valid Mobile Number",
@@ -133,7 +132,7 @@ gender:Yup.string().required("Required"),
     })
     .required("Required"),
 
-	workPhone: Yup.string()
+  workPhone: Yup.string()
     .matches(/^[6-9]\d{9}$/, {
       message: "Please enter valid Mobile number.",
       excludeEmptyString: false,
@@ -170,7 +169,7 @@ gender:Yup.string().required("Required"),
   // 	.required('Required'),
   workAddressLine1: Yup.string().required("Required"),
   workAddressLine2: Yup.string().required("Required"),
-  
+  buildingName: Yup.string().required("Required"),
 
   // workAddressLine2: Yup.string().required('Required'),
   //Idproof: Yup.mixed().required('File is required'),
@@ -185,34 +184,57 @@ gender:Yup.string().required("Required"),
 
 const GuestLoginForm = () => {
   const [building, setBuilding] = React.useState([]);
-  const [bed,setBed] = React.useState([]);
+  const [oneBuilding, setoneBuilding] = React.useState("");
+  const [bed, setBed] = React.useState([]);
+  const [build, setBuild] = React.useState([]);
 
-  let buildingNamesArray = []
-  let bedIdArray = []
+  let buildingNamesArray = [];
+  let bedIdArray = [];
+  let totalBeds = [];
   //console.log(building)
+  const setOneBuilding = (e) => {
+    // setBuild(e.target.value)
+    console.log(e.target.value);
+    setoneBuilding(e.target.value);
+  };
   useEffect(() => {
     axios
-      .get("http://localhost:8085/bed/bedStatus/true")
+      .get("http://localhost:8085/bed/getAvailableBedsByBuildings")
       .then((res) => {
+        //   const buildingdata = res;
+        //   setBuilding(buildingdata);
+        //   console.log(buildingdata)
         res.data.map((data) => {
-			console.log(data)
-			 buildingNamesArray.push(data.buildingName);
-			 bedIdArray.push(data.bedId)});
-            // bedidArray.push(data.bedId)
-			 console.log(buildingNamesArray);
-			 console.log(bedIdArray);
-			 setBuilding(buildingNamesArray)
-			 setBed(bedIdArray)
-		
-		//setBuilding(res.data)
-		//console.log(building)
-        console.log(res.data);
+          console.log(data);
+          console.log(data.building_name);
+          //console.log(data.beds)
+          setBuild(data.beds);
+          buildingNamesArray.push(data.building_name);
+        });
+        console.log(buildingNamesArray);
+        //  console.log(bedIdArray);
+        setBuilding(buildingNamesArray);
+        //  setBed(bedIdArray)
+        console.log(building);
+
+        //setBuilding(res.data)
+        //console.log(building)
+        //console.log(res.data);
       })
 
       .catch((err) => {
         console.log(err);
       });
   }, []);
+
+  //totalBeds.push(build)
+  build.map((bed) => {
+    bedIdArray.push(bed.bedId);
+  });
+
+  //setBed(bedIdArray)
+  console.log(totalBeds);
+  console.log(bedIdArray);
 
   return (
     <Grid container>
@@ -228,17 +250,16 @@ const GuestLoginForm = () => {
                 // console.log(guest.Idproof.name);
                 // const res = await axios.post(
                 //   "http://localhost:8989/guest-service/addGuest",
-                  
+
                 //     guest
                 //     //payment,
-                  
+
                 // );
                 // console.log(res.data);
               }}
             >
               {(formProps) => (
                 <Form>
-                 
                   <Grid container spacing={2}>
                     <Grid item xs={12}>
                       <Typography>
@@ -247,8 +268,6 @@ const GuestLoginForm = () => {
                         <br />
                       </Typography>
                     </Grid>
-                    
-                    
 
                     <Grid item xs={6}>
                       <Textfield name="firstName" label="First Name" />
@@ -308,9 +327,6 @@ const GuestLoginForm = () => {
                       <h6>Gender</h6>
 
                       <Select name="gender" options={Gender} width />
-
-                     
-
                     </Grid>
                     <Grid item xs={6}>
                       <Textfield name="aadharNumber" label="Aadhar Number" />
@@ -337,41 +353,52 @@ const GuestLoginForm = () => {
 
 					  }</Select> */}
                       <h6>Select Building</h6>
-                      <Select
+                      {/* <Select
+                        // labelId="demo-simple-select-label"
+                        // id="demo-simple-select"
+                        value={oneBuilding}
                         name="buildingName"
+                        onChange={setOneBuilding}
+                      >
+                        <MenuItem value={10}>Ten</MenuItem>
+                        <MenuItem value={20}>Twenty</MenuItem>
+                        <MenuItem value={30}>Thirty</MenuItem>
+                      </Select> */}
+                      <Select
+					  name="buildingName"
                         // value={age}
 
-                        options={building}
-						value={building}
-					
-                        // onChange={handleChange}
-                      >
-                        {/* <MenuItem value={10}>Ten</MenuItem>
+                        options={building}>
+					  </Select>
+                        
+                       {/* // value={Formik.values.buildingName}
+                        //onChange={Formik.setOneBuilding} */}
+                      
+                      {/* <MenuItem value={10}>Ten</MenuItem>
           <MenuItem value={20}>Twenty</MenuItem>
           <MenuItem value={30}>Thirty</MenuItem> */}
-                      </Select>
+                      {/* </Select> */}
                       {/* <option value=""></option>{
           building.map((value)=>(
             <option value={value.id} key={value.id}>
               {value.buildingName}
             </option>
           ))} */}
-                      <Grid item xs={6}>
-                       
-                      </Grid>
+                      <Grid item xs={6}></Grid>
                     </Grid>
                     <Grid item xs={6}>
-					          <h6>Select Bed</h6>
-                        <Select width
-                          name="bedId"
-                          // value={age}
+                      <h6>Select Bed</h6>
+                      <Select
+                        
+                        name="bedId"
+                        // value={age}
 
-                          options={bed}
-                          // onChange={handleChange}
-                        ></Select>
+                        options={bedIdArray}
+                        // onChange={handleChange}
+                      ></Select>
                       {/* <Textfield name="duration" label="Duration" /> */}
                     </Grid>
-					<Grid item xs={12}>
+                    <Grid item xs={12}>
                       <Typography>
                         <h4 align="center">Booking Details</h4>
                         <br />
@@ -379,7 +406,11 @@ const GuestLoginForm = () => {
                     </Grid>
                     <Grid item xs={6}>
                       <h6>OccupancyType</h6>
-                      <Select name="occupancytype" options={Occupancytype} width />
+                      <Select
+                        name="occupancytype"
+                        options={Occupancytype}
+                        width
+                      />
                     </Grid>
                     <Grid item xs={6}>
                       <Textfield name="roomRent" label="Room Rent" />
@@ -532,7 +563,7 @@ const GuestLoginForm = () => {
                                             Submit
                                             </MDButton> */}
                     <Grid item xs={3} sx={{ paddingBottom: 3 }}>
-                      <Button type ="submit">Submit</Button>
+                      <Button type="submit">Submit</Button>
                     </Grid>
 
                     {/* <br />
