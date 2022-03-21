@@ -41,6 +41,16 @@ const routes = [
 	},
 	{
 		type: 'collapse',
+		name: 'Payments',
+		key: 'payments',
+		icon: <Icon fontSize="small">payment</Icon>,
+		route: '/payments',
+		component: <PaymentModules />
+	},
+	
+
+	{
+		type: 'collapse',
 		name: 'Rooms Details',
 		key: 'room_Details',
 		icon: <Icon fontSize="small">person</Icon>,
@@ -80,16 +90,7 @@ const routes = [
 		component: <Expenses />
 	},
 
-	{
-		type: 'collapse',
-		name: 'Payments',
-		key: 'payments',
-		icon: <Icon fontSize="small">payment</Icon>,
-		route: '/payments',
-		component: <PaymentModules />
-	},
 	
-
 	{
 		type: 'collapse',
 		name: 'Sign Out',

@@ -29,8 +29,12 @@ import { padding } from "@mui/system";
 import data from "./getDepartmentCollection";
 import MenuItem from "assets/theme/components/menu/menuItem";
 //import MenuItem from "@mui/material/MenuItem";
+<<<<<<< HEAD
 import { options } from "layouts/roomavailabilitytracker/buildings/buildingspieCharts/buildingChartOne";
 import { bool } from "prop-types";
+=======
+
+>>>>>>> 1e048a1b01fd40094ddb8391762d2bf01061700a
 
 const INITIAL_FORM_STATE = {
   firstName: "",
@@ -344,7 +348,7 @@ const GuestLoginForm = () => {
                     <Grid item xs={6}>
                       <h6>Gender</h6>
 
-                      <Select name="gender" options={Gender} width />
+                      <Select name="gender" options={Gender} width  />
                     </Grid>
                     <Grid item xs={6}>
                       <Textfield name="aadharNumber" label="Aadhar Number" />
