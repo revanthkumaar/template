@@ -30,7 +30,7 @@ import data from "./getDepartmentCollection";
 import MenuItem from "assets/theme/components/menu/menuItem";
 //import MenuItem from "@mui/material/MenuItem";
 
-import { options } from "layouts/roomavailabilitytracker/buildings/buildingspieCharts/buildingChartOne";
+// import { options } from "layouts/roomavailabilitytracker/buildings/buildingspieCharts/buildingChartOne";
 import { bool } from "prop-types";
 
 
@@ -195,7 +195,8 @@ const GuestLoginForm = () => {
   const [build, setBuild] = React.useState([]);
 
   let buildingNamesArray = [];
-  let completeAvailableBeds = [];
+  let availableBedsByBuidlingName = [];
+  
   let totalBeds = [];
   let total = [];
 
@@ -254,8 +255,10 @@ const GuestLoginForm = () => {
   };
   console.log(availableBeds)
   availableBeds.map((item)=>{
-	setBed(item.bedId)
+	console.log(item.bedId)
+	availableBedsByBuidlingName.push(item.bedId)
   })
+  //console.log(bed)
   
 
   return (
@@ -401,7 +404,7 @@ const GuestLoginForm = () => {
                       <h6>Select Bed</h6>
                       <Select
                         name="bedId"
-                        options={bed}
+                        options={availableBedsByBuidlingName}
                         //options={bed}
                         // onChange={handleChange}
                       ></Select>
