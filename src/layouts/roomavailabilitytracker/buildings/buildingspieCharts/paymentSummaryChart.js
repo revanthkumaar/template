@@ -21,7 +21,7 @@ const options = {
   ],
 };
 
-export default function BuildingsChartTwo() {
+export default function PaymentSummaryChart() {
   return (
     <Chart
       chartType="PieChart"

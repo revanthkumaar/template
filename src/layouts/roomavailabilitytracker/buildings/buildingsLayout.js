@@ -17,7 +17,7 @@ import MDButton from 'components/MDButton';
 import axios from 'axios';
 import GuestPopUp from './guestPopUP';
 import { setOpenConfigurator } from 'context';
-
+import './buildingLayout.css'
 const BuildingsLayout = (props) => {
 
 
@@ -80,10 +80,10 @@ const BuildingsLayout = (props) => {
                                                                         {/* <HotelOutlinedIcon color="success" /> */}
                                                                         {(() => {
                                                                             if (bdno.bedStatus === true) {
-                                                                                return (<HotelOutlinedIcon color="success" />)
+                                                                                return (<HotelOutlinedIcon className = "click"   color="success" />)
                                                                             }
                                                                             else {
-                                                                                return (<HotelOutlinedIcon color="error" onClick={() => { setOpen(true) }} />)
+                                                                                return (<HotelOutlinedIcon color="error" className = "click"     onClick={() => { setOpen(true) }} />)
                                                                             }
 
                                                                         })()}
