@@ -30,6 +30,7 @@ import data from "./getDepartmentCollection";
 import MenuItem from "assets/theme/components/menu/menuItem";
 //import MenuItem from "@mui/material/MenuItem";
 import { options } from "layouts/roomavailabilitytracker/buildings/buildingspieCharts/buildingChartOne";
+import { bool } from "prop-types";
 
 const INITIAL_FORM_STATE = {
   firstName: "",
@@ -186,55 +187,72 @@ const GuestLoginForm = () => {
   const [building, setBuilding] = React.useState([]);
   const [oneBuilding, setoneBuilding] = React.useState("");
   const [bed, setBed] = React.useState([]);
+  const [availableBeds, setAvailableBeds] = React.useState([])
   const [build, setBuild] = React.useState([]);
 
   let buildingNamesArray = [];
-  let bedIdArray = [];
+  let completeAvailableBeds = [];
   let totalBeds = [];
-  //console.log(building)
-  const setOneBuilding = (e) => {
-    // setBuild(e.target.value)
-    console.log(e.target.value);
-    setoneBuilding(e.target.value);
-  };
+  let total = [];
+
   useEffect(() => {
     axios
       .get("http://localhost:8085/bed/getAvailableBedsByBuildings")
       .then((res) => {
-        //   const buildingdata = res;
-        //   setBuilding(buildingdata);
-        //   console.log(buildingdata)
+        setoneBuilding(res.data);
         res.data.map((data) => {
           console.log(data);
-          console.log(data.building_name);
-          //console.log(data.beds)
+          //console.log(data.building_name);
+
           setBuild(data.beds);
           buildingNamesArray.push(data.building_name);
         });
         console.log(buildingNamesArray);
-        //  console.log(bedIdArray);
-        setBuilding(buildingNamesArray);
-        //  setBed(bedIdArray)
-        console.log(building);
 
-        //setBuilding(res.data)
-        //console.log(building)
-        //console.log(res.data);
+        setBuilding(buildingNamesArray);
       })
 
       .catch((err) => {
         console.log(err);
       });
   }, []);
+  console.log(oneBuilding);
 
   //totalBeds.push(build)
-  build.map((bed) => {
-    bedIdArray.push(bed.bedId);
-  });
-
+  //   build.map((bed) => {
+  // 	//console.log(completeAvailableBeds)
+  //     completeAvailableBeds.push(bed.bedId);
+  // 	console.log(bed.bedId)
   //setBed(bedIdArray)
-  console.log(totalBeds);
-  console.log(bedIdArray);
+  // });
+  // console.log(bedIdArray)
+  // totalBeds.push(bedIdArray)
+  // console.log(totalBeds)
+
+  // total.push[totalBeds]
+  // console.log(total)
+  const handleClick = (id) => {
+    // completeAvailableBeds.filter(buildingData =>buildingData.building_id==id)
+    // return
+    // console.log(event)
+
+    //console.log(bedList)
+    const bool = oneBuilding.filter(
+      (buildingData) => buildingData.building_name == id.target.outerText
+    );
+    //console.log()
+    //return available.beds
+    console.log(bool);
+	//console.log(bool.beds.bedStatus)
+	bool.map((bed)=>setAvailableBeds(bed.beds)
+	)
+    console.log(id.target.outerText);
+  };
+  console.log(availableBeds)
+  availableBeds.map((item)=>{
+	setBed(item.bedId)
+  })
+  
 
   return (
     <Grid container>
@@ -353,27 +371,16 @@ const GuestLoginForm = () => {
 
 					  }</Select> */}
                       <h6>Select Building</h6>
-                      {/* <Select
-                        // labelId="demo-simple-select-label"
-                        // id="demo-simple-select"
-                        value={oneBuilding}
-                        name="buildingName"
-                        onChange={setOneBuilding}
-                      >
-                        <MenuItem value={10}>Ten</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
-                      </Select> */}
-                      <Select
-					  name="buildingName"
-                        // value={age}
 
-                        options={building}>
-					  </Select>
-                        
-                       {/* // value={Formik.values.buildingName}
+                      <Select
+                        name="buildingName"
+                        options={building}
+                        onClick={handleClick}
+                      ></Select>
+
+                      {/* // value={Formik.values.buildingName}
                         //onChange={Formik.setOneBuilding} */}
-                      
+
                       {/* <MenuItem value={10}>Ten</MenuItem>
           <MenuItem value={20}>Twenty</MenuItem>
           <MenuItem value={30}>Thirty</MenuItem> */}
@@ -389,11 +396,9 @@ const GuestLoginForm = () => {
                     <Grid item xs={6}>
                       <h6>Select Bed</h6>
                       <Select
-                        
                         name="bedId"
-                        // value={age}
-
-                        options={bedIdArray}
+                        options={bed}
+                        //options={bed}
                         // onChange={handleChange}
                       ></Select>
                       {/* <Textfield name="duration" label="Duration" /> */}
