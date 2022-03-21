@@ -6,8 +6,8 @@ import MDBox from 'components/MDBox';
 import { Grid, Card, CardContent, Typography } from '@mui/material';
 
 import BuildingsLayout from './buildingsLayout'
-import BuildingsChartOne from './buildingspieCharts/buildingChartOne';
-import BuildingsChartTwo from './buildingspieCharts/buildingChartTwo';
+import BedSummaryChart from './buildingspieCharts/bedSummaryChart';
+import PaymentSummaryChart from './buildingspieCharts/paymentSummaryChart';
 
 import BuildingDropdown from 'layouts/roomavailabilitytracker/BuildingDropdown';
 
@@ -24,8 +24,8 @@ const BuildingsTracker = (props) => {
             <MDBox bgColor="white" padding="4px" >
                
                     <Grid container direction="row" justifyContent="left" alignItems="left" >
-                        <Grid item xs={6} ><BuildingsChartOne buildingName={props.buildingName} /></Grid>
-                        <Grid item xs={6}  ><BuildingsChartTwo /></Grid>
+                        <Grid item xs={6} ><BedSummaryChart buildingName={props.buildingName} /></Grid>
+                        <Grid item xs={6}  ><PaymentSummaryChart /></Grid>
                     </Grid>
                     </MDBox>
 
