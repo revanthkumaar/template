@@ -12,6 +12,8 @@ import TextField from '@mui/material/TextField';
 import { Grid } from '@mui/material';
 import { borderRadius } from '@mui/system';
 import { Link } from 'react-router-dom';
+import RecentTransactions from 'layouts/dashboard/components/summaryTables/Recenttransactions';
+import TransactionHistory from './TransactionHistory';
 
 export default function GuestPopUp({ open, handleClose }) {
 
@@ -20,62 +22,57 @@ export default function GuestPopUp({ open, handleClose }) {
 
             <Dialog open={open} onClose={handleClose} maxWidth='lg'>
                 <DialogTitle>GUEST DETAILS</DialogTitle>
-                <br />
+
                 <DialogContent>
                     <Grid container spacing={1}>
-                        
-                                <Grid item xs={12}>
-                                    <MDTypography
-                                        // id="outlined-textarea"
-                                        //   label="Guest Id"
-                                        style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
-                                    >Guest Id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  :   SLH0001</MDTypography>
-                                </Grid>
-                                <Grid item xs={12}>
-                                    <MDTypography
-                                        // id="outlined-textarea"
-                                        //   label="Guest Id"
-                                        style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
-                                    >Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  : Mahesh Babu</MDTypography>
-                                </Grid>
-                                <Grid item xs={12} >
-                                    <MDTypography
-                                        // id="outlined-textarea"
-                                        //   label="Guest Id"
-                                        style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
-                                    >Adhaar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 504299167462</MDTypography>
-
-                                </Grid>
-                                <Grid item xs={12} >
-                                    <MDTypography
-                                        // id="outlined-textarea"
-                                        //   label="Guest Id"
-                                        style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
-                                    >Contact&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 9908216181</MDTypography>
-                                </Grid>
-                                <Grid item xs={12} >
-                                    <MDTypography
-                                        // id="outlined-textarea"
-                                        //   label="Guest Id"
-                                        style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
-                                    >Due amount&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 5000</MDTypography>
-                                </Grid>
-                                <Grid item xs={12} >
-                                    <MDTypography
-                                        // id="outlined-textarea"
-                                        //   label="Guest Id"
-                                        style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
-                                    >Transaction Id &nbsp;: 0001173938@ybl</MDTypography>
-                                </Grid>
-                                <Grid item xs={12} >
-                                    <MDTypography
-                                        // id="outlined-textarea"
-                                        //   label="Guest Id"
-                                        style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
-                                    >Payment Id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 9373711000183@HDFC</MDTypography>
-                                
+                        <Grid item xs={12}>
+                            <MDTypography
+                                // id="outlined-textarea"
+                                //   label="Guest Id"
+                                style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
+                            ><h5><i>Guest Id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  :   SLH0001</i></h5></MDTypography>
                         </Grid>
+                        <Grid item xs={12}>
+                            <MDTypography
+                                // id="outlined-textarea"
+                                //   label="Guest Id"
+                                style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
+                            ><h5><i>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  : Mahesh Babu</i></h5></MDTypography>
+                        </Grid>
+                        <Grid item xs={12} >
+                            <MDTypography
+                                // id="outlined-textarea"
+                                //   label="Guest Id"
+                                style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
+                            ><h5><i>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 504299167462</i></h5></MDTypography>
+
+                        </Grid>
+                        <Grid item xs={12} >
+                            <MDTypography
+                                // id="outlined-textarea"
+                                //   label="Guest Id"
+                                style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
+                            ><h5><i>Mobile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 9908216181</i></h5></MDTypography>
+                        </Grid>
+                        <Grid item xs={12} >
+                            <MDTypography
+                                // id="outlined-textarea"
+                                //   label="Guest Id"
+                                style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
+                            ><h5><i>Father's Mobile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 9908216181</i></h5></MDTypography>
+                        </Grid>
+
+                        <Grid item xs={4}></Grid>
+                        <Grid item xs={5} >
+                            <MDTypography >
+                            <h3 style={{color:'red',}}
+                            >Due amount&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 5000</h3></MDTypography>
+                        </Grid>
+                        <Grid item xs={3}></Grid>
+                        <DialogTitle >TRANSACTION HISTORY</DialogTitle>
+                        <TransactionHistory/>
                     </Grid>
+
 
                 </DialogContent>
                 <DialogActions>
@@ -83,7 +80,7 @@ export default function GuestPopUp({ open, handleClose }) {
                         <Grid item xs={6} ><MDButton
                             width='20%'
                             variant="contained"
-                            color="error" size="large"
+                            color="info" size="large"
                             justify="center"
                             style={{ borderRadius: 10 }}
                             onClick={handleClose}>
@@ -91,7 +88,7 @@ export default function GuestPopUp({ open, handleClose }) {
                         <Grid item xs={6} alignItems="right" ><MDButton
                             width='20%'
                             variant="gradient"
-                            color="info" size="large"
+                            color="error" size="large"
                             justify="center"
                             style={{ borderRadius: 10, float: 'right' }}
                             // onClick={()=>{<PaymentModules/>}}

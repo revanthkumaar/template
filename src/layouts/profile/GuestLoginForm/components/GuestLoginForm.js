@@ -326,7 +326,7 @@ const GuestLoginForm = () => {
                     <Grid item xs={6}>
                       <h6>Gender</h6>
 
-                      <Select name="gender" options={Gender} width />
+                      <Select name="gender" options={Gender} width  />
                     </Grid>
                     <Grid item xs={6}>
                       <Textfield name="aadharNumber" label="Aadhar Number" />
