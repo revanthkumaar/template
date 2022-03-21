@@ -31,13 +31,14 @@ export default function FormDialog() {
                 style={{ borderRadius: 10,width:'190px',bordercolor:"blue" }} onClick={handleClickOpen}>
                 Record Payment
             </Button> */}
-            <Grid item xs={6}></Grid>
+            <Grid item xs={4}></Grid>
 
-<Grid item xs={3}>
+<Grid item xs={3} backgroundColor= "#0096FF">
 <MDButton
-                            width='30%'
+                            width='50%'
                             variant="gradient"
-                            color="info" size="small"
+                            backgroundColor= "#0096FF"
+                            color="info" size="large"
                             justify="center"
                             style={{ borderRadius: 10, float: 'right' }}
                             onClick={handleClickOpen}
