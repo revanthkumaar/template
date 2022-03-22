@@ -262,7 +262,7 @@ const GuestLoginForm = () => {
 	console.log(item.bedId)
 	availableBedsByBuidlingName.push(item.bedId)
   })
-  //console.log(bed)
+ 
   
 
   return (

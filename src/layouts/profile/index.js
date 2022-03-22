@@ -3,10 +3,12 @@ import MDBox from "components/MDBox";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import Footer from "examples/Footer";
 import GuestLoginForm from './GuestLoginForm/components/GuestLoginForm';
+import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 
 function Dashboard() {
   return (
     <DashboardLayout>
+      <DashboardNavbar />
       <MDBox bgColor="white" py={0.01}>
         <MDBox>
           <Grid container spacing={6}>
