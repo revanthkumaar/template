@@ -17,6 +17,8 @@ import TransactionHistory from './TransactionHistory';
 
 export default function GuestPopUp({ open, handleClose }) {
 
+    
+
     return (
         <div>
 
@@ -30,21 +32,21 @@ export default function GuestPopUp({ open, handleClose }) {
                                 // id="outlined-textarea"
                                 //   label="Guest Id"
                                 style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
-                            ><h5><i>Guest Id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  :   SLH0001</i></h5></MDTypography>
+                            ><p >Guest Id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  :   SLH0001</p></MDTypography>
                         </Grid>
                         <Grid item xs={12}>
                             <MDTypography
                                 // id="outlined-textarea"
                                 //   label="Guest Id"
                                 style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
-                            ><h5><i>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  : Mahesh Babu</i></h5></MDTypography>
+                            ><p>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  : Mahesh Babu</p></MDTypography>
                         </Grid>
                         <Grid item xs={12} >
                             <MDTypography
                                 // id="outlined-textarea"
                                 //   label="Guest Id"
                                 style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
-                            ><h5><i>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : abc@gmail.com</i></h5></MDTypography>
+                            ><p>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : abc@gmail.com</p></MDTypography>
 
                         </Grid>
                         <Grid item xs={12} >
@@ -52,14 +54,14 @@ export default function GuestPopUp({ open, handleClose }) {
                                 // id="outlined-textarea"
                                 //   label="Guest Id"
                                 style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
-                            ><h5><i>Mobile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 9908216181</i></h5></MDTypography>
+                            ><p>Mobile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 9908216181</p></MDTypography>
                         </Grid>
                         <Grid item xs={12} >
                             <MDTypography
                                 // id="outlined-textarea"
                                 //   label="Guest Id"
                                 style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
-                            ><h5><i>Father's Mobile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 9030211709</i></h5></MDTypography>
+                            ><p>Father's Mobile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 9030211709</p></MDTypography>
                         </Grid>
 
                         <Grid item xs={4}></Grid>
