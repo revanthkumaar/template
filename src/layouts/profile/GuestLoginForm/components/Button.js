@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "@mui/material/Button";
+import MDButton from "components/MDButton";
 import { useFormikContext } from "formik";
 
 const ButtonWrapper = ({ children, ...otherProps }) => {
@@ -11,14 +11,13 @@ const ButtonWrapper = ({ children, ...otherProps }) => {
 
   const configButton = {
     variant: "contained",
-    color: "warning",
-    
-    
+    color: "info",
+    size:"medium",
     onClick: handleSubmit,
     
   };
 
-  return <Button  {...configButton}>{children}</Button>;
+  return <MDButton  {...configButton}>{children}</MDButton>;
 };
 
 export default ButtonWrapper;
