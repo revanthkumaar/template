@@ -18,11 +18,22 @@ import axios from 'axios';
 import GuestPopUp from './guestPopUP';
 import { setOpenConfigurator } from 'context';
 import './buildingLayout.css'
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
+
+
+
+
+
 const BuildingsLayout = (props) => {
 
 
     const [buildingInfo, setBuildingInfo] = React.useState([]);
     //  const [Floors, setFloors] = React.useState([]);
+    const [loading , setLoading ] = React.useState(false)
+     const handleToggle = () => {
+         setLoading(!loading);
+     }
     useEffect(() => {
         const GetData = async () => {
             const url = "http://localhost:8085/room/getBedsByBuildings";
@@ -30,6 +41,7 @@ const BuildingsLayout = (props) => {
                 const resp = await fetch(url);
                 const build = await resp.json();
                 setBuildingInfo(build);
+                setLoading(true)
                 // setFloors(build.floors)
             }
             catch (err) {
@@ -53,8 +65,8 @@ const BuildingsLayout = (props) => {
         <>
             <GuestPopUp open={open} handleClose={handleClose} />
             <MDBox bgColor="white" padding="30px" sx={{ border: 3 }} >
-
-                {BuildingInfo.map(post => {
+                {loading ? 
+                BuildingInfo.map(post => {
                     return (
                         <>
                             <Grid container spacing={2} >
@@ -116,9 +128,24 @@ const BuildingsLayout = (props) => {
                             </Grid>
                         </>
                     )
-                })}
+                })
+
+
+           : 
+            // "loading...."
+           <Backdrop
+           sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+           open
+           onClick={handleClose}
+         >
+           <CircularProgress color="inherit" />
+         </Backdrop>
+         }
+
 
             </MDBox>
+
+
 
         </>
     )
