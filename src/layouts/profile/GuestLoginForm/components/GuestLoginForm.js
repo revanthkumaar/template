@@ -579,7 +579,7 @@ const GuestLoginForm = () => {
                                             Submit
                                             </MDButton> */}
                     <Grid item xs={3} sx={{ paddingBottom: 3 }}>
-                      <Button type="submit">Submit</Button>
+                    <Button >Submit</Button>
                     </Grid>
 
                     {/* <br />
