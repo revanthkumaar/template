@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import Button from '@mui/material/Button';
+
 import MDButton from 'components/MDButton';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -11,6 +11,8 @@ import TextField from '@mui/material/TextField';
 import { Grid } from '@mui/material';
 import { borderRadius } from '@mui/system';
 import MDTypography from 'components/MDTypography';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 
 export default function FormDialog() {
     const [open, setOpen] = React.useState(false);
@@ -33,22 +35,24 @@ export default function FormDialog() {
             </Button> */}
             
 
-<Grid item xs ={3} spacing={10} backgroundColor= "#0096FF">
+<Grid item xs ={12} spacing={3} backgroundColor= "#0096FF">
 <MDButton
-                            width='100%'
+                            width='200%'
                             
                            
                             variant="gradient"
                             backgroundColor= "#0096FF"
                             color="info" size="medium"
                             justify="center"
-                            style={{ borderRadius: 15, float: 'right' }}
+                            style={{ borderRadius: 4, float: 'right' }}
                             onClick={handleClickOpen}
                         >
-                            <MDTypography color='white'>Record Payments</MDTypography>
+                            <MDTypography color='white'>&nbsp;&nbsp;&nbsp;&nbsp;Record Payments&nbsp;&nbsp;&nbsp;&nbsp;</MDTypography>
                         </MDButton>
                         
+                        
   </Grid>
+  <br></br>
             <Dialog open={open} onClose={handleClose} maxWidth='lg'>
                 <DialogTitle>Record payment</DialogTitle>
                 <br />
