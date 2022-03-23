@@ -6,6 +6,8 @@ import axios from "axios";
 import { Container, Grid, Typography } from "@mui/material";
 import moment from "moment";
 import Divider from "@mui/material/Divider";
+import { makeStyles } from '@mui/styles';
+
 //import Select from "@mui/material/Select";
 // import GroupedSelect from "./RoomTypeDropDown";
 // import BuildingNameDropDown from "./BuildingNameDropdown";
@@ -34,7 +36,12 @@ import MenuItem from "assets/theme/components/menu/menuItem";
 
 import { bool } from "prop-types";
 
-// import { bool } from "prop-types";
+// import { bool } from "prop-types"
+const useStyles= makeStyles({
+  root:{
+    height:35,
+  },
+})
 
 
 
@@ -112,13 +119,17 @@ const FORM_VALIDATION = Yup.object().shape({
       (date) => moment().diff(moment(date), "years") >= 12
     ),
   gender: Yup.string().required("Required"),
-  localGuardianName : Yup.string()
+  localGuardianName :Yup.string()
+  .matches(/^[aA-zZ\s]+$/, "Invalid Name ")
+  .required("Required"),
+  
+  localGuardianPhoneNumber: Yup.string()
     .matches(/^[6-9]\d{9}$/, {
       message: "Please enter Valid Mobile Number",
       excludeEmptyString: false,
     })
     .required("Required"),
-    localGuardianPhoneNumber: Yup.string()
+    personalNumber:Yup.string()
     .matches(/^[6-9]\d{9}$/, {
       message: "Please enter Valid Mobile Number",
       excludeEmptyString: false,
@@ -140,17 +151,15 @@ const FORM_VALIDATION = Yup.object().shape({
       excludeEmptyString: false,
     })
     .required("Required"),
-
+    pincode:Yup.string().matches(/^\d{2}\d{2}\d{2}$/,"Invalid PinCode Number").required("Required"),
   workPhone: Yup.string()
     .matches(/^[6-9]\d{9}$/, {
       message: "Please enter valid Mobile number.",
       excludeEmptyString: false,
     })
     .required("Required"),
-  localGaurdianName: Yup.string()
-    .matches(/^[aA-zZ\s]+$/, "Invalid FatherName ")
-    .required("Required"),
-
+    
+  bedId:Yup.string().required("Required"),
   bloodGroup: Yup.string()
     .matches(/^(A|B|AB|O)[+-]$/, {
       message: "Please enter valid Blood Group.",
@@ -179,6 +188,10 @@ const FORM_VALIDATION = Yup.object().shape({
   workAddressLine1: Yup.string().required("Required"),
   workAddressLine2: Yup.string().required("Required"),
   buildingName: Yup.string().required("Required"),
+  occupancytype:Yup.string().required("Required"),
+  roomRent:Yup.number().required("Required"),
+  securityDeposit:Yup.number().required("Required"),
+  transactionId:Yup.string().required("Required"),
 
   // workAddressLine2: Yup.string().required('Required'),
   //Idproof: Yup.mixed().required('File is required'),
@@ -201,6 +214,7 @@ const GuestLoginForm = () => {
 
   let buildingNamesArray = [];
   let availableBedsByBuidlingName = [];
+  const classes  = useStyles();
   
 
 
@@ -374,7 +388,7 @@ const GuestLoginForm = () => {
                     <Grid item xs={6}>
                       <h6>Gender</h6>
 
-                      <Select name="gender" options={Gender} width  />
+                      <Select name="gender" options={Gender} width className={classes.root}  />
                     </Grid>
                     <Grid item xs={6}>
                       <Textfield name="aadharNumber" label="Aadhar Number" />
@@ -402,7 +416,7 @@ const GuestLoginForm = () => {
 					  }</Select> */}
                       <h6>Select Building</h6>
 
-                      <Select
+                      <Select className={classes.root}
                         name="buildingName"
                         options={building}
                         onClick={handleClick}
@@ -425,7 +439,7 @@ const GuestLoginForm = () => {
                     </Grid>
                     <Grid item xs={6}>
                       <h6>Select Bed</h6>
-                      <Select
+                      <Select className={classes.root}
                         name="bedId"
                         options={availableBedsByBuidlingName }
 						onClick={abc}
@@ -443,7 +457,8 @@ const GuestLoginForm = () => {
                     </Grid>
                     <Grid item xs={6}>
                       <h6>OccupancyType</h6>
-                      <Select
+                      <Select className={classes.root}
+                      
                         name="occupancytype"
                         options={Occupancytype}
                         width
