@@ -197,27 +197,28 @@ const GuestLoginForm = () => {
   const [bed, setBed] = React.useState([]);
   const [availableBeds, setAvailableBeds] = React.useState([])
   const [build, setBuild] = React.useState([]);
+  const [putBuilding,setPutBuilding]=React.useState([])
 
   let buildingNamesArray = [];
   let availableBedsByBuidlingName = [];
   
-  let totalBeds = [];
-  let total = [];
+
 
   useEffect(() => {
     axios
       .get("http://localhost:8085/bed/getAvailableBedsByBuildings")
       .then((res) => {
+		  
         setoneBuilding(res.data);
         res.data.map((data) => {
-          console.log(data);
+         // console.log(data);
           //console.log(data.building_name);
 
           setBuild(data.beds);
           buildingNamesArray.push(data.building_name);
         });
-        console.log(buildingNamesArray);
-
+        //console.log(buildingNamesArray);
+		
         setBuilding(buildingNamesArray);
       })
 
@@ -225,7 +226,7 @@ const GuestLoginForm = () => {
         console.log(err);
       });
   }, []);
-  console.log(oneBuilding);
+  //console.log(oneBuilding);
 
   //totalBeds.push(build)
   //   build.map((bed) => {
@@ -246,23 +247,35 @@ const GuestLoginForm = () => {
     // console.log(event)
 
     //console.log(bedList)
+	setPutBuilding(id.target.outerText)
     const bool = oneBuilding.filter(
       (buildingData) => buildingData.building_name == id.target.outerText
     );
     //console.log()
     //return available.beds
-    console.log(bool);
+    //console.log(bool);
 	//console.log(bool.beds.bedStatus)
 	bool.map((bed)=>setAvailableBeds(bed.beds)
 	)
-    console.log(id.target.outerText);
+   // console.log(id.target.outerText);
   };
-  console.log(availableBeds)
+ // console.log(availableBeds)
   availableBeds.map((item)=>{
-	console.log(item.bedId)
+	//console.log(item)
 	availableBedsByBuidlingName.push(item.bedId)
   })
- 
+  const abc=(e)=>{
+	  //console.log(e.target.outerText)
+	  setBed(e.target.outerText)
+
+  }
+ // console.log(bed)
+  const obj={ bedId:bed}
+ // console.log(obj.bedId)
+  //console.log(putBuilding)
+  const obje = {buildingName:putBuilding}
+ // console.log(obje.buildingName)
+
   
 
   return (
@@ -274,7 +287,13 @@ const GuestLoginForm = () => {
               initialValues={{ ...INITIAL_FORM_STATE }}
               validationSchema={FORM_VALIDATION}
               onSubmit={async (guest) => {
-                console.log(guest);
+                //console.log(guest);
+				//console.log(guest.bedId)
+				//console.log(bed)
+				const guests=Object.assign(guest,obj)
+				//console.log(guests)
+				const gustes = Object.assign(guests,obje)
+				console.log(gustes)
 
                 // console.log(guest.Idproof.name);
                 // const res = await axios.post(
@@ -408,7 +427,9 @@ const GuestLoginForm = () => {
                       <h6>Select Bed</h6>
                       <Select
                         name="bedId"
-                        options={availableBedsByBuidlingName}
+                        options={availableBedsByBuidlingName }
+						onClick={abc}
+						
                         //options={bed}
                         // onChange={handleChange}
                       ></Select>
