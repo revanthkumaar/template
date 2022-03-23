@@ -49,8 +49,8 @@ const INITIAL_FORM_STATE = {
   secondaryPhoneNumber: "",
   fatherName: "",
   fatherNumber: "",
-  localGaurdianName: "",
-  localGaurdianPhoneNumber: "",
+  localGuardianName: "",
+  localGuardianPhoneNumber: "",
   bloodGroup: "",
   occupation: "",
   gender: "",
@@ -112,13 +112,13 @@ const FORM_VALIDATION = Yup.object().shape({
       (date) => moment().diff(moment(date), "years") >= 12
     ),
   gender: Yup.string().required("Required"),
-  personalNumber: Yup.string()
+  localGuardianName : Yup.string()
     .matches(/^[6-9]\d{9}$/, {
       message: "Please enter Valid Mobile Number",
       excludeEmptyString: false,
     })
     .required("Required"),
-  localGaurdianPhoneNumber: Yup.string()
+    localGuardianPhoneNumber: Yup.string()
     .matches(/^[6-9]\d{9}$/, {
       message: "Please enter Valid Mobile Number",
       excludeEmptyString: false,
@@ -130,7 +130,7 @@ const FORM_VALIDATION = Yup.object().shape({
       excludeEmptyString: false,
     })
     .required("Required"),
-  aadharNumber: Yup.number().required("Required"),
+  aadharNumber: Yup.string().matches(/^\d{4}\d{4}\d{4}$/,"Invalid Aadhar Number").required("Required"),
   fatherName: Yup.string()
     .matches(/^[aA-zZ\s]+$/, "Invalid FatherName ")
     .required("Required"),
@@ -353,13 +353,13 @@ const GuestLoginForm = () => {
 
                     <Grid item xs={6}>
                       <Textfield
-                        name="localGaurdianName"
-                        label="Local Gauardian's Name"
+                        name="localGuardianName"
+                        label="Local Guardian's Name"
                       />
                     </Grid>
                     <Grid item xs={6}>
                       <Textfield
-                        name="localGaurdianPhoneNumber"
+                        name="localGuardianPhoneNumber"
                         label="Local Guardian's Phone"
                       />
                     </Grid>

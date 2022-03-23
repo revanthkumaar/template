@@ -3,7 +3,7 @@ import React from "react";
 import { Select, MenuItem } from "@mui/material";
 import { useField, useFormikContext } from "formik";
 
-const SelectWrapper = ({ id,name, options,value,
+const SelectWrapper = ({ id,name, options,value,label,
    ...otherProps }) => {
   const { setFieldValue } = useFormikContext();
   const [field, meta] = useField(name);
