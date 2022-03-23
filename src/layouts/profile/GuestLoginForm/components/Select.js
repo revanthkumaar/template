@@ -18,7 +18,7 @@ const SelectWrapper = ({ id,name, options,value,label,
     ...otherProps,
     variant: "outlined",
     fullWidth: true,
-    innerHeight:true,
+    label,
     onChange: handleChange,
   };
 

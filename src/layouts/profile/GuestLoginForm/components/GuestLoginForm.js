@@ -343,7 +343,7 @@ const GuestLoginForm = () => {
                     </Grid>
                     <Grid item xs={6}>
                       <DateTimePicker
-                        maxDate={new Date()}
+                        maxdate={new Date()}
                         name="dateOfBirth"
                         label="Date of Birth"
                       />
@@ -388,7 +388,7 @@ const GuestLoginForm = () => {
                     <Grid item xs={6}>
                       <h6>Gender</h6>
 
-                      <Select name="gender" options={Gender} width className={classes.root}  />
+                      <Select name="gender" options={Gender}  className={classes.root}  />
                     </Grid>
                     <Grid item xs={6}>
                       <Textfield name="aadharNumber" label="Aadhar Number" />
@@ -397,7 +397,7 @@ const GuestLoginForm = () => {
 										<Grid item xs={3}>
 											<CustomizedSnackbars />
 										</Grid>
-										<br /> */}
+										<br /> */} 
                     <Grid item xs={12} />
                     <Grid item xs={12}>
                       <Typography>
@@ -451,7 +451,7 @@ const GuestLoginForm = () => {
                     </Grid>
                     <Grid item xs={12}>
                       <Typography>
-                        <h4 align="center">Booking Details</h4>
+                        <h4 align="center">Booking/Payment Details</h4>
                         <br />
                       </Typography>
                     </Grid>
