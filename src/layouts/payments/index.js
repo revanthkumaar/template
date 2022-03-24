@@ -12,9 +12,9 @@ function PaymentModules() {
       <DashboardNavbar />
       <MDBox py={1}>
         <MDBox mt={4}>
-          <MDBox bgColor="white">
+          
             <MDBox
-              mx={3}
+              mx={0.5}
               mt={-3}
               py={2}
               px={2}
@@ -24,7 +24,7 @@ function PaymentModules() {
             >
               <PaymentReport />
             </MDBox>
-          </MDBox>
+         
         </MDBox>
       </MDBox>
       <Footer />
