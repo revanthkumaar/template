@@ -36,6 +36,14 @@ function Basic() {
 		// 		navigate('/');
 		// 	}
 		// });
+		function Authentication({ authorized }) {
+
+			if(!authorized){
+		
+				return <navigate to="/authentication/sign-in" />
+		
+			}
+		}
 		const result = res.data.filter((u) => u.email === email && u.password === password);
 		console.log(result);
 		if (result === 'undefined') {
@@ -68,10 +76,10 @@ function Basic() {
 					textAlign="center"
 				>
 					<MDTypography variant="h4" fontWeight="medium" color="white" mt={1}>
-						SriLakshmi Heavens
+						SRI LAKSHMI HEAVENS
 					</MDTypography>
 					<MDTypography variant="h4" fontWeight="medium" color="white" mt={1}>
-						Sign in
+						SIGN IN 
 					</MDTypography>
 				</MDBox>
 				<MDBox pt={4} pb={3} px={3}>
@@ -111,7 +119,7 @@ function Basic() {
 						<MDBox mt={4} mb={1}>
 							<MDButton onClick={handleSubmit} variant="gradient" color="info" fullWidth>
 								<MDTypography variant="button" color="inherit" fontWeight="medium" textGradient>
-									Sign in
+									SIGN IN 
 								</MDTypography>
 							</MDButton>
 						</MDBox>

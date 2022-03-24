@@ -2,13 +2,10 @@ import Dashboard from 'layouts/dashboard';
 import Notifications from 'layouts/notifications';
 import Profile from 'layouts/profile';
 import SignIn from 'layouts/authentication/sign-in';
-
 import Branch from 'layouts/branch/index';
-
 import RoomAvailability from 'layouts/roomAvailibity';
 import BulkImport from 'layouts/bulkImport';
 import Expenses from 'layouts/expenses';
-
 import Icon from '@mui/material/Icon';
 import PaymentModules from 'layouts/payments';
 import Tracker from 'layouts/roomavailabilitytracker';
@@ -21,7 +18,9 @@ const routes = [
 		key: 'dashboard',
 		icon: <Icon fontSize="small">dashboard</Icon>,
 		route: '/dashboard',
-		component: <Dashboard />
+		component: <Dashboard authorized={false}/>
+
+
 	},
 	{
 		type: 'collapse',
