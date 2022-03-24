@@ -209,7 +209,7 @@ const GuestLoginForm = () => {
                 const gustes = Object.assign(guests, obje);
                 console.log(gustes);
                 setTimeout(()=>{
-                  alert("Details Submitted Successfully")
+                  alert("Amount that guest need to pay: 8000")
                   resetForm()
                 },50)
                
