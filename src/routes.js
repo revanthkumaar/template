@@ -124,7 +124,7 @@ const routes = [
 	{
 		type: 'main',
 		name: 'Sign Out',
-		key: 'sign-out',
+		key: '/layouts/roomavailabilitytracker/buildings/SreeNilayam',
 		icon: <Icon fontSize="small">logout</Icon>,
 		route: '/layouts/roomavailabilitytracker/buildings/SreeNilayam',
 		component:<BuildingsTracker buildingName = "Sree Nilayam"/>
