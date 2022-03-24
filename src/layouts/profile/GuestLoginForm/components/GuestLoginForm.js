@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import { Container, Grid, Typography,InputLabel } from "@mui/material";
+import { Container, Grid, Typography,InputLabel, Alert } from "@mui/material";
 import moment from "moment";
 import Divider from "@mui/material/Divider";
 import { makeStyles } from "@mui/styles";
@@ -13,6 +13,7 @@ import Gender from "./Gender";
 import Checkbox from "./CheckBox";
 import DateTimePicker from "./DataTimePicker";
 import Button from "./Button";
+import CustomizedSnackbars from "./SubmitSnackBar"
 
 
 const useStyles = makeStyles({
@@ -152,15 +153,21 @@ const GuestLoginForm = () => {
   let buildingNamesArray = [];
   let availableBedsByBuidlingName = [];
   const classes = useStyles();
+  const clicked =()=>{
+    return(
+     < CustomizedSnackbars/>
+    )
+  }
 
   useEffect(() => {
     axios
       .get("http://localhost:8085/bed/getAvailableBedsByBuildings")
       .then((res) => {
         setoneBuilding(res.data);
+        console.log(res.data)
         res.data.map((data) => {
         
-          buildingNamesArray.push(data.building_name);
+          buildingNamesArray.push(data.buildingName);
         });
 
         setBuilding(buildingNamesArray);
@@ -174,7 +181,7 @@ const GuestLoginForm = () => {
   const handleClick = (id) => {
     setPutBuilding(id.target.outerText);
     const bool = oneBuilding.filter(
-      (buildingData) => buildingData.building_name == id.target.outerText
+      (buildingData) => buildingData.buildingName == id.target.outerText
     );
 
     bool.map((bed) => setAvailableBeds(bed.beds));
@@ -204,6 +211,11 @@ const GuestLoginForm = () => {
 
                 const gustes = Object.assign(guests, obje);
                 console.log(gustes);
+                clicked()
+                
+                
+
+                // <Alert severity="info">This is an info alert — check it out!</Alert>
 
                 // console.log(guest.Idproof.name);
                 // const res = await axios.post(

@@ -28,42 +28,38 @@ export const options = {
 };
 
 export default function BedSummaryChart(props) {
-
-  var Availablebeds = 0;
-  var Occupiedbeds = 0;
-
+  // var Availablebeds = 0;
+  // var Occupiedbeds = 0;
   const [apidata, setapiData] = React.useState([]);
-  const [bedsummary, setBedSummary] = React.useState([]);
+  const [Availablebeds, SetAvailablebeds] = React.useState(7);
+  const [Occupiedbeds, SetOccupiedbeds] = React.useState(3);
 
-  //  const [availablebeds, setavailablebeds] = React.useState(0);
-  //  const [occupiedbeds, setoccupiedbeds] = React.useState(0);
-  const [data, setdata] = React.useState([
-    ["Task", "Hours per Day"],
-    ["AvailableBeds", Availablebeds],
-    ["OccupiedBeds", Occupiedbeds],
-  ])
+  // const [data, setdata] = React.useState([
+  //   ["Task", "Hours per Day"],
+  //   ["AvailableBeds", Availablebeds],
+  //   ["OccupiedBeds", Occupiedbeds],
+  // ])
   useEffect(() => {
     const GetData = async () => {
-      const url = "http://localhost:8085/bed/bedSummaryForPieChart";
+      const url = "http://localhost:8085/bed/getBedSummaryForPieChartByBuildingId/1";
       try {
         const resp = await fetch(url);
         const build = await resp.json();
         setapiData(build);
-        apidata.map((bs) => {
-          setBedSummary(bs.bedSummary)
+        
+        apidata.map(obj => {
+          SetOccupiedbeds(obj.occupiedBeds)
+          SetAvailablebeds(obj.availableBeds)
         })
-        // console.log(bedsummary)
-        bedsummary.map((aobeds) => {
 
-          let Occupiedbeds = (aobeds.occupiedBeds)
-          let Availablebeds = (aobeds.availableBeds)
-          setdata([
-            ["Task", "Hours per Day"],
-            ["AvailableBeds", Availablebeds],
-            ["OccupiedBeds", Occupiedbeds],
 
-          ])
-        })
+        // setdata([
+        //   ["Task", "Hours per Day"],
+        //   ["AvailableBeds", Availablebeds],
+        //   ["OccupiedBeds", Occupiedbeds],
+
+        // ])
+
 
 
       }
@@ -74,12 +70,19 @@ export default function BedSummaryChart(props) {
     GetData();
   }, []);
 
-  {console.log(bedsummary)}
-  // {console.log(Availablebeds)}
-  // {console.log(Occupiedbeds)}
 
+  var data=[
+       ["Task", "Hours per Day"],
+       ["AvailableBeds", Availablebeds],
+       ["OccupiedBeds", Occupiedbeds],
+     ]
 
+  
+
+  console.log(apidata)
+  console.log(data)
   return (<>
+   
     <Chart
       chartType="PieChart"
       data={data}

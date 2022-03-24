@@ -29,11 +29,9 @@ const BuildingsLayout = (props) => {
 
 
     const [buildingInfo, setBuildingInfo] = React.useState([]);
-    //  const [Floors, setFloors] = React.useState([]);
+   
     const [loading , setLoading ] = React.useState(false)
-    //  const handleToggle = () => {
-    //      setLoading(!loading);
-    //  }
+    
     useEffect(() => {
         const GetData = async () => {
             const url = "http://localhost:8085/room/getBedsByBuildings";
@@ -70,18 +68,18 @@ const BuildingsLayout = (props) => {
                     return (
                         <>
                             <Grid container spacing={2} >
-                                <Grid item xs={12}> <h4>{post.buildingName}</h4> </Grid>
+                                <Grid item xs={12}> <h4 key={post.buildingName}>{post.buildingName}</h4> </Grid>
                                 {post.floors.map(item => {
                                     return (
                                         <>
-                                            <Grid item xs={12}> <h6 align="center">{item.floorName}</h6></Grid>
+                                            <Grid item xs={12}> <h6 key={item.floorName} align="center">{item.floorName}</h6></Grid>
                                             {item.rooms.map(rmno => {
                                                 return (
                                                     <>
                                                         <Grid item xs={3}>
                                                             <Grid spacing={-3} container rowSpacing={1} sx={{ border: 1, pl: 1 }}  >
                                                                 <Grid item xs={12} >
-                                                                    <h5>{rmno.roomNumber}</h5></Grid>
+                                                                    <h5 key={rmno.roomNumber}>{rmno.roomNumber}</h5></Grid>
                                                                 {rmno.beds.map(bdno => {
                                                                     return (
                                                                         <>
@@ -89,13 +87,13 @@ const BuildingsLayout = (props) => {
                                                                         <Grid container  rowSpacing={1}>
                                                                             
                                                                         <Grid item xs={12} align="center">
-                                                                        {/* <HotelOutlinedIcon color="success" /> */}
+                                                                       
                                                                         {(() => {
                                                                             if (bdno.bedStatus === true) {
-                                                                                return (<HotelOutlinedIcon className = "click"   color="success" />)
+                                                                                return (<HotelOutlinedIcon  key={bdno.bedId}  className = "click"   color="success" />)
                                                                             }
                                                                             else {
-                                                                                return (<HotelOutlinedIcon color="error" className = "click"     onClick={() => { setOpen(true) }} />)
+                                                                                return (<HotelOutlinedIcon key={bdno.bedId} color="error" className = "click"     onClick={() => { setOpen(true) }} />)
                                                                             }
 
                                                                         })()}
@@ -109,7 +107,7 @@ const BuildingsLayout = (props) => {
                                                                                     :
                                                                                             (<IconButton onClick={() => { setOpen(true) }}><HotelOutlinedIcon color="error" /></IconButton>) }                                                                                                                                                                                                                                                             */}
                                                                                         
-                                                                                        <Grid item xs={12} align="center" ><h6 align="center"  >{bdno.bedName}</h6></Grid>
+                                                                                        <Grid item xs={12} align="center" ><h6 align="center" key={bdno.bedName} >{bdno.bedName}</h6></Grid>
                                                                                     </Grid>
                                                                                 </Grid>                                                                            
                                                                         </>
