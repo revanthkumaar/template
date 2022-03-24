@@ -18,7 +18,11 @@ const routes = [
 		key: 'dashboard',
 		icon: <Icon fontSize="small">dashboard</Icon>,
 		route: '/dashboard',
+
+		component: <Dashboard authorized={true}/>
+
 		component: <Dashboard authorized={false}/>
+
 
 
 	},

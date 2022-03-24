@@ -15,8 +15,14 @@ import PendingPayments from "layouts/dashboard/components/summaryTables/PendingP
 import AvailabeRooms from "layouts/dashboard/components/summaryTables/AvailableRooms";
 import UpcomingCheckouts from "layouts/dashboard/components/summaryTables/UpcomingCheckouts";
 import RecentTransactions from "layouts/dashboard/components/summaryTables/Recenttransactions";
+import { Navigate } from "react-router-dom";
 
-function Dashboard() {
+function Dashboard({authorized}) {
+  if(!authorized){
+
+    return <Navigate to="/authentication/sign-in" />
+
+}
   return (
     <DashboardLayout>
       <DashboardNavbar />
