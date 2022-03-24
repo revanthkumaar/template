@@ -2,50 +2,23 @@ import React, { useEffect, useState } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-// import MDButton from "components/MDButton";
 import { Container, Grid, Typography } from "@mui/material";
 import moment from "moment";
 import Divider from "@mui/material/Divider";
-import { makeStyles } from '@mui/styles';
-
-//import Select from "@mui/material/Select";
-// import GroupedSelect from "./RoomTypeDropDown";
-// import BuildingNameDropDown from "./BuildingNameDropdown";
-// import FloorNumberDropDown from "./FloorNumberDropDown";
-// import RoomNumberDropDown from "./RoomNumberDropDown";
-// import CustomizedSnackbars from "./PayDialogBox";
-
+import { makeStyles } from "@mui/styles";
 import Occupancytype from "./OccupancyType";
 import Textfield from "./TextField";
 import Select from "./Select";
-//import {Select,MenuItem} from '@mui/material'
 import Gender from "./Gender";
 import Checkbox from "./CheckBox";
 import DateTimePicker from "./DataTimePicker";
 import Button from "./Button";
-// import countries from './countries.json';
-import { padding } from "@mui/system";
-//import BedNumberDropDown from './BedNumberDropDown';
-//import getDepartmentCollection from './getDepartmentCollection';
-//import getDepartmentCollection from './getDepartmentCollection';
-import data from "./getDepartmentCollection";
-import MenuItem from "assets/theme/components/menu/menuItem";
-//import MenuItem from "@mui/material/MenuItem";
 
-// import { options } from "layouts/roomavailabilitytracker/buildings/buildingspieCharts/buildingChartOne";
-
-import { bool } from "prop-types";
-
-// import { bool } from "prop-types"
-const useStyles= makeStyles({
-  root:{
-    height:35,
+const useStyles = makeStyles({
+  root: {
+    height: 35,
   },
-})
-
-
-
-
+});
 
 const INITIAL_FORM_STATE = {
   firstName: "",
@@ -74,31 +47,8 @@ const INITIAL_FORM_STATE = {
   city: "",
   state: "",
   workPhone: "",
-  //country: "",
-
-  // country: '',
-
-  //workPhone: '',
-
   workAddressLine1: "",
   workAddressLine2: "",
-  //floorNumber: "",
-  //roomNumber: "",
-
-  //amountPaid: "",
-  //roomType: "",
-  //   checkInDate: "",
-  //   transactionDate: "",
-  //   noticeDate: "",
-  //   checkOutDate: "",
-  // workAddressLine2: '',
-  // Idproof: '',
-  // passport: '',
-  // bookingDate: '',
-  // checkoutDate: '',
-  // arrivalDate: '',
-  // roomRent: '',
-  // securityDeposit: '',
   checkinNotes: "",
   termsOfService: false,
 };
@@ -119,17 +69,17 @@ const FORM_VALIDATION = Yup.object().shape({
       (date) => moment().diff(moment(date), "years") >= 12
     ),
   gender: Yup.string().required("Required"),
-  localGuardianName :Yup.string()
-  .matches(/^[aA-zZ\s]+$/, "Invalid Name ")
-  .required("Required"),
-  
+  localGuardianName: Yup.string()
+    .matches(/^[aA-zZ\s]+$/, "Invalid Name ")
+    .required("Required"),
+
   localGuardianPhoneNumber: Yup.string()
     .matches(/^[6-9]\d{9}$/, {
       message: "Please enter Valid Mobile Number",
       excludeEmptyString: false,
     })
     .required("Required"),
-    personalNumber:Yup.string()
+  personalNumber: Yup.string()
     .matches(/^[6-9]\d{9}$/, {
       message: "Please enter Valid Mobile Number",
       excludeEmptyString: false,
@@ -141,7 +91,9 @@ const FORM_VALIDATION = Yup.object().shape({
       excludeEmptyString: false,
     })
     .required("Required"),
-  aadharNumber: Yup.string().matches(/^\d{4}\d{4}\d{4}$/,"Invalid Aadhar Number").required("Required"),
+  aadharNumber: Yup.string()
+    .matches(/^\d{4}\d{4}\d{4}$/, "Invalid Aadhar Number")
+    .required("Required"),
   fatherName: Yup.string()
     .matches(/^[aA-zZ\s]+$/, "Invalid FatherName ")
     .required("Required"),
@@ -151,15 +103,17 @@ const FORM_VALIDATION = Yup.object().shape({
       excludeEmptyString: false,
     })
     .required("Required"),
-    pincode:Yup.string().matches(/^\d{2}\d{2}\d{2}$/,"Invalid PinCode Number").required("Required"),
+  pincode: Yup.string()
+    .matches(/^\d{2}\d{2}\d{2}$/, "Invalid PinCode Number")
+    .required("Required"),
   workPhone: Yup.string()
     .matches(/^[6-9]\d{9}$/, {
       message: "Please enter valid Mobile number.",
       excludeEmptyString: false,
     })
     .required("Required"),
-    
-  bedId:Yup.string().required("Required"),
+
+  bedId: Yup.string().required("Required"),
   bloodGroup: Yup.string()
     .matches(/^(A|B|AB|O)[+-]$/, {
       message: "Please enter valid Blood Group.",
@@ -178,61 +132,37 @@ const FORM_VALIDATION = Yup.object().shape({
   state: Yup.string()
     .matches(/^[aA-zZ\s]+$/, "Invalid State ")
     .required("Required"),
-  // country: Yup.string().required('Required'),
-  // workPhone: Yup.string()
-  // 	.matches(/^[6-9]\d{9}$/, {
-  // 		message: 'Please enter Valid Mobile Number',
-  // 		excludeEmptyString: false
-  // 	})
-  // 	.required('Required'),
   workAddressLine1: Yup.string().required("Required"),
   workAddressLine2: Yup.string().required("Required"),
   buildingName: Yup.string().required("Required"),
-  occupancytype:Yup.string().required("Required"),
-  roomRent:Yup.number().required("Required"),
-  securityDeposit:Yup.number().required("Required"),
-  transactionId:Yup.string().required("Required"),
-
-  // workAddressLine2: Yup.string().required('Required'),
-  //Idproof: Yup.mixed().required('File is required'),
-  //passport: Yup.mixed().required('File is required'),
-  //bookingDate: Yup.date().required('Required'),
-  //checkoutDate: Yup.date().required('Required'),
-  //arrivalDate: Yup.date().required('Required'),
-  // roomRent: Yup.number().required('Required'),
-  // securityDeposit: Yup.number().required('Required'),
-  // checkinNotes: Yup.string().required('Required'),
+  occupancytype: Yup.string().required("Required"),
+  roomRent: Yup.number().required("Required"),
+  securityDeposit: Yup.number().required("Required"),
+  transactionId: Yup.string().required("Required"),
 });
 
 const GuestLoginForm = () => {
   const [building, setBuilding] = React.useState([]);
   const [oneBuilding, setoneBuilding] = React.useState("");
   const [bed, setBed] = React.useState([]);
-  const [availableBeds, setAvailableBeds] = React.useState([])
+  const [availableBeds, setAvailableBeds] = React.useState([]);
   const [build, setBuild] = React.useState([]);
-  const [putBuilding,setPutBuilding]=React.useState([])
+  const [putBuilding, setPutBuilding] = React.useState([]);
 
   let buildingNamesArray = [];
   let availableBedsByBuidlingName = [];
-  const classes  = useStyles();
-  
-
+  const classes = useStyles();
 
   useEffect(() => {
     axios
       .get("http://localhost:8085/bed/getAvailableBedsByBuildings")
       .then((res) => {
-		  
         setoneBuilding(res.data);
         res.data.map((data) => {
-         // console.log(data);
-          //console.log(data.building_name);
-
           setBuild(data.beds);
           buildingNamesArray.push(data.building_name);
         });
-        //console.log(buildingNamesArray);
-		
+
         setBuilding(buildingNamesArray);
       })
 
@@ -240,57 +170,26 @@ const GuestLoginForm = () => {
         console.log(err);
       });
   }, []);
-  //console.log(oneBuilding);
 
-  //totalBeds.push(build)
-  //   build.map((bed) => {
-  // 	//console.log(completeAvailableBeds)
-  //     completeAvailableBeds.push(bed.bedId);
-  // 	console.log(bed.bedId)
-  //setBed(bedIdArray)
-  // });
-  // console.log(bedIdArray)
-  // totalBeds.push(bedIdArray)
-  // console.log(totalBeds)
-
-  // total.push[totalBeds]
-  // console.log(total)
   const handleClick = (id) => {
-    // completeAvailableBeds.filter(buildingData =>buildingData.building_id==id)
-    // return
-    // console.log(event)
-
-    //console.log(bedList)
-	setPutBuilding(id.target.outerText)
+    setPutBuilding(id.target.outerText);
     const bool = oneBuilding.filter(
       (buildingData) => buildingData.building_name == id.target.outerText
     );
-    //console.log()
-    //return available.beds
-    //console.log(bool);
-	//console.log(bool.beds.bedStatus)
-	bool.map((bed)=>setAvailableBeds(bed.beds)
-	)
-   // console.log(id.target.outerText);
+
+    bool.map((bed) => setAvailableBeds(bed.beds));
   };
- // console.log(availableBeds)
-  availableBeds.map((item)=>{
-	//console.log(item)
-	availableBedsByBuidlingName.push(item.bedId)
-  })
-  const abc=(e)=>{
-	  //console.log(e.target.outerText)
-	  setBed(e.target.outerText)
 
-  }
- // console.log(bed)
-  const obj={ bedId:bed}
- // console.log(obj.bedId)
-  //console.log(putBuilding)
-  const obje = {buildingName:putBuilding}
- // console.log(obje.buildingName)
+  availableBeds.map((item) => {
+    availableBedsByBuidlingName.push(item.bedId);
+  });
+  const selectBed = (e) => {
+    setBed(e.target.outerText);
+  };
 
-  
+  const obj = { bedId: bed };
+
+  const obje = { buildingName: putBuilding };
 
   return (
     <Grid container>
@@ -301,13 +200,10 @@ const GuestLoginForm = () => {
               initialValues={{ ...INITIAL_FORM_STATE }}
               validationSchema={FORM_VALIDATION}
               onSubmit={async (guest) => {
-                //console.log(guest);
-				//console.log(guest.bedId)
-				//console.log(bed)
-				const guests=Object.assign(guest,obj)
-				//console.log(guests)
-				const gustes = Object.assign(guests,obje)
-				console.log(gustes)
+                const guests = Object.assign(guest, obj);
+
+                const gustes = Object.assign(guests, obje);
+                console.log(gustes);
 
                 // console.log(guest.Idproof.name);
                 // const res = await axios.post(
@@ -342,10 +238,7 @@ const GuestLoginForm = () => {
                       <Textfield name="email" label="Email" />
                     </Grid>
                     <Grid item xs={6}>
-                      <DateTimePicker
-                        maxdate={new Date()}
-                        name="dateOfBirth"
-                        label="Date of Birth"
+                      <DateTimePicker maxdate={new Date()} name="dateOfBirth" label="Date of Birth"
                       />
                     </Grid>
 
@@ -353,9 +246,7 @@ const GuestLoginForm = () => {
                       <Textfield name="personalNumber" label="Personal Phone" />
                     </Grid>
                     <Grid item xs={6}>
-                      <Textfield
-                        name="secondaryPhoneNumber"
-                        label="Secondary Phone"
+                      <Textfield name="secondaryPhoneNumber" label="Secondary Phone"
                       />
                     </Grid>
                     <Grid item xs={6}>
@@ -366,15 +257,11 @@ const GuestLoginForm = () => {
                     </Grid>
 
                     <Grid item xs={6}>
-                      <Textfield
-                        name="localGuardianName"
-                        label="Local Guardian's Name"
+                      <Textfield name="localGuardianName" label="Local Guardian's Name"
                       />
                     </Grid>
                     <Grid item xs={6}>
-                      <Textfield
-                        name="localGuardianPhoneNumber"
-                        label="Local Guardian's Phone"
+                      <Textfield name="localGuardianPhoneNumber" label="Local Guardian's Phone"
                       />
                     </Grid>
                     <Grid item xs={6}>
@@ -388,16 +275,14 @@ const GuestLoginForm = () => {
                     <Grid item xs={6}>
                       <h6>Gender</h6>
 
-                      <Select name="gender" options={Gender}  className={classes.root}  />
+                      <Select
+                        name="gender" options={Gender} className={classes.root}
+                      />
                     </Grid>
                     <Grid item xs={6}>
                       <Textfield name="aadharNumber" label="Aadhar Number" />
                     </Grid>
-                    {/* <Grid item xs={2} />
-										<Grid item xs={3}>
-											<CustomizedSnackbars />
-										</Grid>
-										<br /> */} 
+
                     <Grid item xs={12} />
                     <Grid item xs={12}>
                       <Typography>
@@ -408,46 +293,19 @@ const GuestLoginForm = () => {
                     </Grid>
 
                     <Grid item xs={6}>
-                      {/* <Gender /> */}
-
-                      {/* <Select name="gender" label="Gender" ><MenuItem value=""></MenuItem>{
-						  building.map(item=>(<MenuItem key={item.id} value={item.id}>{item.buildingName}</MenuItem>))
-
-					  }</Select> */}
                       <h6>Select Building</h6>
 
-                      <Select className={classes.root}
-                        name="buildingName"
-                        options={building}
-                        onClick={handleClick}
+                      <Select
+                        className={classes.root} name="buildingName" options={building} onClick={handleClick}
                       ></Select>
 
-                      {/* // value={Formik.values.buildingName}
-                        //onChange={Formik.setOneBuilding} */}
-
-                      {/* <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem> */}
-                      {/* </Select> */}
-                      {/* <option value=""></option>{
-          building.map((value)=>(
-            <option value={value.id} key={value.id}>
-              {value.buildingName}
-            </option>
-          ))} */}
                       <Grid item xs={6}></Grid>
                     </Grid>
                     <Grid item xs={6}>
                       <h6>Select Bed</h6>
-                      <Select className={classes.root}
-                        name="bedId"
-                        options={availableBedsByBuidlingName }
-						onClick={abc}
-						
-                        //options={bed}
-                        // onChange={handleChange}
+                      <Select
+                        className={classes.root} name="bedId" options={availableBedsByBuidlingName} onClick={selectBed}
                       ></Select>
-                      {/* <Textfield name="duration" label="Duration" /> */}
                     </Grid>
                     <Grid item xs={12}>
                       <Typography>
@@ -457,39 +315,20 @@ const GuestLoginForm = () => {
                     </Grid>
                     <Grid item xs={6}>
                       <h6>OccupancyType</h6>
-                      <Select className={classes.root}
-                      
-                        name="occupancytype"
-                        options={Occupancytype}
-                        width
+                      <Select
+                        className={classes.root} name="occupancytype" options={Occupancytype}
                       />
                     </Grid>
                     <Grid item xs={6}>
                       <Textfield name="roomRent" label="Room Rent" />
                     </Grid>
                     <Grid item xs={6}>
-                      <Textfield
-                        name="securityDeposit"
-                        label="Security Deposit"
+                      <Textfield name="securityDeposit" label="Security Deposit"
                       />
                     </Grid>
                     <Grid item xs={6}>
                       <Textfield name="transactionId" label="Transaction ID" />
                     </Grid>
-
-                    {/* <Grid item xs={6}>
-											<FloorNumberDropDown />
-										</Grid>
-										<Grid item xs={6} sx={{ paddingTop: 15 }}>
-											<RoomNumberDropDown />
-										</Grid>
-										<Grid item xs={6}>
-											<GroupedSelect />
-										</Grid> */}
-
-                    {/* <Grid item xs={6}>
-											<BedNumberDropDown />
-										</Grid> */}
 
                     <Grid item xs={12}>
                       <Typography>
@@ -529,98 +368,28 @@ const GuestLoginForm = () => {
                     </Grid>
 
                     <Grid item xs={12}>
-                      <Textfield
-                        name="workAddressLine1"
-                        label="Work Address Line 1"
+                      <Textfield name="workAddressLine1" label="Work Address Line 1"
                       />
                     </Grid>
 
                     <Grid item xs={12}>
-                      <Textfield
-                        name="workAddressLine2"
-                        label="Work Address Line 2 "
-                      />
-                    </Grid>
-
-                    {/* <Divider variant="middle" />
-                    <Grid item xs={12}>
-                      <Typography>
-                        <h4 align="center">Upload Documents</h4>
-                        <br />
-                      </Typography>
-                    </Grid> */}
-
-                    {/* <Grid item xs={12}>
-											<h6>ID Proof:(Pancard/AadharCard/VoterID/DrivingLicence)</h6>
-											<input
-												name="Idproof"
-												helperText="Govt ID Proof"
-												type="file"
-												onChange={(event) =>
-													formProps.setFieldValue('Idproof', event.target.files[0])}
-											/>
-										</Grid> */}
-
-                    {/* <Grid item xs={12}>
-										<Textfield
-											name="passport"
-											helperText="upload passport size photo"
-											type="file"
-										/>
-									</Grid> */}
-
-                    {/* <Divider variant="middle" />
-                    <Grid item xs={12}>
-                      <Typography>
-                        <h4 align="center">Booking Details</h4>
-                        <br />
-                      </Typography>
-                    </Grid>
-
-                    <Grid item xs={6}>
-                      <DateTimePicker
-                        name="checkInDate"
-                        label="Check-In date"
-                      />
-                    </Grid>
-                    <Grid item xs={6}>
-                      <DateTimePicker name="noticeDate" label="Notice Date" />
-                    </Grid>
-                    <Grid item xs={6}>
-                      <DateTimePicker
-                        name="checkOutDate"
-                        label="Check-Out date"
-                      />
-                    </Grid> */}
-
-                    <Grid item xs={12}>
-                      <Textfield
-                        name="checkinNotes"
-                        label="Check-in Notes"
-                        multiline
-                        rows={4}
+                      <Textfield name="workAddressLine2" label="Work Address Line 2 "
                       />
                     </Grid>
 
                     <Grid item xs={12}>
-                      <Checkbox
-                        name="termsOfService"
-                        legend="Terms of service"
-                        label="I agree"
+                      <Textfield name="checkinNotes" label="Check-in Notes" multiline rows={3}
                       />
                     </Grid>
-                    {/* <Divider variant="middle" /> */}
 
-                    {/* <MDButton variant="outlined" color="info" size="medium" value="submit">
-                                            Submit
-                                            </MDButton> */}
+                    <Grid item xs={12}>
+                      <Checkbox name="termsOfService" legend="Terms of service" label="I agree"
+                      />
+                    </Grid>
+
                     <Grid item xs={3} sx={{ paddingBottom: 3 }}>
-                    <Button >Submit</Button>
+                      <Button>Submit</Button>
                     </Grid>
-
-                    {/* <br />
-										<br />
-										<br /> */}
                   </Grid>
                 </Form>
               )}
