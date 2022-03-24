@@ -29,15 +29,13 @@ function Building() {
 				displayEmpty
 				
 			>
-				<MenuItem  value="">All Buildings</MenuItem>
+				
+				<MenuItem value="Building-1">SREE KALA NILYAM</MenuItem>
 				<br></br>
-				<MenuItem value="Building-1">Building-1</MenuItem>
+				<MenuItem value="Building-2">SREE NILAYAM</MenuItem>
 				<br></br>
-				<MenuItem value="Building-2">Building-2</MenuItem>
-				<br></br>
-				<MenuItem value="Building-3">Building-3</MenuItem>
-				<br></br>
-				<MenuItem value="Building-4">Building-4</MenuItem>
+				<MenuItem value="Building-3">ANANDA NILAYAM</MenuItem>
+				
 				
 			</Select>
 			
