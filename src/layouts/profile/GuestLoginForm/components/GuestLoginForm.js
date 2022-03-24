@@ -153,11 +153,7 @@ const GuestLoginForm = () => {
   let buildingNamesArray = [];
   let availableBedsByBuidlingName = [];
   const classes = useStyles();
-  const clicked =()=>{
-    return(
-     < CustomizedSnackbars/>
-    )
-  }
+  
 
   useEffect(() => {
     axios
@@ -165,6 +161,7 @@ const GuestLoginForm = () => {
       .then((res) => {
         setoneBuilding(res.data);
         console.log(res.data)
+        
         res.data.map((data) => {
         
           buildingNamesArray.push(data.buildingName);
@@ -206,12 +203,22 @@ const GuestLoginForm = () => {
             <Formik
               initialValues={{ ...INITIAL_FORM_STATE }}
               validationSchema={FORM_VALIDATION}
-              onSubmit={async (guest) => {
+              onSubmit={(guest,{resetForm}) => {
                 const guests = Object.assign(guest, obj);
 
                 const gustes = Object.assign(guests, obje);
                 console.log(gustes);
-                clicked()
+                setTimeout(()=>{
+                  alert("Details Submitted Successfully")
+                  resetForm()
+                },50)
+               
+                // onSubmit={(values, { setSubmitting }) => {
+                //   setTimeout(() => {
+                //     alert(JSON.stringify(values, null, 2));
+                //     setSubmitting(false);
+                //   }, 400);
+                // }}
                 
                 
 
@@ -229,7 +236,7 @@ const GuestLoginForm = () => {
               }}
             >
               {(formProps) => (
-                <Form>
+                <Form >
                   <Grid container spacing={2}>
                     <Grid item xs={12}>
                       <Typography>
