@@ -15,7 +15,7 @@ function BedandBill(props) {
 			<Grid container spacing={3}>
 				<Grid item xs={12} md={6} lg={3}>
 					<MDBox mb={1.5}>
-						<Card sx={{ minWidth: 275, minHeight: 100, background: '#00008B' }}>
+						<Card sx={{ minWidth: 240, minHeight: 100, background: '#00008B' }}>
 							<CardContent sx={{ align: 'center' }}>
 								<MDTypography color="light" mt={1} fontWeight="regular" style={{ fontSize: '2em' }}>
 									45,000
@@ -41,7 +41,7 @@ function BedandBill(props) {
 				</Grid>
 				<Grid item xs={12} md={6} lg={3}>
 					<MDBox mb={1.5}>
-						<Card sx={{ minWidth: 275, minHeight: 100, background: '#2F4F4F' }}>
+						<Card sx={{ minWidth: 240, minHeight: 100, background: '#2F4F4F' }}>
 							<CardContent sx={{ align: 'center' }}>
 								<MDTypography color="light" mt={1} fontWeight="regular" style={{ fontSize: '2em' }}>
 									25
@@ -66,7 +66,7 @@ function BedandBill(props) {
 				</Grid>
 				<Grid item xs={12} md={6} lg={3}>
 					<MDBox mb={1.5}>
-						<Card sx={{ minWidth: 275, minHeight: 100, background: '#DC143C' }}>
+						<Card sx={{ minWidth: 240, minHeight: 100, background: '#DC143C' }}>
 							<CardContent sx={{ align: 'center' }}>
 								<MDTypography color="light" mt={1} fontWeight="regular" style={{ fontSize: '2em' }}>
 									175500
@@ -92,7 +92,7 @@ function BedandBill(props) {
 				</Grid>
 				<Grid item xs={12} md={6} lg={3}>
 					<MDBox mb={1.5}>
-						<Card sx={{ minWidth: 275, minHeight: 100, background: '#4B0082' }}>
+						<Card sx={{ minWidth: 240, minHeight: 100, background: '#4B0082' }}>
 							<CardContent sx={{ align: 'center' }}>
 								<MDTypography color="light" mt={1} fontWeight="regular" style={{ fontSize: '2em' }}>
 									25400

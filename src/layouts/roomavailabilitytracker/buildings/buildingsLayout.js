@@ -31,9 +31,9 @@ const BuildingsLayout = (props) => {
     const [buildingInfo, setBuildingInfo] = React.useState([]);
     //  const [Floors, setFloors] = React.useState([]);
     const [loading , setLoading ] = React.useState(false)
-     const handleToggle = () => {
-         setLoading(!loading);
-     }
+    //  const handleToggle = () => {
+    //      setLoading(!loading);
+    //  }
     useEffect(() => {
         const GetData = async () => {
             const url = "http://localhost:8085/room/getBedsByBuildings";

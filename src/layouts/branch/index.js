@@ -20,10 +20,10 @@ function Dashboard() {
 			<MDBox borderRadius="lg"
                 coloredShadow="info" py={0.01} >
 				<MDBox>
-					<Grid container spacing={6}>
-						<Grid item xs={12} md={10} lg={20}>
+					<Grid container spacing={0.5}>
+						
 							<Actions />
-						</Grid>
+						
 					</Grid>
 				</MDBox>
 			</MDBox>
