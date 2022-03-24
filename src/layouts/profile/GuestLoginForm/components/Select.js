@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Select, MenuItem } from "@mui/material";
+import { Select, MenuItem,InputLabel } from "@mui/material";
 import { useField, useFormikContext } from "formik";
 
 const SelectWrapper = ({ id,name, options,value,label,
@@ -16,6 +16,7 @@ const SelectWrapper = ({ id,name, options,value,label,
   const configSelect = {
     ...field,
     ...otherProps,
+    id,
     variant: "outlined",
     fullWidth: true,
     label,

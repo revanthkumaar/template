@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import { Container, Grid, Typography } from "@mui/material";
+import { Container, Grid, Typography,InputLabel } from "@mui/material";
 import moment from "moment";
 import Divider from "@mui/material/Divider";
 import { makeStyles } from "@mui/styles";
@@ -13,6 +13,7 @@ import Gender from "./Gender";
 import Checkbox from "./CheckBox";
 import DateTimePicker from "./DataTimePicker";
 import Button from "./Button";
+
 
 const useStyles = makeStyles({
   root: {
@@ -146,7 +147,6 @@ const GuestLoginForm = () => {
   const [oneBuilding, setoneBuilding] = React.useState("");
   const [bed, setBed] = React.useState([]);
   const [availableBeds, setAvailableBeds] = React.useState([]);
-  const [build, setBuild] = React.useState([]);
   const [putBuilding, setPutBuilding] = React.useState([]);
 
   let buildingNamesArray = [];
@@ -159,7 +159,7 @@ const GuestLoginForm = () => {
       .then((res) => {
         setoneBuilding(res.data);
         res.data.map((data) => {
-          setBuild(data.beds);
+        
           buildingNamesArray.push(data.building_name);
         });
 
@@ -273,11 +273,13 @@ const GuestLoginForm = () => {
                     <br />
 
                     <Grid item xs={6}>
-                      <h6>Gender</h6>
+                    <InputLabel id="demo-simple-select-label">Select Gender</InputLabel>
 
-                      <Select
-                        name="gender" options={Gender} className={classes.root}
-                      />
+                      <Select 
+                      name="gender" options={Gender} className={classes.root}>
+                        
+                        
+                        </Select>
                     </Grid>
                     <Grid item xs={6}>
                       <Textfield name="aadharNumber" label="Aadhar Number" />
@@ -314,7 +316,7 @@ const GuestLoginForm = () => {
                       </Typography>
                     </Grid>
                     <Grid item xs={6}>
-                      <h6>OccupancyType</h6>
+                    <InputLabel id="demo-simple-select-labe"> OccupancyType</InputLabel>
                       <Select
                         className={classes.root} name="occupancytype" options={Occupancytype}
                       />
