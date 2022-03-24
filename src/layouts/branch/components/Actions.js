@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import MaterialTable from "material-table";
-import { Grid } from "@mui/material";
+import { Grid ,Box} from "@mui/material";
 
 const empList = [
   {
@@ -145,9 +145,10 @@ function Actions() {
   ];
 
   return (
-    <div className="App">
+    
+      
       <Grid container>
-        <Grid xs={12}>
+        <Grid xs={30}>
           <MaterialTable
             title="Manage Employees"
             data={data}
@@ -207,7 +208,8 @@ function Actions() {
           />
         </Grid>
       </Grid>
-    </div>
+    
+  
   );
 }
 
