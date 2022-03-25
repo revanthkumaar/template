@@ -39,8 +39,8 @@ const INITIAL_FORM_STATE = {
   aadharNumber: "",
   buildingName: "",
   bedId: "",
-  occupancytype: "",
-  roomRent: "",
+  occupancyType: "",
+  rentPaid: "",
   securityDeposit: "",
   transactionId: "",
   addressLine1: "",
@@ -137,8 +137,8 @@ const FORM_VALIDATION = Yup.object().shape({
   workAddressLine1: Yup.string().required("Required"),
   workAddressLine2: Yup.string().required("Required"),
   buildingName: Yup.string().required("Required"),
-  occupancytype: Yup.string().required("Required"),
-  roomRent: Yup.number().required("Required"),
+  occupancyType: Yup.string().required("Required"),
+  rentPaid: Yup.number().required("Required"),
   securityDeposit: Yup.number().required("Required"),
   transactionId: Yup.string().required("Required"),
 });
@@ -337,11 +337,11 @@ const GuestLoginForm = () => {
                     <Grid item xs={6}>
                     <InputLabel id="demo-simple-select-labe"> OccupancyType</InputLabel>
                       <Select
-                        className={classes.root} name="occupancytype" options={Occupancytype}
+                        className={classes.root} name="occupancyType" options={Occupancytype}
                       />
                     </Grid>
                     <Grid item xs={6}>
-                      <Textfield name="roomRent" label="Room Rent" />
+                      <Textfield name="rentPaid" label="Rent Paid" />
                     </Grid>
                     <Grid item xs={6}>
                       <Textfield name="securityDeposit" label="Security Deposit"
