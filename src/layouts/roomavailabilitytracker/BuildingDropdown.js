@@ -67,9 +67,7 @@ function BuildingDropdown() {
 	 
     </div>
   );
-	const [ tableData, setTableData ] = React.useState(API_DATA);
-	const [ selected, setSelected ] = React.useState('');
-
+	
 	function handleChange(event) {
 		setSelected(event.target.value);
 		let _vals = event.target.value ? API_DATA.filter((r) => r.building === event.target.value) : API_DATA;
