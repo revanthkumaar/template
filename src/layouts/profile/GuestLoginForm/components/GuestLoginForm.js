@@ -149,9 +149,11 @@ const GuestLoginForm = () => {
   const [bed, setBed] = React.useState([]);
   const [availableBeds, setAvailableBeds] = React.useState([]);
   const [putBuilding, setPutBuilding] = React.useState([]);
+  const [rent,setRent] =React.useState([])
 
   let buildingNamesArray = [];
   let availableBedsByBuidlingName = [];
+  let rentOfBed = []
   const classes = useStyles();
   
 
@@ -187,9 +189,22 @@ const GuestLoginForm = () => {
   availableBeds.map((item) => {
     availableBedsByBuidlingName.push(item.bedId);
   });
+ availableBeds.map((bed)=>{
+  rentOfBed.push(bed.defaultRent)
+ })
+  console.log(rentOfBed)
   const selectBed = (e) => {
     setBed(e.target.outerText);
+    console.log(availableBeds)
+    const bedRent = availableBeds.filter(
+      (bed)=>bed.bedId == e.target.outerText)
+      
+    bedRent.map((post)=>setRent(post.defaultRent))
+
   };
+  
+  console.log(rent)
+ 
 
   const obj = { bedId: bed };
 
@@ -341,7 +356,9 @@ const GuestLoginForm = () => {
                       />
                     </Grid>
                     <Grid item xs={6}>
-                      <Textfield name="rentPaid" label="Rent Paid" />
+                    <Textfield
+                         name="rentPaid" label="Rent Paid" 
+                      />
                     </Grid>
                     <Grid item xs={6}>
                       <Textfield name="securityDeposit" label="Security Deposit"
