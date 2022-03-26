@@ -113,13 +113,13 @@ export default function BedSummaryChart(props) {
 
 
 
-  return (<>
- { console.log(apidata)}
+   return (<>
+  {/* { console.log(apidata)}
 
-    {console.log(props.buildingName)}
+     {console.log(props.buildingName)}
     
-     {console.log(Apidata)} 
-    {console.log(data)}
+      {console.log(Apidata)} 
+     {console.log(data)} */}
     <Chart
       chartType="PieChart"
       data={data}
