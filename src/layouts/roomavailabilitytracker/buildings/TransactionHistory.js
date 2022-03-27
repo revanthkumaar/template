@@ -5,64 +5,64 @@ const columns = [
 	{ field: 'id', headerName: 'DATE', width:180 },
 	{ field: 'name', headerName: 'AMOUNT', width: 180 },
 	{
-		field: 'doj',
+		field: 'reason',
 		headerName: 'REASON',
 		width: 190
 	},
-	{ field: 'rent', headerName: 'PAYMENT ID', width: 180 },
-	{ field: 'received', headerName: 'TRANSACTION ID', width: 180 }
+	{ field: 'paymentid', headerName: 'PAYMENT ID', width: 180 },
+	{ field: 'transactionid', headerName: 'TRANSACTION ID', width: 180 }
 ];
 
 const rows = [
 	{
-		id: '203A',
+		id: '20-12-2021',
 		name: 'Vinay Mhatre',
-		doj: '01-oct-2021',
-		rent: '10000',
-		received: '10000',
+		reason: 'Rent',
+		paymentid: '10000',
+		transactionid: '10000',
         
 	},
 	{
-		id: '307A',
+		id: '08-12-2021',
 		name: 'Om Pandey',
-		doj: '26-July-21',
-		rent: '7000',
-		received: '7000',
+		reason: 'Rent',
+		paymentid: '7000',
+		transactionid: '7000',
 	},
 	{
-		id: '206B',
+		id: '20-02-2022',
 		name: 'Nelson George',
-		doj: '31-July-21',
-		rent: '7500',
-		received: '7500',
+		reason: 'Rent',
+		paymentid: '7500',
+		transactionid: '7500',
 	},
 	{
-		id: '108A',
+		id: '03-03-2022',
 		name: 'V. Charan',
-		doj: '10-July-21',
-		rent: '8500',
-		received: '8500',
+		reason: 'Rent',
+		paymentid: '8500',
+		transactionid: '8500',
 	},
 	{
-		id: '109C',
+		id: '12-12-2019',
 		name: 'Kishore Reddy',
-		doj: '30-Sep-21',
-		rent: '9000',
-		received: '9000',
+		reason: 'Rent',
+		paymentid: '9000',
+		transactionid: '9000',
 	},
 	{
-		id: '305C',
+		id: '01-08-2021',
 		name: 'Ashish Onkala',
-		doj: '02-Oct-21',
-		rent: '7500',
-		received: '5000',
+		reason: 'Rent',
+		paymentid: '7500',
+		transactionid: '5000',
 	},
 	{
-		id: 'P3A',
+		id: '04--09-2021',
 		name: 'A.Shanmukh Rao',
-		doj: '04-Jul-21',
-		rent: '6500',
-		received: '6500',
+		reason: 'Rent',
+		paymentid: '6500',
+		transactionid: '6500',
 	}
 ];
 
