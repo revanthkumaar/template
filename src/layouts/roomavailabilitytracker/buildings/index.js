@@ -17,7 +17,7 @@ const BuildingsTracker = (props) => {
             <DashboardNavbar />
             
             <MDBox bgColor="white" padding="8px"   >
-                <BuildingDropdown />
+                <BuildingDropdown buildingName={props.buildingName} />
             </MDBox>
            
             <br />

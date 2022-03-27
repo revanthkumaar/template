@@ -47,12 +47,7 @@ export default function BedSummaryChart(props) {
     ["OccupiedBeds", occupiedBeds],
   ]
   return (<>
-    { console.log(apidata)}
-
-     {console.log(props.buildingName)}
     
-      {/* {console.log(filterddata)}  */}
-     {console.log(data)}
     <Chart
       chartType="PieChart"
       data={data}
