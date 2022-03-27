@@ -159,7 +159,7 @@ const GuestLoginForm = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8085/bed/getAvailableBedsByBuildings")
+      .get("http://localhost:8989/bed/getAvailableBedsByBuildings")
       .then((res) => {
         setoneBuilding(res.data);
         console.log(res.data)
