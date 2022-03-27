@@ -34,7 +34,7 @@ const BuildingsLayout = (props) => {
     
     useEffect(() => {
         const GetData = async () => {
-            const url = "http://localhost:8085/room/getBedsByBuildings";
+            const url = "http://localhost:8989/bed/getBedsByAllBuildings";
             try {
                 const resp = await fetch(url);
                 const build = await resp.json();
@@ -93,7 +93,9 @@ const BuildingsLayout = (props) => {
                                                                                 return (<HotelOutlinedIcon  key={bdno.bedId}  className = "click"   color="success" />)
                                                                             }
                                                                             else {
-                                                                                return (<HotelOutlinedIcon key={bdno.bedId} color="error" className = "click"     onClick={() => { setOpen(true) }} />)
+                                                                                return (<HotelOutlinedIcon key={bdno.bedId} color="error" className = "click"     onClick={() => { setOpen(true)
+                                                                                console.log(bdno.guestId)
+                                                                                }} />)
                                                                             }
 
                                                                         })()}
