@@ -82,7 +82,7 @@ export default function GuestPopUp({ open, handleClose,...props }) {
                         </Grid>
                         <Grid item xs={3}></Grid>
                         <DialogTitle >TRANSACTION HISTORY</DialogTitle>
-                        <TransactionHistory />
+                        <TransactionHistory/>
                     </Grid>
 
 
