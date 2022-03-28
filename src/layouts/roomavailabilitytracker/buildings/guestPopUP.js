@@ -21,9 +21,12 @@ export default function GuestPopUp({ open, handleClose,...props }) {
     // const IId = (props.id)
     useEffect((id) => {
 
-        axios.get(`http://localhost:8989/guest/getGuestByGuestId/{id}`).then(res => setGuest(res.data))
+        axios.get(`http://localhost:8989/guest/getGuestByGuestId/${props.Guestid}`).then(res => setGuest(res.data))
 
     }, [])
+
+
+    
 
 
     return (
