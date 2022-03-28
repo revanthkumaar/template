@@ -52,10 +52,15 @@ export default function FormDialog() {
                         
                         
   </Grid>
-  <br></br>
+  <br/>
+  <br/>
+  
+
+
             <Dialog open={open} onClose={handleClose} maxWidth='lg'>
                 <DialogTitle>Record payment</DialogTitle>
                 <br />
+                <br/>
                 <DialogContent>
                     <Grid container spacing={1}>
                         <Grid item xs={6} sx={{ pl: 6 }}>
