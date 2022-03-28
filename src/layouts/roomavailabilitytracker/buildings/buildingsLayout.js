@@ -34,7 +34,7 @@ const BuildingsLayout = (props) => {
     
     useEffect(() => {
         const GetData = async () => {
-            const url = "http://localhost:8989/bed/getBedsByAllBuildings";
+            const url = "http://localhost:8085/bed/getBedsByAllBuildings";
             try {
                 const resp = await fetch(url);
                 const build = await resp.json();
@@ -49,6 +49,8 @@ const BuildingsLayout = (props) => {
         GetData();
     }, []);
 
+    
+    const [GuestId,setGuestId] = React.useState('')
     const [open, setOpen] = React.useState(false);
     const handleClose = () => setOpen(false);
 
@@ -61,7 +63,7 @@ const BuildingsLayout = (props) => {
 
     return (
         <>
-            <GuestPopUp open={open} handleClose={handleClose} />
+            <GuestPopUp open={open} handleClose={handleClose}  Guestid={GuestId}/>
             <MDBox bgColor="white" padding="30px" sx={{ border: 3 }} >
                 {loading ? 
                 BuildingInfo.map(post => {
@@ -93,8 +95,8 @@ const BuildingsLayout = (props) => {
                                                                                 return (<HotelOutlinedIcon  key={bdno.bedId}  className = "click"   color="success" />)
                                                                             }
                                                                             else {
-                                                                                return (<HotelOutlinedIcon key={bdno.bedId} color="error" className = "click"     onClick={() => { setOpen(true)
-                                                                                console.log(bdno.guestId)
+                                                                                return (<HotelOutlinedIcon key={bdno.bedId} color="error" className = "click"  id={bdno.guestId}   onClick={() => { setOpen(true); setGuestId(bdno.guestId)
+                                                                                console.log(GuestId) 
                                                                                 }} />)
                                                                             }
 

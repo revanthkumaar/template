@@ -27,7 +27,7 @@ export default function BedSummaryChart(props) {
 
   useEffect(() => {
        async function fetchData() {
-      const request = await axios.get('http://localhost:8989/bed/getBedSummaryForPieChartByAllBuildings')
+      const request = await axios.get('http://localhost:8085/bed/getBedSummaryForPieChartByAllBuildings')
        setapiData(request.data)    
     }
     fetchData();
