@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import { Container, Grid, Typography,InputLabel, Alert } from "@mui/material";
+import { Container, Grid, Typography, InputLabel, Alert } from "@mui/material";
 import moment from "moment";
 import Divider from "@mui/material/Divider";
 import { makeStyles } from "@mui/styles";
@@ -13,8 +13,7 @@ import Gender from "./Gender";
 import Checkbox from "./CheckBox";
 import DateTimePicker from "./DataTimePicker";
 import Button from "./Button";
-import CustomizedSnackbars from "./SubmitSnackBar"
-
+import CustomizedSnackbars from "./SubmitSnackBar";
 
 const useStyles = makeStyles({
   root: {
@@ -148,23 +147,21 @@ const GuestLoginForm = () => {
   const [bed, setBed] = React.useState([]);
   const [availableBeds, setAvailableBeds] = React.useState([]);
   const [putBuilding, setPutBuilding] = React.useState([]);
-  const [rent,setRent] =React.useState([]);
+  const [rent, setRent] = React.useState([]);
 
   let buildingNamesArray = [];
   let availableBedsByBuidlingName = [];
-  let rentOfBed = []
+  let rentOfBed = [];
   const classes = useStyles();
-  
 
   useEffect(() => {
     axios
       .get("http://localhost:8085/bed/getAvailableBedsByBuildings")
       .then((res) => {
         setoneBuilding(res.data);
-        console.log(res.data)
-        
+        console.log(res.data);
+
         res.data.map((data) => {
-        
           buildingNamesArray.push(data.buildingName);
         });
 
@@ -188,29 +185,25 @@ const GuestLoginForm = () => {
   availableBeds.map((item) => {
     availableBedsByBuidlingName.push(item.bedId);
   });
- availableBeds.map((bed)=>{
-  rentOfBed.push(bed.defaultRent)
- })
+  availableBeds.map((bed) => {
+    rentOfBed.push(bed.defaultRent);
+  });
   //console.log(rentOfBed)
   const selectBed = (e) => {
     setBed(e.target.outerText);
-    
-    const bedRent = availableBeds.filter(
-      (bed)=>bed.bedId == e.target.outerText)
-      
-    bedRent.map((post)=>setRent(post.defaultRent))
 
+    const bedRent = availableBeds.filter(
+      (bed) => bed.bedId == e.target.outerText
+    );
+
+    bedRent.map((post) => setRent(post.dueAmount));
   };
-  
-  console.log(rent)
-  
-  
- 
+
+  console.log(rent);
 
   const obj = { bedId: bed };
 
   const obje = { buildingName: putBuilding };
- 
 
   return (
     <Grid container>
@@ -220,26 +213,24 @@ const GuestLoginForm = () => {
             <Formik
               initialValues={{ ...INITIAL_FORM_STATE }}
               validationSchema={FORM_VALIDATION}
-              onSubmit={(guest,{resetForm}) => {
+              onSubmit={(guest, { resetForm }) => {
                 const guests = Object.assign(guest, obj);
 
                 const gustes = Object.assign(guests, obje);
                 //const gusting = Object.assign(gustes,objee);
                 console.log(gustes);
-                setTimeout(()=>{
-                  console.log(rent)
-                  alert("Guest On Boarded Successfully")
-                  resetForm()
-                },50)
-               
+                setTimeout(() => {
+                  console.log(rent);
+                  alert("Guest On Boarded Successfully");
+                  resetForm();
+                }, 50);
+
                 // onSubmit={(values, { setSubmitting }) => {
                 //   setTimeout(() => {
                 //     alert(JSON.stringify(values, null, 2));
                 //     setSubmitting(false);
                 //   }, 400);
                 // }}
-                
-                
 
                 // <Alert severity="info">This is an info alert — check it out!</Alert>
 
@@ -255,7 +246,7 @@ const GuestLoginForm = () => {
               }}
             >
               {(formProps) => (
-                <Form >
+                <Form>
                   <Grid container spacing={2}>
                     <Grid item xs={12}>
                       <Typography>
@@ -276,7 +267,10 @@ const GuestLoginForm = () => {
                       <Textfield name="email" label="Email" />
                     </Grid>
                     <Grid item xs={6}>
-                      <DateTimePicker maxdate={new Date()} name="dateOfBirth" label="Date of Birth"
+                      <DateTimePicker
+                        maxdate={new Date()}
+                        name="dateOfBirth"
+                        label="Date of Birth"
                       />
                     </Grid>
 
@@ -284,7 +278,9 @@ const GuestLoginForm = () => {
                       <Textfield name="personalNumber" label="Personal Phone" />
                     </Grid>
                     <Grid item xs={6}>
-                      <Textfield name="secondaryPhoneNumber" label="Secondary Phone"
+                      <Textfield
+                        name="secondaryPhoneNumber"
+                        label="Secondary Phone"
                       />
                     </Grid>
                     <Grid item xs={6}>
@@ -295,11 +291,15 @@ const GuestLoginForm = () => {
                     </Grid>
 
                     <Grid item xs={6}>
-                      <Textfield name="localGuardianName" label="Local Guardian's Name"
+                      <Textfield
+                        name="localGuardianName"
+                        label="Local Guardian's Name"
                       />
                     </Grid>
                     <Grid item xs={6}>
-                      <Textfield name="localGuardianPhoneNumber" label="Local Guardian's Phone"
+                      <Textfield
+                        name="localGuardianPhoneNumber"
+                        label="Local Guardian's Phone"
                       />
                     </Grid>
                     <Grid item xs={6}>
@@ -311,13 +311,15 @@ const GuestLoginForm = () => {
                     <br />
 
                     <Grid item xs={6}>
-                    <InputLabel id="demo-simple-select-label">Select Gender</InputLabel>
+                      <InputLabel id="demo-simple-select-label">
+                        Select Gender
+                      </InputLabel>
 
-                      <Select 
-                      name="gender" options={Gender} className={classes.root}>
-                        
-                        
-                        </Select>
+                      <Select
+                        name="gender"
+                        options={Gender}
+                        className={classes.root}
+                      ></Select>
                     </Grid>
                     <Grid item xs={6}>
                       <Textfield name="aadharNumber" label="Aadhar Number" />
@@ -336,7 +338,10 @@ const GuestLoginForm = () => {
                       <h6>Select Building</h6>
 
                       <Select
-                        className={classes.root} name="buildingName" options={building} onClick={handleClick}
+                        className={classes.root}
+                        name="buildingName"
+                        options={building}
+                        onClick={handleClick}
                       ></Select>
 
                       <Grid item xs={6}></Grid>
@@ -344,7 +349,10 @@ const GuestLoginForm = () => {
                     <Grid item xs={6}>
                       <h6>Select Bed</h6>
                       <Select
-                        className={classes.root} name="bedId" options={availableBedsByBuidlingName} onClick={selectBed}
+                        className={classes.root}
+                        name="bedId"
+                        options={availableBedsByBuidlingName}
+                        onClick={selectBed}
                       ></Select>
                     </Grid>
                     <Grid item xs={12}>
@@ -354,22 +362,28 @@ const GuestLoginForm = () => {
                       </Typography>
                     </Grid>
                     <Grid item xs={6}>
-                    <InputLabel id="demo-simple-select-labe"> OccupancyType</InputLabel>
+                      <InputLabel id="demo-simple-select-labe">
+                        {" "}
+                        OccupancyType
+                      </InputLabel>
                       <Select
-                        className={classes.root} name="occupancyType" options={Occupancytype}
+                        className={classes.root}
+                        name="occupancyType"
+                        options={Occupancytype}
                       />
                     </Grid>
                     <Grid item xs={6}>
-                    <Textfield
-                         name="dueAmount" label="Due Amount" value={rent}
+                      <Textfield
+                        name="dueAmount"
+                        label="Due Amount"
+                        value={rent}
                       />
                       {/* <Select
                         className={classes.root} name="rentPaid" options={bedrent}
                       /> */}
                     </Grid>
                     <Grid item xs={6}>
-                      <Textfield name="amountPaid" label="Amount Paid"
-                      />
+                      <Textfield name="amountPaid" label="Amount Paid" />
                     </Grid>
                     <Grid item xs={6}>
                       <Textfield name="transactionId" label="Transaction ID" />
@@ -413,22 +427,33 @@ const GuestLoginForm = () => {
                     </Grid>
 
                     <Grid item xs={12}>
-                      <Textfield name="workAddressLine1" label="Work Address Line 1"
+                      <Textfield
+                        name="workAddressLine1"
+                        label="Work Address Line 1"
                       />
                     </Grid>
 
                     <Grid item xs={12}>
-                      <Textfield name="workAddressLine2" label="Work Address Line 2 "
+                      <Textfield
+                        name="workAddressLine2"
+                        label="Work Address Line 2 "
                       />
                     </Grid>
 
                     <Grid item xs={12}>
-                      <Textfield name="checkinNotes" label="Check-in Notes" multiline rows={3}
+                      <Textfield
+                        name="checkinNotes"
+                        label="Check-in Notes"
+                        multiline
+                        rows={3}
                       />
                     </Grid>
 
                     <Grid item xs={12}>
-                      <Checkbox name="termsOfService" legend="Terms of service" label="I agree"
+                      <Checkbox
+                        name="termsOfService"
+                        legend="Terms of service"
+                        label="I agree"
                       />
                     </Grid>
 
