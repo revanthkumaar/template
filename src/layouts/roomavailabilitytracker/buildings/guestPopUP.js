@@ -1,5 +1,6 @@
 
-import * as React from 'react';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import Button from '@mui/material/Button';
 import MDButton from 'components/MDButton';
 import MDTypography from 'components/MDTypography';
@@ -15,9 +16,13 @@ import { Link } from 'react-router-dom';
 import RecentTransactions from 'layouts/dashboard/components/summaryTables/Recenttransactions';
 import TransactionHistory from './TransactionHistory';
 
-export default function GuestPopUp({ open, handleClose }) {
+export default function GuestPopUp({ open, handleClose, }) {
+    const [guest, setGuest] = useState({});
+    useEffect(() => {
+        axios.get(`http://localhost:8989/guest/getGuestByGuestId/SLH000002`).then(res => setGuest(res.data))
 
-    
+    }, [])
+
 
     return (
         <div>
@@ -32,21 +37,21 @@ export default function GuestPopUp({ open, handleClose }) {
                                 // id="outlined-textarea"
                                 //   label="Guest Id"
                                 style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
-                            ><p >Guest Id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  :   SLH0001</p></MDTypography>
+                            ><p >Guest Id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  :   {guest.id}</p></MDTypography>
                         </Grid>
                         <Grid item xs={12}>
                             <MDTypography
                                 // id="outlined-textarea"
                                 //   label="Guest Id"
                                 style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
-                            ><p>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  : Mahesh Babu</p></MDTypography>
+                            ><p>Guest Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  : {guest.firstName}</p></MDTypography>
                         </Grid>
                         <Grid item xs={12} >
                             <MDTypography
                                 // id="outlined-textarea"
                                 //   label="Guest Id"
                                 style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
-                            ><p>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : abc@gmail.com</p></MDTypography>
+                            ><p>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {guest.email}</p></MDTypography>
 
                         </Grid>
                         <Grid item xs={12} >
@@ -54,7 +59,7 @@ export default function GuestPopUp({ open, handleClose }) {
                                 // id="outlined-textarea"
                                 //   label="Guest Id"
                                 style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
-                            ><p>Mobile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 9908216181</p></MDTypography>
+                            ><p>Mobile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {guest.personalNumber}</p></MDTypography>
                         </Grid>
                         <Grid item xs={12} >
                             <MDTypography
@@ -67,12 +72,12 @@ export default function GuestPopUp({ open, handleClose }) {
                         <Grid item xs={4}></Grid>
                         <Grid item xs={5} >
                             <MDTypography >
-                            <h3 style={{color:'red',}}
-                            >Due amount&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 5000</h3></MDTypography>
+                                <h3 style={{ color: 'red', }}
+                                >Due amount&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 5000</h3></MDTypography>
                         </Grid>
                         <Grid item xs={3}></Grid>
                         <DialogTitle >TRANSACTION HISTORY</DialogTitle>
-                        <TransactionHistory/>
+                        <TransactionHistory />
                     </Grid>
 
 
