@@ -40,8 +40,8 @@ const INITIAL_FORM_STATE = {
   buildingName: "",
   bedId: "",
   occupancyType: "",
-  rentPaid: "",
-  securityDeposit: "",
+  dueAmount: "",
+  amountPaid: "",
   transactionId: "",
   addressLine1: "",
   addressLine2: "",
@@ -138,8 +138,7 @@ const FORM_VALIDATION = Yup.object().shape({
   workAddressLine2: Yup.string().required("Required"),
   buildingName: Yup.string().required("Required"),
   occupancyType: Yup.string().required("Required"),
-  rentPaid: Yup.number().required("Required"),
-  securityDeposit: Yup.number().required("Required"),
+  amountPaid: Yup.number().required("Required"),
   transactionId: Yup.string().required("Required"),
 });
 
@@ -159,7 +158,7 @@ const GuestLoginForm = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8989/bed/getAvailableBedsByBuildings")
+      .get("http://localhost:8085/bed/getAvailableBedsByBuildings")
       .then((res) => {
         setoneBuilding(res.data);
         console.log(res.data)
@@ -211,6 +210,7 @@ const GuestLoginForm = () => {
   const obj = { bedId: bed };
 
   const obje = { buildingName: putBuilding };
+  const objee = {rentPaid:rent}
 
   return (
     <Grid container>
@@ -224,7 +224,8 @@ const GuestLoginForm = () => {
                 const guests = Object.assign(guest, obj);
 
                 const gustes = Object.assign(guests, obje);
-                console.log(gustes);
+                const gusting = Object.assign(gustes,objee);
+                console.log(gusting);
                 setTimeout(()=>{
                   console.log(rent)
                   alert("Amount that guest need to pay:"+rent)
@@ -360,14 +361,14 @@ const GuestLoginForm = () => {
                     </Grid>
                     <Grid item xs={6}>
                     <Textfield
-                         name="rentPaid" label="Rent Paid" 
+                         name="dueAmount" label="Due Amount" value={rent}
                       />
                       {/* <Select
                         className={classes.root} name="rentPaid" options={bedrent}
                       /> */}
                     </Grid>
                     <Grid item xs={6}>
-                      <Textfield name="securityDeposit" label="Security Deposit"
+                      <Textfield name="amountPaid" label="Amount Paid"
                       />
                     </Grid>
                     <Grid item xs={6}>
