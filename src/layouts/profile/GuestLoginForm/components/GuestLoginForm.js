@@ -40,7 +40,7 @@ const INITIAL_FORM_STATE = {
   buildingName: "",
   bedId: "",
   occupancyType: "",
-  dueAmount: "",
+
   amountPaid: "",
   transactionId: "",
   addressLine1: "",
@@ -210,7 +210,7 @@ const GuestLoginForm = () => {
   const obj = { bedId: bed };
 
   const obje = { buildingName: putBuilding };
-  const objee = {rentPaid:rent}
+ 
 
   return (
     <Grid container>
@@ -224,11 +224,11 @@ const GuestLoginForm = () => {
                 const guests = Object.assign(guest, obj);
 
                 const gustes = Object.assign(guests, obje);
-                const gusting = Object.assign(gustes,objee);
-                console.log(gusting);
+                //const gusting = Object.assign(gustes,objee);
+                console.log(gustes);
                 setTimeout(()=>{
                   console.log(rent)
-                  alert("Amount that guest need to pay:"+rent)
+                  alert("Guest On Boarded Successfully")
                   resetForm()
                 },50)
                
