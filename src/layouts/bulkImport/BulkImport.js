@@ -161,7 +161,7 @@ const BulkImportForm = () => {
                     <MDBox display="flex" alignItems="center" pb={6} pt={3}>
                       <Grid item xs={1} justifyContent="center">
                         <MDButton variant="outlined" color="info" size="small">
-                          Validate
+                          Upload
                         </MDButton>
                       </Grid>
                     </MDBox>
@@ -172,14 +172,14 @@ const BulkImportForm = () => {
           </Grid>
         </MDBox>
         <MDBox sx={{ ml: -35 }}>
-          <SampleReport />
+        {/* //  <SampleReport /> */}
         </MDBox>
         <br />
         <MDBox display="flex" alignItems="center" sx={{ pl: 3 }} pb={5}>
           <Grid item xs={1} justifyContent="center">
-            <MDButton variant="outlined" color="info" size="small">
+            {/* <MDButton variant="outlined" color="info" size="small">
               Upload
-            </MDButton>
+            </MDButton> */}
           </Grid>
         </MDBox>
       </MDBox>
