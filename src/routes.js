@@ -96,6 +96,14 @@ const routes = [
 		route: '/authentication/sign-in',
 		component: <SignIn />
 	},
+	// {
+	// 	type: 'main',
+	// 	name: 'Room Availability Tracker',
+	// 	key: '/tracker/sreekalanilayam',
+	// 	icon: <Icon fontSize="small">booking</Icon>,
+	// 	route: '/tracker/sreekalanilayam',
+	// 	component:<BuildingsTracker buildingName = "Sree Kala Nilayam"/>
+	// },
 	{
 		type: 'main',
 		name: 'Room Availability Tracker',

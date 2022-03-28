@@ -16,17 +16,19 @@ import { Link } from 'react-router-dom';
 import RecentTransactions from 'layouts/dashboard/components/summaryTables/Recenttransactions';
 import TransactionHistory from './TransactionHistory';
 
-export default function GuestPopUp({ open, handleClose, }) {
+export default function GuestPopUp({ open, handleClose,...props }) {
     const [guest, setGuest] = useState({});
-    useEffect(() => {
-        axios.get(`http://localhost:8989/guest/getGuestByGuestId/SLH000002`).then(res => setGuest(res.data))
+    // const IId = (props.id)
+    useEffect((id) => {
+
+        axios.get(`http://localhost:8989/guest/getGuestByGuestId/{id}`).then(res => setGuest(res.data))
 
     }, [])
 
 
     return (
         <div>
-
+           {console.log(props.Guestid)}
             <Dialog open={open} onClose={handleClose} maxWidth='lg'>
                 <DialogTitle>GUEST DETAILS</DialogTitle>
 

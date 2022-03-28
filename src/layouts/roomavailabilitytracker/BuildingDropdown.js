@@ -6,9 +6,9 @@ import Select from '@mui/material/Select';
 
 let API_DATA = [ { building: 'Building-1' }, { building: 'ANANDANILAYAM' }, { building: 'Building-3' } ];
 
-function BuildingDropdown() {
+function BuildingDropdown(props) {
 	const [ tableData, setTableData ] = React.useState(API_DATA);
-	const [ selected, setSelected ] = React.useState('');
+	const [ selected, setSelected ] = React.useState(props.buildingName);
 
 	function handleChange(event) {
 		setSelected(event.target.value);
@@ -17,7 +17,10 @@ function BuildingDropdown() {
 	}
 
 	return (
+
 		<div className="App">
+				{console.log(props.buildingName)}
+				{console.log(selected)}
 			<label value="Select Building: ">Select Building: </label>
 			<Select
 				sx={{ minHeight: 44 }}
@@ -29,9 +32,9 @@ function BuildingDropdown() {
 				
 			>
 				
-				<MenuItem value="SREE KALA NILAYAM" component={Link} to ='/tracker'>SREE KALA NILAYAM</MenuItem>
-				<MenuItem value="SREE NILAYAM" component={Link} to = '/tracker/sreenilayam'>SREE NILAYAM</MenuItem>
-				<MenuItem value="ANANDANILAYAM" component={Link} to ='/tracker/anandanilayam'>ANANDA NILAYAM</MenuItem>
+				<MenuItem value="Sree Kala Nilayam" component={Link} to ='/tracker'>SREE KALA NILAYAM</MenuItem>
+				<MenuItem value="Sree Nilayam" component={Link} to = '/tracker/sreenilayam'>SREE NILAYAM</MenuItem>
+				<MenuItem value="Ananda Nilayam" component={Link} to ='/tracker/anandanilayam'>ANANDA NILAYAM</MenuItem>
 				{/* <MenuItem value="Building-4"   component={Link} to = "/layouts/roomavailabilitytracker/buildings/buildingFour">Building-4</MenuItem> */}
 			</Select>
 		</div>
