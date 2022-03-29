@@ -404,7 +404,7 @@ const GuestLoginForm = () => {
                       <Textfield name="addressLine2" label="Address Line 2 " />
                     </Grid>
                     <Grid item xs={6}>
-                      <Textfield name="pincode" label="PinCode" />
+                      <Textfield name="pincode" label="Pincode" />
                     </Grid>
 
                     <Grid item xs={6}>
