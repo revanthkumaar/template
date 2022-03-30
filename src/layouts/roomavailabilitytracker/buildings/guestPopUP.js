@@ -17,28 +17,28 @@ import RecentTransactions from 'layouts/dashboard/components/summaryTables/Recen
 import TransactionHistory from './TransactionHistory';
 
 
-export default function GuestPopUp({ open, handleClose,...props }) {
-   if(props.Guestid==null){
-       return null
-   }
-//    let PopUpId = {}
+export default function GuestPopUp({ open, handleClose, ...props }) {
+    if (props.Guestid == null) {
+        return null
+    }
+    //    let PopUpId = {}
     const [guest, setGuest] = useState({});
-    const [popupid ,setPopupId] = useState([])
+    const [popupid, setPopupId] = useState([])
     // const IId = (props.id)
-   useEffect(() => {
-    setPopupId(props.Guestid)
-         axios.get(`http://localhost:8989/guest/getGuestByGuestId/${popupid}`)
-         .then(res => { 
-             setGuest(res.data)
-        
-        })
- 
-     }, [popupid])
-    
+    useEffect(() => {
+        setPopupId(props.Guestid)
+        axios.get(`http://localhost:8989/guest/getGuestByGuestId/${popupid}`)
+            .then(res => {
+                setGuest(res.data)
+
+            })
+
+    }, [popupid])
+
     return (
         <div>
-           {console.log(props.Guestid)}
-           {console.log(popupid)}
+            {console.log(props.Guestid)}
+            {console.log(popupid)}
 
 
 
@@ -95,52 +95,46 @@ export default function GuestPopUp({ open, handleClose,...props }) {
                         <br></br>
 
                         <Grid container spacing={1}>
-                        <Grid item xs={6} sx={{ pl: 6 }}>
-                        
-                            <TextField
-                                id="outlined-textarea"
-                                label="Amount"
-                                style={{ width: '65%', marginLeft: '50px', marginBottom: '20px' }}
-                            /></Grid>
+                            <Grid item xs={6} sx={{ pl: 6 }}>
+
+                                <TextField
+                                    id="outlined-textarea"
+                                    label="Amount Paid"
+                                    style={{ width: '65%', marginLeft: '50px', marginBottom: '20px' }}
+                                /></Grid>
                             <Grid item xs={6}>
-                             <TextField
-                                id="outlined-textarea"
-                                label="Transaction Id"
-                                style={{ width: '65%', marginBottom: '20px' }}
-                            /></Grid>
+                                <TextField
+                                    id="outlined-textarea"
+                                    label="Transaction Id"
+                                    style={{ width: '65%', marginBottom: '20px' }}
+                                /></Grid>
                             <Grid item xs={6}>
-                            <TextField
-                                id="outlined-textarea"
-                                label="Payment Purpose"
-                                style={{ width: '65%', marginLeft: '50px', marginBottom: '20px' }}
-                            /></Grid>
+                                <TextField
+                                    id="outlined-textarea"
+                                    label="Payment Purpose"
+                                    style={{ width: '65%', marginLeft: '50px', marginBottom: '20px' }}
+                                /></Grid>
                             <br></br>
                             <br></br>
-                            
-        <Grid item xs={3}>
-                            <MDButton
-                            width='100%'
-                            
-                           
-                            variant="gradient"
-                            backgroundColor= "#0096FF"
-                            color="info" size="small"
-                            justify="right"
-                            style={{ borderRadius: 12, float: 'right' ,height :40}}
-                            
-                        >
-                            <MDTypography color='white'>&nbsp;&nbsp;Record Payments&nbsp;&nbsp;&nbsp;&nbsp;</MDTypography>
-                        </MDButton>
-                        </Grid>
-       
-                           
+
+                            <Grid item xs={3}>
+                                <MDButton
+                                    variant="contained"
+                                    color="info"
+                                    size="small"
+                                    justify="right"
+                                    style={{ borderRadius:10, float: 'right', height: 40 }}
+                                >
+                                  <MDTypography color='white'>Record Payments</MDTypography>
+                                </MDButton>
+                            </Grid>
                             <Grid item xs={4}></Grid>
                             <Grid item xs={8}>
-                        <DialogTitle ><br></br>TRANSACTION HISTORY</DialogTitle></Grid>
-                        <TransactionHistory/>
+                                <DialogTitle ><br></br>TRANSACTION HISTORY</DialogTitle></Grid>
+                            <TransactionHistory />
+                        </Grid>
                     </Grid>
-                    </Grid>
-                  
+
 
 
                 </DialogContent>
