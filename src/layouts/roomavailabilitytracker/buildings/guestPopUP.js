@@ -18,27 +18,27 @@ import TransactionHistory from './TransactionHistory';
 
 
 export default function GuestPopUp({ open, handleClose, ...props }) {
-    if (props.Guestid == null) {
-        return null
-    }
+    // if (props.Guestid == null) {
+    //     return null
+    // }
     //    let PopUpId = {}
-    const [guest, setGuest] = useState({});
-    const [popupid, setPopupId] = useState([])
-    // const IId = (props.id)
-    useEffect(() => {
-        setPopupId(props.Guestid)
-        axios.get(`http://localhost:8989/guest/getGuestByGuestId/${popupid}`)
-            .then(res => {
-                setGuest(res.data)
+    // const [guest, setGuest] = useState({});
+    // const [popupid, setPopupId] = useState([])
+    // // const IId = (props.id)
+    // useEffect(() => {
+    //     setPopupId(props.Guestid)
+    //     axios.get(`http://localhost:8989/guest/getGuestByGuestId/${popupid}`)
+    //         .then(res => {
+    //             setGuest(res.data)
 
-            })
+    //         })
 
-    }, [popupid])
+    // }, [popupid])
 
     return (
         <div>
-            {console.log(props.Guestid)}
-            {console.log(popupid)}
+            {/* {console.log(props.Guestid)} */}
+            {/* {console.log(popupid)} */}
 
 
 
@@ -52,21 +52,21 @@ export default function GuestPopUp({ open, handleClose, ...props }) {
                                 // id="outlined-textarea"
                                 //   label="Guest Id"
                                 style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
-                            ><p >Guest Id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  :   {guest.id}</p></MDTypography>
+                            ><p >Guest Id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  :   {props.GuestDetails.id}</p></MDTypography>
                         </Grid>
                         <Grid item xs={12}>
                             <MDTypography
                                 // id="outlined-textarea"
                                 //   label="Guest Id"
                                 style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
-                            ><p>Guest Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {guest.firstName}</p></MDTypography>
+                            ><p>Guest Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {props.GuestDetails.firstName}</p></MDTypography>
                         </Grid>
                         <Grid item xs={12} >
                             <MDTypography
                                 // id="outlined-textarea"
                                 //   label="Guest Id"
                                 style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
-                            ><p>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {guest.email}</p></MDTypography>
+                            ><p>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {props.GuestDetails.email}</p></MDTypography>
 
                         </Grid>
                         <Grid item xs={12} >
@@ -74,14 +74,14 @@ export default function GuestPopUp({ open, handleClose, ...props }) {
                                 // id="outlined-textarea"
                                 //   label="Guest Id"
                                 style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
-                            ><p>Mobile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {guest.personalNumber}</p></MDTypography>
+                            ><p>Mobile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {props.GuestDetails.personalNumber}</p></MDTypography>
                         </Grid>
                         <Grid item xs={12} >
                             <MDTypography
                                 // id="outlined-textarea"
                                 //   label="Guest Id"
                                 style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
-                            ><p>Father's Mobile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:{guest.fatherNumber}</p></MDTypography>
+                            ><p>Father's Mobile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:{props.GuestDetails.fatherNumber}</p></MDTypography>
                         </Grid>
 
                         <Grid item xs={4}></Grid>
