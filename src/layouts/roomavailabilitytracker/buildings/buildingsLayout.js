@@ -22,6 +22,9 @@ import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 
 
+var GuestDetails = {}
+
+
 const BuildingsLayout = (props) => {
 
 
@@ -47,23 +50,30 @@ const BuildingsLayout = (props) => {
     }, []);
 
 
-    const [GuestId, setGuestId] = React.useState()
+    const [GuestId, setGuestId] = React.useState('')
     const [open, setOpen] = React.useState(false);
     const handleClose = () => setOpen(false);
+    // const [GuestDetails, setGuestDetails] = React.useState([])
+
+
+
 
 
     const BuildingInfo = buildingInfo.filter(post => {
         return post.buildingName === props.buildingName
     })
 
+
     return (
         <>
-            <GuestPopUp open={open} handleClose={handleClose} Guestid={GuestId} />
+
             <MDBox bgColor="white" padding="30px" sx={{ border: 3 }} >
                 {loading ?
                     BuildingInfo.map(post => {
                         return (
                             <>
+                                <GuestPopUp open={open} handleClose={handleClose} GuestDetails={GuestDetails} />
+
                                 <Grid container spacing={2} >
                                     <Grid item xs={12}> <h4 key={post.buildingName}>{post.buildingName}</h4> </Grid>
                                     {post.floors.map(item => {
@@ -92,14 +102,36 @@ const BuildingsLayout = (props) => {
                                                                                                 else {
                                                                                                     return (<HotelOutlinedIcon key={bdno.bedId} color="error" className="click" id={bdno.guestId}
                                                                                                         onClick={() => {
-                                                                                                            setOpen(true);
-                                                                                                            setGuestId(bdno.guestId)
+                                                                                                            
                                                                                                             console.log(bdno.guestId)
+                                                                                                            
+                                                                                                            setLoading(true)
+                                                                                                            {   
+                                                                                                                loading ?
+
+                                                                                                                    axios.get(`http://localhost:8989/guest/getGuestByGuestId/${bdno.guestId}`)
+                                                                                                                        .then(res => {
+
+                                                                                                                            GuestDetails = (res.data);
+                                                                                                                            console.log(GuestDetails);
+                                                                                                                            setOpen(true);
+
+
+                                                                                                                        }) :
+                                                                                                                    <Backdrop
+                                                                                                                        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                                                                                                                        open
+                                                                                                                        onClick={handleClose}
+                                                                                                                    >
+                                                                                                                        <CircularProgress color="inherit" />
+                                                                                                                    </Backdrop>
+                                                                                                            }
+
+
+                                                                                                            // getGuestDetails();
+
                                                                                                         }} />)
                                                                                                 }
-
-
-
 
                                                                                             })()}
                                                                                         </Grid>
