@@ -13,7 +13,7 @@ import Gender from "./Gender";
 import Checkbox from "./CheckBox";
 import DateTimePicker from "./DataTimePicker";
 import Button from "./Button";
-import CustomizedSnackbars from "./SubmitSnackBar";
+
 
 const useStyles = makeStyles({
   root: {
@@ -203,7 +203,9 @@ const GuestLoginForm = () => {
 
   const obj = { bedId: bed };
 
+
   const obje = { buildingName: putBuilding };
+  const objee={dueAmount:rent}
 
   return (
     <Grid container>
@@ -217,8 +219,8 @@ const GuestLoginForm = () => {
                 const guests = Object.assign(guest, obj);
 
                 const gustes = Object.assign(guests, obje);
-                //const gusting = Object.assign(gustes,objee);
-                console.log(gustes);
+                const gusting = Object.assign(gustes,objee);
+                console.log(gusting);
                 setTimeout(() => {
                   console.log(rent);
                   alert("Guest On Boarded Successfully");
