@@ -90,10 +90,57 @@ export default function GuestPopUp({ open, handleClose,...props }) {
                                 <h3 style={{ color: 'red', }}
                                 >Due amount&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 5000</h3></MDTypography>
                         </Grid>
-                        <Grid item xs={3}></Grid>
-                        <DialogTitle >TRANSACTION HISTORY</DialogTitle>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+
+                        <Grid container spacing={1}>
+                        <Grid item xs={6} sx={{ pl: 6 }}>
+                        
+                            <TextField
+                                id="outlined-textarea"
+                                label="Amount"
+                                style={{ width: '65%', marginLeft: '50px', marginBottom: '20px' }}
+                            /></Grid>
+                            <Grid item xs={6}>
+                             <TextField
+                                id="outlined-textarea"
+                                label="Transaction Id"
+                                style={{ width: '65%', marginBottom: '20px' }}
+                            /></Grid>
+                            <Grid item xs={6}>
+                            <TextField
+                                id="outlined-textarea"
+                                label="Payment Purpose"
+                                style={{ width: '65%', marginLeft: '50px', marginBottom: '20px' }}
+                            /></Grid>
+                            <br></br>
+                            <br></br>
+                            
+        <Grid item xs={3}>
+                            <MDButton
+                            width='100%'
+                            
+                           
+                            variant="gradient"
+                            backgroundColor= "#0096FF"
+                            color="info" size="small"
+                            justify="right"
+                            style={{ borderRadius: 12, float: 'right' ,height :40}}
+                            
+                        >
+                            <MDTypography color='white'>&nbsp;&nbsp;Record Payments&nbsp;&nbsp;&nbsp;&nbsp;</MDTypography>
+                        </MDButton>
+                        </Grid>
+       
+                           
+                            <Grid item xs={4}></Grid>
+                            <Grid item xs={8}>
+                        <DialogTitle ><br></br>TRANSACTION HISTORY</DialogTitle></Grid>
                         <TransactionHistory/>
                     </Grid>
+                    </Grid>
+                  
 
 
                 </DialogContent>
