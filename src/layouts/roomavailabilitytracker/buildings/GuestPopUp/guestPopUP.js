@@ -16,6 +16,7 @@ import { Link } from 'react-router-dom';
 import RecentTransactions from 'layouts/dashboard/components/summaryTables/Recenttransactions';
 import TransactionHistory from './TransactionHistory';
 import RecordpaymentsinPopUp from "./RecordpaymentsinPopUp";
+import Guestdetails from "./guestdetails";
 
 export default function GuestPopUp({ open, handleClose, ...props }) {
    
@@ -30,50 +31,7 @@ export default function GuestPopUp({ open, handleClose, ...props }) {
                 <DialogTitle>GUEST DETAILS</DialogTitle>
 
                 <DialogContent>
-                    <Grid container spacing={1}>
-                        <Grid item xs={12}>
-                            <MDTypography
-                                // id="outlined-textarea"
-                                //   label="Guest Id"
-                                style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
-                            >Guest Id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  :   {props.GuestDetails.id}</MDTypography>
-                        </Grid>
-                        <Grid item xs={12}>
-                            <MDTypography
-                                // id="outlined-textarea"
-                                //   label="Guest Id"
-                                style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
-                            >Guest Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {props.GuestDetails.firstName}</MDTypography>
-                        </Grid>
-                        <Grid item xs={12} >
-                            <MDTypography
-                                // id="outlined-textarea"
-                                //   label="Guest Id"
-                                style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
-                            >Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {props.GuestDetails.email}</MDTypography>
-
-                        </Grid>
-                        <Grid item xs={12} >
-                            <MDTypography
-                                // id="outlined-textarea"
-                                //   label="Guest Id"
-                                style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
-                            >Mobile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {props.GuestDetails.personalNumber}</MDTypography>
-                        </Grid>
-                        <Grid item xs={12} >
-                            <MDTypography
-                                // id="outlined-textarea"
-                                //   label="Guest Id"
-                                style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
-                            >Father's Mobile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:{props.GuestDetails.fatherNumber}</MDTypography>
-                        </Grid>
-
-                        <Grid item xs={4}></Grid>
-                        <Grid item xs={5} >
-                            <MDTypography style={{ color: 'red', }} >
-                                
-                                Due amount&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 5000</MDTypography>
-                        </Grid>
+                    <Guestdetails guestdetails={props.GuestDetails} />
                         <br></br>
                         <br></br>
                         <br></br>
@@ -91,7 +49,7 @@ export default function GuestPopUp({ open, handleClose, ...props }) {
 
 
 
-                    </Grid>
+                   
 
 
 
