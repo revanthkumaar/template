@@ -145,6 +145,11 @@ function RoomTable() {
 									const updatedRows = [ ...data ];
 									updatedRows.splice(index, 1);
 									setTimeout(() => {
+										// const res = axios.delete(
+										// 	`http://localhost:8080/api/v1/payments/${index}`
+										//   );
+										//   console.log(res);
+										  console.log(updatedRows);
 										setData(updatedRows);
 										resolve();
 									}, 2000);
@@ -155,6 +160,11 @@ function RoomTable() {
 									const updatedRows = [ ...data ];
 									updatedRows[index] = updatedRow;
 									setTimeout(() => {
+										// const res = axios.put(
+										// 	`http://localhost:8080/api/v1/payments/${index}`
+										//   );
+										//   console.log(res);
+										  console.log(updatedRows);
 										setData(updatedRows);
 										resolve();
 									}, 2000);

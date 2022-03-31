@@ -143,13 +143,14 @@ function PaymentReport() {
                 new Promise((resolve, reject) => {
                   const index = oldRow.tableData.id;
                   const updatedRows = [...data];
+
                   updatedRows[index] = updatedRow;
                   setTimeout(() => {
-                    // const res = axios.put(
-                    //   `http://localhost:8080/api/v1/payments/${index}`
-                    // );
-                    // console.log(res);
-                    // console.log(updatedRows);
+                    const res = axios.put(
+                      `http://localhost:8080/api/v1/payments/${index}`
+                    );
+                    console.log(res);
+                    console.log(updatedRows);
                     setData(updatedRows);
                     resolve();
                   }, 2000);
