@@ -212,7 +212,7 @@ const GuestLoginForm = () => {
 
     bedRent.map((post) =>
     {
-      setRent(post.dueAmount)
+      setRent(post.defaultRent)
       setDefaultRentofBed(post.defaultRent)
     } 
     );
@@ -220,8 +220,6 @@ const GuestLoginForm = () => {
   const occupency = (i) => {
     if(i.target.outerText=="Daily"){
       setDuration(days)
-      
-      
 
     }
     else if(i.target.outerText == "Monthly"){
@@ -248,8 +246,8 @@ if(size == 12){
   setAmountToPay(checkInAmount)
 }
 else if(size == 15){
-  var checkInAmount = (a.target.outerText*(defaultRentofBed)/30)+1000;
-  setAmountToPay(checkInAmount)
+  var checkInAmount = (a.target.outerText*((defaultRentofBed)/30))+1000;
+  setAmountToPay(checkInAmount.toFixed(2))
 
 }
 else{
@@ -267,18 +265,20 @@ else{
 
   const obje = { buildingName: putBuilding };
   const objee = { dueAmount: rent };
-  const calculaterent=()=>{
-    alert("hello")
-  }
+  // const calculaterent=()=>{
+  //   alert("hello")
+  // }
 
   return (
     <Grid container>
       <Grid item xs={12}>
         <Container maxWidth="md">
           <div>
+            
             <Formik
               initialValues={{ ...INITIAL_FORM_STATE }}
               validationSchema={FORM_VALIDATION}
+             
               onSubmit={(guest, { resetForm }) => {
                 const guests = Object.assign(guest, obj);
 
@@ -371,7 +371,7 @@ else{
                     <Grid item xs={6}>
                       <Textfield
                         name="dueAmount"
-                        label="Due Amount"
+                        label="Default Rent"
                         value={rent}
                       />
                       {/* <Select
