@@ -13,11 +13,20 @@ import Gender from "./Gender";
 import Checkbox from "./CheckBox";
 import DateTimePicker from "./DataTimePicker";
 import Button from "./Button";
+import MDButton from "components/MDButton";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import days from "./Days";
+import months from "./Months"
+//import Button from "@mui/material/Button"
 
 
 const useStyles = makeStyles({
   root: {
     height: 35,
+  },
+  size: {
+    width: 40,
+    height: 30,
   },
 });
 
@@ -39,6 +48,8 @@ const INITIAL_FORM_STATE = {
   buildingName: "",
   bedId: "",
   occupancyType: "",
+  type:"",
+  amountTopay:"",
 
   amountPaid: "",
   transactionId: "",
@@ -148,6 +159,9 @@ const GuestLoginForm = () => {
   const [availableBeds, setAvailableBeds] = React.useState([]);
   const [putBuilding, setPutBuilding] = React.useState([]);
   const [rent, setRent] = React.useState([]);
+  const [duration,setDuration]=React.useState([]);
+  const [defaultRentofBed,setDefaultRentofBed]=React.useState([])
+  const [amountToPay ,setAmountToPay]= React.useState([])
 
   let buildingNamesArray = [];
   let availableBedsByBuidlingName = [];
@@ -185,27 +199,77 @@ const GuestLoginForm = () => {
   availableBeds.map((item) => {
     availableBedsByBuidlingName.push(item.bedId);
   });
-  availableBeds.map((bed) => {
-    rentOfBed.push(bed.defaultRent);
-  });
-  //console.log(rentOfBed)
+  
+
+ 
   const selectBed = (e) => {
     setBed(e.target.outerText);
 
     const bedRent = availableBeds.filter(
       (bed) => bed.bedId == e.target.outerText
     );
+    console.log(bedRent)
 
-    bedRent.map((post) => setRent(post.dueAmount));
+    bedRent.map((post) =>
+    {
+      setRent(post.dueAmount)
+      setDefaultRentofBed(post.defaultRent)
+    } 
+    );
   };
+  const occupency = (i) => {
+    if(i.target.outerText=="Daily"){
+      setDuration(days)
+      
+      
+
+    }
+    else if(i.target.outerText == "Monthly"){
+      setDuration(months)
+      
+    }
+    else {
+      console.log(i.target.outerText)
+    }
+ 
+
+  };
+  
+  
+  const calculateCheckAmount=(a)=>{
+    var size = Object.keys(duration).length;
+  console.log(size)
+    
+    
+    console.log(a.target.outerText)
+    
+if(size == 12){
+  var checkInAmount = (a.target.outerText*defaultRentofBed)+5000;
+  setAmountToPay(checkInAmount)
+}
+else if(size == 15){
+  var checkInAmount = (a.target.outerText*(defaultRentofBed)/30)+1000;
+  setAmountToPay(checkInAmount)
+
+}
+else{
+  console.log("hi")
+}
+   
+
+  }
+  
+
 
   console.log(rent);
 
   const obj = { bedId: bed };
 
-
   const obje = { buildingName: putBuilding };
-  const objee={dueAmount:rent}
+  const objee = { dueAmount: rent };
+  const calculaterent=()=>{
+    alert("hello")
+  }
 
   return (
     <Grid container>
@@ -219,7 +283,7 @@ const GuestLoginForm = () => {
                 const guests = Object.assign(guest, obj);
 
                 const gustes = Object.assign(guests, obje);
-                const gusting = Object.assign(gustes,objee);
+                const gusting = Object.assign(gustes, objee);
                 console.log(gusting);
                 setTimeout(() => {
                   console.log(rent);
@@ -250,6 +314,91 @@ const GuestLoginForm = () => {
               {(formProps) => (
                 <Form>
                   <Grid container spacing={2}>
+                    <Grid item xs={12}>
+                      <Typography>
+                        <h4 align="center">Allocate Room</h4>
+
+                        <br />
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={6}>
+                      <h6>Select Building</h6>
+
+                      <Select
+                        className={classes.root}
+                        name="buildingName"
+                        options={building}
+                        onClick={handleClick}
+                      ></Select>
+
+                      <Grid item xs={6}></Grid>
+                    </Grid>
+                    <Grid item xs={6}>
+                      <h6>Select Bed</h6>
+                      <Select
+                        className={classes.root}
+                        name="bedId"
+                        options={availableBedsByBuidlingName}
+                        onClick={selectBed}
+                      ></Select>
+                    </Grid>
+                    <Grid item xs={6}>
+                      <InputLabel id="demo-simple-select-labe">
+                        {" "}
+                        OccupancyType
+                      </InputLabel>
+                      <Select
+                        className={classes.root}
+                        name="occupancyType"
+                        options={Occupancytype}
+                        onClick={occupency}
+                      />
+                    </Grid>
+                    <Grid item xs={6}>
+                      <InputLabel id="demo-simple-select-labe">
+                        {" "}
+                        Duration
+                      </InputLabel>
+                      <Select
+                        className={classes.root}
+                        name="type"
+                        options={duration}
+                        onClick={calculateCheckAmount}
+                       
+                      />
+                    </Grid>
+                   
+                    <Grid item xs={6}>
+                      <Textfield
+                        name="dueAmount"
+                        label="Due Amount"
+                        value={rent}
+                      />
+                      {/* <Select
+                        className={classes.root} name="rentPaid" options={bedrent}
+                      /> */}
+                    </Grid>
+                    <Grid item xs={6}>
+                    <Textfield
+                        name="amountTopay"
+                        label="Amount To Be Paid"
+                        value={amountToPay}
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <Typography>
+                        <h4 align="center">Booking/Payment Details</h4>
+                        <br />
+                      </Typography>
+                    </Grid>
+
+                    <Grid item xs={6}>
+                      <Textfield name="amountPaid" label="Amount Paid" />
+                    </Grid>
+                    <Grid item xs={6}>
+                      <Textfield name="transactionId" label="Transaction ID" />
+                    </Grid>
+
                     <Grid item xs={12}>
                       <Typography>
                         <br />
@@ -318,6 +467,9 @@ const GuestLoginForm = () => {
                       </InputLabel>
 
                       <Select
+                        IconComponent={(Gender) => (
+                          <ArrowDropDownIcon className={classes.size} />
+                        )}
                         name="gender"
                         options={Gender}
                         className={classes.root}
@@ -328,68 +480,8 @@ const GuestLoginForm = () => {
                     </Grid>
 
                     <Grid item xs={12} />
-                    <Grid item xs={12}>
-                      <Typography>
-                        <h4 align="center">Allocate Room</h4>
 
-                        <br />
-                      </Typography>
-                    </Grid>
-
-                    <Grid item xs={6}>
-                      <h6>Select Building</h6>
-
-                      <Select
-                        className={classes.root}
-                        name="buildingName"
-                        options={building}
-                        onClick={handleClick}
-                      ></Select>
-
-                      <Grid item xs={6}></Grid>
-                    </Grid>
-                    <Grid item xs={6}>
-                      <h6>Select Bed</h6>
-                      <Select
-                        className={classes.root}
-                        name="bedId"
-                        options={availableBedsByBuidlingName}
-                        onClick={selectBed}
-                      ></Select>
-                    </Grid>
-                    <Grid item xs={12}>
-                      <Typography>
-                        <h4 align="center">Booking/Payment Details</h4>
-                        <br />
-                      </Typography>
-                    </Grid>
-                    <Grid item xs={6}>
-                      <InputLabel id="demo-simple-select-labe">
-                        {" "}
-                        OccupancyType
-                      </InputLabel>
-                      <Select
-                        className={classes.root}
-                        name="occupancyType"
-                        options={Occupancytype}
-                      />
-                    </Grid>
-                    <Grid item xs={6}>
-                      <Textfield
-                        name="dueAmount"
-                        label="Due Amount"
-                        value={rent}
-                      />
-                      {/* <Select
-                        className={classes.root} name="rentPaid" options={bedrent}
-                      /> */}
-                    </Grid>
-                    <Grid item xs={6}>
-                      <Textfield name="amountPaid" label="Amount Paid" />
-                    </Grid>
-                    <Grid item xs={6}>
-                      <Textfield name="transactionId" label="Transaction ID" />
-                    </Grid>
+                    
 
                     <Grid item xs={12}>
                       <Typography>
