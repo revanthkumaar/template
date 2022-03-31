@@ -5,11 +5,11 @@ import MDBox from 'components/MDBox';
 
 import { Grid, Card, CardContent, Typography } from '@mui/material';
 
-import BuildingsLayout from './buildingsLayout'
+import BuildingsLayout from './buildingsLayout/buildingsLayout'
 import BedSummaryChart from './buildingspieCharts/bedSummaryChart';
 import PaymentSummaryChart from './buildingspieCharts/paymentSummaryChart';
 
-import BuildingDropdown from 'layouts/roomavailabilitytracker/BuildingDropdown';
+import BuildingDropdown from 'layouts/roomavailabilitytracker/buildings/BuildingDropdown';
 
 const BuildingsTracker = (props) => {
     return (

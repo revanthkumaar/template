@@ -1,6 +1,6 @@
 import React from "react";
 import { Chart } from "react-google-charts";
-import BuildingsLayout from "../buildingsLayout";
+import BuildingsLayout from "../buildingsLayout/buildingsLayout";
 import { useEffect, useState } from 'react';
 import axios from "axios";
 

@@ -15,7 +15,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import MDButton from 'components/MDButton';
 import axios from 'axios';
-import GuestPopUp from './guestPopUP';
+import GuestPopUp from '../GuestPopUp/guestPopUP'
 import { setOpenConfigurator } from 'context';
 import './buildingLayout.css'
 import Backdrop from '@mui/material/Backdrop';
