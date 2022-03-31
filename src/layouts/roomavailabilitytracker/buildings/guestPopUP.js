@@ -10,7 +10,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import TextField from '@mui/material/TextField';
-import { Grid } from '@mui/material';
+import { Grid ,FormControl,Input,MenuItem,InputLabel,Select} from '@mui/material';
 import { borderRadius } from '@mui/system';
 import { Link } from 'react-router-dom';
 import RecentTransactions from 'layouts/dashboard/components/summaryTables/Recenttransactions';
@@ -109,21 +109,33 @@ export default function GuestPopUp({ open, handleClose, ...props }) {
                                     style={{ width: '65%', marginBottom: '20px' }}
                                 /></Grid>
                             <Grid item xs={6}>
-                                <TextField
-                                    id="outlined-textarea"
-                                    label="Payment Purpose"
-                                    style={{ width: '65%', marginLeft: '50px', marginBottom: '20px' }}
-                                /></Grid>
-                            <br></br>
-                            <br></br>
+                     
+  <InputLabel id="Payment Purpose"  style={{ width: '65%',marginLeft: '60px', marginBottom: '5px' }}
+    >Payment Purpose</InputLabel>
+  <Select
+    labelId="Payment Purpose"
+    id="Payment Purpose"
+    style={{ width: '65%',marginLeft: '50px', marginBottom: '20px' ,height:40}}
+    value={onselect}
+    label="Payment Purpose"
+  
+  >
+    <MenuItem>Rent</MenuItem>
+    <MenuItem>Security Deposit</MenuItem>
+ 
+  </Select>
+</Grid>
 
-                            <Grid item xs={3}>
+                            <Grid item xs={5}>
+                                <br></br>
+                               
+                                
                                 <MDButton
                                     variant="contained"
                                     color="info"
                                     size="small"
                                     justify="right"
-                                    style={{ borderRadius:10, float: 'right', height: 40 }}
+                                    style={{ borderRadius:9, float: 'left', height: 40,width: '50%' , marginBottom: '20px'}}
                                 >
                                   <MDTypography color='white'>Record Payments</MDTypography>
                                 </MDButton>
