@@ -165,7 +165,6 @@ const GuestLoginForm = () => {
 
   let buildingNamesArray = [];
   let availableBedsByBuidlingName = [];
-  let rentOfBed = [];
   const classes = useStyles();
 
   useEffect(() => {
@@ -242,7 +241,7 @@ const GuestLoginForm = () => {
     console.log(a.target.outerText)
     
 if(size == 12){
-  var checkInAmount = (a.target.outerText*defaultRentofBed)+5000;
+  var checkInAmount = (a.target.outerText*defaultRentofBed)+3000;
   setAmountToPay(checkInAmount)
 }
 else if(size == 15){
@@ -257,8 +256,6 @@ else{
 
   }
   
-
-
   console.log(rent);
 
   const obj = { bedId: bed };

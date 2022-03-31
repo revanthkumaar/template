@@ -2,85 +2,11 @@ import React, { useState } from 'react';
 
 import MaterialTable from 'material-table';
 import { Grid } from '@mui/material';
-//hii
+import axios from 'axios'
 
-const empList = [
-	{
-		id: 1,
-		roomNo: 101,
-		a_c: 'Yes',
-		bedNumber: 'A12',
-		
-		monthlyRent: "18,000",
-		dailyRent: 200
-	},
-	{
-		id: 2,
-		roomNo: 102,
-		a_c: 'Yes',
-		bedNumber: 'A12',
-	
-		monthlyRent: "15,000",
-		dailyRent: 200
-	},
-	{
-		id: 3,
-		roomNo: 103,
-		a_c: 'No',
-		bedNumber: 'A12',
-		
-		monthlyRent: "9,870",
-		dailyRent: 200
-	},
-	{
-		id: 4,
-		roomNo: 104,
-		a_c: 'Yes',
-		bedNumber: 'A12',
-	
-		monthlyRent: "10,000",
-		dailyRent: 300
-	},
-	{
-		id: 5,
-		roomNo: 101,
-		a_c: 'Yes',
-		bedNumber: 'A12',
-	
-		monthlyRent: "12,000",
-		dailyRent: 400
-	},
-	{
-		id: 6,
-		roomNo: 102,
-		a_c: 'Yes',
-		bedNumber: 'A12',
-	
-		monthlyRent: 987,
-		dailyRent: 200
-	},
-	{
-		id: 7,
-		roomNo: 103,
-		a_c: 'No',
-		bedNumber: 'A12',
-	
-		monthlyRent: "17,000",
-		dailyRent: 200
-	},
-	{
-		id: 8,
-		roomNo: 104,
-		a_c: 'Yes',
-		bedNumber: 'A12',
-	
-		monthlyRent: "18,000",
-		dailyRent: 200
-	}
-];
 
 function RoomTable() {
-	const [ data, setData ] = useState(empList);
+	const [ data, setData ] = useState([]);
 	const columns = [
 		{
 			title: 'ID',
@@ -92,16 +18,16 @@ function RoomTable() {
 			}
 		},
 		{
-			title: 'Room No',
-			field: 'roomNo',
+			title: 'Bed No',
+			field: 'bedId',
 			headerStyle: {
 				backgroundColor: '#1E90FF',
 				color: 'white'
 			}
 		},
 		{
-			title: 'A/C',
-			field: 'a_c',
+			title: 'Room Number',
+			field: 'roomId',
 			headerStyle: {
 				backgroundColor: '#1E90FF',
 				color: 'white'
@@ -109,8 +35,8 @@ function RoomTable() {
 			
 		},
 		{
-			title: 'Bed Number',
-			field: 'bedNumber',
+			title: 'Floor Number',
+			field: 'floorId',
 			headerStyle: {
 				backgroundColor: '#1E90FF',
 				color: 'white'
@@ -119,21 +45,71 @@ function RoomTable() {
 		
 	
 		{
-			title: 'Monthly Rent',
-			field: 'monthlyRent',
+			title: 'Building Number',
+			field: 'buildingId',
 			headerStyle: {
 				backgroundColor: '#1E90FF',
 				color: 'white'
 			}
 		},
 		{
-			title: 'Daily Rent',
-			field: 'dailyRent',
+			title: 'Building Name',
+			field: 'buildingName',
 			headerStyle: {
 				backgroundColor: '#1E90FF',
 				color: 'white'
 			}
-		}
+		},
+		{
+			title: 'Bed Status',
+			field: 'bedStatus',
+			headerStyle: {
+				backgroundColor: '#1E90FF',
+				color: 'white'
+			}
+		},
+		{
+			title: 'Guest ID',
+			field: 'guestId',
+			headerStyle: {
+				backgroundColor: '#1E90FF',
+				color: 'white'
+			}
+		},
+		{
+			title: 'Bed Name',
+			field: 'bedName',
+			headerStyle: {
+				backgroundColor: '#1E90FF',
+				color: 'white'
+			}
+		},
+		{
+			title: 'Default Rent',
+			field: 'defaultRent',
+			headerStyle: {
+				backgroundColor: '#1E90FF',
+				color: 'white'
+			}
+		},
+		{
+			title: 'Room Type',
+			field: 'ac',
+			headerStyle: {
+				backgroundColor: '#1E90FF',
+				color: 'white'
+			}
+		},
+		{
+			title: 'Security Deposit',
+			field: 'securityDeposit',
+			headerStyle: {
+				backgroundColor: '#1E90FF',
+				color: 'white'
+			}
+		},
+		
+
 	];
 
 	return (
@@ -152,6 +128,13 @@ function RoomTable() {
 								new Promise((resolve, reject) => {
 									const updatedRows = [ ...data, { id: Math.floor(Math.random() * 100), ...newRow } ];
 									setTimeout(() => {
+										
+										const res = axios.post(
+											"http://localhost:8080/api/v1/payments",
+					  
+											newRow
+										  );
+										console.log(newRow)
 										setData(updatedRows);
 										resolve();
 									}, 2000);
