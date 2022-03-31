@@ -24,35 +24,13 @@ export default function GuestPopUp({ open, handleClose, ...props }) {
     return (
         <div>
             
-
-
-
-            <Dialog open={open} onClose={handleClose} maxWidth='lg'>
+             {props.GuestDetails.occupancyType === "regular" ? (<Dialog open={open} onClose={handleClose} maxWidth='lg'>
                 <DialogTitle>GUEST DETAILS</DialogTitle>
-
                 <DialogContent>
                     <Guestdetails guestdetails={props.GuestDetails} />
-                        <br></br>
-                        <br></br>
-                        <br></br>
-                        <RecordpaymentsinPopUp />
-
-                        <Grid item xs={8}>
-                                <DialogTitle ><br></br>TRANSACTION HISTORY</DialogTitle></Grid>
-                                
+                       <RecordpaymentsinPopUp />                       
+                                <DialogTitle ><br></br>TRANSACTION HISTORY</DialogTitle>                                
                             <TransactionHistory />
-                       
-
-
-
-
-
-
-
-                   
-
-
-
                 </DialogContent>
                 <DialogActions>
                     <Grid container style={{ display: "flex" }} >
@@ -64,12 +42,32 @@ export default function GuestPopUp({ open, handleClose, ...props }) {
                             style={{ borderRadius: 10 }}
                             onClick={handleClose}>
                             Close</MDButton></Grid>
-                        
-
                     </Grid>
-
                 </DialogActions>
-            </Dialog>
+            </Dialog>)
+             : (<Dialog open={open} onClose={handleClose} maxWidth='lg'>
+                <DialogTitle>GUEST DETAILS</DialogTitle>
+                <DialogContent>
+                    <Guestdetails guestdetails={props.GuestDetails} />
+                                            
+                                <DialogTitle ><br></br>TRANSACTION HISTORY</DialogTitle>                                
+                            <TransactionHistory />
+                </DialogContent>
+                <DialogActions>
+                    <Grid container style={{ display: "flex" }} >
+                        <Grid item xs={6} ><MDButton
+                            width='20%'
+                            variant="contained"
+                            color="info" size="large"
+                            justify="center"
+                            style={{ borderRadius: 10 }}
+                            onClick={handleClose}>
+                            Close</MDButton></Grid>
+                    </Grid>
+                </DialogActions>
+            </Dialog>)  }
+            
+            
         </div>
     );
 }
