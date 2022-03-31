@@ -50,7 +50,6 @@ const INITIAL_FORM_STATE = {
   occupancyType: "",
   type:"",
   amountTopay:"",
-
   amountPaid: "",
   transactionId: "",
   addressLine1: "",
@@ -313,8 +312,8 @@ else{
                   <Grid container spacing={2}>
                     <Grid item xs={12}>
                       <Typography>
+                        <br />
                         <h4 align="center">Allocate Room</h4>
-
                         <br />
                       </Typography>
                     </Grid>
@@ -384,6 +383,7 @@ else{
                     </Grid>
                     <Grid item xs={12}>
                       <Typography>
+                        <br />
                         <h4 align="center">Booking/Payment Details</h4>
                         <br />
                       </Typography>
@@ -482,6 +482,7 @@ else{
 
                     <Grid item xs={12}>
                       <Typography>
+                        
                         <h4 align="center">Permanent Address</h4>
                         <br />
                       </Typography>
@@ -509,6 +510,7 @@ else{
                     <Divider variant="middle" />
                     <Grid item xs={12}>
                       <Typography>
+                        <br />
                         <h4 align="center">Work Related Information</h4>
                       </Typography>
                       <br />
