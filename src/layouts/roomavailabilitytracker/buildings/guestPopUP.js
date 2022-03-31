@@ -131,13 +131,21 @@ export default function GuestPopUp({ open, handleClose, ...props }) {
                                
                                 
                                 <MDButton
+
                                     variant="contained"
+
                                     color="info"
+
                                     size="small"
+
                                     justify="right"
-                                    style={{ borderRadius:9, float: 'left', height: 40,width: '50%' , marginBottom: '20px'}}
+
+                                    style={{ borderRadius: 10, float: 'right', height: 40 }}
+
                                 >
-                                  <MDTypography color='white'>Record Payments</MDTypography>
+
+                                    <MDTypography color='white'>Record Payment</MDTypography>
+
                                 </MDButton>
                             </Grid>
                             <Grid item xs={4}></Grid>
