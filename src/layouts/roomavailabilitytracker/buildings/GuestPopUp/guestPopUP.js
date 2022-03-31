@@ -28,6 +28,9 @@ export default function GuestPopUp({ open, handleClose, ...props }) {
                 <DialogTitle>GUEST DETAILS</DialogTitle>
                 <DialogContent>
                     <Guestdetails guestdetails={props.GuestDetails} />
+                    <br></br>
+                    <br></br>
+                    <br></br>
                        <RecordpaymentsinPopUp />                       
                                 <DialogTitle ><br></br>TRANSACTION HISTORY</DialogTitle>                                
                             <TransactionHistory />
@@ -45,7 +48,13 @@ export default function GuestPopUp({ open, handleClose, ...props }) {
                     </Grid>
                 </DialogActions>
             </Dialog>)
-             : (<Dialog open={open} onClose={handleClose} maxWidth='lg'>
+
+
+
+             :
+             
+             
+             (<Dialog open={open} onClose={handleClose} maxWidth='lg'>
                 <DialogTitle>GUEST DETAILS</DialogTitle>
                 <DialogContent>
                     <Guestdetails guestdetails={props.GuestDetails} />
