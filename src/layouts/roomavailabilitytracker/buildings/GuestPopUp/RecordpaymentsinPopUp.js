@@ -8,7 +8,7 @@ import MDTypography from 'components/MDTypography';
 function RecordpaymentsinPopUp() {
   return (
     <div><Grid container spacing={1}>
-    <Grid item xs={6} sx={{ pl: 6 }}>
+    <Grid item xs={6} >
 
         <TextField
             id="outlined-textarea"
@@ -21,7 +21,7 @@ function RecordpaymentsinPopUp() {
             label="Transaction Id"
             style={{ width: '65%', marginBottom: '20px' }}
         /></Grid>
-    <Grid item xs={6}>
+    <Grid item xs={6} >
 
 <InputLabel id="Payment Purpose"  style={{ width: '65%',marginLeft: '60px', marginBottom: '5px' }}
 >Payment Purpose</InputLabel>
@@ -39,24 +39,16 @@ label="Payment Purpose"
 </Select>
 </Grid>
 
-    <Grid item xs={5}>
-       
-       
-        
-        <MDButton
+    <Grid item xs={6} >
+            <MDButton
             variant="contained"
             color="info"
             size="small"
             justify="right"
-            style={{ borderRadius: 10, float: 'right', height: 40 }}
-
-
-
-            >
-
-
-
-                <MDTypography color='white'>Record Payment</MDTypography>        </MDButton>
+            style={{ borderRadius: 10, height: 40 }}
+            sx={{ marginTop: 2}}
+            onClick={()=>{console.log("hii")}}
+            ><MDTypography color='white'>Pay</MDTypography></MDButton>
     </Grid>
     
     </Grid></div>
