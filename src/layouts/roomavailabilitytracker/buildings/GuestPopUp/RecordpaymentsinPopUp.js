@@ -1,58 +1,131 @@
-import React from 'react'
-import { Grid ,MenuItem,InputLabel,Select} from '@mui/material';
-import TextField from '@mui/material/TextField';
-import MDButton from 'components/MDButton';
-import MDTypography from 'components/MDTypography';
+import React, { useEffect, useState } from "react";
+import { Formik, Form } from "formik";
+import * as Yup from "yup";
+import axios from "axios";
+import { Container, Grid, Typography, InputLabel, Alert } from "@mui/material";
+
+import { makeStyles } from "@mui/styles";
+
+import Textfield from "layouts/profile/GuestLoginForm/components/TextField";
+import Select from "layouts/profile/GuestLoginForm/components/Select";
+import Purpose from "./Purpose";
+
+import Button from "layouts/profile/GuestLoginForm/components/Button";
+
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import { height } from "@mui/system";
 
 
-function RecordpaymentsinPopUp() {
+
+const useStyles = makeStyles({
+  root: {
+    height: 40,
+  },
+  size: {
+    width: 40,
+    height: 30,
+  },
+  gap:{
+      paddingLeft:20,
+      height:100
+
+  }
+});
+
+
+
+
+
+const FORM_VALIDATION = Yup.object().shape({
+ 
+  paymentPurpose: Yup.string().required("Required"),
+  amountPaid: Yup.number().required("Required"),
+  transactionId: Yup.string().required("Required"),
+});
+
+const RecordpaymentsinPopUp = (props) => {
+
+  var GuestID = props.guestdetails.id
+  var INITIAL_FORM_STATE = {
+ 
+    paymentPurpose: "",
+    amountPaid: "",
+    transactionId: "",
+    guestId: GuestID,
+   
+  };
+
+   const classes = useStyles();
+
+
+
+
   return (
-    <div><Grid container spacing={1}>
-    <Grid item xs={6} >
+    <Grid container>
+      <Grid item xs={12}>
+        <Container maxWidth="md">
+          <div>
+            
+            <Formik
+              initialValues={{ ...INITIAL_FORM_STATE }}
+              validationSchema={FORM_VALIDATION}
+             
+              onSubmit={(guest, { resetForm }) => {
+                console.log(guest)
+                
+                axios.post("http://localhost/8989/payment/recordPayments",guest)
+                setTimeout(() => {
+                  resetForm();
+                }, 50);
 
-        <TextField
-            id="outlined-textarea"
-            label="Amount Paid"
-            style={{ width: '65%', marginLeft: '50px', marginBottom: '20px' }}
-        /></Grid>
-    <Grid item xs={6}>
-        <TextField
-            id="outlined-textarea"
-            label="Transaction Id"
-            style={{ width: '65%', marginBottom: '20px' }}
-        /></Grid>
-    <Grid item xs={6} >
+              }}
+            >
+              {(formProps) => (
+                <Form>
+                  <Grid container spacing={2}>
+                   
 
-<InputLabel id="Payment Purpose"  style={{ width: '65%',marginLeft: '60px', marginBottom: '5px' }}
->Payment Purpose</InputLabel>
-<Select
-labelId="Payment Purpose"
-id="Payment Purpose"
-style={{ width: '65%',marginLeft: '50px', marginBottom: '20px' ,height:40}}
-value={onselect}
-label="Payment Purpose"
+                    <Grid item xs={6}>
+                      <Textfield name="amountPaid" label="Amount Paid" />
+                    </Grid>
+                    <Grid item xs={6}>
+                      <Textfield name="transactionId" label="Transaction ID" />
+                    </Grid>
 
->
-<MenuItem>Rent</MenuItem>
-<MenuItem>Security Deposit</MenuItem>
 
-</Select>
-</Grid>
+                    <Grid item xs={6}>
+                    
+                      <InputLabel id="demo-simple-select-label">
+                        &nbsp; Payment Purpose
+                      </InputLabel>
 
-    <Grid item xs={6} >
-            <MDButton
-            variant="contained"
-            color="info"
-            size="small"
-            justify="right"
-            style={{ borderRadius: 10, height: 40 }}
-            sx={{ marginTop: 2}}
-            onClick={()=>{console.log("hii")}}
-            ><MDTypography color='white'>Pay</MDTypography></MDButton>
+                      <Select
+                        IconComponent={(Purpose) => (
+                          <ArrowDropDownIcon className={classes.size} />
+                        )}
+                        name="paymentPurpose"
+                        options={Purpose}
+                        className={classes.root}
+                      ></Select>
+                    </Grid>
+                   
+
+                    <Grid item xs={6} sx={{ paddingBottom: 5 , marginLeft:45}}>
+                    
+                 
+                      <Button >Record Payment</Button>
+                      
+
+               </Grid>
+                  </Grid>
+                </Form>
+              )}
+            </Formik>
+          </div>
+        </Container>
+      </Grid>
     </Grid>
-    
-    </Grid></div>
-  )
-}
+  );
+};
 
-export default RecordpaymentsinPopUp
+export default RecordpaymentsinPopUp;
