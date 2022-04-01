@@ -102,55 +102,39 @@ const BuildingsLayout = (props) => {
                                                                                                 else {
                                                                                                     return (<HotelOutlinedIcon key={bdno.bedId} color="error" className="click" id={bdno.guestId}
                                                                                                         onClick={() => {
-                                                                                                            
-                                                                                                            console.log(bdno.guestId)
-                                                                                                            
                                                                                                             setLoading(true)
+                                                                                                            console.log(bdno.guestId)
                                                                                                             {   
                                                                                                                 loading ?
-
                                                                                                                     axios.get(`http://localhost:8989/guest/getGuestByGuestId/${bdno.guestId}`)
                                                                                                                         .then(res => {
-
                                                                                                                             GuestDetails = (res.data);
-                                                                                                                            console.log(GuestDetails);
-                                                                                                                            setOpen(true);
-
-
-                                                                                                                        }) :
-                                                                                                                    <Backdrop
-                                                                                                                        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-                                                                                                                        open
-                                                                                                                        onClick={handleClose}
-                                                                                                                    >
-                                                                                                                        <CircularProgress color="inherit" />
-                                                                                                                    </Backdrop>
-                                                                                                            }
-
-
-                                                                                                            // getGuestDetails();
-
+                                                                                                                            console.log(GuestDetails);                                                                                                                            
+                                                                                                                            setOpen(true)
+                                                                                                                        })
+                                                                                                                        :
+                                                                                                                        <Backdrop
+                                                                                                                            sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                                                                                                                            open
+                                                                                                                            onClick={handleClose}
+                                                                                                                        >
+                                                                                                                            <CircularProgress color="inherit" />
+                                                                                                                        </Backdrop>
+                                                                                                                } 
                                                                                                         }} />)
                                                                                                 }
-
                                                                                             })()}
                                                                                         </Grid>
-
-
-
-
                                                                                         {/* {bdno.bedStatus === true ? 
                                                                                              (<IconButton><HotelOutlinedIcon color="success" /></IconButton>)
                                                                                     :
                                                                                             (<IconButton onClick={() => { setOpen(true) }}><HotelOutlinedIcon color="error" /></IconButton>) }                                                                                                                                                                                                                                                             */}
-
                                                                                         <Grid item xs={12} align="center" ><h6 align="center" key={bdno.bedName} >{bdno.bedName}</h6></Grid>
                                                                                     </Grid>
                                                                                 </Grid>
                                                                             </>
                                                                         )
                                                                     })}
-
                                                                 </Grid>
                                                             </Grid>
                                                         </>
