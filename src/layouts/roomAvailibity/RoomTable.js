@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 
 import MaterialTable from 'material-table';
 import { Grid } from '@mui/material';
@@ -11,7 +11,7 @@ function RoomTable() {
 		{
 			title: 'ID',
 			field: 'id',
-			editable: false,
+			//editable:false,
 			headerStyle: {
 				backgroundColor: '#1E90FF',
 				color: 'white'
@@ -112,6 +112,33 @@ function RoomTable() {
 
 	];
 
+	useEffect(() => {
+
+		axios
+	
+		  .get("http://localhost:8085/bed/getAllBeds")
+	
+		  .then((res) => {
+	
+			setData(res.data);
+	
+	
+	
+			console.log(res.data);
+	
+		  })
+	
+	
+	
+		  .catch((err) => {
+	
+			console.log(err);
+	
+		  });
+	
+	  }, []);
+
+
 	return (
 		<div className="App">
 			<Grid container>
@@ -130,7 +157,7 @@ function RoomTable() {
 									setTimeout(() => {
 										
 										const res = axios.post(
-											"http://localhost:8080/api/v1/payments",
+											"http://localhost:8085/bed/addBed",
 					  
 											newRow
 										  );
@@ -141,14 +168,14 @@ function RoomTable() {
 								}),
 							onRowDelete: (selectedRow) =>
 								new Promise((resolve, reject) => {
-									const index = selectedRow.tableData.id;
+									const index = selectedRow.id;
 									const updatedRows = [ ...data ];
 									updatedRows.splice(index, 1);
 									setTimeout(() => {
-										// const res = axios.delete(
-										// 	`http://localhost:8080/api/v1/payments/${index}`
-										//   );
-										//   console.log(res);
+										 const res = axios.delete(
+											`http://localhost:8085/bed/deleteBed/${index}`
+										   );
+										   console.log(res);
 										  console.log(updatedRows);
 										setData(updatedRows);
 										resolve();
@@ -160,11 +187,12 @@ function RoomTable() {
 									const updatedRows = [ ...data ];
 									updatedRows[index] = updatedRow;
 									setTimeout(() => {
-										// const res = axios.put(
-										// 	`http://localhost:8080/api/v1/payments/${index}`
-										//   );
-										//   console.log(res);
-										  console.log(updatedRows);
+										const res = axios.put(
+											`http://localhost:8085/bed/updateBedById/${index }`
+										  );
+										  
+										  
+										  console.log(updatedRows.id);
 										setData(updatedRows);
 										resolve();
 									}, 2000);
