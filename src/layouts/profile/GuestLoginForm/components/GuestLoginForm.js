@@ -48,7 +48,7 @@ const INITIAL_FORM_STATE = {
   buildingName: "",
   bedId: "",
   occupancyType: "",
-  type:"",
+  duration:"",
   amountTopay:"",
   amountPaid: "",
   transactionId: "",
@@ -211,7 +211,7 @@ const GuestLoginForm = () => {
     bedRent.map((post) =>
     {
       setRent(post.defaultRent)
-      setDefaultRentofBed(post.defaultRent)
+      setDefaultRentofBed(post.dueAmount)
     } 
     );
   };
@@ -357,7 +357,7 @@ else{
                       </InputLabel>
                       <Select
                         className={classes.root}
-                        name="type"
+                        name="duration"
                         options={duration}
                         onClick={calculateCheckAmount}
                        
@@ -368,7 +368,7 @@ else{
                       <Textfield
                         name="dueAmount"
                         label="Default Rent"
-                        value={rent}
+                        value={defaultRentofBed}
                       />
                       {/* <Select
                         className={classes.root} name="rentPaid" options={bedrent}
