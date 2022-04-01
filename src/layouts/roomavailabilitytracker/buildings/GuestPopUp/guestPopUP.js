@@ -31,7 +31,7 @@ export default function GuestPopUp({ open, handleClose, ...props }) {
                     <br></br>
                     <br></br>
                     <br></br>
-                       <RecordpaymentsinPopUp />                       
+                       <RecordpaymentsinPopUp guestdetails={props.GuestDetails}/>                       
                                 <DialogTitle ><br></br>TRANSACTION HISTORY</DialogTitle>                                
                             <TransactionHistory />
                 </DialogContent>
