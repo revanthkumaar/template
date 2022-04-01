@@ -31,6 +31,7 @@ const BuildingsLayout = (props) => {
     const [buildingInfo, setBuildingInfo] = React.useState([]);
 
     const [loading, setLoading] = React.useState(false)
+    const closeLoading = () => setLoading(!loading)
 
     useEffect(() => {
         const GetData = async () => {
@@ -155,7 +156,7 @@ const BuildingsLayout = (props) => {
                     <Backdrop
                         sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
                         open
-                        onClick={handleClose}
+                        onClick={closeLoading}
                     >
                         <CircularProgress color="inherit" />
                     </Backdrop>
