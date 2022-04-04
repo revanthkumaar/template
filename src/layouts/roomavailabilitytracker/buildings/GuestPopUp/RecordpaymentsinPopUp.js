@@ -110,7 +110,7 @@ const RecordpaymentsinPopUp = (props) => {
                     </Grid>
                    
 
-                    <Grid item xs={6} sx={{ paddingBottom: 5 , marginLeft:45}}>
+                    <Grid item xs={6}   sx={{ marginTop: 2}}>
                     
                  
                       <Button >Record Payment</Button>
