@@ -70,10 +70,11 @@ const RecordpaymentsinPopUp = (props) => {
               initialValues={{ ...INITIAL_FORM_STATE }}
               validationSchema={FORM_VALIDATION}
              
-              onSubmit={(guest, { resetForm }) => {
+              onSubmit={async(guest, { resetForm }) => {
                 console.log(guest)
                 
-                axios.post("http://localhost/8989/payment/recordPayments",guest)
+                const res = await axios.post("http://localhost:8989/payment/addAfterOnBoard",guest)
+                console.log(res)
                 setTimeout(() => {
                   resetForm();
                 }, 50);
@@ -92,7 +93,7 @@ const RecordpaymentsinPopUp = (props) => {
                       <Textfield name="transactionId" label="Transaction ID" />
                     </Grid>
 
-
+                   
                     <Grid item xs={6}>
                     
                       <InputLabel id="demo-simple-select-label">
