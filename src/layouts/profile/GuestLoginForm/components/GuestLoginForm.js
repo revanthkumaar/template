@@ -168,7 +168,7 @@ const GuestLoginForm = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8085/bed/getAvailableBedsByBuildings")
+      .get("http://localhost:8989/bed/getAvailableBedsByBuildings")
       .then((res) => {
         setoneBuilding(res.data);
         console.log(res.data);
@@ -260,7 +260,7 @@ else{
   const obj = { bedId: bed };
 
   const obje = { buildingName: putBuilding };
-  const objee = { dueAmount: rent };
+  const objee = { defaultRent: rent };
   // const calculaterent=()=>{
   //   alert("hello")
   // }
@@ -275,7 +275,7 @@ else{
               initialValues={{ ...INITIAL_FORM_STATE }}
               validationSchema={FORM_VALIDATION}
              
-              onSubmit={(guest, { resetForm }) => {
+              onSubmit={async(guest, { resetForm }) => {
                 const guests = Object.assign(guest, obj);
 
                 const gustes = Object.assign(guests, obje);
@@ -296,14 +296,14 @@ else{
 
                 // <Alert severity="info">This is an info alert — check it out!</Alert>
 
-                // console.log(guest.Idproof.name);
-                // const res = await axios.post(
-                //   "http://localhost:8989/guest-service/addGuest",
+                console.log(guest.Idproof.name);
+                const res = await axios.post(
+                  "http://localhost:8989/guest-service/addGuest",
 
-                //     guest
-                //     //payment,
+                    guest
+                    //payment,
 
-                // );
+                );
                 // console.log(res.data);
               }}
             >
