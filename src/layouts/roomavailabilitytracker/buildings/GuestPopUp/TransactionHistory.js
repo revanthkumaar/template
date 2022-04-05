@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import axios from "axios";
 
 
-const [tableData,setTableData] = useState([])
+// const [tableData,setTableData] = useState([])
 
 const columns = [
 	{ field: 'id', headerName: 'DATE', width:180 },
@@ -76,14 +76,14 @@ export default function TransactionHistory() {
 		async function fetchData() {
 	   const response = await axios.get('http://localhost:8086/payment/getTrasactionHistoryByGuestId/SLH0001')
 		console.log(response.data)  
-		 .then((data) => setTableData(data))  
-		 console.log(tableData)
+		//  .then((data) => setTableData(data))  
+		//  console.log(tableData)
 	 }
 	 fetchData();
 	}, []);
 	return (
 		<div style={{ height: 400, width: '100%' }}>
-			<DataGrid rows={tableData} columns={columns} pageSize={5} rowsPerPageOptions={[ 5 ]} />
+			<DataGrid rows={rows} columns={columns} pageSize={5} rowsPerPageOptions={[ 5 ]} />
 		</div>
 	);
 }
