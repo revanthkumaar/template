@@ -33,7 +33,7 @@ export default function GuestPopUp({ open, handleClose, ...props }) {
                     <br></br>
                        <RecordpaymentsinPopUp guestdetails={props.GuestDetails}/>                       
                                 <DialogTitle ><br></br>TRANSACTION HISTORY</DialogTitle>                                
-                            <TransactionHistory />
+                            <TransactionHistory  guestdetails={props.GuestDetails}/>
                 </DialogContent>
                 <DialogActions>
                     <Grid container style={{ display: "flex" }} >
@@ -60,7 +60,7 @@ export default function GuestPopUp({ open, handleClose, ...props }) {
                     <Guestdetails guestdetails={props.GuestDetails} />
                                             
                                 <DialogTitle ><br></br>TRANSACTION HISTORY</DialogTitle>                                
-                            <TransactionHistory />
+                            <TransactionHistory guestdetails={props.GuestDetails} />
                 </DialogContent>
                 <DialogActions>
                     <Grid container style={{ display: "flex" }} >

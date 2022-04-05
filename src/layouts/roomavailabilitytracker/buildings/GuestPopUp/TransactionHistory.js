@@ -71,7 +71,8 @@ const rows = [
 	}
 ];
 
-export default function TransactionHistory() {
+export default function TransactionHistory(props) {
+	console.log(props.guestdetails)
 	useEffect(() => {
 		async function fetchData() {
 	   const response = await axios.get('http://localhost:8086/payment/getTrasactionHistoryByGuestId/SLH0001')

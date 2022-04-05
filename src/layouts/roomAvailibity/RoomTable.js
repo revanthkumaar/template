@@ -98,7 +98,7 @@ function RoomTable() {
 		{
 			title: 'Room Type',
 			field: 'ac',
-			lookup:{True:"TRUE",False:"False"},
+			//lookup:{True:"TRUE",False:"False"},
 			headerStyle: {
 				backgroundColor: '#1E90FF',
 				color: 'white'
