@@ -260,7 +260,7 @@ else{
   const obj = { bedId: bed };
 
   const obje = { buildingName: putBuilding };
-  const objee = { dueAmount: rent };
+  const objee = { defaultRent: rent };
   // const calculaterent=()=>{
   //   alert("hello")
   // }
