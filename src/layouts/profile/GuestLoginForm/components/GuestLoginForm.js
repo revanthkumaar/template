@@ -261,9 +261,6 @@ else{
 
   const obje = { buildingName: putBuilding };
   const objee = { defaultRent: rent };
-  // const calculaterent=()=>{
-  //   alert("hello")
-  // }
 
   return (
     <Grid container>
@@ -359,9 +356,7 @@ else{
                         label="Default Rent"
                         value={defaultRentofBed}
                       />
-                      {/* <Select
-                        className={classes.root} name="rentPaid" options={bedrent}
-                      /> */}
+                      
                     </Grid>
                     <Grid item xs={6}>
                     <Textfield
