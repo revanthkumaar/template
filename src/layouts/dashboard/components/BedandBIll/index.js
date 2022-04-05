@@ -1,20 +1,43 @@
-
+import React, { useEffect, useState } from 'react';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import ArrowCircleRightRoundedIcon from '@mui/icons-material/ArrowCircleRightRounded';
 import IconButton from '@mui/material/IconButton';
 import { CardContent, Divider } from '@mui/material';
 
+import axios from 'axios';
 import MDBox from 'components/MDBox';
 import MDTypography from 'components/MDTypography';
 
 function BedandBill(props) {
-	return (
+  const [build, setBuild] = React.useState([])
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8085/bed/getAllBedsCount")
+      .then((res) => {
+
+        console.log(res.data);
+        setBuild(res.data)
+     
+        //   res.data.map((data) => {
+        //     buildingNamesArray.push(data.buildingName);
+        //   });
+
+        //   setBuilding(buildingNamesArray);
+      })
+
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+console.log(build.totalAvailbleBeds);
+  return (
     <div>
       <Grid item xs={12} md={6} lg={3}>
         <h4>Overall Monthly Summary</h4>
       </Grid>
-	  <br/>
+      <br />
       <Grid container spacing={3} >
         <Grid item xs={12} md={6} lg={3}>
           <MDBox mb={1.5}>
@@ -26,7 +49,7 @@ function BedandBill(props) {
                   fontWeight="regular"
                   style={{ fontSize: "2em" }}
                 >
-                  1000
+                  {build.totalBeds}
                 </MDTypography>
                 <MDTypography color="light" fontWeight="light">
                   Total Beds
@@ -57,7 +80,7 @@ function BedandBill(props) {
                   fontWeight="regular"
                   style={{ fontSize: "2em" }}
                 >
-                  423
+                  {build.totalAvailbleBeds}
                 </MDTypography>
                 <MDTypography color="light" fontWeight="light">
                   Available Beds
@@ -91,7 +114,7 @@ function BedandBill(props) {
                   302
                 </MDTypography>
                 <MDTypography color="light" fontWeight="light">
-                 Advance Bookings
+                  Advance Bookings
                 </MDTypography>
                 <Divider variant="insent" fullWidth />
                 <MDTypography

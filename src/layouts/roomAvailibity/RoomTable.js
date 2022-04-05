@@ -11,7 +11,7 @@ function RoomTable() {
 		{
 			title: 'ID',
 			field: 'id',
-			//editable:false,
+			editable:false,
 			headerStyle: {
 				backgroundColor: '#1E90FF',
 				color: 'white'
@@ -55,6 +55,7 @@ function RoomTable() {
 		{
 			title: 'Building Name',
 			field: 'buildingName',
+			lookup:{SriKalaNilayam:'Sri Kala Nilayam',SriNilayam:'Sri Nilayam'},
 			headerStyle: {
 				backgroundColor: '#1E90FF',
 				color: 'white'
@@ -63,6 +64,7 @@ function RoomTable() {
 		{
 			title: 'Bed Status',
 			field: 'bedStatus',
+			lookup:{true:"Yes",false:"No"},
 			headerStyle: {
 				backgroundColor: '#1E90FF',
 				color: 'white'
@@ -71,6 +73,7 @@ function RoomTable() {
 		{
 			title: 'Guest ID',
 			field: 'guestId',
+			editable:false,
 			headerStyle: {
 				backgroundColor: '#1E90FF',
 				color: 'white'
@@ -95,6 +98,7 @@ function RoomTable() {
 		{
 			title: 'Room Type',
 			field: 'ac',
+			lookup:{True:"TRUE",False:"False"},
 			headerStyle: {
 				backgroundColor: '#1E90FF',
 				color: 'white'
@@ -183,16 +187,16 @@ function RoomTable() {
 								}),
 							onRowUpdate: (updatedRow, oldRow) =>
 								new Promise((resolve, reject) => {
-									const index = oldRow.tableData.id;
+									const index = oldRow.id;
 									const updatedRows = [ ...data ];
 									updatedRows[index] = updatedRow;
 									setTimeout(() => {
 										const res = axios.put(
-											`http://localhost:8085/bed/updateBedById/${index }`
+											`http://localhost:8085/bed/updateBedById/${index }`,updatedRow
 										  );
 										  
 										  
-										  console.log(updatedRows.id);
+										  console.log(updatedRows);
 										setData(updatedRows);
 										resolve();
 									}, 2000);

@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 
 import MaterialTable from 'material-table';
 import { Grid } from '@mui/material';
+import axios from 'axios';
 
 const List = [
 	{
@@ -58,10 +59,17 @@ function UnAllocatedInventory() {
 				color: 'white'
 			}
 		},
-
+        {
+			title:'BedId',
+			field:'bedId',
+			headerStyle:{
+				backgroundColor:'#1E90FF',
+				color:'white'
+			}
+		},
 		{
-			title: 'Room Number',
-			field: 'roomNumber',
+			title: 'RoomId',
+			field: 'roomId',
 			headerStyle: {
 				backgroundColor: '#1E90FF',
 				color: 'white'
@@ -69,15 +77,79 @@ function UnAllocatedInventory() {
 		},
 
 		{
-			title: 'Bed Number',
-			field: 'bedNumber',
+			title: 'FloorId',
+			field: 'floorId',
 			headerStyle: {
 				backgroundColor: '#1E90FF',
 				color: 'white'
 			}
+		},
+			{
+				title: 'BuildingId',
+				field: 'buildingId',
+				headerStyle: {
+					backgroundColor: '#1E90FF',
+					color: 'white'
+				}
+		},
+		{
+			title:'BuildingName',
+			field:'buildingName',
+			lookup:{SriKalaNilayam:"SriKalaNilayam",SriNilayam:"SriNilayam"},
+			headerStyle:{
+				backgroundColor:'#1E90FF',
+				color:'white'
+			}
+		},
+		{
+			title:'BedStatus',
+			field:'bedStatus',
+			lookup:{True:"TRUE",False:"False"},
+			headerStyle:{
+				backgroundColor:'#1E90FF',
+				color:'white'
+			}
+		},
+		{
+			title:'BedName',
+			field:'bedName',
+			headerStyle:{
+				backgroundColor:'#1E90FF',
+				color:'white'
+			}
+		},
+		{
+			title:'DefaultRent',
+			field:'defaultRent',
+			headerStyle:{
+				backgroundColor:'#1E90FF',
+				color:'white'
+			}
+		},
+		{
+			title:'Ac',
+			field:'ac',
+			headerStyle:{
+				backgroundColor:'#1E90FF',
+				color:'white'
+			}
+		},
+		{
+			title:'SecurityDeposit',
+			field:'securityDeposit',
+            headerStyle:{
+				backgroundColor:'#1E90FF',
+				color:'white'
+			}
 		}
 	];
-
+useEffect(() => {
+	axios.get("http://localhost:8085/bed/getAvailableBeds").then((res)=>{
+		console.log(res.data);
+		setData(res.data);
+	})
+	
+},[])
 	return (
 		<div className="App">
 			<Grid container>
