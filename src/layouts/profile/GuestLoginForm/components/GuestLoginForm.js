@@ -296,15 +296,15 @@ else{
 
                 // <Alert severity="info">This is an info alert — check it out!</Alert>
 
-                console.log(guest.Idproof.name);
+                // console.log(guest.Idproof.name);
                 const res = await axios.post(
-                  "http://localhost:8989/guest-service/addGuest",
+                  "http://localhost:8989/guest/addGuest",
 
-                    guest
+                  gusting
                     //payment,
 
                 );
-                // console.log(res.data);
+                 console.log(res.data);
               }}
             >
               {(formProps) => (
