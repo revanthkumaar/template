@@ -35,7 +35,7 @@ const BuildingsLayout = (props) => {
 
     useEffect(() => {
         const GetData = async () => {
-            const url = "http://localhost:8085/bed/getBedsByAllBuildings";
+            const url = "http://localhost:8989/bed/getBedsByAllBuildings";
             try {
                 const resp = await fetch(url);
                 const build = await resp.json();
