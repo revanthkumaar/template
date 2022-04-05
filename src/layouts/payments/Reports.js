@@ -117,7 +117,7 @@ function PaymentReport() {
                       newRow
                     );
 
-                    console.log(res.data);
+                    console.log(res);
                     // console.log(newRow)
                     setData(updatedRows);
                     resolve();
@@ -125,7 +125,7 @@ function PaymentReport() {
                 }),
               onRowDelete: (selectedRow) =>
                 new Promise((resolve, reject) => {
-                  const index = selectedRow.tableData.id;
+                  const index = selectedRow.guestId;
                   const updatedRows = [...data];
                   updatedRows.splice(index, 1);
                   console.log(index);
@@ -137,24 +137,25 @@ function PaymentReport() {
                     console.log(updatedRows);
                     setData(updatedRows);
                     resolve();
-                  }, 2000);
+                  }, 1);
                 }),
               onRowUpdate: (updatedRow, oldRow) =>
                 new Promise((resolve, reject) => {
-                  const index = oldRow.tableData.id;
+                  const index = oldRow.guestId;
                   const updatedRows = [...data];
 
                   updatedRows[index] = updatedRow;
                   setTimeout(() => {
                     const res = axios.put(
-                      `http://localhost:8080/api/v1/payments/${index}`
+                      `http://localhost:8080/api/v1/payments/${index}`, updatedRow
                     );
                     console.log(res);
                     console.log(updatedRows);
                     setData(updatedRows);
                     resolve();
-                  }, 2000);
+                  });
                 }),
+                
             }}
             options={{
               actionsColumnIndex: -1,

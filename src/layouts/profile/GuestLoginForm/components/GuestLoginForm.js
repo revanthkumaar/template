@@ -286,17 +286,6 @@ else{
                   alert("Guest On Boarded Successfully");
                   resetForm();
                 }, 50);
-
-                // onSubmit={(values, { setSubmitting }) => {
-                //   setTimeout(() => {
-                //     alert(JSON.stringify(values, null, 2));
-                //     setSubmitting(false);
-                //   }, 400);
-                // }}
-
-                // <Alert severity="info">This is an info alert — check it out!</Alert>
-
-                // console.log(guest.Idproof.name);
                 const res = await axios.post(
                   "http://localhost:8989/guest/addGuest",
 
