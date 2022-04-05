@@ -48,12 +48,7 @@ export default function GuestPopUp({ open, handleClose, ...props }) {
                     </Grid>
                 </DialogActions>
             </Dialog>)
-
-
-
              :
-             
-             
              (<Dialog open={open} onClose={handleClose} maxWidth='lg'>
                 <DialogTitle>GUEST DETAILS</DialogTitle>
                 <DialogContent>

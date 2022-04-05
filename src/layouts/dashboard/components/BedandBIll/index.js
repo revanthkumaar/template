@@ -14,7 +14,7 @@ function BedandBill(props) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8085/bed/getAllBedsCount")
+      .get("http://localhost:8989/bed/getAllBedsCount")
       .then((res) => {
 
         console.log(res.data);

@@ -1,90 +1,57 @@
 import * as React from 'react';
-import { DataGrid } from '@mui/x-data-grid';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 import { useEffect, useState } from 'react';
-import axios from "axios";
-
+import axios from 'axios';
 
 // const [tableData,setTableData] = useState([])
 
-const columns = [
-	{ field: 'id', headerName: 'DATE', width:180 },
-	{ field: 'amount', headerName: 'AMOUNT', width: 180 },
-	{
-		field: 'reason',
-		headerName: 'REASON',
-		width: 190
-	},
-	{ field: 'paymentid', headerName: 'PAYMENT ID', width: 180 },
-	{ field: 'transactionid', headerName: 'TRANSACTION ID', width: 180 }
-];
-
-const rows = [
-	{
-		id: '20-12-2021',
-		amount: '8000',
-		reason: 'Room rent',
-		paymentid: '01',
-		transactionid: 'T220327100934876354605',
-        
-	},
-	{
-		id: '08-12-2021',
-		amount: '7000',
-		reason: 'Room rent',
-		paymentid: '02',
-		transactionid: 'T220327100934876354605',
-	},
-	{
-		id:'20-02-2022',
-		amount: '10000',
-		reason: 'Room rent',
-		paymentid: '03',
-		transactionid: 'T220327100934876354605',
-	},
-	{
-		id: '03-03-2022',
-		amount: '11000',
-		reason: 'Room rent',
-		paymentid: '04',
-		transactionid: 'T220327100934876354605',
-	},
-	{
-		id: '12-12-2019',
-		amount: '8000',
-		reason: 'Room rent',
-		paymentid: '05',
-		transactionid: 'T220327100934876354605',
-	},
-	{
-		id: '01-08-2021',
-		amount: '7000',
-		reason: 'Room rent',
-		paymentid: '06',
-		transactionid: 'T220327100934876354605',
-	},
-	{
-		id: '04-09-2021',
-		amount: '7000',
-		reason: 'Room rent',
-		paymentid: '07',
-		transactionid: 'T220327100934876354605',
-	}
-];
-
 export default function TransactionHistory(props) {
-	console.log(props.guestdetails)
+	console.log(props.guestdetails.id);
+	const [ history, setHistory ] = useState([]);
 	useEffect(() => {
 		async function fetchData() {
-	   const response = await axios.get('http://localhost:8086/payment/getTrasactionHistoryByGuestId/SLH0001')
-		console.log(response.data)  
-		//  .then((data) => setTableData(data))  
-		//  console.log(tableData)
-	 }
-	 fetchData();
+			const response = await axios.get(
+				`http://localhost:8989/payment/getTrasactionHistoryByGuestId/${props.guestdetails.id}`
+			);
+			console.log(response.data);
+			setHistory(response.data);
+			//  .then((data) => setTableData(data))
+			//  console.log(tableData)
+		}
+		fetchData();
 	}, []);
 	return (
-		<div style={{ height: 400, width: '100%' }}>
-			<DataGrid rows={rows} columns={columns} pageSize={5} rowsPerPageOptions={[ 5 ]} />
-		</div>
+		<TableContainer sx={{ alignContent: 'center' }} component={Paper}>
+			<Table sx={{ minWidth: 500 }} aria-label="simple table">
+				<TableHead>
+					<TableRow>
+						<TableCell>PAYMENT ID</TableCell>
+						<TableCell align="justify">TRANSACTION DATE</TableCell>
+						<TableCell align="center">AMOUNT</TableCell>
+						<TableCell align="center">PAYMENT PURPOSE</TableCell>
+						<TableCell align="center">TRANSACTION ID</TableCell>
+					</TableRow>
+				</TableHead>
+				<TableBody>
+					{history.map((row) => (
+						<TableRow key={row.paymentId} sx={{ alignContent: 'center' }}>
+							<TableCell component="th" scope="row">
+								{row.paymentId}
+							</TableCell>
+							<TableCell align="center">{row.transactionDate}</TableCell>
+							<TableCell align="center">{row.amountPaid}</TableCell>
+							<TableCell align="center">{row.paymentPurpose}</TableCell>
+							<TableCell align="center">{row.transactionId}</TableCell>
+						</TableRow>
+					))}
+				</TableBody>
+			</Table>
+		</TableContainer>
 	);
 }
