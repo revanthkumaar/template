@@ -41,6 +41,13 @@ function Guestdetails(props) {
             style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
         >Father's Mobile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:{props.guestdetails.fatherNumber}</MDTypography>
     </Grid>
+    <Grid item xs={12} >
+        <MDTypography
+            // id="outlined-textarea"
+            //   label="Guest Id"
+            style={{ width: '65%', marginLeft: '50px', marginBottom: '20px', }}
+        >checkIn Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:{props.guestdetails.checkInDate}</MDTypography>
+    </Grid>
 
     <Grid item xs={4}></Grid>
     <Grid item xs={5} >
