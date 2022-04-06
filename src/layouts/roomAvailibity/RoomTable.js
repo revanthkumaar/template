@@ -202,7 +202,8 @@ function RoomTable() {
 								backgroundColor: '#1E90FF',
 								color: 'white',
 								fontSize: '20px',
-								fontWeight: 'bold'
+								height:'10px'
+								//fontWeight: 'bold'
 							},
 							rowStyle: {
 								fontSize: 16

@@ -24,7 +24,7 @@ function RoomAvailability() {
         <MDBox>
           <Grid container>
             <Grid item xs={12}>
-              <UnAllocatedInventory />
+              {/* <UnAllocatedInventory /> */}
             </Grid>
           </Grid>
         </MDBox>
