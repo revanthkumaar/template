@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react';
 import MaterialTable from 'material-table';
 import { Grid } from '@mui/material';
 import axios from 'axios'
-import { height } from '@mui/system';
+import { height, width } from '@mui/system';
 
 
 function RoomTable() {
@@ -15,7 +15,8 @@ function RoomTable() {
 			headerStyle: {
 				backgroundColor: '#1E90FF',
 				color: 'white',
-				height:'20px'
+				height:'20px',
+				width:'1px'
 			}
 		},
 		{
@@ -53,19 +54,11 @@ function RoomTable() {
 				color: 'white'
 			}
 		},
-		{
-			title: 'Building Name',
-			field: 'buildingName',
-			lookup:{SriKalaNilayam:'Sri Kala Nilayam',SriNilayam:'Sri Nilayam'},
-			headerStyle: {
-				backgroundColor: '#1E90FF',
-				color: 'white'
-			}
-		},
+	
 		{
 			title: 'Bed Status',
 			field: 'bedStatus',
-			lookup:{true:"Yes",false:"No"},
+			lookup:{true:"Allocated",false:"Not Allocated"},
 			headerStyle: {
 				backgroundColor: '#1E90FF',
 				color: 'white'
@@ -98,7 +91,7 @@ function RoomTable() {
 		{
 			title: 'Room Type',
 			field: 'ac',
-			//lookup:{True:"TRUE",False:"False"},
+			lookup:{true:"Ac",false:"Non_Ac"},
 			headerStyle: {
 				backgroundColor: '#1E90FF',
 				color: 'white'

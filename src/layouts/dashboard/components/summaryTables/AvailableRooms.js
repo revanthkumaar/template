@@ -5,10 +5,9 @@ import axios from 'axios';
 const columns = [
 	{ field: 'id', headerName: 'ID', width: 80 },
 	{ field: 'bedId', headerName: 'BedId', width: 130 },
-	{ field: 'roomId', headerName: 'RoomId', width: 130 },
-	{ field: 'floorId', headerName: 'FloorId', width: 130 },
+	{ field: 'roomId', headerName: 'RoomId', width: 80 },
+	{ field: 'floorId', headerName: 'FloorId', width: 40 },
 	{ field: 'buildingId', type: 'number', headerName: 'BuildingId', width: 80 },
-	{ field: 'buildingName',  headerName: 'BuildingName', width: 80 },
 	{ field: 'bedStatus', headerName: 'BedStatus', width: 80 },
 	{ field: 'bedName', headerName: 'BedName', width: 80 },
 	{ field: 'defaultRent', type: 'number', headerName: 'DefaultRent', width: 80 },
