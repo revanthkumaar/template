@@ -13,7 +13,7 @@ function BedandBill(props) {
 	return (
 		<div>
 			<Grid container spacing={3}>
-				<Grid item xs={12} md={6} lg={3}>
+				{/* <Grid item xs={12} md={6} lg={3}>
 					<MDBox mb={1.5}>
 						<Card sx={{ minWidth: 240, minHeight: 100, background: '#00008B' }}>
 							<CardContent sx={{ align: 'center' }}>
@@ -38,8 +38,8 @@ function BedandBill(props) {
 							</CardContent>
 						</Card>
 					</MDBox>
-				</Grid>
-				<Grid item xs={12} md={6} lg={3}>
+				</Grid> */}
+				{/* <Grid item xs={12} md={6} lg={3}>
 					<MDBox mb={1.5}>
 						<Card sx={{ minWidth: 240, minHeight: 100, background: '#2F4F4F' }}>
 							<CardContent sx={{ align: 'center' }}>
@@ -63,8 +63,8 @@ function BedandBill(props) {
 							</CardContent>
 						</Card>
 					</MDBox>
-				</Grid>
-				<Grid item xs={12} md={6} lg={3}>
+				</Grid> */}
+				{/* <Grid item xs={12} md={6} lg={3}>
 					<MDBox mb={1.5}>
 						<Card sx={{ minWidth: 240, minHeight: 100, background: '#DC143C' }}>
 							<CardContent sx={{ align: 'center' }}>
@@ -115,7 +115,7 @@ function BedandBill(props) {
 							</CardContent>
 						</Card>
 					</MDBox>
-				</Grid>
+				</Grid> */}
 			</Grid>
 		</div>
 	);

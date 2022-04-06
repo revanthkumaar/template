@@ -102,36 +102,31 @@ console.log(build.totalAvailbleBeds);
           </MDBox>
         </Grid>
         <Grid item xs={12} md={6} lg={3}>
-          <MDBox mb={1.5}>
-            <Card sx={{ minWidth: 240, minHeight: 100, background: "#FF6347" }}>
-              <CardContent sx={{ align: "center" }}>
-                <MDTypography
-                  color="light"
-                  mt={1}
-                  fontWeight="regular"
-                  style={{ fontSize: "2em" }}
-                >
-                  302
-                </MDTypography>
-                <MDTypography color="light" fontWeight="light">
-                  Advance Bookings
-                </MDTypography>
-                <Divider variant="insent" fullWidth />
-                <MDTypography
-                  color="light"
-                  align="center"
-                  textTransform="capitalize"
-                  fontWeight="regular"
-                >
-                  More Info
-                  <IconButton>
-                    <ArrowCircleRightRoundedIcon fontSize="medium" />
-                  </IconButton>
-                </MDTypography>
-              </CardContent>
-            </Card>
-          </MDBox>
-        </Grid>
+					<MDBox mb={1.5}>
+						<Card sx={{ minWidth: 240, minHeight: 100, background: '#00008B' }}>
+							<CardContent sx={{ align: 'center' }}>
+								<MDTypography color="light" mt={1} fontWeight="regular" style={{ fontSize: '2em' }}>
+									45,000
+								</MDTypography>
+								<MDTypography color="light" fontWeight="light">
+								Overdue amount
+								</MDTypography>
+								<Divider variant="insent" fullWidth />
+								<MDTypography
+									color="light"
+									align="center"
+									textTransform="capitalize"
+									fontWeight="regular"
+								>
+									More Info
+									<IconButton>
+										<ArrowCircleRightRoundedIcon fontSize="medium" />
+									</IconButton>
+								</MDTypography>
+							</CardContent>
+						</Card>
+					</MDBox>
+				</Grid>
         <Grid item xs={12} md={6} lg={3}>
           <MDBox mb={1.5}>
             <Card sx={{ minWidth: 240, minHeight: 100, background: "#800080" }}>
