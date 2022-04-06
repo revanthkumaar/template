@@ -55,11 +55,6 @@ const BuildingsLayout = (props) => {
     const [open, setOpen] = React.useState(false);
     const handleClose = () => setOpen(false);
     // const [GuestDetails, setGuestDetails] = React.useState([])
-
-
-
-
-
     const BuildingInfo = buildingInfo.filter(post => {
         return post.buildingName === props.buildingName
     })

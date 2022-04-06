@@ -4,16 +4,17 @@ import * as Yup from "yup";
 import axios from "axios";
 import { Container, Grid, Typography, InputLabel, Alert } from "@mui/material";
 import moment from "moment";
-// import Divider from "@mui/material/Divider";
+//import Divider from "@mui/material/Divider";
 import { makeStyles } from "@mui/styles";
 import Occupancytype from "./OccupancyType";
 import Textfield from "./TextField";
 import Select from "./Select";
 import Gender from "./Gender";
-// import Checkbox from "./CheckBox";
+import state from "./State";
+//import Checkbox from "./CheckBox";
 import DateTimePicker from "./DataTimePicker";
 import Button from "./Button";
-// import MDButton from "components/MDButton";
+//import MDButton from "components/MDButton";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import days from "./Days";
 import months from "./Months"
@@ -61,7 +62,7 @@ const INITIAL_FORM_STATE = {
   // workAddressLine1: "",
   // workAddressLine2: "",
   checkinNotes: "",
-  // termsOfService: false,
+  //termsOfService: false,
 };
 
 const FORM_VALIDATION = Yup.object().shape({
@@ -79,7 +80,7 @@ const FORM_VALIDATION = Yup.object().shape({
       "Please choose a valid date of birth",
       (date) => moment().diff(moment(date), "years") >= 12 &&  moment().diff(moment(date), "years") <= 80
     ),
-  gender: Yup.string().required("Required"),
+  // gender: Yup.string().required("Required"),
   // localGuardianName: Yup.string()
   //   .matches(/^[aA-zZ\s]+$/, "Invalid Name ")
   //   .required("Required"),
@@ -96,24 +97,24 @@ const FORM_VALIDATION = Yup.object().shape({
       excludeEmptyString: false,
     })
     .required("Required"),
-  secondaryPhoneNumber: Yup.string()
-    .matches(/^[6-9]\d{9}$/, {
-      message: "Please enter Valid Mobile Number",
-      excludeEmptyString: false,
-    })
-    .required("Required"),
+  // secondaryPhoneNumber: Yup.string()
+  //   .matches(/^[6-9]\d{9}$/, {
+  //     message: "Please enter Valid Mobile Number",
+  //     excludeEmptyString: false,
+  //   })
+  //   .required("Required"),
   aadharNumber: Yup.string()
     .matches(/^\d{4}\d{4}\d{4}$/, "Invalid Aadhar Number")
     .required("Required"),
-  fatherName: Yup.string()
-    .matches(/^[aA-zZ\s]+$/, "Invalid FatherName ")
-    .required("Required"),
-  fatherNumber: Yup.string()
-    .matches(/^[6-9]\d{9}$/, {
-      message: "Please enter valid Mobile number.",
-      excludeEmptyString: false,
-    })
-    .required("Required"),
+  // fatherName: Yup.string()
+  //   .matches(/^[aA-zZ\s]+$/, "Invalid FatherName ")
+  //   .required("Required"),
+  // fatherNumber: Yup.string()
+  //   .matches(/^[6-9]\d{9}$/, {
+  //     message: "Please enter valid Mobile number.",
+  //     excludeEmptyString: false,
+  //   })
+  //   .required("Required"),
   pincode: Yup.string()
     .matches(/^\d{2}\d{2}\d{2}$/, "Invalid PinCode Number")
     .required("Required"),
@@ -125,15 +126,15 @@ const FORM_VALIDATION = Yup.object().shape({
   //   .required("Required"),
 
   bedId: Yup.string().required("Required"),
-  bloodGroup: Yup.string()
-    .matches(/^(A|B|AB|O)[+-]$/, {
-      message: "Please enter valid Blood Group.",
-      excludeEmptyString: false,
-    })
-    .required("Required"),
-  occupation: Yup.string()
-    .matches(/^[aA-zZ\s]+$/, "Occuaption ")
-    .required("Required"),
+  // bloodGroup: Yup.string()
+  //   .matches(/^(A|B|AB|O)[+-]$/, {
+  //     message: "Please enter valid Blood Group.",
+  //     excludeEmptyString: false,
+  //   })
+  //   .required("Required"),
+  // occupation: Yup.string()
+  //   .matches(/^[aA-zZ\s]+$/, "Occuaption ")
+  //   .required("Required"),
 
   addressLine1: Yup.string().required("Required"),
   addressLine2: Yup.string().required("Required"),
@@ -148,7 +149,7 @@ const FORM_VALIDATION = Yup.object().shape({
   buildingName: Yup.string().required("Required"),
   occupancyType: Yup.string().required("Required"),
   amountPaid: Yup.number().required("Required"),
-  transactionId: Yup.string().required("Required"),
+  // transactionId: Yup.string().required("Required"),
 });
 
 const GuestLoginForm = () => {
@@ -168,7 +169,7 @@ const GuestLoginForm = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8989/bed/getAvailableBedsByBuildings")
+      .get("http://localhost:8085/bed/getAvailableBedsByBuildings")
       .then((res) => {
         setoneBuilding(res.data);
         console.log(res.data);
@@ -304,19 +305,20 @@ else{
                       </Typography>
                     </Grid>
                     <Grid item xs={6}>
-                      <h6>Select Building</h6>
+                      <h6>Select Building *</h6>
 
                       <Select
                         className={classes.root}
                         name="buildingName"
                         options={building}
                         onClick={handleClick}
+                        required
                       ></Select>
 
                       <Grid item xs={6}></Grid>
                     </Grid>
                     <Grid item xs={6}>
-                      <h6>Select Bed</h6>
+                      <h6>Select Bed *</h6>
                       <Select
                         className={classes.root}
                         name="bedId"
@@ -327,7 +329,7 @@ else{
                     <Grid item xs={6}>
                       <InputLabel id="demo-simple-select-labe">
                         {" "}
-                        OccupancyType
+                        OccupancyType *
                       </InputLabel>
                       <Select
                         className={classes.root}
@@ -374,7 +376,7 @@ else{
                     </Grid>
 
                     <Grid item xs={6}>
-                      <Textfield name="amountPaid" label="Amount Paid" />
+                      <Textfield name="amountPaid" label="Amount Paid" required />
                     </Grid>
                     <Grid item xs={6}>
                       <Textfield name="transactionId" label="Transaction ID" />
@@ -393,21 +395,22 @@ else{
                     </Grid>
 
                     <Grid item xs={6}>
-                      <Textfield name="lastName" label="Last Name" />
+                      <Textfield name="lastName" label="Last Name" required />
                     </Grid>
                     <Grid item xs={6}>
-                      <Textfield name="email" label="Email" />
+                      <Textfield name="email" label="Email" required />
                     </Grid>
                     <Grid item xs={6}>
                       <DateTimePicker
                         maxdate={new Date()}
                         name="dateOfBirth"
                         label="Date of Birth"
+                        required
                       />
                     </Grid>
 
                     <Grid item xs={6}>
-                      <Textfield name="personalNumber" label="Personal Phone" />
+                      <Textfield name="personalNumber" label="Personal Phone" required />
                     </Grid>
                     <Grid item xs={6}>
                       <Textfield
@@ -457,7 +460,7 @@ else{
                       ></Select>
                     </Grid>
                     <Grid item xs={6}>
-                      <Textfield name="aadharNumber" label="Aadhar Number" />
+                      <Textfield name="aadharNumber" label="Aadhar Number"  required/>
                     </Grid>
 
                     <Grid item xs={12} />
@@ -473,22 +476,33 @@ else{
                     </Grid>
 
                     <Grid item xs={12}>
-                      <Textfield name="addressLine1" label="Address Line 1" />
+                      <Textfield name="addressLine1" label="Address Line 1" required/>
                     </Grid>
 
                     <Grid item xs={6}>
-                      <Textfield name="addressLine2" label="Address Line 2 " />
+                      <Textfield name="addressLine2" label="Address Line 2"  required/>
                     </Grid>
                     <Grid item xs={6}>
-                      <Textfield name="pincode" label="Pincode" />
-                    </Grid>
-
-                    <Grid item xs={6}>
-                      <Textfield name="city" label="City" />
+                      <Textfield name="pincode" label="Pincode"  required/>
                     </Grid>
 
                     <Grid item xs={6}>
-                      <Textfield name="state" label="State" />
+                      <Textfield name="city" label="City" required />
+                    </Grid>
+
+                    <Grid item xs={6}>
+                    <InputLabel id="demo-simple-select-label">
+                        Select state *
+                      </InputLabel>
+
+                      <Select
+                        IconComponent={(Gender) => (
+                          <ArrowDropDownIcon className={classes.size} />
+                        )}
+                        name="state"
+                        options={state}
+                        className={classes.root}
+                      ></Select>
                     </Grid>
 
                     {/* <Divider variant="middle" />
