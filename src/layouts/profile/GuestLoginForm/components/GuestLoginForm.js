@@ -162,6 +162,8 @@ const GuestLoginForm = () => {
   const [duration,setDuration]=React.useState([]);
   const [defaultRentofBed,setDefaultRentofBed]=React.useState([])
   const [amountToPay ,setAmountToPay]= React.useState([])
+  const [occtype,setOcctype]=React.useState([])
+  const [amt,setAmt]=React.useState([])
 
   let buildingNamesArray = [];
   let availableBedsByBuidlingName = [];
@@ -217,12 +219,18 @@ const GuestLoginForm = () => {
     );
   };
   const occupency = (i) => {
+    setOcctype(i.target.outerText)
     if(i.target.outerText=="Daily"){
       setDuration(days)
+      var checkInAmount = (amt*((defaultRentofBed)/30))+1000;
+      setAmountToPay(checkInAmount.toFixed(2))
+      
 
     }
     else if(i.target.outerText == "Monthly"){
       setDuration(months)
+      var checkInAmount = (amt*defaultRentofBed)+3000;
+      setAmountToPay(checkInAmount)
       
     }
     else {
@@ -231,14 +239,17 @@ const GuestLoginForm = () => {
  
 
   };
+
+
   
   
   const calculateCheckAmount=(a)=>{
     var size = Object.keys(duration).length;
   console.log(size)
-    
+    console.log(occtype)
     
     console.log(a.target.outerText)
+    setAmt(a.target.outerText)
     
 if(size == 12){
   var checkInAmount = (a.target.outerText*defaultRentofBed)+3000;
@@ -297,12 +308,17 @@ else{
               {(formProps) => (
                 <Form>
                   <Grid container spacing={2}>
+                 
                     <Grid item xs={12}>
                       <Typography>
                         <br />
                         <h4 align="center">Allocate Room</h4>
                         <br />
                       </Typography>
+                      <InputLabel id="demo-simple-select-labe">
+                        {" "}
+                         * indicates fields are Required
+                      </InputLabel>
                     </Grid>
                     <Grid item xs={6}>
                       <h6>Select Building *</h6>
