@@ -1,8 +1,8 @@
 import React, { useState,useEffect } from 'react';
-
 import MaterialTable from 'material-table';
 import { Grid } from '@mui/material';
 import axios from 'axios'
+import { height } from '@mui/system';
 
 
 function RoomTable() {
@@ -14,7 +14,8 @@ function RoomTable() {
 			editable:false,
 			headerStyle: {
 				backgroundColor: '#1E90FF',
-				color: 'white'
+				color: 'white',
+				height:'20px'
 			}
 		},
 		{
@@ -71,15 +72,6 @@ function RoomTable() {
 			}
 		},
 		{
-			title: 'Guest ID',
-			field: 'guestId',
-			editable:false,
-			headerStyle: {
-				backgroundColor: '#1E90FF',
-				color: 'white'
-			}
-		},
-		{
 			title: 'Bed Name',
 			field: 'bedName',
 			headerStyle: {
@@ -96,6 +88,14 @@ function RoomTable() {
 			}
 		},
 		{
+			title: 'Security Deposit',
+			field: 'securityDeposit',
+			headerStyle: {
+				backgroundColor: '#1E90FF',
+				color: 'white'
+			}
+		},
+		{
 			title: 'Room Type',
 			field: 'ac',
 			//lookup:{True:"TRUE",False:"False"},
@@ -104,14 +104,7 @@ function RoomTable() {
 				color: 'white'
 			}
 		},
-		{
-			title: 'Security Deposit',
-			field: 'securityDeposit',
-			headerStyle: {
-				backgroundColor: '#1E90FF',
-				color: 'white'
-			}
-		},
+	
 		
 
 	];

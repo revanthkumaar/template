@@ -4,16 +4,16 @@ import * as Yup from "yup";
 import axios from "axios";
 import { Container, Grid, Typography, InputLabel, Alert } from "@mui/material";
 import moment from "moment";
-import Divider from "@mui/material/Divider";
+// import Divider from "@mui/material/Divider";
 import { makeStyles } from "@mui/styles";
 import Occupancytype from "./OccupancyType";
 import Textfield from "./TextField";
 import Select from "./Select";
 import Gender from "./Gender";
-import Checkbox from "./CheckBox";
+// import Checkbox from "./CheckBox";
 import DateTimePicker from "./DataTimePicker";
 import Button from "./Button";
-import MDButton from "components/MDButton";
+// import MDButton from "components/MDButton";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import days from "./Days";
 import months from "./Months"
@@ -39,8 +39,8 @@ const INITIAL_FORM_STATE = {
   secondaryPhoneNumber: "",
   fatherName: "",
   fatherNumber: "",
-  localGuardianName: "",
-  localGuardianPhoneNumber: "",
+  // localGuardianName: "",
+  // localGuardianPhoneNumber: "",
   bloodGroup: "",
   occupation: "",
   gender: "",
@@ -57,11 +57,11 @@ const INITIAL_FORM_STATE = {
   pincode: "",
   city: "",
   state: "",
-  workPhone: "",
-  workAddressLine1: "",
-  workAddressLine2: "",
+  // workPhone: "",
+  // workAddressLine1: "",
+  // workAddressLine2: "",
   checkinNotes: "",
-  termsOfService: false,
+  // termsOfService: false,
 };
 
 const FORM_VALIDATION = Yup.object().shape({
@@ -77,19 +77,19 @@ const FORM_VALIDATION = Yup.object().shape({
     .test(
       "DOB",
       "Please choose a valid date of birth",
-      (date) => moment().diff(moment(date), "years") >= 12
+      (date) => moment().diff(moment(date), "years") >= 12 &&  moment().diff(moment(date), "years") <= 80
     ),
   gender: Yup.string().required("Required"),
-  localGuardianName: Yup.string()
-    .matches(/^[aA-zZ\s]+$/, "Invalid Name ")
-    .required("Required"),
+  // localGuardianName: Yup.string()
+  //   .matches(/^[aA-zZ\s]+$/, "Invalid Name ")
+  //   .required("Required"),
 
-  localGuardianPhoneNumber: Yup.string()
-    .matches(/^[6-9]\d{9}$/, {
-      message: "Please enter Valid Mobile Number",
-      excludeEmptyString: false,
-    })
-    .required("Required"),
+  // localGuardianPhoneNumber: Yup.string()
+  //   .matches(/^[6-9]\d{9}$/, {
+  //     message: "Please enter Valid Mobile Number",
+  //     excludeEmptyString: false,
+  //   })
+  //   .required("Required"),
   personalNumber: Yup.string()
     .matches(/^[6-9]\d{9}$/, {
       message: "Please enter Valid Mobile Number",
@@ -117,12 +117,12 @@ const FORM_VALIDATION = Yup.object().shape({
   pincode: Yup.string()
     .matches(/^\d{2}\d{2}\d{2}$/, "Invalid PinCode Number")
     .required("Required"),
-  workPhone: Yup.string()
-    .matches(/^[6-9]\d{9}$/, {
-      message: "Please enter valid Mobile number.",
-      excludeEmptyString: false,
-    })
-    .required("Required"),
+  // workPhone: Yup.string()
+  //   .matches(/^[6-9]\d{9}$/, {
+  //     message: "Please enter valid Mobile number.",
+  //     excludeEmptyString: false,
+  //   })
+  //   .required("Required"),
 
   bedId: Yup.string().required("Required"),
   bloodGroup: Yup.string()
@@ -143,8 +143,8 @@ const FORM_VALIDATION = Yup.object().shape({
   state: Yup.string()
     .matches(/^[aA-zZ\s]+$/, "Invalid State ")
     .required("Required"),
-  workAddressLine1: Yup.string().required("Required"),
-  workAddressLine2: Yup.string().required("Required"),
+  // workAddressLine1: Yup.string().required("Required"),
+  // workAddressLine2: Yup.string().required("Required"),
   buildingName: Yup.string().required("Required"),
   occupancyType: Yup.string().required("Required"),
   amountPaid: Yup.number().required("Required"),
@@ -287,7 +287,7 @@ else{
                   "http://localhost:8989/guest/addGuest",
 
                   gusting
-                    //payment,
+                   
 
                 );
                  console.log(res.data);
@@ -389,7 +389,7 @@ else{
                     </Grid>
 
                     <Grid item xs={6}>
-                      <Textfield name="firstName" label="First Name" />
+                      <Textfield name="firstName" label="First Name"  required/>
                     </Grid>
 
                     <Grid item xs={6}>
@@ -422,7 +422,7 @@ else{
                       <Textfield name="fatherNumber" label="Father's Phone" />
                     </Grid>
 
-                    <Grid item xs={6}>
+                    {/* <Grid item xs={6}>
                       <Textfield
                         name="localGuardianName"
                         label="Local Guardian's Name"
@@ -433,7 +433,7 @@ else{
                         name="localGuardianPhoneNumber"
                         label="Local Guardian's Phone"
                       />
-                    </Grid>
+                    </Grid> */}
                     <Grid item xs={6}>
                       <Textfield name="bloodGroup" label="Blood Group" />
                     </Grid>
@@ -491,7 +491,7 @@ else{
                       <Textfield name="state" label="State" />
                     </Grid>
 
-                    <Divider variant="middle" />
+                    {/* <Divider variant="middle" />
                     <Grid item xs={12}>
                       <Typography>
                         <br />
@@ -515,7 +515,7 @@ else{
                         name="workAddressLine2"
                         label="Work Address Line 2 "
                       />
-                    </Grid>
+                    </Grid> */}
 
                     <Grid item xs={12}>
                       <Textfield
@@ -526,13 +526,13 @@ else{
                       />
                     </Grid>
 
-                    <Grid item xs={12}>
+                    {/* <Grid item xs={12}>
                       <Checkbox
                         name="termsOfService"
                         legend="Terms of service"
                         label="I agree"
                       />
-                    </Grid>
+                    </Grid> */}
 
                     <Grid item xs={3} sx={{ paddingBottom: 3 }}>
                       <Button>Submit</Button>

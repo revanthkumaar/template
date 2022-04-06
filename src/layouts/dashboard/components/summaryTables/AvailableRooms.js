@@ -67,12 +67,6 @@ export default function AvailableRooms() {
 		  .then((res) => {
 			setTable(res.data);
 			console.log(res.data);
-	
-			// res.data.map((data) => {
-			//   buildingNamesArray.push(data.buildingName);
-			// });
-	
-			// setBuilding(buildingNamesArray);
 		  })
 	
 		  .catch((err) => {

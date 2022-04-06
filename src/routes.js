@@ -36,14 +36,14 @@ const routes = [
 		route: '/profile',
 		component: <Profile />
 	},
-	{
-		type: 'collapse',
-		name: 'Payments',
-		key: 'payments',
-		icon: <Icon fontSize="small">payment</Icon>,
-		route: '/payments',
-		component: <PaymentModules />
-	},
+	// {
+	// 	type: 'collapse',
+	// 	name: 'Payments',
+	// 	key: 'payments',
+	// 	icon: <Icon fontSize="small">payment</Icon>,
+	// 	route: '/payments',
+	// 	component: <PaymentModules />
+	// },
 	
 
 	{
@@ -54,14 +54,14 @@ const routes = [
 		route: '/room_Details',
 		component: <RoomAvailability />
 	},
-	{
-		type: 'collapse',
-		name: 'Reports',
-		key: 'reports',
-		icon: <Icon fontSize="small">receipt_long</Icon>,
-		route: '/reports',
-		component: <Notifications />
-	},
+	// {
+	// 	type: 'collapse',
+	// 	name: 'Reports',
+	// 	key: 'reports',
+	// 	icon: <Icon fontSize="small">receipt_long</Icon>,
+	// 	route: '/reports',
+	// 	component: <Notifications />
+	// },
 	{
 		type: 'collapse',
 		name: 'Branch & Employees',
@@ -70,22 +70,22 @@ const routes = [
 		route: '/branch',
 		component: <Branch />
 	},
-	{
-		type: 'collapse',
-		name: 'BulkImport',
-		key: 'bulk_Import',
-		icon: <Icon fontSize="small">person_add</Icon>,
-		route: '/bulk_Import',
-		component: <BulkImport />
-	},
-	{
-		type: 'collapse',
-		name: 'Expenses',
-		key: 'expenses',
-		icon: <Icon fontSize="small">S</Icon>,
-		route: '/expenses',
-		component: <Expenses />
-	},
+	// {
+	// 	type: 'collapse',
+	// 	name: 'BulkImport',
+	// 	key: 'bulk_Import',
+	// 	icon: <Icon fontSize="small">person_add</Icon>,
+	// 	route: '/bulk_Import',
+	// 	component: <BulkImport />
+	// },
+	// {
+	// 	type: 'collapse',
+	// 	name: 'Expenses',
+	// 	key: 'expenses',
+	// 	icon: <Icon fontSize="small">S</Icon>,
+	// 	route: '/expenses',
+	// 	component: <Expenses />
+	// },
 
 	
 	{
