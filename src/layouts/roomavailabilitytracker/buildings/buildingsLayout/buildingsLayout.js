@@ -33,21 +33,17 @@ const BuildingsLayout = (props) => {
     const [loading, setLoading] = React.useState(false)
     const closeLoading = () => setLoading(!loading)
 
-    useEffect(() => {
-        const GetData = async () => {
-            const url = "http://localhost:8989/bed/getBedsByAllBuildings";
-            try {
-                const resp = await fetch(url);
-                const build = await resp.json();
-                setBuildingInfo(build);
+    useEffect(async () => {
+        await axios.get("http://localhost:8989/bed/getBedsByAllBuildings")
+            .then(res => {
+                setBuildingInfo(res.data);
                 setLoading(true)
-                // setFloors(build.floors)
-            }
-            catch (err) {
-                console.error(err);
-            }
-        }
-        GetData();
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+
+       
     }, []);
 
 
@@ -97,26 +93,24 @@ const BuildingsLayout = (props) => {
                                                                                                 }
                                                                                                 else {
                                                                                                     return (<HotelOutlinedIcon key={bdno.bedId} color="error" className="click" id={bdno.guestId}
-                                                                                                        onClick={() => {
-                                                                                                            setLoading(true)
+                                                                                                        onClick={async () => {
+                                                                                                            setLoading(false)
                                                                                                             console.log(bdno.guestId)
-                                                                                                            {   
-                                                                                                                loading ?
-                                                                                                                    axios.get(`http://localhost:8989/guest/getGuestByGuestId/${bdno.guestId}`)
-                                                                                                                        .then(res => {
-                                                                                                                            GuestDetails = (res.data);
-                                                                                                                            console.log(GuestDetails);                                                                                                                            
-                                                                                                                            setOpen(true)
-                                                                                                                        })
-                                                                                                                        :
-                                                                                                                        <Backdrop
-                                                                                                                            sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-                                                                                                                            open
-                                                                                                                            onClick={handleClose}
-                                                                                                                        >
-                                                                                                                            <CircularProgress color="inherit" />
-                                                                                                                        </Backdrop>
-                                                                                                                } 
+
+                                                                                                            await axios.get(`http://localhost:8989/guest/getGuestByGuestId/${bdno.guestId}`)
+                                                                                                                .then(res => {
+                                                                                                                    GuestDetails = (res.data);
+                                                                                                                    console.log(GuestDetails);
+
+                                                                                                                    setOpen(true)
+                                                                                                                    setLoading(true)
+
+
+                                                                                                                })
+                                                                                                                .catch((err) => {
+                                                                                                                    console.log(err);
+                                                                                                                });
+
                                                                                                         }} />)
                                                                                                 }
                                                                                             })()}
