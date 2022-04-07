@@ -234,7 +234,7 @@ const GuestLoginForm = () => {
       
     }
     else {
-      console.log(i.target.outerText)
+      setAmountToPay(defaultRentofBed);
     }
  
 
@@ -261,7 +261,7 @@ else if(size == 15){
 
 }
 else{
-  console.log("hi")
+  setAmountToPay(defaultRentofBed);
 }
    
 
