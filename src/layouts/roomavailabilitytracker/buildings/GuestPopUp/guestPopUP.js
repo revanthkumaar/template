@@ -72,7 +72,7 @@ export default function GuestPopUp({ open, handleClose, ...props }) {
             
               TRANSACTION HISTORY
             </DialogTitle> */}
-            <TransactionHistory guestdetails={props.GuestDetails} />
+            <TransactionHistory  guestdetails={props.GuestDetails} />
           </DialogContent>
           <DialogActions>
             <Grid container style={{ display: "flex" }}>
