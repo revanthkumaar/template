@@ -5,7 +5,8 @@ import ArrowCircleRightRoundedIcon from '@mui/icons-material/ArrowCircleRightRou
 import IconButton from '@mui/material/IconButton';
 import { CardContent, Divider } from '@mui/material';
 
-import axios from 'axios';
+// import axios from 'axios';
+import axios from '../../../../Uri'
 import MDBox from 'components/MDBox';
 import MDTypography from 'components/MDTypography';
 
@@ -14,7 +15,7 @@ function BedandBill(props) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8085/bed/getAllBedsCount")
+      .get("/bed/getAllBedsCount")
       .then((res) => {
 
         console.log(res.data);
@@ -36,7 +37,7 @@ const [payments, setPayments] = React.useState([])
 
   useEffect(() => {
     axios
-      .get("http://localhost:8989/payment/pendingPayment")
+      .get("/payment/pendingPayment")
       .then((res) => {
 
         console.log(res.data);

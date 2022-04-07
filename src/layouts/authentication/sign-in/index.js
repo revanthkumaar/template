@@ -11,7 +11,8 @@ import MDButton from "components/MDButton";
 
 import BasicLayout from "layouts/authentication/components/BasicLayout";
 import bgImage from "assets/images/bg-sign-in-basic.jpeg";
-import axios from "axios";
+// import axios from "axios";
+import axios from '../../../Uri';
 
 function Basic() {
   const [rememberMe, setRememberMe] = useState(false);
@@ -26,7 +27,7 @@ function Basic() {
     event.preventDefault();
     console.log(email);
     console.log(password);
-    const res = await axios.get("http://localhost:8000/users");
+    const res = await axios.get("/login/users");
     console.log(res.data);
     // res.data.map((user) => {
     // 	if (user.email === email && user.password === password) {

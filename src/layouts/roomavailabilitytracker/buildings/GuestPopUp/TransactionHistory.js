@@ -7,7 +7,8 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { useEffect, useState } from "react";
-import axios from "axios";
+// import axios from "axios";
+import axios from '../../../../Uri'
 
 // const [tableData,setTableData] = useState([])
 
@@ -17,7 +18,7 @@ export default function TransactionHistory(props) {
   useEffect(() => {
     async function fetchData() {
       const response = await axios.get(
-        `http://localhost:8989/payment/getTrasactionHistoryByGuestId/${props.guestdetails.id}`
+        `/payment/getTrasactionHistoryByGuestId/${props.guestdetails.id}`
       );
       console.log(response.data);
       setHistory(response.data);
