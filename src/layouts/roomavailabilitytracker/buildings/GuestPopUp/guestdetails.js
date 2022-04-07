@@ -81,7 +81,11 @@ function Guestdetails(props) {
             //   label="Guest Id"
             style={{ width: "65%", marginLeft: "50px", marginBottom: "20px" }}
           >
+
+            Occupancy Type:
+            {props.guestdetails.occupancyType}
             Occupency Type &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp; {props.guestdetails.occupancyType}
+
           </h4>
         </Grid>
         <Grid item xs={12}>
@@ -90,7 +94,12 @@ function Guestdetails(props) {
             //   label="Guest Id"
             style={{ width: "65%", marginLeft: "50px", marginBottom: "20px" }}
           >
+
+            Occupancy Type:
+            {props.guestdetails.bedId}
+
             Bed ID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {props.guestdetails.bedId}
+
           </h4>
         </Grid>
         <Grid item xs={12}>

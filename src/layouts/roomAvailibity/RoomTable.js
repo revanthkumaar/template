@@ -5,102 +5,97 @@ import axios from "axios";
 import { height, width } from "@mui/system";
 
 function RoomTable() {
- 
-	const [ data, setData ] = useState([]);
-	const columns = [
-		// {
-		// 	title: 'ID',
-		// 	field: 'id',
-		// 	editable:false,
-		// 	headerStyle: {
-		// 		backgroundColor: '#1E90FF',
-		// 		color: 'white',
-		// 		height:'20px',
-		// 		width:'1px'
-		// 	}
-		// },
-		{
-			title: 'Bed No',
-			field: 'bedId',
-			headerStyle: {
-				backgroundColor: '#1E90FF',
-				color: 'white'
-				
-			}
-		},
-		{
-			title: 'Room Number',
-			field: 'roomId',
-			headerStyle: {
-				backgroundColor: '#1E90FF',
-				color: 'white'
-			}
-			
-		},
-		{
-			title: 'Floor Number',
-			field: 'floorId',
-			headerStyle: {
-				backgroundColor: '#1E90FF',
-				color: 'white'
-			}
-		},
-		
-	
-		{
-			title: 'Building Number',
-			field: 'buildingId',
-			headerStyle: {
-				backgroundColor: '#1E90FF',
-				color: 'white'
-			}
-		},
-	
-		{
-			title: 'Bed Status',
-			field: 'bedStatus',
-			editable:'false',
-			lookup:{true:"Allocated",false:"Not Allocated"},
-			headerStyle: {
-				backgroundColor: '#1E90FF',
-				color: 'white'
-			}
-		},
-		{
-			title: 'Bed Name',
-			field: 'bedName',
-			headerStyle: {
-				backgroundColor: '#1E90FF',
-				color: 'white'
-			}
-		},
-		{
-			title: 'Default Rent',
-			field: 'defaultRent',
-			headerStyle: {
-				backgroundColor: '#1E90FF',
-				color: 'white'
-			}
-		},
-		{
-			title: 'Security Deposit',
-			field: 'securityDeposit',
-			headerStyle: {
-				backgroundColor: '#1E90FF',
-				color: 'white'
-			}
-		},
-		{
-			title: 'Room Type',
-			field: 'ac',
-			lookup:{true:"Ac",false:"Non_Ac"},
-			headerStyle: {
-				backgroundColor: '#1E90FF',
-				color: 'white'
-			}
-		},
-	
-		]
+  const [data, setData] = useState([]);
+  const columns = [
+    // {
+    // 	title: 'ID',
+    // 	field: 'id',
+    // 	editable:false,
+    // 	headerStyle: {
+    // 		backgroundColor: '#1E90FF',
+    // 		color: 'white',
+    // 		height:'20px',
+    // 		width:'1px'
+    // 	}
+    // },
+    {
+      title: "Bed No",
+      field: "bedId",
+      headerStyle: {
+        backgroundColor: "#1E90FF",
+        color: "white",
+      },
+    },
+    {
+      title: "Room Number",
+      field: "roomId",
+      headerStyle: {
+        backgroundColor: "#1E90FF",
+        color: "white",
+      },
+    },
+    {
+      title: "Floor Number",
+      field: "floorId",
+      headerStyle: {
+        backgroundColor: "#1E90FF",
+        color: "white",
+      },
+    },
+
+    {
+      title: "Building Number",
+      field: "buildingId",
+      headerStyle: {
+        backgroundColor: "#1E90FF",
+        color: "white",
+      },
+    },
+
+    {
+      title: "Bed Status",
+      field: "bedStatus",
+      editable: "false",
+      lookup: { true: "Allocated", false: "Not Allocated" },
+      headerStyle: {
+        backgroundColor: "#1E90FF",
+        color: "white",
+      },
+    },
+    {
+      title: "Bed Name",
+      field: "bedName",
+      headerStyle: {
+        backgroundColor: "#1E90FF",
+        color: "white",
+      },
+    },
+    {
+      title: "Default Rent",
+      field: "defaultRent",
+      headerStyle: {
+        backgroundColor: "#1E90FF",
+        color: "white",
+      },
+    },
+    {
+      title: "Security Deposit",
+      field: "securityDeposit",
+      headerStyle: {
+        backgroundColor: "#1E90FF",
+        color: "white",
+      },
+    },
+    {
+      title: "Room Type",
+      field: "ac",
+      lookup: { true: "Ac", false: "Non_Ac" },
+      headerStyle: {
+        backgroundColor: "#1E90FF",
+        color: "white",
+      },
+    },
+  ];
 
   useEffect(() => {
     axios
