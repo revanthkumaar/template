@@ -11,8 +11,7 @@ function Guestdetails(props) {
         <Grid container spacing={2} columns={16}>
           <Grid item xs={12}>
             <h4
-              // id="outlined-textarea"
-              //   label="Guest Id"
+             
               style={{ width: "65%",  marginBottom: "5px" }}
             >
               Guest Id &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;{props.guestdetails.id}
@@ -20,26 +19,23 @@ function Guestdetails(props) {
           </Grid>
           <Grid item xs={12}>
             <h4
-              // id="outlined-textarea"
-              //   label="Guest Id"
+             
               style={{ width: "65%",  marginBottom: "5px" }}
             >
-              Guest Name : {props.guestdetails.firstName}
+              Guest Name :&nbsp; {props.guestdetails.firstName}
             </h4>
           </Grid>
           <Grid item xs={12}>
             <h4
-              // id="outlined-textarea"
-              //   label="Guest Id"
+              
               style={{ width: "150%",  marginBottom: "5px" }}
             >
-              Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {props.guestdetails.email}
+              Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp; {props.guestdetails.email}
             </h4>
           </Grid>
           <Grid item xs={12}>
             <h4
-              // id="outlined-textarea"
-              //   label="Guest Id"
+              
               style={{ width: "100%", marginBottom: "5px" }}
             >
               Mobile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {props.guestdetails.personalNumber}
@@ -48,8 +44,7 @@ function Guestdetails(props) {
          
           <Grid item xs={12}>
             <h4
-              // id="outlined-textarea"
-              //   label="Guest Id"
+            
               style={{ width: "80%", marginBottom: "10px" }}
             >
               CheckIn Date&nbsp;: {props.guestdetails.checkInDate}
@@ -63,12 +58,11 @@ function Guestdetails(props) {
       <div class="float-child">
         <Grid item xs={12}>
           <h4
-            // id="outlined-textarea"
-            //   label="Guest Id"
+           
             style={{ width: "65%", marginLeft: "50px", marginBottom: "20px" }}
           >
 
-            Occupency Type &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp; {props.guestdetails.occupancyType}
+            Occupancy Type &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp; {props.guestdetails.occupancyType}
 
           </h4>
         </Grid>
@@ -94,8 +88,7 @@ function Guestdetails(props) {
         </Grid>
         <Grid item xs={12}>
           <h4
-            // id="outlined-textarea"
-            //   label="Guest Id"
+         
             style={{ width: "65%", marginLeft: "50px", marginBottom: "20px" }}
           >
             Amount Paid &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {props.guestdetails.amountPaid}
@@ -103,8 +96,7 @@ function Guestdetails(props) {
         </Grid>
         <Grid item xs={12}>
           <h4
-            // id="outlined-textarea"
-            //   label="Guest Id"
+          
             style={{ width: "65%", marginLeft: "50px", marginBottom: "20px" }}
           >
             Due Amount&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {props.guestdetails.dueAmount}
