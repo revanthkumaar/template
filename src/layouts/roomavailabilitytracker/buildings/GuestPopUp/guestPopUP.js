@@ -54,7 +54,17 @@ export default function GuestPopUp({ open, handleClose, ...props }) {
         </Dialog>
       ) : (
         <Dialog open={open} onClose={handleClose} maxWidth="lg">
-          <DialogTitle >GUEST DETAILS</DialogTitle>
+          <MDButton
+                  width="20%"
+                  variant="contained"
+                  color="info"
+                  size="large"
+                  justify="center"
+                  style={{ borderRadius: 0 }}
+                  
+                >
+                  Guest Details
+                </MDButton>
           <DialogContent>
             <Guestdetails guestdetails={props.GuestDetails} />
 

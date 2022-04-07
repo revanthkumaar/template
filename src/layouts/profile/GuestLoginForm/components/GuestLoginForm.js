@@ -214,7 +214,7 @@ const GuestLoginForm = () => {
     bedRent.map((post) =>
     {
       setRent(post.defaultRent)
-      setDefaultRentofBed(post.dueAmount)
+      setDefaultRentofBed(post.defaultRent)
     } 
     );
   };
