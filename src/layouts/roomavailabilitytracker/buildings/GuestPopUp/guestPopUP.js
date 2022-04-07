@@ -54,14 +54,14 @@ export default function GuestPopUp({ open, handleClose, ...props }) {
         </Dialog>
       ) : (
         <Dialog open={open} onClose={handleClose} maxWidth="lg">
-          <DialogTitle>GUEST DETAILS</DialogTitle>
+          <DialogTitle >GUEST DETAILS</DialogTitle>
           <DialogContent>
             <Guestdetails guestdetails={props.GuestDetails} />
 
-            <DialogTitle>
-              <br />
+            {/* <DialogTitle >
+            
               TRANSACTION HISTORY
-            </DialogTitle>
+            </DialogTitle> */}
             <TransactionHistory guestdetails={props.GuestDetails} />
           </DialogContent>
           <DialogActions>

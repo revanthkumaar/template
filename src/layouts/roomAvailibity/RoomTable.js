@@ -25,6 +25,7 @@ function RoomTable() {
 			headerStyle: {
 				backgroundColor: '#1E90FF',
 				color: 'white'
+				
 			}
 		},
 		{
@@ -184,8 +185,8 @@ function RoomTable() {
               headerStyle: {
                 backgroundColor: "#1E90FF",
                 color: "white",
-                fontSize: "20px",
-                height: "10px",
+                fontSize: "15px",
+                //height: "10px",
                 //fontWeight: 'bold'
               },
               rowStyle: {
