@@ -82,8 +82,39 @@ function Guestdetails(props) {
         </Grid>
       </Grid>
       </div>
-      
+      Bed Details
       <div class="float-child">
+      <Grid item xs={12}>
+          <h4
+            // id="outlined-textarea"
+            //   label="Guest Id"
+            style={{ width: "65%", marginLeft: "50px", marginBottom: "20px" }}
+          >
+           Occupency Type:
+            {props.guestdetails.occupancyType}
+          </h4>
+        </Grid>
+        <Grid item xs={12}>
+          <h4
+            // id="outlined-textarea"
+            //   label="Guest Id"
+            style={{ width: "65%", marginLeft: "50px", marginBottom: "20px" }}
+          >
+           Occupency Type:
+            {props.guestdetails.bedId}
+          </h4>
+        </Grid>
+        <Grid item xs={12}>
+          <h4
+            // id="outlined-textarea"
+            //   label="Guest Id"
+            style={{ width: "65%", marginLeft: "50px", marginBottom: "20px" }}
+          >
+           Security Deposit:
+            {props.guestdetails.securityDeposit}
+          </h4>
+        </Grid>
+        
         
       </div>
     </div>
