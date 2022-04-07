@@ -1,11 +1,11 @@
-import React, { useState,useEffect } from 'react';
-import MaterialTable from 'material-table';
-import { Grid } from '@mui/material';
-import axios from 'axios'
-import { height, width } from '@mui/system';
-
+import React, { useState, useEffect } from "react";
+import MaterialTable from "material-table";
+import { Grid } from "@mui/material";
+import axios from "axios";
+import { height, width } from "@mui/system";
 
 function RoomTable() {
+ 
 	const [ data, setData ] = useState([]);
 	const columns = [
 		// {
@@ -99,115 +99,104 @@ function RoomTable() {
 			}
 		},
 	
-		
+		]
 
-	];
+  useEffect(() => {
+    axios
 
-	useEffect(() => {
+      .get("http://localhost:8085/bed/getAllBeds")
 
-		axios
-	
-		  .get("http://localhost:8085/bed/getAllBeds")
-	
-		  .then((res) => {
-	
-			setData(res.data);
-	
-	
-	
-			console.log(res.data);
-	
-		  })
-	
-	
-	
-		  .catch((err) => {
-	
-			console.log(err);
-	
-		  });
-	
-	  }, []);
+      .then((res) => {
+        setData(res.data);
 
+        console.log(res.data);
+      })
 
-	return (
-		<div className="App">
-			<Grid container>
-				{/* <h1 align="center"></h1>
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  return (
+    <div className="App">
+      <Grid container>
+        {/* <h1 align="center"></h1>
       <h4 align='center'></h4> */}
-				<Grid xs={12}>
-					<MaterialTable
-						title="Room Details"
-						data={data}
-						sx={{ color: 'white' }}
-						columns={columns}
-						editable={{
-							onRowAdd: (newRow) =>
-								new Promise((resolve, reject) => {
-									const updatedRows = [ ...data, { id: Math.floor(Math.random() * 100), ...newRow } ];
-									setTimeout(() => {
-										
-										const res = axios.post(
-											"http://localhost:8085/bed/addBed",
-					  
-											newRow
-										  );
-										console.log(newRow)
-										setData(updatedRows);
-										resolve();
-									}, 2000);
-								}),
-							onRowDelete: (selectedRow) =>
-								new Promise((resolve, reject) => {
-									const index = selectedRow.id;
-									const updatedRows = [ ...data ];
-									updatedRows.splice(index, 1);
-									setTimeout(() => {
-										 const res = axios.delete(
-											`http://localhost:8085/bed/deleteBed/${index}`
-										   );
-										   console.log(res);
-										  console.log(updatedRows);
-										setData(updatedRows);
-										resolve();
-									}, 2000);
-								}),
-							onRowUpdate: (updatedRow, oldRow) =>
-								new Promise((resolve, reject) => {
-									const index = oldRow.id;
-									const updatedRows = [ ...data ];
-									updatedRows[index] = updatedRow;
-									setTimeout(() => {
-										const res = axios.put(
-											`http://localhost:8085/bed/updateBedById/${index }`,updatedRow
-										  );
-										  
-										  
-										  console.log(updatedRows);
-										setData(updatedRows);
-										resolve();
-									}, 2000);
-								})
-						}}
-						options={{
-							actionsColumnIndex: -1,
-							addRowPosition: 'first',
-							headerStyle: {
-								backgroundColor: '#1E90FF',
-								color: 'white',
-								fontSize: '20px',
-								height:'10px'
-								//fontWeight: 'bold'
-							},
-							rowStyle: {
-								fontSize: 16
-							}
-						}}
-					/>
-				</Grid>
-			</Grid>
-		</div>
-	);
+        <Grid xs={12}>
+          <MaterialTable
+            title="Room Details"
+            data={data}
+            sx={{ color: "white" }}
+            columns={columns}
+            editable={{
+              onRowAdd: (newRow) =>
+                new Promise((resolve, reject) => {
+                  const updatedRows = [
+                    ...data,
+                    { id: Math.floor(Math.random() * 100), ...newRow },
+                  ];
+                  setTimeout(() => {
+                    const res = axios.post(
+                      "http://localhost:8085/bed/addBed",
+
+                      newRow
+                    );
+                    console.log(newRow);
+                    setData(updatedRows);
+                    resolve();
+                  }, 2000);
+                }),
+              onRowDelete: (selectedRow) =>
+                new Promise((resolve, reject) => {
+                  const index = selectedRow.id;
+                  const updatedRows = [...data];
+                  updatedRows.splice(index, 1);
+                  setTimeout(() => {
+                    const res = axios.delete(
+                      `http://localhost:8085/bed/deleteBed/${index}`
+                    );
+                    console.log(res);
+                    console.log(updatedRows);
+                    setData(updatedRows);
+                    resolve();
+                  }, 2000);
+                }),
+              onRowUpdate: (updatedRow, oldRow) =>
+                new Promise((resolve, reject) => {
+                  const index = oldRow.id;
+                  const updatedRows = [...data];
+                  updatedRows[index] = updatedRow;
+                  setTimeout(() => {
+                    const res = axios.put(
+                      `http://localhost:8085/bed/updateBedById/${index}`,
+                      updatedRow
+                    );
+
+                    console.log(updatedRows);
+                    setData(updatedRows);
+                    resolve();
+                  }, 2000);
+                }),
+            }}
+            options={{
+              actionsColumnIndex: -1,
+              addRowPosition: "first",
+              headerStyle: {
+                backgroundColor: "#1E90FF",
+                color: "white",
+                fontSize: "20px",
+                height: "10px",
+                //fontWeight: 'bold'
+              },
+              rowStyle: {
+                fontSize: 16,
+              },
+            }}
+          />
+        </Grid>
+      </Grid>
+    </div>
+  );
 }
 
 export default RoomTable;
