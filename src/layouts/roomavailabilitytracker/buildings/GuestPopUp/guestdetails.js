@@ -45,16 +45,7 @@ function Guestdetails(props) {
               Mobile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {props.guestdetails.personalNumber}
             </h4>
           </Grid>
-          {/* <Grid item xs={12}>
-          <h4
-            // id="outlined-textarea"
-            //   label="Guest Id"
-            style={{ width: "65%", marginLeft: "50px", marginBottom: "20px" }}
-          >
-            Father's Mobile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
-            {props.guestdetails.fatherNumber}
-          </h4>
-        </Grid> */}
+         
           <Grid item xs={12}>
             <h4
               // id="outlined-textarea"
@@ -65,12 +56,7 @@ function Guestdetails(props) {
             </h4>
           </Grid>
 
-          {/* <Grid item xs={4}></Grid>
-          <Grid item xs={5}>
-            <MDTypography style={{ color: "red" }}>
-              Due amount&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 5000
-            </MDTypography>
-          </Grid> */}
+       
         </Grid>
       </div>
      
@@ -82,21 +68,17 @@ function Guestdetails(props) {
             style={{ width: "65%", marginLeft: "50px", marginBottom: "20px" }}
           >
 
-            Occupancy Type:
-            {props.guestdetails.occupancyType}
             Occupency Type &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp; {props.guestdetails.occupancyType}
 
           </h4>
         </Grid>
         <Grid item xs={12}>
           <h4
-            // id="outlined-textarea"
-            //   label="Guest Id"
+            
             style={{ width: "65%", marginLeft: "50px", marginBottom: "20px" }}
           >
 
-            Occupancy Type:
-            {props.guestdetails.bedId}
+            
 
             Bed ID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {props.guestdetails.bedId}
 
@@ -104,8 +86,7 @@ function Guestdetails(props) {
         </Grid>
         <Grid item xs={12}>
           <h4
-            // id="outlined-textarea"
-            //   label="Guest Id"
+            
             style={{ width: "65%", marginLeft: "50px", marginBottom: "20px" }}
           >
             Security Deposit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {props.guestdetails.securityDeposit}
