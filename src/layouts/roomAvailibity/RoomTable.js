@@ -8,17 +8,17 @@ import { height, width } from '@mui/system';
 function RoomTable() {
 	const [ data, setData ] = useState([]);
 	const columns = [
-		{
-			title: 'ID',
-			field: 'id',
-			editable:false,
-			headerStyle: {
-				backgroundColor: '#1E90FF',
-				color: 'white',
-				height:'20px',
-				width:'1px'
-			}
-		},
+		// {
+		// 	title: 'ID',
+		// 	field: 'id',
+		// 	editable:false,
+		// 	headerStyle: {
+		// 		backgroundColor: '#1E90FF',
+		// 		color: 'white',
+		// 		height:'20px',
+		// 		width:'1px'
+		// 	}
+		// },
 		{
 			title: 'Bed No',
 			field: 'bedId',
@@ -58,6 +58,7 @@ function RoomTable() {
 		{
 			title: 'Bed Status',
 			field: 'bedStatus',
+			editable:'false',
 			lookup:{true:"Allocated",false:"Not Allocated"},
 			headerStyle: {
 				backgroundColor: '#1E90FF',
