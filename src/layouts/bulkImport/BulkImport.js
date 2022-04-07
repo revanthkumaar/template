@@ -84,7 +84,6 @@ const BulkImportForm = () => {
                           value={building}
                           label="Select Building"
                           name="buliding"
-                          name="bulding"
                           onChange={handleChangeBuildingType}
                         >
                           <MenuItem value={11}>Building-1</MenuItem>
@@ -171,9 +170,7 @@ const BulkImportForm = () => {
             </Container>
           </Grid>
         </MDBox>
-        <MDBox sx={{ ml: -35 }}>
-        {/* //  <SampleReport /> */}
-        </MDBox>
+        <MDBox sx={{ ml: -35 }}>{/* //  <SampleReport /> */}</MDBox>
         <br />
         <MDBox display="flex" alignItems="center" sx={{ pl: 3 }} pb={5}>
           <Grid item xs={1} justifyContent="center">

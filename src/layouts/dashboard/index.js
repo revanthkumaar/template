@@ -17,12 +17,10 @@ import UpcomingCheckouts from "layouts/dashboard/components/summaryTables/Upcomi
 import RecentTransactions from "layouts/dashboard/components/summaryTables/Recenttransactions";
 import { Navigate } from "react-router-dom";
 
-function Dashboard({authorized}) {
-  if(!authorized){
-
-    return <Navigate to="/authentication/sign-in" />
-
-}
+function Dashboard({ authorized }) {
+  if (!authorized) {
+    return <Navigate to="/authentication/sign-in" />;
+  }
   return (
     <DashboardLayout>
       <DashboardNavbar />
