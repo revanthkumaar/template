@@ -32,6 +32,30 @@ function BedandBill(props) {
       });
   }, []);
 console.log(build.totalAvailbleBeds);
+const [payments, setPayments] = React.useState([])
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8989/payment/pendingPayment")
+      .then((res) => {
+
+        console.log(res.data);
+        setPayments(res.data)
+       //  setPayments(res.data)
+       //  console.log(setPayments)
+     
+        //   res.data.map((data) => {
+        //     buildingNamesArray.push(data.buildingName);
+        //   });
+
+        //   setBuilding(buildingNamesArray);
+      })
+
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+  console.log(payments.pendingPayments);
   return (
     <div>
       <Grid item xs={12} md={6} lg={3}>
@@ -137,7 +161,7 @@ console.log(build.totalAvailbleBeds);
                   fontWeight="regular"
                   style={{ fontSize: "2em" }}
                 >
-                  125
+                   {payments.pendingPayments}
                 </MDTypography>
                 <MDTypography color="light" fontWeight="light">
                   Pending payments
