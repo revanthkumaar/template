@@ -97,26 +97,20 @@ const BuildingsLayout = (props) => {
                                                                                                 }
                                                                                                 else {
                                                                                                     return (<HotelOutlinedIcon key={bdno.bedId} color="error" className="click" id={bdno.guestId}
-                                                                                                        onClick={() => {
-                                                                                                            setLoading(true)
+                                                                                                        onClick={async() => {
+                                                                                                            setLoading(false)
                                                                                                             console.log(bdno.guestId)
-                                                                                                            {   
-                                                                                                                loading ?
-                                                                                                                    axios.get(`http://localhost:8989/guest/getGuestByGuestId/${bdno.guestId}`)
+                                                                                                            
+                                                                                                                   await axios.get(`http://localhost:8989/guest/getGuestByGuestId/${bdno.guestId}`)
                                                                                                                         .then(res => {
                                                                                                                             GuestDetails = (res.data);
-                                                                                                                            console.log(GuestDetails);                                                                                                                            
+                                                                                                                            console.log(GuestDetails);
+                                                                                                                                                                                                                                                   
                                                                                                                             setOpen(true)
+                                                                                                                            setLoading(true)
+                                                                                                               
                                                                                                                         })
-                                                                                                                        :
-                                                                                                                        <Backdrop
-                                                                                                                            sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-                                                                                                                            open
-                                                                                                                            onClick={handleClose}
-                                                                                                                        >
-                                                                                                                            <CircularProgress color="inherit" />
-                                                                                                                        </Backdrop>
-                                                                                                                } 
+                                                                                                                        
                                                                                                         }} />)
                                                                                                 }
                                                                                             })()}
