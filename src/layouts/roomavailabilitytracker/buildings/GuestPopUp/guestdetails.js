@@ -1,12 +1,15 @@
 import React from "react";
 import { Grid } from "@mui/material";
 import MDTypography from "components/MDTypography";
+import './guest.css'
 
 function Guestdetails(props) {
   return (
-    <div>
+    <div class="float-container">
+        
+        <div class="float-child">
       <Grid container spacing={2} columns={16}>
-          <Grid></Grid>
+         
         <Grid item xs={12}>
           <h4
             // id="outlined-textarea"
@@ -14,7 +17,7 @@ function Guestdetails(props) {
             style={{ width: "65%", marginLeft: "50px", marginBottom: "20px" }}
           >
             Guest
-            Id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Id
             : {props.guestdetails.id}
           </h4>
         </Grid>
@@ -25,7 +28,7 @@ function Guestdetails(props) {
             style={{ width: "65%", marginLeft: "50px", marginBottom: "20px" }}
           >
             Guest
-            Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Name
             : {props.guestdetails.firstName}
           </h4>
         </Grid>
@@ -35,7 +38,7 @@ function Guestdetails(props) {
             //   label="Guest Id"
             style={{ width: "65%", marginLeft: "50px", marginBottom: "20px" }}
           >
-            Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Email
             : {props.guestdetails.email}
           </h4>
         </Grid>
@@ -45,29 +48,28 @@ function Guestdetails(props) {
             //   label="Guest Id"
             style={{ width: "65%", marginLeft: "50px", marginBottom: "20px" }}
           >
-            Mobile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:{" "}
+            Mobile:
             {props.guestdetails.personalNumber}
           </h4>
         </Grid>
-        <Grid item xs={12}>
+        {/* <Grid item xs={12}>
           <h4
             // id="outlined-textarea"
             //   label="Guest Id"
             style={{ width: "65%", marginLeft: "50px", marginBottom: "20px" }}
           >
-            Father's
-            Mobile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+            Father's Mobile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
             {props.guestdetails.fatherNumber}
           </h4>
-        </Grid>
+        </Grid> */}
         <Grid item xs={12}>
           <h4
             // id="outlined-textarea"
             //   label="Guest Id"
             style={{ width: "65%", marginLeft: "50px", marginBottom: "20px" }}
           >
-            checkIn
-            Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+            CheckIn
+            Date:
             {props.guestdetails.checkInDate}
           </h4>
         </Grid>
@@ -79,6 +81,11 @@ function Guestdetails(props) {
           </MDTypography>
         </Grid>
       </Grid>
+      </div>
+      
+      <div class="float-child">
+        
+      </div>
     </div>
   );
 }
