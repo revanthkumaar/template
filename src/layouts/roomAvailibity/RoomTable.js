@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import MaterialTable from "material-table";
 import { Grid } from "@mui/material";
-import axios from "axios";
+// import axios from "axios";
+import axios from '../../Uri'
 import { height, width } from "@mui/system";
 
 function RoomTable() {
@@ -100,7 +101,7 @@ function RoomTable() {
   useEffect(() => {
     axios
 
-      .get("http://localhost:8085/bed/getAllBeds")
+      .get("/bed/getAllBeds")
 
       .then((res) => {
         setData(res.data);

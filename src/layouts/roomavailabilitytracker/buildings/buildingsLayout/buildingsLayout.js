@@ -14,7 +14,8 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import MDButton from 'components/MDButton';
-import axios from 'axios';
+// import axios from 'axios';
+import axios from '../../../../Uri'
 import GuestPopUp from '../GuestPopUp/guestPopUP'
 import { setOpenConfigurator } from 'context';
 import './buildingLayout.css'
@@ -34,7 +35,7 @@ const BuildingsLayout = (props) => {
     const closeLoading = () => setLoading(!loading)
 
     useEffect(async () => {
-        await axios.get("http://localhost:8989/bed/getBedsByAllBuildings")
+        await axios.get("/bed/getBedsByAllBuildings")
             .then(res => {
                 setBuildingInfo(res.data);
                 setLoading(true)
@@ -97,7 +98,7 @@ const BuildingsLayout = (props) => {
                                                                                                             setLoading(false)
                                                                                                             console.log(bdno.guestId)
 
-                                                                                                            await axios.get(`http://localhost:8989/guest/getGuestByGuestId/${bdno.guestId}`)
+                                                                                                            await axios.get(`/guest/getGuestByGuestId/${bdno.guestId}`)
                                                                                                                 .then(res => {
                                                                                                                     GuestDetails = (res.data);
                                                                                                                     console.log(GuestDetails);

@@ -2,7 +2,8 @@ import React from "react";
 import { Chart } from "react-google-charts";
 import BuildingsLayout from "../buildingsLayout/buildingsLayout";
 import { useEffect, useState } from 'react';
-import axios from "axios";
+// import axios from "axios";
+import axios from '../../../../Uri'
 
 
 var availableBeds = 0;
@@ -27,7 +28,7 @@ export default function BedSummaryChart(props) {
 
   useEffect(() => {
        async function fetchData() {
-      const request = await axios.get('http://localhost:8085/bed/getBedSummaryForPieChartByAllBuildings')
+      const request = await axios.get('/bed/getBedSummaryForPieChartByAllBuildings')
        setapiData(request.data)    
     }
     fetchData();

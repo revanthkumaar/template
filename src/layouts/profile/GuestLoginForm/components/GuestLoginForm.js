@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
+// import axios from "axios";
+import axios from '../../../../Uri'
 import { Container, Grid, Typography, InputLabel, Alert } from "@mui/material";
 import moment from "moment";
 //import Divider from "@mui/material/Divider";
@@ -171,7 +172,7 @@ const GuestLoginForm = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8085/bed/getAvailableBedsByBuildings")
+      .get("/bed/getAvailableBedsByBuildings")
       .then((res) => {
         setoneBuilding(res.data);
         console.log(res.data);
@@ -296,7 +297,7 @@ else{
                   resetForm();
                 }, 50);
                 const res = await axios.post(
-                  "http://localhost:8989/guest/addGuest",
+                  "/guest/addGuest",
 
                   gusting
                    
