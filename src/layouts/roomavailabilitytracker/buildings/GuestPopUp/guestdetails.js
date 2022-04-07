@@ -1,10 +1,10 @@
 import React from "react";
 import { Grid } from "@mui/material";
-import MDTypography from "components/MDTypography";
 import "./guest.css";
 
 function Guestdetails(props) {
   return (
+    <Grid>
     <div class="float-container">
        
       <div class="float-child">
@@ -104,6 +104,7 @@ function Guestdetails(props) {
         </Grid>
       </div>
     </div>
+    </Grid>
   );
 }
 
