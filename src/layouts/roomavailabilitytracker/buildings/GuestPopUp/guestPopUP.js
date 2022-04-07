@@ -22,7 +22,7 @@ export default function GuestPopUp({ open, handleClose, ...props }) {
 		<div>
 			{props.GuestDetails.occupancyType === 'regular' ? (
 				<Dialog open={open} onClose={handleClose} maxWidth="lg">
-					<DialogTitle>GUEST DETAILS</DialogTitle>
+					
 					<DialogContent>
 						<Guestdetails guestdetails={props.GuestDetails} />
 						<br />
