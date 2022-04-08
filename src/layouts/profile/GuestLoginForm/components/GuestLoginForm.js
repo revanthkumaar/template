@@ -304,7 +304,7 @@ else{
                 console.log(amountToPay)
                 if(gusting.amountPaid==amountToPay){
                   
-                  resetForm();
+                 
                   const res = await axios.post(
                     "/guest/addGuest",
   
@@ -316,6 +316,7 @@ else{
                   if(res.data !== null )
                   {
                     alert("Guest On Boarded Successfully")
+                    resetForm();
                   }
                 }
                 else{
