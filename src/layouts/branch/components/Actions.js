@@ -1,95 +1,12 @@
 import React, { useState ,useEffect} from "react";
 import MaterialTable from "material-table";
-import axios from "axios";
-import { Grid } from "@mui/material"
+// import axios from "axios";
+import { Grid } from "@mui/material";
+import axios from "../../../Uri";
 
 
-// const empList = [
-//   {
-//     id: 1,
-//     buildingName: "Building-1",
-//     buildingNumber: "A12",
-//     managerName: "Sivayya",
-//     mobile: 9876543210,
-//   },
-//   {
-//     id: 2,
-//     buildingName: "Building-2",
-//     buildingNumber: "B11",
-//     managerName: "Subramanyam",
-//     mobile: 9812345678,
-//   },
-//   {
-//     id: 3,
-//     buildingName: "Building-3",
-//     buildingNumber: "C03",
-//     managerName: "HariBabu",
-//     mobile: 7896536289,
-//   },
-//   {
-//     id: 4,
-//     buildingName: "Building-4",
-//     buildingNumber: "B11",
-//     managerName: "Suresh",
-//     mobile: 9087654321,
-//   },
-//   {
-//     id: 5,
-//     buildingName: "Building-1",
-//     buildingNumber: "A12",
-//     managerName: "Sivayya",
-//     mobile: 9876543210,
-//   },
-//   {
-//     id: 6,
-//     buildingName: "Building-2",
-//     buildingNumber: "B11",
-//     managerName: "Subramanyam",
-//     mobile: 9812345678,
-//   },
-//   {
-//     id: 7,
-//     buildingName: "Building-3",
-//     buildingNumber: "C03",
-//     managerName: "HariBabu",
-//     mobile: 7896536289,
-//   },
-//   {
-//     id: 8,
-//     buildingName: "Building-4",
-//     buildingNumber: "B11",
-//     managerName: "Suresh",
-//     mobile: 9087654321,
-//   },
-//   {
-//     id: 9,
-//     buildingName: "Building-1",
-//     buildingNumber: "A12",
-//     managerName: "Sivayya",
-//     mobile: 9876543210,
-//   },
-//   {
-//     id: 10,
-//     buildingName: "Building-2",
-//     buildingNumber: "B11",
-//     managerName: "Subramanyam",
-//     mobile: 9812345678,
-//   },
-//   {
-//     id: 11,
-//     buildingName: "Building-3",
-//     buildingNumber: "C03",
-//     managerName: "HariBabu",
-//     mobile: 7896536289,
-//   },
-//   {
-//     id: 12,
-//     buildingName: "Building-4",
-//     buildingNumber: "B11",
-//     managerName: "Suresh",
-//     mobile: 9087654321,
-//   },
-// ];
+
+
 
 function Actions() {
   const [data, setData] = useState([]);
@@ -124,7 +41,7 @@ function Actions() {
   useEffect(() => {
     axios
 
-      .get("http://localhost:8085/bed/getAllBuildings")
+      .get("/bed/getAllBuildings")
 
       .then((res) => {
         setData(res.data);
@@ -159,7 +76,7 @@ function Actions() {
                 ];
                 setTimeout(() => {
                   const res = axios.post(
-                    "http://localhost:8085/bed/addBuilding",
+                    "/bed/addBuilding",
 
                     newRow
                   );
@@ -175,7 +92,7 @@ function Actions() {
                 updatedRows.splice(index, 1);
                 setTimeout(() => {
                   const res = axios.delete(
-                    `http://localhost:8085/bed/deleteBuilding/${index}`
+                    `/bed/deleteBuilding/${index}`
                   );
                   console.log(res);
                   console.log(updatedRows);
@@ -190,7 +107,7 @@ function Actions() {
                 updatedRows[index] = updatedRow;
                 setTimeout(() => {
                   const res = axios.put(
-                    `http://localhost:8085/bed/updateBuildingById/${index}`,
+                    `/bed/updateBuildingById/${index}`,
                     updatedRow
                   );
 
