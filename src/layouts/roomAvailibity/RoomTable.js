@@ -57,7 +57,7 @@ function RoomTable() {
       title: "Bed Status",
       field: "bedStatus",
       editable: "false",
-      lookup: { true: "Allocated", false: "Not Allocated" },
+      lookup: { true: "Not Allocated", false: "Allocated" },
       headerStyle: {
         backgroundColor: "#1E90FF",
         color: "white",
