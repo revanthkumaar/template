@@ -3,7 +3,7 @@ import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import MDBox from "components/MDBox";
 
-import { Grid, Card, CardContent, Typography } from "@mui/material";
+import { Grid} from "@mui/material";
 
 import BuildingsLayout from "./buildingsLayout/buildingsLayout";
 import BedSummaryChart from "./buildingspieCharts/bedSummaryChart";
