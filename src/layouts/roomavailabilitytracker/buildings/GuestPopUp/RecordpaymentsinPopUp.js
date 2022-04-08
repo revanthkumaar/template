@@ -59,7 +59,7 @@ const RecordpaymentsinPopUp = (props) => {
                 console.log(guest);
 
                 const res = await axios.post("/payment/addAfterOnBoard", guest);
-                console.log(res);
+                console.log(res.data);
                 setTimeout(() => {
                   resetForm();
                 }, 50);

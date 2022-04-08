@@ -37,7 +37,7 @@ const [payments, setPayments] = React.useState([])
 
   useEffect(() => {
     axios
-      .get("/payment/pendingPayment")
+      .get("/payment/pendingPayments")
       .then((res) => {
 
         console.log(res.data);

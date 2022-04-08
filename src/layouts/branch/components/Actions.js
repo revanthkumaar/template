@@ -1,12 +1,10 @@
 import React, { useState ,useEffect} from "react";
 import MaterialTable from "material-table";
 // import axios from "axios";
-import { Grid } from "@mui/material";
-import axios from "../../../Uri";
-
-
-
-
+import axios from '../../../Uri'
+import { Grid } from "@mui/material"
+// import { Grid } from "@mui/material";
+// import axios from "../../../Uri";
 
 function Actions() {
   const [data, setData] = useState([]);
