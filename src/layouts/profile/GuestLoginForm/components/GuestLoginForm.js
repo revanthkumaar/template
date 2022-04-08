@@ -59,6 +59,7 @@ const INITIAL_FORM_STATE = {
   pincode: "",
   city: "",
   state: "",
+  amountTopay:"",
   // workPhone: "",
   // workAddressLine1: "",
   // workAddressLine2: "",
@@ -276,6 +277,11 @@ else{
 
   const obje = { buildingName: putBuilding };
   const objee = { defaultRent: rent };
+  const amountNeedToPay=(n)=>{
+    console.log(n.target.value)
+
+  }
+  
 
   return (
     <Grid container>
@@ -291,21 +297,35 @@ else{
                 const guests = Object.assign(guest, obj);
 
                 const gustes = Object.assign(guests, obje);
+                
                 const gusting = Object.assign(gustes, objee);
                 console.log(gusting);
+                console.log(gusting.amountPaid);
+                console.log(amountToPay)
+                if(gusting.amountPaid==amountToPay){
+                  alert("Guest On Boarded Successfully")
+                  const res = await axios.post(
+                    "/guest/addGuest",
+  
+                    gusting
+                     
+  
+                  );
+                  console.log(res.data)
+                }
+                else{
+                  alert("Guest Need to pay The full Amount")
+                }
                 setTimeout(() => {
                   console.log(rent);
-                  alert("Guest On Boarded Successfully");
+                  
+                  
+                   
                   resetForm();
                 }, 50);
-                const res = await axios.post(
-                  "/guest/addGuest",
-
-                  gusting
-                   
-
-                );
-                 console.log(res.data);
+                
+             
+                 
               }}
             >
               {(formProps) => (
@@ -395,7 +415,7 @@ else{
                     </Grid>
 
                     <Grid item xs={6}>
-                      <Textfield name="amountPaid" label="Amount Paid" required />
+                      <Textfield name="amountPaid" label="Amount Paid" required onClick={amountNeedToPay} />
                     </Grid>
                     <Grid item xs={6}>
                       <Textfield name="transactionId" label="Transaction ID" />
