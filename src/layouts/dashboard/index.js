@@ -11,9 +11,9 @@ import Footer from "examples/Footer";
 import BedandBill from "layouts/dashboard/components/BedandBIll";
 import Expenditures from "layouts/dashboard/components/expenditures";
 
-import PendingPayments from "layouts/dashboard/components/summaryTables/PendingPayments";
+//import PendingPayments from "layouts/dashboard/components/summaryTables/PendingPayments";
 import AvailabeRooms from "layouts/dashboard/components/summaryTables/AvailableRooms";
-import UpcomingCheckouts from "layouts/dashboard/components/summaryTables/UpcomingCheckouts";
+//import UpcomingCheckouts from "layouts/dashboard/components/summaryTables/UpcomingCheckouts";
 import RecentTransactions from "layouts/dashboard/components/summaryTables/Recenttransactions";
 import { Navigate } from "react-router-dom";
 

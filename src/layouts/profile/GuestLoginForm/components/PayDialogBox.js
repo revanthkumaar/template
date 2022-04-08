@@ -1,17 +1,17 @@
 
 import * as React from 'react';
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
 import MDButton from 'components/MDButton';
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
+// import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
+// import DialogContentText from '@mui/material/DialogContentText';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import DialogTitle from '@mui/material/DialogTitle';
-import TextField from '@mui/material/TextField';
-import { Grid } from '@mui/material';
-import { borderRadius } from '@mui/system';
-import CustomizedSnackbars from './SubmitSnackBar';
+// import TextField from '@mui/material/TextField';
+// import { Grid } from '@mui/material';
+// import { borderRadius } from '@mui/system';
+// import CustomizedSnackbars from './SubmitSnackBar';
 import  { useState, useCallback, useMemo } from "react";
 import ImageCapture from "react-image-data-capture";
 export default function FormDialog() {
