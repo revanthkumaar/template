@@ -168,6 +168,7 @@ const GuestLoginForm = () => {
 
   let buildingNamesArray = [];
   let availableBedsByBuidlingName = [];
+  let empty =[]
   const classes = useStyles();
 
   useEffect(() => {
@@ -235,6 +236,7 @@ const GuestLoginForm = () => {
       
     }
     else {
+      setDuration(empty);
       setAmountToPay(defaultRentofBed);
     }
  
