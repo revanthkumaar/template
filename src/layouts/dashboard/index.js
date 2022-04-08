@@ -37,7 +37,7 @@ function Dashboard({ authorized }) {
         <h4 style={{ paddingTop: "10px" }}> Building Wise Summary</h4>
         <MDBox mt={5}>
           <Grid container spacing={2}>
-            <Grid item xs={6}>
+          <Grid item xs={6}>
               <Card>
                 <MDBox
                   mx={3}
@@ -50,11 +50,11 @@ function Dashboard({ authorized }) {
                   coloredShadow="info"
                 >
                   <MDTypography variant="h6" color="white">
-                    PENDING TRANSACTIONS
+                    RECENT TRANSACTIONS
                   </MDTypography>
                 </MDBox>
                 <MDBox pt={3}>
-                  <PendingPayments />
+                  <RecentTransactions />
                 </MDBox>
               </Card>
             </Grid>
@@ -83,7 +83,7 @@ function Dashboard({ authorized }) {
         </MDBox>
         <MDBox mt={5}>
           <Grid container spacing={2}>
-            <Grid item xs={6}>
+            {/* <Grid item xs={6}>
               <Card>
                 <MDBox
                   mx={3}
@@ -103,8 +103,8 @@ function Dashboard({ authorized }) {
                   <UpcomingCheckouts />
                 </MDBox>
               </Card>
-            </Grid>
-            <Grid item xs={6}>
+            </Grid> */}
+            {/* <Grid item xs={6}>
               <Card>
                 <MDBox
                   mx={3}
@@ -124,7 +124,7 @@ function Dashboard({ authorized }) {
                   <RecentTransactions />
                 </MDBox>
               </Card>
-            </Grid>
+            </Grid> */}
           </Grid>
         </MDBox>
       </MDBox>
