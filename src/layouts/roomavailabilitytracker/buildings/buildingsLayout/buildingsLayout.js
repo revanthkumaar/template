@@ -36,6 +36,7 @@ const BuildingsLayout = (props) => {
       .then((res) => {
         setBuildingInfo(res.data);
         setLoading(true);
+        console.log(res.data)
       })
       .catch((err) => {
         console.log(err);

@@ -26,7 +26,7 @@ const routes = [
 		key: 'tracker',
 		icon: <Icon fontSize="small">booking</Icon>,
 		route: '/tracker',
-		component:<BuildingsTracker buildingName = "Sree Kala Nilayam"/>
+		component:<BuildingsTracker buildingName = "SRI NILAYAM"/>
 	},
 	{
 		type: 'collapse',

@@ -1,6 +1,7 @@
 import React, { useState ,useEffect} from "react";
 import MaterialTable from "material-table";
-import axios from "axios";
+// import axios from "axios";
+import axios from '../../../Uri'
 import { Grid } from "@mui/material"
 
 
@@ -124,7 +125,7 @@ function Actions() {
   useEffect(() => {
     axios
 
-      .get("http://localhost:8085/bed/getAllBuildings")
+      .get("/bed/getAllBuildings")
 
       .then((res) => {
         setData(res.data);
@@ -159,7 +160,7 @@ function Actions() {
                 ];
                 setTimeout(() => {
                   const res = axios.post(
-                    "http://localhost:8085/bed/addBuilding",
+                    "/bed/addBuilding",
 
                     newRow
                   );
@@ -175,7 +176,7 @@ function Actions() {
                 updatedRows.splice(index, 1);
                 setTimeout(() => {
                   const res = axios.delete(
-                    `http://localhost:8085/bed/deleteBuilding/${index}`
+                    `/bed/deleteBuilding/${index}`
                   );
                   console.log(res);
                   console.log(updatedRows);
@@ -190,7 +191,7 @@ function Actions() {
                 updatedRows[index] = updatedRow;
                 setTimeout(() => {
                   const res = axios.put(
-                    `http://localhost:8085/bed/updateBuildingById/${index}`,
+                    `/bed/updateBuildingById/${index}`,
                     updatedRow
                   );
 

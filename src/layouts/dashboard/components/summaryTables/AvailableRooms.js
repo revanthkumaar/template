@@ -1,6 +1,7 @@
 import  React, {useEffect,useState} from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import axios from 'axios';
+// import axios from 'axios';
+import axios from '../../../../Uri'
 
 const columns = [
 	{ field: 'id', headerName: 'ID', width: 80 },
@@ -62,7 +63,7 @@ export default function AvailableRooms() {
 
 	useEffect(() => {
 		axios
-		  .get("http://localhost:8085/bed/getAvailableBeds")
+		  .get("/bed/getAvailableBeds")
 		  .then((res) => {
 			setTable(res.data);
 			console.log(res.data);
