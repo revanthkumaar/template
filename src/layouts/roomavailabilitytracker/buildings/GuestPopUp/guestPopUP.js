@@ -16,31 +16,26 @@ import RecentTransactions from "layouts/dashboard/components/summaryTables/Recen
 import TransactionHistory from "./TransactionHistory";
 import RecordpaymentsinPopUp from "./RecordpaymentsinPopUp";
 import Guestdetails from "./guestdetails";
-import AppBar from '@mui/material/AppBar';
+import AppBar from "@mui/material/AppBar";
 
-import Toolbar from '@mui/material/Toolbar'
+import Toolbar from "@mui/material/Toolbar";
 
 export default function GuestPopUp({ open, handleClose, ...props }) {
   return (
     <div>
-      
       {props.GuestDetails.occupancyType === "regular" ? (
         <Dialog open={open} onClose={handleClose} maxWidth="lg">
-          <MDButton 
-                  width="100%"
-                  variant="contained"
-                  color="info"
-                  size="large"
-                  justify="center"
-                  style={{ borderRadius: 0 }}
-                  
-                >
-                  Guest Details
-                </MDButton>
-          <DialogContent  >
-           
-          
-                
+          <MDButton
+            width="100%"
+            variant="contained"
+            color="info"
+            size="large"
+            justify="center"
+            style={{ borderRadius: 0 }}
+          >
+            Guest Details
+          </MDButton>
+          <DialogContent>
             <Guestdetails guestdetails={props.GuestDetails} />
             <br />
             <br />
@@ -73,21 +68,19 @@ export default function GuestPopUp({ open, handleClose, ...props }) {
       ) : (
         <Dialog open={open} onClose={handleClose} maxWidth="lg">
           <MDButton
-                  width="20%"
-                  variant="contained"
-                  color="info"
-                  size="large"
-                  justify="center"
-                  style={{ borderRadius: 0 }}
-                  
-                >
-                  Guest Details
-                </MDButton>
+            width="20%"
+            variant="contained"
+            color="info"
+            size="large"
+            justify="center"
+            style={{ borderRadius: 0 }}
+          >
+            Guest Details
+          </MDButton>
           <DialogContent>
             <Guestdetails guestdetails={props.GuestDetails} />
 
-           
-            <TransactionHistory  guestdetails={props.GuestDetails} />
+            <TransactionHistory guestdetails={props.GuestDetails} />
           </DialogContent>
           <DialogActions>
             <Grid container style={{ display: "flex" }}>

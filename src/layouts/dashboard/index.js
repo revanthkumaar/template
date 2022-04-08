@@ -37,7 +37,7 @@ function Dashboard({ authorized }) {
         <h4 style={{ paddingTop: "10px" }}> Building Wise Summary</h4>
         <MDBox mt={5}>
           <Grid container spacing={2}>
-          <Grid item xs={6}>
+            <Grid item xs={6}>
               <Card>
                 <MDBox
                   mx={3}

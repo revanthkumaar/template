@@ -8,7 +8,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { useEffect, useState } from "react";
 // import axios from "axios";
-import axios from '../../../../Uri'
+import axios from "../../../../Uri";
 
 // const [tableData,setTableData] = useState([])
 
@@ -42,10 +42,7 @@ export default function TransactionHistory(props) {
         </TableHead>
         <TableBody>
           {history.map((row) => (
-            <TableRow
-        
-              sx={{ alignContent: "center" }}
-			 >
+            <TableRow sx={{ alignContent: "center" }}>
               <TableCell component="th" scope="row">
                 {row.paymentId}
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

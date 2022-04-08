@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import MaterialTable from "material-table";
 import { Grid } from "@mui/material";
 // import axios from "axios";
-import axios from '../../Uri'
+import axios from "../../Uri";
 import { height, width } from "@mui/system";
 
 function RoomTable() {
@@ -149,9 +149,7 @@ function RoomTable() {
                   const updatedRows = [...data];
                   updatedRows.splice(index, 1);
                   setTimeout(() => {
-                    const res = axios.delete(
-                      `/bed/deleteBed/${index}`
-                    );
+                    const res = axios.delete(`/bed/deleteBed/${index}`);
                     console.log(res);
                     console.log(updatedRows);
                     setData(updatedRows);
