@@ -4,11 +4,11 @@ import Profile from 'layouts/profile';
 import SignIn from 'layouts/authentication/sign-in';
 import Branch from 'layouts/branch/index';
 import RoomAvailability from 'layouts/roomAvailibity';
-import BulkImport from 'layouts/bulkImport';
-import Expenses from 'layouts/expenses';
+// import BulkImport from 'layouts/bulkImport';
+// import Expenses from 'layouts/expenses';
 import Icon from '@mui/material/Icon';
-import PaymentModules from 'layouts/payments';
-import Tracker from 'layouts/roomavailabilitytracker';
+// import PaymentModules from 'layouts/payments';
+// import Tracker from 'layouts/roomavailabilitytracker';
 import BuildingsTracker from 'layouts/roomavailabilitytracker/buildings';
 
 const routes = [

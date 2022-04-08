@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 // import axios from "axios";
-import axios from '../../../../Uri'
-import { Container, Grid, Typography, InputLabel, Alert } from "@mui/material";
+import axios from "../../../../Uri";
+import { Container, Grid, InputLabel } from "@mui/material";
 
 import { makeStyles } from "@mui/styles";
 
@@ -14,7 +14,7 @@ import Purpose from "./Purpose";
 import Button from "layouts/profile/GuestLoginForm/components/Button";
 
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import { height } from "@mui/system";
+// import { height } from "@mui/system";
 
 const useStyles = makeStyles({
   root: {
@@ -58,10 +58,7 @@ const RecordpaymentsinPopUp = (props) => {
               onSubmit={async (guest, { resetForm }) => {
                 console.log(guest);
 
-                const res = await axios.post(
-                  "/payment/addAfterOnBoard",
-                  guest
-                );
+                const res = await axios.post("/payment/addAfterOnBoard", guest);
                 console.log(res);
                 setTimeout(() => {
                   resetForm();

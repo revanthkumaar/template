@@ -1,18 +1,14 @@
-
 import MDBox from "components/MDBox";
-import MDButton from "components/MDButton"
+import MDButton from "components/MDButton";
 
 import Icon from "@mui/material/Icon";
 import MDTypography from "components/MDTypography";
 
 import MDProgress from "components/MDProgress";
 
-
-
 export default function data() {
-   const Progress = ({ color, value }) => (
+  const Progress = ({ color, value }) => (
     <MDBox display="flex" alignItems="center">
-      
       <MDBox ml={0.5} width="9rem">
         <MDProgress variant="gradient" color={color} value={value} />
       </MDBox>
@@ -26,15 +22,15 @@ export default function data() {
       { Header: "ExpenseDate", accessor: "ExpenseDate", align: "center" },
       { Header: "Amount", accessor: "Amount", align: "center" },
       { Header: "Reason", accessor: "Reason", align: "center" },
-      { Header: "Action", accessor: "Action", align: "center" }, 
+      { Header: "Action", accessor: "Action", align: "center" },
     ],
 
     rows: [
       {
-        BranchName:(
-        <MDTypography display="block" variant="button" fontWeight="medium">
-        Branch One
-      </MDTypography>
+        BranchName: (
+          <MDTypography display="block" variant="button" fontWeight="medium">
+            Branch One
+          </MDTypography>
         ),
         Title: (
           <MDTypography display="block" variant="button" fontWeight="medium">
@@ -55,22 +51,14 @@ export default function data() {
         Reason: (
           <MDTypography display="block" variant="button" fontWeight="medium">
             Inventory repair
-            </MDTypography>
+          </MDTypography>
         ),
         Action: (
-            
-
-            
-              <MDButton variant="text" color="error">
-                <Icon>delete</Icon>&nbsp;delete
-              </MDButton>
-              
-            
-            
-          ),
-      
-        }
-      
+          <MDButton variant="text" color="error">
+            <Icon>delete</Icon>&nbsp;delete
+          </MDButton>
+        ),
+      },
     ],
   };
 }
