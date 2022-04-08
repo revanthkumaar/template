@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 // import axios from "axios";
-import axios from '../../../../Uri'
+import axios from "../../../../Uri";
 import { Container, Grid, Typography, InputLabel, Alert } from "@mui/material";
 
 import { makeStyles } from "@mui/styles";
@@ -58,10 +58,7 @@ const RecordpaymentsinPopUp = (props) => {
               onSubmit={async (guest, { resetForm }) => {
                 console.log(guest);
 
-                const res = await axios.post(
-                  "/payment/addAfterOnBoard",
-                  guest
-                );
+                const res = await axios.post("/payment/addAfterOnBoard", guest);
                 console.log(res);
                 setTimeout(() => {
                   resetForm();
