@@ -1,13 +1,10 @@
 import  React, {useEffect,useState} from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import axios from 'axios';
+// import axios from 'axios';
 
-// "id": 0,
-//         "amountPaid": 6000.0,
-//         "transactionId": "lkjhgfd",
-//         "transactionDate": "2022-04-08",
-//         "paymentPurpose": "roomrent",
-//         "guestId": "SLH000002"
+import axios from "../../../../Uri"
+
+
 
 const columns = [
 	{ field: 'id', headerName: ' PAYMENT ID', width: 80 },
@@ -25,48 +22,13 @@ const columns = [
 
 
 export default function AvailableRooms() {
-	// const rows = [
-	// 	{
-	// 		id: 'table',
-	// 		buildiing: 'sharan PG',
-	// 		floor: 'First Floor',
-	// 		roomNumber: '001',
-	// 		price: 6000
-	// 	},
-	// 	{
-	// 		id: '307A',
-	// 		buildiing: 'sharan PG',
-	// 		floor: 'First Floor',
-	// 		roomNumber: '001',
-	// 		price: 5500
-	// 	},
-	// 	{
-	// 		id: '206B',
-	// 		buildiing: 'sharan PG',
-	// 		floor: 'Second Floor',
-	// 		roomNumber: '002',
-	// 		price: 4000
-	// 	},
-	// 	{
-	// 		id: '108A',
-	// 		buildiing: 'sharan PG',
-	// 		floor: 'Second Floor',
-	// 		roomNumber: '003',
-	// 		price: 5000
-	// 	},
-	// 	{
-	// 		id: '109C',
-	// 		buildiing: 'sharan PG',
-	// 		floor: 'Ground Floor',
-	// 		roomNumber: '004',
-	// 		price: 5000
-	// 	}
-	// ];
+	
+	
 	const [transaction,setTransaction]=React.useState([])
 
 	useEffect(() => {
 		axios
-		  .get("http://localhost:8989/payment/getRecentPayments?field=date")
+		  .get("/payment/getRecentPayments?field=date")
 		  .then((res) => {
 			setTransaction(res.data);
 			console.log(res.data);
