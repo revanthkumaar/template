@@ -26,13 +26,13 @@ const routes = [
 		key: 'tracker',
 		icon: <Icon fontSize="small">booking</Icon>,
 		route: '/tracker',
-		component:<BuildingsTracker buildingName = "Sree Kala Nilayam"/>
+		component:<BuildingsTracker buildingName = "SRI NILAYAM"/>
 	},
 	{
 		type: 'collapse',
 		name: 'Guest Onboarding',
 		key: 'profile',
-		icon: <Icon fontSize="small">person</Icon>,
+		icon: <Icon fontSize="small">person_add</Icon>,
 		route: '/profile',
 		component: <Profile />
 	},
@@ -46,6 +46,7 @@ const routes = [
 	// },
 	
 
+
 	// {
 	// 	type: 'collapse',
 	// 	name: 'Rooms Details',
@@ -54,6 +55,16 @@ const routes = [
 	// 	route: '/room_Details',
 	// 	component: <RoomAvailability />
 	// },
+
+	{
+		type: 'collapse',
+		name: 'Rooms Details',
+		key: 'room_Details',
+		icon: <Icon fontSize="small">home</Icon>,
+		route: '/room_Details',
+		component: <RoomAvailability />
+	},
+
 	// {
 	// 	type: 'collapse',
 	// 	name: 'Reports',
