@@ -32,7 +32,7 @@ const routes = [
 		type: 'collapse',
 		name: 'Guest Onboarding',
 		key: 'profile',
-		icon: <Icon fontSize="small">person</Icon>,
+		icon: <Icon fontSize="small">person_add</Icon>,
 		route: '/profile',
 		component: <Profile />
 	},
@@ -50,7 +50,7 @@ const routes = [
 		type: 'collapse',
 		name: 'Rooms Details',
 		key: 'room_Details',
-		icon: <Icon fontSize="small">person</Icon>,
+		icon: <Icon fontSize="small">home</Icon>,
 		route: '/room_Details',
 		component: <RoomAvailability />
 	},
