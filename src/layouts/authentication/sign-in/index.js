@@ -29,29 +29,22 @@ function Basic() {
     console.log(password);
     const res = await axios.get("/login/users");
     console.log(res.data);
-    // res.data.map((user) => {
-    // 	if (user.email === email && user.password === password) {
-    // 		navigate('/dashboard');
-    // 	} else {
-    // 		alert('Invalid credentials');
-    // 		navigate('/');
-    // 	}
-    // });
-    function Authentication({ authorized }) {
-      if (!authorized) {
-        return <navigate to="/authentication/sign-in" />;
-      }
-    }
+    
+    
     const result = res.data.filter(
-      (u) => u.email === email && u.password === password
+      (u) => u.email === email && u.password === password 
     );
     console.log(result);
+    console.log(result.userId);
     if (result === "undefined") {
       alert("Invalid credentials");
     } else {
       result.map((u) => {
-        if (u.email === email && u.password === password) {
-          navigate("/dashboard");
+        // console.log(u.)
+        if (u.email === email && u.password === password ) {
+          // navigate("/dashboard")
+          alert("loggedin")
+          ;
         }
       });
     }

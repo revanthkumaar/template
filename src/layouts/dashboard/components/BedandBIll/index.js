@@ -42,14 +42,7 @@ const [payments, setPayments] = React.useState([])
 
         console.log(res.data);
         setPayments(res.data)
-       //  setPayments(res.data)
-       //  console.log(setPayments)
-     
-        //   res.data.map((data) => {
-        //     buildingNamesArray.push(data.buildingName);
-        //   });
-
-        //   setBuilding(buildingNamesArray);
+      
       })
 
       .catch((err) => {
@@ -57,6 +50,21 @@ const [payments, setPayments] = React.useState([])
       });
   }, []);
   console.log(payments.pendingPayments);
+  const [overDue, setOverDue] =React.useState([])
+
+  useEffect(() =>{
+    axios
+    .get('/payment/fetchingOverAllDueAmount')
+    .then((res) =>{
+      console.log(res.data)
+      setOverDue(res.data)
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+  },[]);
+  console.log(overDue.overAllDue)
+
   return (
     <div>
       <Grid item xs={12} md={6} lg={3}>
@@ -131,7 +139,7 @@ const [payments, setPayments] = React.useState([])
 						<Card sx={{ minWidth: 240, minHeight: 100, background: '#00008B' }}>
 							<CardContent sx={{ align: 'center' }}>
 								<MDTypography color="light" mt={1} fontWeight="regular" style={{ fontSize: '2em' }}>
-									45,000
+									{overDue.overAllDue}
 								</MDTypography>
 								<MDTypography color="light" fontWeight="light">
 								Overdue amount
