@@ -8,11 +8,11 @@ const columns = [
 	{ field: 'roomId', headerName: 'RoomId', width: 80 },
 	{ field: 'floorId', headerName: 'FloorId', width: 40 },
 	{ field: 'buildingId', type: 'number', headerName: 'BuildingId', width: 80 },
-	{ field: 'bedStatus', headerName: 'BedStatus', width: 80 },
-	{ field: 'bedName', headerName: 'BedName', width: 80 },
-	{ field: 'defaultRent', type: 'number', headerName: 'DefaultRent', width: 80 },
+	{ field: 'bedStatus', headerName: 'BedStatus', width: 100, },
+	{ field: 'bedName', headerName: 'BedName', width: 150 },
+	{ field: 'defaultRent', type: 'number', headerName: 'DefaultRent', width: 180 },
 	{ field: 'ac', headerName: 'Ac', width: 80 },
-	{ field: 'securityDeposit', headerName: 'SecurityDeposit', width: 80 },
+	{ field: 'securityDeposit', headerName: 'SecurityDeposit', width: 180 },
 ];
 
 

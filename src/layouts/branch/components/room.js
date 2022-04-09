@@ -8,28 +8,29 @@ import axios from "../../../Uri";
 
 
 
-function Actions() {
+function Room() {
   const [data, setData] = useState([]);
   const columns = [
     {
-      title: "Building Name",
-      field: "building_name",
+      title: "Room Id",
+      editable:false,
+      field: "roomId",
       headerStyle: {
         backgroundColor: "#1E90FF",
         color: "white",
       },
     },
     {
-      title: "Manager Name",
-      field: "manager_name",
+      title: "Room Number",
+      field: "roomNumber",
       headerStyle: {
         backgroundColor: "#1E90FF",
         color: "white",
       },
     },
     {
-      title: "Phone Number",
-      field: "phone_number",
+      title: "Floor Id",
+      field: "floorId",
       headerStyle: {
         backgroundColor: "#1E90FF",
         color: "white",
@@ -41,7 +42,7 @@ function Actions() {
   useEffect(() => {
     axios
 
-      .get("/bed/getAllBuildings")
+      .get("/bed/getAllRooms")
 
       .then((res) => {
         setData(res.data);
@@ -76,7 +77,7 @@ function Actions() {
                 ];
                 setTimeout(() => {
                   const res = axios.post(
-                    "/bed/addBuilding",
+                    "/bed/addRoom",
 
                     newRow
                   );
@@ -140,4 +141,4 @@ function Actions() {
  
 );
 }
-export default Actions;
+export default Room;

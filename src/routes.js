@@ -46,14 +46,14 @@ const routes = [
 	// },
 	
 
-	{
-		type: 'collapse',
-		name: 'Rooms Details',
-		key: 'room_Details',
-		icon: <Icon fontSize="small">person</Icon>,
-		route: '/room_Details',
-		component: <RoomAvailability />
-	},
+	// {
+	// 	type: 'collapse',
+	// 	name: 'Rooms Details',
+	// 	key: 'room_Details',
+	// 	icon: <Icon fontSize="small">person</Icon>,
+	// 	route: '/room_Details',
+	// 	component: <RoomAvailability />
+	// },
 	// {
 	// 	type: 'collapse',
 	// 	name: 'Reports',

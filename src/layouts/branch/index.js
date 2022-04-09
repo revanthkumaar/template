@@ -6,7 +6,9 @@ import MDBox from "components/MDBox";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
-import Actions from "./components/Actions";
+//import Actions from "./components/Actions";
+import TabPanel from "./components/Tab"
+
 
 function Dashboard() {
   return (
@@ -16,7 +18,7 @@ function Dashboard() {
       <MDBox borderRadius="lg" coloredShadow="info" py={0.01}>
         <MDBox>
           <Grid container spacing={0.5}>
-            <Actions />
+            <TabPanel/>
           </Grid>
         </MDBox>
       </MDBox>

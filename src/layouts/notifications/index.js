@@ -72,7 +72,7 @@ export default function FullWidthTabs() {
     <DashboardLayout>
       <DashboardNavbar />
       <Card mt={2}>
-        <MDBox p={2} lineHeight={0}>
+        {/* <MDBox p={2} lineHeight={0}>
           <MDTypography variant="h5">Reports</MDTypography>
           <MDTypography variant="button" color="text" fontWeight="regular">
             Check all the reports of your properties here
@@ -80,7 +80,7 @@ export default function FullWidthTabs() {
           <MDBox mt={2}>
             <Building />
           </MDBox>
-        </MDBox>
+        </MDBox> */}
         <AppBar position="static">
           <MDBox p={1}>
             <Tabs
