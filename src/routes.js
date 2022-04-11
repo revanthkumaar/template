@@ -121,7 +121,7 @@ const routes = [
 		key: 'tracker/anandanilayam',
 		icon: <Icon fontSize="small">booking</Icon>,
 		route: '/tracker/anandanilayam',
-		component:<BuildingsTracker buildingName = "Ananda Nilayam"/>
+		component:<BuildingsTracker buildingName = "ANANDA NILAYAM"/>
 	},
 	
 
@@ -131,7 +131,7 @@ const routes = [
 		key: 'tracker/sreenilayam',
 		icon: <Icon fontSize="small">booking</Icon>,
 		route: '/tracker/sreenilayam',
-		component:<BuildingsTracker buildingName = "Sree Nilayam"/>
+		component:<BuildingsTracker buildingName = "SREE NILAYAM"/>
 	}
 
 	
