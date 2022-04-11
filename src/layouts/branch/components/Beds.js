@@ -28,7 +28,7 @@ function Beds() {
       },
     },
     {
-      title: "Room Number",
+      title: "Room ID",
       field: "roomId",
       headerStyle: {
         backgroundColor: "#1E90FF",
@@ -45,7 +45,7 @@ function Beds() {
     // },
 
     {
-      title: "Building Number",
+      title: "Building ID",
       field: "buildingId",
       headerStyle: {
         backgroundColor: "#1E90FF",
