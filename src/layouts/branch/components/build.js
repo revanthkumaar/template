@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import MaterialTable from "material-table";
 import { Grid } from "@mui/material";
+
 // import axios from "axios";
 import axios from "../../../Uri";
 // import { height, width } from "@mui/system";
 
 function Build() {
+  
   const [data, setData] = useState([]);
+ 
   const columns = [
     // {
     // 	title: 'ID',
@@ -19,6 +22,7 @@ function Build() {
     // 		width:'1px'
     // 	}
     // },
+    
     {
       title: "ID",
       field: "building_id",
@@ -45,15 +49,26 @@ function Build() {
     //     backgroundColor: "#1E90FF",
     //     color: "white",
     //   },
-    // },
+    // }, 
+   
 
     {
       title: "Building Name",
       field: "building_name",
+    
+   
       headerStyle: {
         backgroundColor: "#1E90FF",
-        color: "white",
-      },
+        color: "white"},
+        validate:rowData =>{
+          if(rowData.building_name === undefined||rowData.building_name=== ""){
+            return "Required"
+          }else if(rowData.building_name.includes('1'&&'2'&&'3'&&'4'&&'5' &&'6'&&'7'&&'8'&&'9'&&'0'&&'1')){
+            return" Building name should only contain alphabets"
+          }
+          return true
+        }
+      
     },
 
     {
@@ -63,15 +78,32 @@ function Build() {
      // lookup: { true: "Not Allocated", false: "Allocated" },
       headerStyle: {
         backgroundColor: "#1E90FF",
-        color: "white",
+        color: "white"},
+        validate:rowData =>{
+          if(rowData.manager_name === undefined||rowData.manager_name=== ""){
+            return "Required"
+          }else if(rowData.manager_name.includes('1'&&'2'&&'3'&&'4'&&'5' &&'6'&&'7'&&'8'&&'9'&&'0'&&'1')){
+            return" Building name should only contain alphabets"
+          }
+          return true
+        }
       },
-    },
+  
     {
       title: "Phone Number",
       field: "phone_number",
       headerStyle: {
         backgroundColor: "#1E90FF",
         color: "white",
+      },
+      validate: rowData => {
+        if (rowData.phone_number === undefined || rowData.phone_number === "") {
+          return "Required"
+        } else if (rowData.phone_number.length < 10 || rowData.phone_number.length > 10) {
+          return "Phone number should contains 10 digits"
+          //  return {isValid:false,helperText:"Phone number should contains 10 digits"}
+        }
+        return true
       },
     }
   ];
@@ -91,8 +123,13 @@ function Build() {
         console.log(err);
       });
   }, []);
+
+ 
+
+
   const owner="Super Admin"
   const obje = { createdBy: owner };
+
   return (
     <div className="App">
       <Grid container>
