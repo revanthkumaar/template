@@ -4,15 +4,15 @@ import { DataGrid } from '@mui/x-data-grid';
 import axios from '../../../../Uri'
 
 const columns = [
-	{ field: 'id', headerName: 'ID', width: 80 },
+	{ field: 'id', headerName: 'ID', width: 100 },
 	{ field: 'bedId', headerName: 'BedId', width: 130 },
-	{ field: 'roomId', headerName: 'RoomId', width: 80 },
-	{ field: 'floorId', headerName: 'FloorId', width: 40 },
-	{ field: 'buildingId', type: 'number', headerName: 'BuildingId', width: 80 },
-	{ field: 'bedStatus', headerName: 'BedStatus', width: 100, },
+	{ field: 'roomId', headerName: 'RoomId', width: 100 },
+	{ field: 'floorId', headerName: 'FloorId', width: 100 },
+	{ field: 'buildingId', type: 'number', headerName: 'BuildingId', width: 150 },
+	{ field: 'bedStatus', headerName: 'BedStatus', width: 150, },
 	{ field: 'bedName', headerName: 'BedName', width: 150 },
 	{ field: 'defaultRent', type: 'number', headerName: 'DefaultRent', width: 180 },
-	{ field: 'ac', headerName: 'Ac', width: 80 },
+	{ field: 'ac', headerName: 'Ac', width: 100 },
 	{ field: 'securityDeposit', headerName: 'SecurityDeposit', width: 180 },
 ];
 

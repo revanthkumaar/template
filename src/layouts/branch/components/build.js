@@ -99,7 +99,7 @@ function Build() {
       <h4 align='center'></h4> */}
         <Grid xs={12}>
           <MaterialTable
-            title="Manage Employees"
+            title="Manage Buildings"
             data={data}
             sx={{ color: "white" }}
             columns={columns}
@@ -152,6 +152,7 @@ function Build() {
                 }),
             }}
             options={{
+              exportButton:true,
               actionsColumnIndex: -1,
               grouping:true,
               addRowPosition: "first",
