@@ -55,7 +55,7 @@ function Build() {
     {
       title: "Building Name",
       field: "building_name",
-    
+    lookup:{SREE_KALANILAYAM:"SREE KALANILAYAM",SREE_NILAYAM:"SREE NILAYAM",ANANDA_NILAYAM:"ANANDA NILAYAM"},
    
       headerStyle: {
         backgroundColor: "#1E90FF",

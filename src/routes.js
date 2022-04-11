@@ -26,7 +26,7 @@ const routes = [
 		key: 'tracker',
 		icon: <Icon fontSize="small">booking</Icon>,
 		route: '/tracker',
-		component:<BuildingsTracker buildingName = "SREE KALANILAYAM"/>
+		component:<BuildingsTracker buildingName = "SREE_KALANILAYAM"/>
 	},
 	{
 		type: 'collapse',
@@ -121,7 +121,7 @@ const routes = [
 		key: 'tracker/anandanilayam',
 		icon: <Icon fontSize="small">booking</Icon>,
 		route: '/tracker/anandanilayam',
-		component:<BuildingsTracker buildingName = "ANANDA NILAYAM"/>
+		component:<BuildingsTracker buildingName = "ANANDA_NILAYAM"/>
 	},
 	
 
@@ -131,7 +131,7 @@ const routes = [
 		key: 'tracker/sreenilayam',
 		icon: <Icon fontSize="small">booking</Icon>,
 		route: '/tracker/sreenilayam',
-		component:<BuildingsTracker buildingName = "SREE NILAYAM"/>
+		component:<BuildingsTracker buildingName = "SREE_NILAYAM"/>
 	}
 
 	
