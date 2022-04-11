@@ -97,6 +97,8 @@ function Beds() {
       },
     },
   ];
+  const owner="Super Admin"
+  const obje = { createdBy: owner };
 
   useEffect(() => {
     axios
@@ -133,12 +135,13 @@ function Beds() {
                     { id: Math.floor(Math.random() * 100), ...newRow },
                   ];
                   setTimeout(() => {
+                    const newRow1= Object.assign(newRow,obje)
                     const res = axios.post(
                       "/bed/addBed",
 
-                      newRow
+                      newRow1
                     );
-                    console.log(newRow);
+                    console.log(newRow1);
                     setData(updatedRows);
                     resolve();
                   }, 2000);
