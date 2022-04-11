@@ -34,18 +34,18 @@ function BuildingDropdown(props) {
         onChange={handleChange}
         name="building"
       >
-        <MenuItem value="Sree Kala Nilayam" component={Link} to="/tracker">
-          SREE KALA NILAYAM
+        <MenuItem value="SREE KALANILAYAM" component={Link} to="/tracker">
+          SREE KALANILAYAM
         </MenuItem>
         <MenuItem
-          value="Sree Nilayam"
+          value="SREE NILAYAM"
           component={Link}
           to="/tracker/sreenilayam"
         >
           SREE NILAYAM
         </MenuItem>
         <MenuItem
-          value="Ananda Nilayam"
+          value="ANANDA NILAYAM"
           component={Link}
           to="/tracker/anandanilayam"
         >
