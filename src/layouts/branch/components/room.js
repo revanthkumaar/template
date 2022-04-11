@@ -64,7 +64,7 @@ function Room() {
         <Grid xs={30}>
       
         <MaterialTable
-          title="Manage Employees"
+          title="Manage Rooms"
           data={data}
           sx={{ color: "white" }}
           columns={columns}

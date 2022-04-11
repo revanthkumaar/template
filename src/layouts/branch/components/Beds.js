@@ -121,7 +121,7 @@ function Beds() {
       <h4 align='center'></h4> */}
         <Grid xs={12}>
           <MaterialTable
-            title="Room Details"
+            title="Manage Beds"
             data={data}
             sx={{ color: "white" }}
             columns={columns}
@@ -174,6 +174,7 @@ function Beds() {
                 }),
             }}
             options={{
+              exportButton:true,
               actionsColumnIndex: -1,
               grouping:true,
               addRowPosition: "first",

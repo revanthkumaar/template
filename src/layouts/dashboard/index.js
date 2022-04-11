@@ -58,7 +58,7 @@ function Dashboard({ authorized }) {
                 </MDBox>
               </Card>
             </Grid>
-            <br/>
+            
             <Grid item xs={12}>
               <Card>
                 <MDBox
