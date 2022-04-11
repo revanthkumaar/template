@@ -21,11 +21,7 @@ function BedandBill(props) {
         console.log(res.data);
         setBuild(res.data)
      
-        //   res.data.map((data) => {
-        //     buildingNamesArray.push(data.buildingName);
-        //   });
-
-        //   setBuilding(buildingNamesArray);
+       
       })
 
       .catch((err) => {

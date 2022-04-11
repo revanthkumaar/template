@@ -28,16 +28,16 @@ function Build() {
         color: "white",
       },
     },
-    {
-      title: "Room Number",
-      field: "roomId",
-      headerStyle: {
-        backgroundColor: "#1E90FF",
-        color: "white",
-		height:'20px',
-		width:'1px'
-      },
-    },
+    // {
+    //   title: "Room Number",
+    //   field: "roomId",
+    //   headerStyle: {
+    //     backgroundColor: "#1E90FF",
+    //     color: "white",
+		// height:'20px',
+		// width:'1px'
+    //   },
+   // },
     // {
     //   title: "Floor Number",
     //   field: "floorId",
@@ -49,7 +49,7 @@ function Build() {
 
     {
       title: "Building Name",
-      field: "buildingName",
+      field: "building_name",
       headerStyle: {
         backgroundColor: "#1E90FF",
         color: "white",
@@ -59,8 +59,8 @@ function Build() {
     {
       title: "Manger Name",
       field: "manager_name",
-     // editable: true,
-      lookup: { true: "Not Allocated", false: "Allocated" },
+      
+     // lookup: { true: "Not Allocated", false: "Allocated" },
       headerStyle: {
         backgroundColor: "#1E90FF",
         color: "white",
