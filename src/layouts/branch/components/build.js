@@ -162,7 +162,7 @@ function Build() {
                 }),
               onRowDelete: (selectedRow) =>
                 new Promise((resolve, reject) => {
-                  const index = selectedRow.id;
+                  const index = selectedRow.building_id;
                   const updatedRows = [...data];
                   updatedRows.splice(index, 1);
                   setTimeout(() => {
@@ -175,7 +175,7 @@ function Build() {
                 }),
               onRowUpdate: (updatedRow, oldRow) =>
                 new Promise((resolve, reject) => {
-                  const index = oldRow.id;
+                  const index = oldRow.building_id;
                   const updatedRows = [...data];
                   updatedRows[index] = updatedRow;
                   setTimeout(() => {
