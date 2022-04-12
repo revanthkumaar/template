@@ -1,60 +1,88 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import MenuItem from "@mui/material/MenuItem";
 import { Link } from "react-router-dom";
 import Select from "@mui/material/Select";
+import axios from "../../../Uri";
+import BuildingsLayout from './buildingsLayout/buildingsLayout';
+import BedSummaryChart from './buildingspieCharts/bedSummaryChart';
+import PaymentSummaryChart from './buildingspieCharts/paymentSummaryChart';
+import { Grid } from "@mui/material";
 
-let API_DATA = [
-  { building: "Building-1" },
-  { building: "ANANDANILAYAM" },
-  { building: "Building-3" },
-];
+
 
 function BuildingDropdown(props) {
-  const [tableData, setTableData] = React.useState(API_DATA);
-  const [selected, setSelected] = React.useState(props.buildingName);
+  const [selected, setSelected] = React.useState('');
+  const [building, setBuilding] = React.useState([])
+  const [buildingId, setbuildingId] = React.useState()
 
   function handleChange(event) {
-    setSelected(event.target.value);
-    let _vals = event.target.value
-      ? API_DATA.filter((r) => r.building === event.target.value)
-      : API_DATA;
-    setTableData(_vals);
+    ;
+    console.log(event.target)
+
   }
 
-  return (
-    <div className="App">
-      {console.log(props.buildingName)}
-      {console.log(selected)}
-      <label value="Select Building: ">Select Building: </label>
-      <Select
-        sx={{ minHeight: 44 }}
-        style={{ width: "30%", height: "10%" }}
-        value={selected}
-        onChange={handleChange}
-        name="building"
-      >
-        <MenuItem value="SREE KALANILAYAM" component={Link} to="/tracker">
-          SREE KALANILAYAM
-        </MenuItem>
-        <MenuItem
-          value="SREE NILAYAM"
-          component={Link}
-          to="/tracker/sreenilayam"
-        >
-          SREE NILAYAM
-        </MenuItem>
-        <MenuItem
-          value="ANANDA NILAYAM"
-          component={Link}
-          to="/tracker/anandanilayam"
-        >
-          ANANDA NILAYAM
-        </MenuItem>
-        {/* <MenuItem value="Building-4"   component={Link} to = "/layouts/roomavailabilitytracker/buildings/buildingFour">Building-4</MenuItem> */}
-      </Select>
-    </div>
-  );
+
+  useEffect(() => {
+    axios.get("bed/getAllBuildings").then((res) => {
+      console.log(res.data)
+      setBuilding(res.data)
+
+    })
+  }, [])
+
+
+  return (<>
+
+
+    <label value="Select Building: ">Select Building: </label>
+
+    <Select
+      sx={{ minHeight: 44 }}
+      style={{ width: "30%", height: "10%" }}
+      value={selected}
+      name="building"
+    >
+      {building.map((post) => {
+        return (
+          <MenuItem value={post.building_name} onClick={async () => {
+            setSelected(post.building_name)
+            console.log(post.building_id)
+            setbuildingId(post.building_id)
+          }}> {post.building_name}  </MenuItem>
+        )
+      })}
+
+
+
+    </Select>
+
+
+    {buildingId == null ? (<div></div>) : (<div>    <Grid container direction="row" justifyContent="left" alignItems="left">
+      <Grid item xs={6}>
+        <BedSummaryChart buildingId={buildingId} />
+      </Grid>
+      <Grid item xs={6}>
+        <PaymentSummaryChart buildingId={buildingId} />
+      </Grid>
+    </Grid>
+      <BuildingsLayout buildingId={buildingId} />    
+      </div>)}
+
+
+
+
+
+
+
+
+
+
+
+    {console.log(building)}
+
+
+  </>);
 }
 
 export default BuildingDropdown;
