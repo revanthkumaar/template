@@ -12,55 +12,7 @@ import { getGridNumericOperators } from "@mui/x-data-grid";
 function Floor() {
   const [data, setData] = useState([]);
   const [building,setBuilding] =useState([])
-  const columns = [
-    {
-      title: "Floor ID",
-      editable:false,
-     
-      field: "floorId",
-      headerStyle: {
-        backgroundColor: "#1E90FF",
-        color: "white",
-      },
-      
-    
-
-      
-    },
-    {
-      title: "Floor Number",
-      field: "floorNumber",
-      type:getGridNumericOperators,
-      headerStyle: {
-        backgroundColor: "#1E90FF",
-        color: "white",
-       
-          
-          },
-          validate:rowData =>{
-            if(rowData.floorNumber===undefined){
-           return  "Floor Number is Required"
-         
-        }
-        return true
-       }} ,
-    {
-      title: "Building Id",
-      field: "buildingId",
-      headerStyle: {
-        backgroundColor: "#1E90FF",
-        color: "white",
-      },
-      validate:rowData =>{
-        if(rowData.buildingId===undefined){
-       return  "Building Id is Required"
-     
-    }
-    return true
-    }
-  },
-
-  ];
+  
   let buildingsArray =[]
   useEffect(()=>{
     axios.get("/bed/getBuildingIdAndName")
@@ -75,11 +27,13 @@ function Floor() {
       console.log(err)
     })
   },[])
-  building.map((item)=>{
-    console.log(item.buildingName)
-    buildingsArray.push(item.buildingName)
-  })
+  console.log(building)
+  var obj = building.reduce(function(acc, cur, i) {
+    acc[cur.buildingId] = cur.buildingName;
 
+    return acc;
+  }, {});
+  console.log(obj);
   useEffect(() => {
     axios
 
@@ -106,9 +60,62 @@ function Floor() {
       
         <MaterialTable
           title="Manage Floors"
+          columns = {[
+            {
+              title: "Floor ID",
+              editable:false,
+             
+              field: "floorId",
+              headerStyle: {
+                backgroundColor: "#1E90FF",
+                color: "white",
+              },
+              
+            
+        
+              
+            },
+            {
+              title: "Floor Number",
+              field: "floorNumber",
+              type:getGridNumericOperators,
+              headerStyle: {
+                backgroundColor: "#1E90FF",
+                color: "white",
+               
+                  
+                  },
+                  validate:rowData =>{
+                    if(rowData.floorNumber===undefined){
+                   return  "Floor Number is Required"
+                 
+                }
+                return true
+               }} ,
+            {
+              title: "Building Name",
+              field: "buildingId",
+              lookup: obj,
+             
+        
+              emptyValue: () => <div>"dfsdf"</div>,
+              headerStyle: {
+                backgroundColor: "#1E90FF",
+                color: "white",
+              },
+              validate:rowData =>{
+                if(rowData.buildingId===undefined){
+               return  "Building Id is Required"
+             
+            }
+            return true
+            }
+          },
+        
+          ]}
           data={data}
           sx={{ color: "white" }}
-          columns={columns}
+          // columns={columns}
           editable={{
             onRowAdd: (newRow) =>
               new Promise((resolve, reject) => {
