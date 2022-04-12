@@ -26,15 +26,29 @@ function Beds() {
         backgroundColor: "#1E90FF",
         color: "white",
       },
+      validate:rowData =>{
+        if(rowData.bedId===undefined){
+       return  "Bed Id is Required"
+     
+    }
+    return true
+      },
     },
     {
       title: "Room ID",
       field: "roomId",
       headerStyle: {
         backgroundColor: "#1E90FF",
-        color: "white",
+        color: "white"},
+        validate:rowData =>{
+          if(rowData.roomId===undefined){
+         return  "Room Id is Required"
+       
+      }
+      return true
+        },
       },
-    },
+    
     // {
     //   title: "Floor Number",
     //   field: "floorId",
@@ -51,7 +65,16 @@ function Beds() {
         backgroundColor: "#1E90FF",
         color: "white",
       },
-    },
+      validate:rowData =>{
+        if(rowData.buildingId===undefined){
+       return  "Building Id is Required"
+     
+    }
+    return true
+      },
+       
+      },
+    
 
     {
       title: "Bed Status",
@@ -70,6 +93,13 @@ function Beds() {
         backgroundColor: "#1E90FF",
         color: "white",
       },
+      validate:rowData =>{
+        if(rowData.bedName===undefined){
+       return  "Bed Name is Required"
+     
+    }
+    return true
+      },
     },
     {
       title: "Default Rent",
@@ -78,6 +108,13 @@ function Beds() {
         backgroundColor: "#1E90FF",
         color: "white",
       },
+      validate:rowData =>{
+        if(rowData.defaultRent===undefined){
+       return  "Default Rent is Required"
+     
+    }
+    return true
+      },
     },
     {
       title: "Security Deposit",
@@ -85,6 +122,13 @@ function Beds() {
       headerStyle: {
         backgroundColor: "#1E90FF",
         color: "white",
+      },
+      validate:rowData =>{
+        if(rowData.bedName===undefined){
+       return  "Bed Name is Required"
+     
+    }
+    return true
       },
     },
     {

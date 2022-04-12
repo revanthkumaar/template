@@ -19,6 +19,7 @@ function Room() {
         backgroundColor: "#1E90FF",
         color: "white",
       },
+  
     },
     {
       title: "Room Number",
@@ -27,6 +28,14 @@ function Room() {
         backgroundColor: "#1E90FF",
         color: "white",
       },
+      validate:rowData =>{
+        if(rowData.roomNumber===undefined){
+       return  "Room Number is Required"
+     
+    }
+    return true
+      }
+      
     },
     {
       title: "Floor Id",
@@ -35,6 +44,13 @@ function Room() {
         backgroundColor: "#1E90FF",
         color: "white",
       },
+      validate:rowData =>{
+        if(rowData.floorId===undefined){
+       return  "floor id is Required"
+     
+    }
+    return true
+      }
     },
 
   ];
