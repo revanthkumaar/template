@@ -25,14 +25,18 @@ import CircularProgress from "@mui/material/CircularProgress";
 var GuestDetails = {};
 
 const BuildingsLayout = (props) => {
-  const [buildingInfo, setBuildingInfo] = React.useState([]);
+
+  // console.log(props.buildingId)
+  const [buildingInfo, setBuildingInfo] = React.useState({});
+  // const [buildingid , setbuildingid]= React.useState(1)
 
   const [loading, setLoading] = React.useState(false);
   const closeLoading = () => setLoading(!loading);
+  console.log(props.buildingId)
 
   useEffect(async () => {
     await axios
-      .get("/bed/getBedsByAllBuildings")
+      .get(`/bed/getBedsByBuildingId/${props.buildingId}`)
       .then((res) => {
         setBuildingInfo(res.data);
         setLoading(true);
@@ -40,22 +44,23 @@ const BuildingsLayout = (props) => {
       })
       .catch((err) => {
         console.log(err);
+        closeLoading();
       });
-  }, []);
+  }, [props.buildingId]);
 
   const [GuestId, setGuestId] = React.useState("");
   const [open, setOpen] = React.useState(false);
   const handleClose = () => setOpen(false);
   // const [GuestDetails, setGuestDetails] = React.useState([])
-  const BuildingInfo = buildingInfo.filter((post) => {
-    return post.buildingName === props.buildingName;
-  });
+  // const BuildingInfo = buildingInfo.filter((post) => {
+  //   return post.buildingName === props.buildingName;
+  // });
 
   return (
     <>
       <MDBox bgColor="white" padding="30px" sx={{ border: 3 }}>
         {loading ? (
-          BuildingInfo.map((post) => {
+          buildingInfo.map((post) => {
             return (
               <>
                 <GuestPopUp
