@@ -31,6 +31,7 @@ function Beds() {
        return  "Bed Id is Required"
      
     }
+    return true
       },
     },
     {
@@ -44,6 +45,7 @@ function Beds() {
          return  "Room Id is Required"
        
       }
+      return true
         },
       },
     
@@ -68,6 +70,7 @@ function Beds() {
        return  "Building Id is Required"
      
     }
+    return true
       },
        
       },
@@ -95,6 +98,7 @@ function Beds() {
        return  "Bed Name is Required"
      
     }
+    return true
       },
     },
     {
@@ -109,6 +113,7 @@ function Beds() {
        return  "Default Rent is Required"
      
     }
+    return true
       },
     },
     {
@@ -123,6 +128,7 @@ function Beds() {
        return  "Bed Name is Required"
      
     }
+    return true
       },
     },
     {
