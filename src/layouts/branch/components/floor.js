@@ -41,6 +41,7 @@ function Floor() {
            return  "Floor Number is Required"
          
         }
+        return true
        }} ,
     {
       title: "Building Id",
@@ -54,6 +55,7 @@ function Floor() {
        return  "Building Id is Required"
      
     }
+    return true
     }
   },
 
@@ -74,8 +76,6 @@ function Floor() {
         console.log(err);
       });
   }, []);
-  const owner="Super Admin"
-  const obje = { createdBy: owner };
 
   return (
     
@@ -98,13 +98,12 @@ function Floor() {
                   { id: Math.floor(Math.random() * 100), ...newRow },
                 ];
                 setTimeout(() => {
-                  const newRow1= Object.assign(newRow,obje)
                   const res = axios.post(
                     "/bed/addFloor",
 
-                    newRow1
+                    newRow
                   );
-                  console.log(newRow1);
+                  console.log(newRow);
                   setData(updatedRows);
                   resolve();
                 }, 2000);
