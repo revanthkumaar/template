@@ -21,21 +21,22 @@ export const options = {
 
 export default function BedSummaryChart(props) {
   const [apidata, setapiData] = React.useState([]);
-
+  // const [buildingid ,setbuildingid] =React.useState(1)
+  console.log(props.buildingId)
+  // setbuildingid(props.buildingId)
   useEffect(() => {
+
     async function fetchData() {
       const request = await axios.get(
-        "/bed/getBedSummaryForPieChartByAllBuildings"
+        `/bed/getBedSummaryForPieChartByBuildingId/${props.buildingId}`
       );
       setapiData(request.data);
     }
     fetchData();
-  }, []);
+  }, [props.buildingId]);
 
-  const filtereddata = apidata.filter((post) => {
-    return post.buildingName === props.buildingName;
-  });
-  filtereddata.map((obj) => {
+
+  apidata.map((obj) => {
     occupiedBeds = obj.occupiedBeds;
     availableBeds = obj.availableBeds;
   });
@@ -47,13 +48,14 @@ export default function BedSummaryChart(props) {
   ];
   return (
     <>
-      <Chart
+      {props.buildingId === null ? (<div></div>) : (<Chart
         chartType="PieChart"
         data={data}
         options={options}
         width={"100%"}
         height={"400px"}
-      />
+      />)}
+
     </>
   );
 }

@@ -17,11 +17,11 @@ const BuildingsTracker = (props) => {
       <DashboardNavbar />
 
       <MDBox bgColor="white" padding="8px">
-        <BuildingDropdown buildingName={props.buildingName} />
+        <BuildingDropdown  />
       </MDBox>
 
       <br />
-      <MDBox bgColor="white" padding="4px">
+      {/* <MDBox bgColor="white" padding="4px">
         <Grid container direction="row" justifyContent="left" alignItems="left">
           <Grid item xs={6}>
             <BedSummaryChart buildingName={props.buildingName} />
@@ -30,9 +30,9 @@ const BuildingsTracker = (props) => {
             <PaymentSummaryChart />
           </Grid>
         </Grid>
-      </MDBox>
+      </MDBox> */}
 
-      <BuildingsLayout buildingName={props.buildingName} />
+      {/* <BuildingsLayout buildingName={props.buildingName} /> */}
     </DashboardLayout>
   );
 };
