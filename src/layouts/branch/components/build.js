@@ -63,8 +63,8 @@ function Build() {
         validate:rowData =>{
           if(rowData.building_name === undefined||rowData.building_name=== ""){
             return "Required"
-          }else if(rowData.building_name.includes('1'&&'2'&&'3'&&'4'&&'5' &&'6'&&'7'&&'8'&&'9'&&'0'&&'1')){
-            return" Building name should only contain alphabets"
+          }else if(rowData.building_name.length<3){
+            return" Building name should contains atleast 3 alphabets"
           }
           return true
         }
@@ -82,8 +82,8 @@ function Build() {
         validate:rowData =>{
           if(rowData.manager_name === undefined||rowData.manager_name=== ""){
             return "Required"
-          }else if(rowData.manager_name.includes('1'&&'2'&&'3'&&'4'&&'5' &&'6'&&'7'&&'8'&&'9'&&'0'&&'1')){
-            return" Building name should only contain alphabets"
+          }else if(rowData.manager_name.length<3){
+            return" Manager name should contains atleast 3 alphabets"
           }
           return true
         }
@@ -92,6 +92,7 @@ function Build() {
     {
       title: "Phone Number",
       field: "phone_number",
+      
       headerStyle: {
         backgroundColor: "#1E90FF",
         color: "white",

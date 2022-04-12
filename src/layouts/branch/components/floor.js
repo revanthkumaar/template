@@ -3,6 +3,7 @@ import MaterialTable from "material-table";
 // import axios from "axios";
 import { Grid } from "@mui/material";
 import axios from "../../../Uri";
+import { getGridNumericOperators } from "@mui/x-data-grid";
 
 
 
@@ -14,20 +15,33 @@ function Floor() {
     {
       title: "Floor_Id",
       editable:false,
+     
       field: "floorId",
       headerStyle: {
         backgroundColor: "#1E90FF",
         color: "white",
       },
+      
+    
+
+      
     },
     {
       title: "Floor Number",
       field: "floorNumber",
+      type:getGridNumericOperators,
       headerStyle: {
         backgroundColor: "#1E90FF",
         color: "white",
-      },
-    },
+       
+          
+          },
+          validate:rowData =>{
+            if(rowData.floorNumber===undefined){
+           return  "Floor Number is Required"
+         
+        }
+       }} ,
     {
       title: "Building Id",
       field: "buildingId",
@@ -35,7 +49,13 @@ function Floor() {
         backgroundColor: "#1E90FF",
         color: "white",
       },
-    },
+      validate:rowData =>{
+        if(rowData.buildingId===undefined){
+       return  "Building Id is Required"
+     
+    }
+    }
+  },
 
   ];
 
