@@ -12,7 +12,7 @@ function Floor() {
   const [data, setData] = useState([]);
   const columns = [
     {
-      title: "Floor_Id",
+      title: "Floor ID",
       editable:false,
       field: "floorId",
       headerStyle: {

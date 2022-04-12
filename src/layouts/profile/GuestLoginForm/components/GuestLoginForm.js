@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 // import axios from "axios";
-import axios from '../../../../Uri'
+import axios from "../../../../Uri";
 import { Container, Grid, Typography, InputLabel, Alert } from "@mui/material";
 import moment from "moment";
 //import Divider from "@mui/material/Divider";
@@ -18,9 +18,8 @@ import Button from "./Button";
 //import MDButton from "components/MDButton";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import days from "./Days";
-import months from "./Months"
+import months from "./Months";
 //import Button from "@mui/material/Button"
-
 
 const useStyles = makeStyles({
   root: {
@@ -50,8 +49,8 @@ const INITIAL_FORM_STATE = {
   buildingName: "",
   bedId: "",
   occupancyType: "",
-  duration:"",
-  amountTopay:"",
+  duration: "",
+  amountTopay: "",
   amountPaid: "",
   transactionId: "",
   addressLine1: "",
@@ -59,7 +58,7 @@ const INITIAL_FORM_STATE = {
   pincode: "",
   city: "",
   state: "",
-  amountTopay:"",
+  amountTopay: "",
   // workPhone: "",
   // workAddressLine1: "",
   // workAddressLine2: "",
@@ -80,7 +79,9 @@ const FORM_VALIDATION = Yup.object().shape({
     .test(
       "DOB",
       "Please choose a valid date of birth",
-      (date) => moment().diff(moment(date), "years") >= 12 &&  moment().diff(moment(date), "years") <= 80
+      (date) =>
+        moment().diff(moment(date), "years") >= 12 &&
+        moment().diff(moment(date), "years") <= 80
     ),
   // gender: Yup.string().required("Required"),
   // localGuardianName: Yup.string()
@@ -156,20 +157,22 @@ const FORM_VALIDATION = Yup.object().shape({
 
 const GuestLoginForm = () => {
   const [building, setBuilding] = React.useState([]);
-  const [oneBuilding, setoneBuilding] = React.useState("");
+  const [oneBuilding, setoneBuilding] = React.useState([]);
   const [bed, setBed] = React.useState([]);
   const [availableBeds, setAvailableBeds] = React.useState([]);
   const [putBuilding, setPutBuilding] = React.useState([]);
   const [rent, setRent] = React.useState([]);
-  const [duration,setDuration]=React.useState([]);
-  const [defaultRentofBed,setDefaultRentofBed]=React.useState([])
-  const [amountToPay ,setAmountToPay]= React.useState([])
-  const [occtype,setOcctype]=React.useState([])
-  const [amt,setAmt]=React.useState([])
+  const [duration, setDuration] = React.useState([]);
+  const [defaultRentofBed, setDefaultRentofBed] = React.useState([]);
+  const [amountToPay, setAmountToPay] = React.useState([]);
+  const [occtype, setOcctype] = React.useState([]);
+  const [amt, setAmt] = React.useState([]);
+  //const [loading, setLoading] = React.useState(false);
+  const [regular, setRegular] = React.useState([]);
 
   let buildingNamesArray = [];
   let availableBedsByBuidlingName = [];
-  let empty =[]
+  let empty = [];
   const classes = useStyles();
 
   useEffect(() => {
@@ -203,141 +206,112 @@ const GuestLoginForm = () => {
   availableBeds.map((item) => {
     availableBedsByBuidlingName.push(item.bedId);
   });
-  
 
- 
   const selectBed = (e) => {
     setBed(e.target.outerText);
 
     const bedRent = availableBeds.filter(
       (bed) => bed.bedId == e.target.outerText
     );
-    console.log(bedRent)
+    console.log(bedRent);
 
-    bedRent.map((post) =>
-    {
-      setRent(post.defaultRent)
-      setDefaultRentofBed(post.defaultRent)
-    } 
-    );
+    bedRent.map((post) => {
+      setRent(post.defaultRent);
+      setDefaultRentofBed(post.defaultRent);
+    });
   };
   const occupency = (i) => {
-    setOcctype(i.target.outerText)
-    if(i.target.outerText=="Daily"){
-      setDuration(days)
-      var checkInAmount = (amt*((defaultRentofBed)/30))+1000;
-      setAmountToPay(checkInAmount.toFixed(2))
-      
-
-    }
-    else if(i.target.outerText == "Monthly"){
-      setDuration(months)
-      var checkInAmount = (amt*defaultRentofBed)+3000;
-      setAmountToPay(checkInAmount)
-      
-    }
-    else {
+    console.log(i.target.outerText);
+    setOcctype(i.target.outerText);
+    if (i.target.outerText == "Daily") {
+      setDuration(days);
+      var checkInAmount = amt * (defaultRentofBed / 30) + 1000;
+      setAmountToPay(checkInAmount.toFixed(2));
+    } else if (i.target.outerText == "Monthly") {
+      setOcctype(i.target.outerText);
+      setDuration(months);
+      var checkInAmount = amt * defaultRentofBed + 3000;
+      setAmountToPay(checkInAmount);
+    } else {
       setDuration(empty);
       setAmountToPay(defaultRentofBed);
     }
- 
-
   };
 
-
-  
-  
-  const calculateCheckAmount=(a)=>{
+  const calculateCheckAmount = (a) => {
     var size = Object.keys(duration).length;
-  console.log(size)
-    console.log(occtype)
-    
-    console.log(a.target.outerText)
-    setAmt(a.target.outerText)
-    
-if(size == 12){
-  var checkInAmount = (a.target.outerText*defaultRentofBed)+3000;
-  setAmountToPay(checkInAmount)
-}
-else if(size == 15){
-  var checkInAmount = (a.target.outerText*((defaultRentofBed)/30))+1000;
-  setAmountToPay(checkInAmount.toFixed(2))
+    console.log(size);
+    console.log(occtype);
 
-}
-else{
-  setAmountToPay(defaultRentofBed);
-}
-   
+    console.log(a.target.outerText);
+    setAmt(a.target.outerText);
 
-  }
-  
+    if (size == 12) {
+      var checkInAmount = a.target.outerText * defaultRentofBed + 3000;
+      setAmountToPay(checkInAmount);
+    } else if (size == 15) {
+      var checkInAmount = a.target.outerText * (defaultRentofBed / 30) + 1000;
+      setAmountToPay(checkInAmount.toFixed(2));
+    } else {
+      setAmountToPay(defaultRentofBed);
+    }
+  };
+
   console.log(rent);
 
   const obj = { bedId: bed };
 
   const obje = { buildingName: putBuilding };
   const objee = { defaultRent: rent };
-  const amountNeedToPay=(n)=>{
-    console.log(n.target.value)
-
-  }
-  
+  const amountNeedToPay = (n) => {
+    console.log(n.target.value);
+  };
+  console.log(occtype);
 
   return (
     <Grid container>
       <Grid item xs={12}>
         <Container maxWidth="md">
           <div>
-            
             <Formik
               initialValues={{ ...INITIAL_FORM_STATE }}
               validationSchema={FORM_VALIDATION}
-             
-              onSubmit={async(guest, { resetForm }) => {
+              onSubmit={async (guest, { resetForm }) => {
                 const guests = Object.assign(guest, obj);
 
                 const gustes = Object.assign(guests, obje);
-                
+
                 const gusting = Object.assign(gustes, objee);
                 console.log(gusting);
                 console.log(gusting.amountPaid);
-                console.log(amountToPay)
-                if(gusting.amountPaid==amountToPay){
-                  
-                 
+                console.log(amountToPay);
+                if (gusting.amountPaid == amountToPay) {
                   const res = await axios.post(
                     "/guest/addGuest",
-  
+
                     gusting
-                     
-  
                   );
-                  console.log(res.data)
-                  if(res.data !== null )
-                  {
-                    alert("Guest On Boarded Successfully")
+                  console.log(res.data);
+                  if (res.data !== null) {
+                    setLoading(true);
+                    alert("Guest On Boarded Successfully");
+
                     resetForm();
+                    setLoading(false);
                   }
-                }
-                else{
-                  alert("Guest Need to pay The full Amount")
+                } else {
+                  setLoading(true);
+                  alert("Guest Need to pay The full Amount");
+                  setLoading(false);
                 }
                 setTimeout(() => {
                   console.log(rent);
-                  
-                  
-                   
-                  
                 }, 50);
-                
-             
-                 
               }}
             >
               {(formProps) => (
                 <Form>
                   <Grid container spacing={2}>
-                 
                     <Grid item xs={12}>
                       <Typography>
                         <br />
@@ -346,7 +320,7 @@ else{
                       </Typography>
                       <InputLabel id="demo-simple-select-labe">
                         {" "}
-                         * indicates fields are Required
+                        * indicates fields are Required
                       </InputLabel>
                     </Grid>
                     <Grid item xs={6}>
@@ -383,30 +357,34 @@ else{
                         onClick={occupency}
                       />
                     </Grid>
-                    <Grid item xs={6}>
-                      <InputLabel id="demo-simple-select-labe">
-                        {" "}
-                        Duration
-                      </InputLabel>
-                      <Select
-                        className={classes.root}
-                        name="duration"
-                        options={duration}
-                        onClick={calculateCheckAmount}
-                       
-                      />
-                    </Grid>
-                   
+                    {console.log(occtype)}
+                    {occtype === "Daily" || occtype === "Monthly" ? (
+                      <Grid item xs={6}>
+                        <InputLabel id="demo-simple-select-labe">
+                          {" "}
+                          Duration
+                        </InputLabel>
+                        <Select
+                          className={classes.root}
+                          name="duration"
+                          options={duration}
+                          onClick={calculateCheckAmount}
+                        />
+                      </Grid>
+                    ) : (
+                      console.log("hi")
+                    )}
+                    
+
                     <Grid item xs={6}>
                       <Textfield
                         name="dueAmount"
                         label="Default Rent"
                         value={defaultRentofBed}
                       />
-                      
                     </Grid>
                     <Grid item xs={6}>
-                    <Textfield
+                      <Textfield
                         name="amountTopay"
                         label="Amount To Be Paid"
                         value={amountToPay}
@@ -421,7 +399,12 @@ else{
                     </Grid>
 
                     <Grid item xs={6}>
-                      <Textfield name="amountPaid" label="Amount Paid" required onClick={amountNeedToPay} />
+                      <Textfield
+                        name="amountPaid"
+                        label="Amount Paid"
+                        required
+                        onClick={amountNeedToPay}
+                      />
                     </Grid>
                     <Grid item xs={6}>
                       <Textfield name="transactionId" label="Transaction ID" />
@@ -436,7 +419,7 @@ else{
                     </Grid>
 
                     <Grid item xs={6}>
-                      <Textfield name="firstName" label="First Name"  required/>
+                      <Textfield name="firstName" label="First Name" required />
                     </Grid>
 
                     <Grid item xs={6}>
@@ -455,7 +438,11 @@ else{
                     </Grid>
 
                     <Grid item xs={6}>
-                      <Textfield name="personalNumber" label="Personal Phone" required />
+                      <Textfield
+                        name="personalNumber"
+                        label="Personal Phone"
+                        required
+                      />
                     </Grid>
                     <Grid item xs={6}>
                       <Textfield
@@ -505,30 +492,39 @@ else{
                       ></Select>
                     </Grid>
                     <Grid item xs={6}>
-                      <Textfield name="aadharNumber" label="Aadhar Number"  required/>
+                      <Textfield
+                        name="aadharNumber"
+                        label="Aadhar Number"
+                        required
+                      />
                     </Grid>
 
                     <Grid item xs={12} />
 
-                    
-
                     <Grid item xs={12}>
                       <Typography>
-                        
                         <h4 align="center">Permanent Address</h4>
                         <br />
                       </Typography>
                     </Grid>
 
                     <Grid item xs={12}>
-                      <Textfield name="addressLine1" label="Address Line 1" required/>
+                      <Textfield
+                        name="addressLine1"
+                        label="Address Line 1"
+                        required
+                      />
                     </Grid>
 
                     <Grid item xs={6}>
-                      <Textfield name="addressLine2" label="Address Line 2"  required/>
+                      <Textfield
+                        name="addressLine2"
+                        label="Address Line 2"
+                        required
+                      />
                     </Grid>
                     <Grid item xs={6}>
-                      <Textfield name="pincode" label="Pincode"  required/>
+                      <Textfield name="pincode" label="Pincode" required />
                     </Grid>
 
                     <Grid item xs={6}>
@@ -536,7 +532,7 @@ else{
                     </Grid>
 
                     <Grid item xs={6}>
-                    <InputLabel id="demo-simple-select-label">
+                      <InputLabel id="demo-simple-select-label">
                         Select state *
                       </InputLabel>
 
