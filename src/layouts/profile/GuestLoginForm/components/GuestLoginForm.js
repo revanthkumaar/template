@@ -302,7 +302,7 @@ const GuestLoginForm = () => {
                 } else {
                   // setLoading(true);
                   alert("Guest Need to pay The full Amount");
-                  // setLoading(false);
+                  
                 }
                 setTimeout(() => {
                   console.log(rent);
@@ -378,7 +378,7 @@ const GuestLoginForm = () => {
 
                     <Grid item xs={6}>
                       <Textfield
-                        name="dueAmount"
+                        name="defaultRent"
                         label="Default Rent"
                         value={defaultRentofBed}
                       />

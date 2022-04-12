@@ -11,6 +11,7 @@ import { getGridNumericOperators } from "@mui/x-data-grid";
 
 function Floor() {
   const [data, setData] = useState([]);
+  const [building,setBuilding] =useState([])
   const columns = [
     {
       title: "Floor ID",
@@ -60,6 +61,24 @@ function Floor() {
   },
 
   ];
+  let buildingsArray =[]
+  useEffect(()=>{
+    axios.get("/bed/getBuildingIdAndName")
+    .then((res)=>{
+      console.log(res.data)
+      setBuilding(res.data)
+      
+
+
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+  },[])
+  building.map((item)=>{
+    console.log(item.buildingName)
+    buildingsArray.push(item.buildingName)
+  })
 
   useEffect(() => {
     axios
