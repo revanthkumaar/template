@@ -293,16 +293,16 @@ const GuestLoginForm = () => {
                   );
                   console.log(res.data);
                   if (res.data !== null) {
-                    setLoading(true);
+                    // setLoading(true);
                     alert("Guest On Boarded Successfully");
 
                     resetForm();
-                    setLoading(false);
+                    // setLoading(false);
                   }
                 } else {
-                  setLoading(true);
+                  // setLoading(true);
                   alert("Guest Need to pay The full Amount");
-                  setLoading(false);
+                  // setLoading(false);
                 }
                 setTimeout(() => {
                   console.log(rent);
