@@ -55,7 +55,7 @@ function Build() {
     {
       title: "Building Name",
       field: "building_name",
-    
+    lookup:{SREE_KALANILAYAM:"SREE KALANILAYAM",SREE_NILAYAM:"SREE NILAYAM",ANANDA_NILAYAM:"ANANDA NILAYAM"},
    
       headerStyle: {
         backgroundColor: "#1E90FF",
@@ -124,7 +124,12 @@ function Build() {
         console.log(err);
       });
   }, []);
+
  
+
+
+  const owner="Super Admin"
+  const obje = { createdBy: owner };
 
   return (
     <div className="App">
@@ -145,19 +150,20 @@ function Build() {
                     { id: Math.floor(Math.random() * 100), ...newRow },
                   ];
                   setTimeout(() => {
+                    const newRow1= Object.assign(newRow,obje)
                     const res = axios.post(
                       "/bed/addBuilding",
 
-                      newRow
+                      newRow1
                     );
-                    console.log(newRow);
+                    console.log(newRow1);
                     setData(updatedRows);
                     resolve();
                   }, 2000);
                 }),
               onRowDelete: (selectedRow) =>
                 new Promise((resolve, reject) => {
-                  const index = selectedRow.id;
+                  const index = selectedRow.building_id;
                   const updatedRows = [...data];
                   updatedRows.splice(index, 1);
                   setTimeout(() => {
@@ -170,7 +176,7 @@ function Build() {
                 }),
               onRowUpdate: (updatedRow, oldRow) =>
                 new Promise((resolve, reject) => {
-                  const index = oldRow.id;
+                  const index = oldRow.building_id;
                   const updatedRows = [...data];
                   updatedRows[index] = updatedRow;
                   setTimeout(() => {

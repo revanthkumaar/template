@@ -1,6 +1,6 @@
 import  React, {useEffect,useState} from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-// import axios from 'axios';
+
 
 import axios from "../../../../Uri"
 
@@ -14,9 +14,6 @@ const columns = [
 	{ field: 'paymentPurpose', headerName: 'PAYMENT PURPOSE', width: 200 },
 	{ field: 'guestId', headerName: 'GUEST ID', width: 200 },
 	
-
-
-
 ];
 
 
