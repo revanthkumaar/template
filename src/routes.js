@@ -10,6 +10,7 @@ import Icon from '@mui/material/Icon';
 // import PaymentModules from 'layouts/payments';
 // import Tracker from 'layouts/roomavailabilitytracker';
 import BuildingsTracker from 'layouts/roomavailabilitytracker/buildings';
+import ForgotBasic from 'layouts/authentication/forgot-password'
 
 const routes = [
 	{
@@ -106,6 +107,14 @@ const routes = [
 		icon: <Icon fontSize="small">logout</Icon>,
 		route: '/authentication/sign-in',
 		component: <SignIn />
+	},
+	{
+		type: 'collapse',
+		name: 'Forgot Password',
+		key: 'forgot-password',
+		icon: <Icon fontSize="small">Forgot Password</Icon>,
+		route: '/forgotPassword',
+		component: <ForgotBasic />
 	},
 	// {
 	// 	type: 'main',

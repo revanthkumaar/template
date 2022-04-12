@@ -81,7 +81,7 @@ function ForgotBasic() {
 			<Card>
 				<MDBox
 					variant="gradient"
-					bgColor="primary"
+					bgColor="info"
 					borderRadius="lg"
 					coloredShadow="info"
 					mx={2}
@@ -126,7 +126,7 @@ function ForgotBasic() {
 						<MDBox mt={4} mb={1}>
 							<MDButton
 								variant="gradient"
-								color="primary"
+								color="info"
 								onClick={handleSubmit}
 								// type="submit"
 								fullWidth
@@ -139,7 +139,7 @@ function ForgotBasic() {
 						<MDBox mt={4} mb={1}>
 							<MDButton
 								variant="gradient"
-								color="primary"
+								color="info"
 								component={Link}
 								to="/authentication/sign-in"
 								fullWidth
