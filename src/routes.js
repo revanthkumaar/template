@@ -24,7 +24,7 @@ const routes = [
 		type: 'collapse',
 		name: 'Room Availability Tracker',
 		key: 'tracker',
-		icon: <Icon fontSize="small">booking</Icon>,
+		icon: <Icon fontSize="small">home</Icon>,
 		route: '/tracker',
 		component:<BuildingsTracker buildingName = "SREE_KALANILAYAM"/>
 	},
@@ -77,7 +77,7 @@ const routes = [
 		type: 'collapse',
 		name: 'Branch & Employees',
 		key: 'branch',
-		icon: <Icon fontSize="small">Leader Board</Icon>,
+		icon: <Icon fontSize="small">table_view</Icon>,
 		route: '/branch',
 		component: <Branch />
 	},
