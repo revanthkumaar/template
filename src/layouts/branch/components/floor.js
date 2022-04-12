@@ -13,7 +13,7 @@ function Floor() {
   const [data, setData] = useState([]);
   const [building,setBuilding] =useState([])
   
-  let buildingsArray =[]
+  
   useEffect(()=>{
     axios.get("/bed/getBuildingIdAndName")
     .then((res)=>{
