@@ -378,10 +378,15 @@ const GuestLoginForm = () => {
                         />
                       </Grid>
                     ) : (
-                      console.log("hi")
+                      <Grid item xs={6}>
+                      
+                    </Grid>
                     )}
 
                     
+                    <Grid item xs={6}>
+                     
+                    </Grid>
                     <Grid item xs={6}>
                       <Textfield
                         name="securityDeposit"
@@ -390,11 +395,17 @@ const GuestLoginForm = () => {
                       />
                     </Grid>
                     <Grid item xs={6}>
+                     
+                    </Grid>
+                    <Grid item xs={6}>
                       <Textfield
                         name="defaultRent"
                         label="Default Rent"
                         value={defaultRentofBed}
                       />
+                    </Grid>
+                    <Grid item xs={6}>
+                     
                     </Grid>
                     <Grid item xs={6}>
                       <Textfield
@@ -470,18 +481,6 @@ const GuestLoginForm = () => {
                       <Textfield name="fatherNumber" label="Father's Phone" />
                     </Grid>
 
-                    {/* <Grid item xs={6}>
-                      <Textfield
-                        name="localGuardianName"
-                        label="Local Guardian's Name"
-                      />
-                    </Grid>
-                    <Grid item xs={6}>
-                      <Textfield
-                        name="localGuardianPhoneNumber"
-                        label="Local Guardian's Phone"
-                      />
-                    </Grid> */}
                     <Grid item xs={6}>
                       <Textfield name="bloodGroup" label="Blood Group" />
                     </Grid>
