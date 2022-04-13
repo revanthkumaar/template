@@ -375,13 +375,7 @@ const GuestLoginForm = () => {
                       console.log("hi")
                     )}
 
-                    <Grid item xs={6}>
-                      <Textfield
-                        name="defaultRent"
-                        label="Default Rent"
-                        value={defaultRentofBed}
-                      />
-                    </Grid>
+                    
                     <Grid item xs={6}>
                       <Textfield
                         name="securityDeposit"
