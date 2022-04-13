@@ -53,6 +53,9 @@ function Basic() {
   const forgotPassword = () => {
     navigate('/forgotPassword')
   }
+  const resetPassword = () => {
+    navigate('/resetPassword')
+  }
 
   const callAlert = () => {
     alert("Invalid credentials");
@@ -144,6 +147,23 @@ function Basic() {
                   textGradient
                 >
                   FORGOT PASSWORD
+                </MDTypography>
+              </MDButton>
+            </MDBox>
+            <MDBox mt={4} mb={1}>
+              <MDButton
+                onClick={resetPassword}
+                variant="gradient"
+                color="info"
+                fullWidth
+              >
+                <MDTypography
+                  variant="button"
+                  color="inherit"
+                  fontWeight="medium"
+                  textGradient
+                >
+                  RESET PASSWORD
                 </MDTypography>
               </MDButton>
             </MDBox>
