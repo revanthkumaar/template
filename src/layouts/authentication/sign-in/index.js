@@ -151,7 +151,7 @@ function Basic() {
               </MDButton>
             </MDBox>
             <MDBox mt={4} mb={1}>
-              <MDButton
+              {/* <MDButton
                 onClick={resetPassword}
                 variant="gradient"
                 color="info"
@@ -165,7 +165,7 @@ function Basic() {
                 >
                   RESET PASSWORD
                 </MDTypography>
-              </MDButton>
+              </MDButton> */}
             </MDBox>
           </MDBox>
         </MDBox>
