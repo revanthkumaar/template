@@ -109,7 +109,7 @@ const routes = [
 		component: <SignIn />
 	},
 	{
-		type: 'collapse',
+		type: 'main',
 		name: 'Forgot Password',
 		key: 'forgot-password',
 		icon: <Icon fontSize="small">Forgot Password</Icon>,
