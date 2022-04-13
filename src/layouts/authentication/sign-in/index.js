@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; 
 
 import Card from "@mui/material/Card";
 import Switch from "@mui/material/Switch";
@@ -49,6 +49,10 @@ function Basic() {
       });
     }
   };
+
+  const forgotPassword = () => {
+    navigate('/forgotPassword')
+  }
 
   const callAlert = () => {
     alert("Invalid credentials");
@@ -123,6 +127,23 @@ function Basic() {
                   textGradient
                 >
                   SIGN IN
+                </MDTypography>
+              </MDButton>
+            </MDBox>
+            <MDBox mt={4} mb={1}>
+              <MDButton
+                onClick={forgotPassword}
+                variant="gradient"
+                color="info"
+                fullWidth
+              >
+                <MDTypography
+                  variant="button"
+                  color="inherit"
+                  fontWeight="medium"
+                  textGradient
+                >
+                  FORGOT PASSWORD
                 </MDTypography>
               </MDButton>
             </MDBox>

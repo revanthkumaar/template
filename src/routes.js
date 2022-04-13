@@ -10,6 +10,7 @@ import Icon from '@mui/material/Icon';
 // import PaymentModules from 'layouts/payments';
 // import Tracker from 'layouts/roomavailabilitytracker';
 import BuildingsTracker from 'layouts/roomavailabilitytracker/buildings';
+import ForgotBasic from 'layouts/authentication/forgot-password'
 
 const routes = [
 	{
@@ -24,7 +25,7 @@ const routes = [
 		type: 'collapse',
 		name: 'Room Availability Tracker',
 		key: 'tracker',
-		icon: <Icon fontSize="small">booking</Icon>,
+		icon: <Icon fontSize="small">home</Icon>,
 		route: '/tracker',
 		component:<BuildingsTracker buildingName = "SREE_KALANILAYAM"/>
 	},
@@ -77,7 +78,7 @@ const routes = [
 		type: 'collapse',
 		name: 'Branch & Employees',
 		key: 'branch',
-		icon: <Icon fontSize="small">Leader Board</Icon>,
+		icon: <Icon fontSize="small">table_view</Icon>,
 		route: '/branch',
 		component: <Branch />
 	},
@@ -106,6 +107,14 @@ const routes = [
 		icon: <Icon fontSize="small">logout</Icon>,
 		route: '/authentication/sign-in',
 		component: <SignIn />
+	},
+	{
+		type: 'collapse',
+		name: 'Forgot Password',
+		key: 'forgot-password',
+		icon: <Icon fontSize="small">Forgot Password</Icon>,
+		route: '/forgotPassword',
+		component: <ForgotBasic />
 	},
 	// {
 	// 	type: 'main',
