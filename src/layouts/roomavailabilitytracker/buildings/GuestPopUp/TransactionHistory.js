@@ -15,6 +15,20 @@ import axios from "../../../../Uri";
 export default function TransactionHistory(props) {
   console.log(props.guestdetails.id);
   const [history, setHistory] = useState([]);
+  // var today = new Date();
+  // var dd = String(today.getDate()).padStart(2, '0');
+  // var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  // var yyyy = today.getFullYear();
+  // today = mm + '-' + dd + '-' + yyyy;
+  function formatDate (transactionDate) {
+    var datePart = transactionDate.match(/\d+/g),
+    year = datePart[0].substring(2), // get only two digits
+    month = datePart[1], day = datePart[2];
+  
+    return day+'-'+month+'-'+year;
+  }
+  
+  
   useEffect(() => {
     async function fetchData() {
       const response = await axios.get(
@@ -41,12 +55,28 @@ export default function TransactionHistory(props) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {history.map((row) => (
+          {history.map((row) => 
+            // var date = row.transactionDate;
+            // year =date[0],
+            // month = date[1],
+            // day = date[2];
+            // var finaldate= day+month+year
+
+            (
+              
             <TableRow sx={{ alignContent: "center" }}>
               <TableCell component="th" scope="row">
+              
                 {row.paymentId}
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                {row.transactionDate}
+                {/* ()=>{
+                  var datePart =transactionDate.match(/\d+/g),
+                  year = datePart[0].substring(2),
+                  month = datePart[1], day = datePart[2];
+                }
+                  return day+'/'+month+'/'+year;} */}
+                {/* {date} */}
+                {formatDate(props.guestdetails.transactionDate)}
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 {row.amountPaid}
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -55,7 +85,9 @@ export default function TransactionHistory(props) {
                 {row.transactionId}
               </TableCell>
             </TableRow>
-          ))}
+          )
+        
+          )}
         </TableBody>
       </Table>
     </TableContainer>

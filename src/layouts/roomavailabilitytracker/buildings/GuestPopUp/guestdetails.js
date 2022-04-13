@@ -1,8 +1,23 @@
 import React from "react";
 import { Grid } from "@mui/material";
 import "./guest.css";
+//import formatDate from "../guestPopUP/formateDate";
 
 function Guestdetails(props) {
+  // var today = new Date();
+  // var dd = String(today.getDate()).padStart(2, "0");
+  // var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+  // var yyyy = today.getFullYear();
+  // today = dd + "-" + mm + "-" + yyyy;
+   function formatDate (checkInDate) {
+    var datePart = checkInDate.match(/\d+/g),
+    year = datePart[0].substring(2), // get only two digits
+    month = datePart[1], day = datePart[2];
+  
+    return day+'-'+month+'-'+year;
+  }
+  
+
   return (
     <Grid>
       <div class="float-container">
@@ -35,7 +50,7 @@ function Guestdetails(props) {
 
             <Grid item xs={12}>
               <h4 style={{ width: "80%", marginBottom: "10px" }}>
-                CheckIn Date&nbsp;: {props.guestdetails.checkInDate}
+                CheckIn Date&nbsp;:{formatDate(props.guestdetails.checkInDate)}
               </h4>
             </Grid>
           </Grid>
