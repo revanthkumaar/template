@@ -264,6 +264,8 @@ const GuestLoginForm = () => {
 
   const obje = { buildingName: putBuilding };
   const objee = { defaultRent: rent };
+  const obj1={securityDeposit:secureDepo};
+  const obj2={amountToPay:amountToPay};
   const amountNeedToPay = (n) => {
     console.log(n.target.value);
   };
@@ -283,14 +285,16 @@ const GuestLoginForm = () => {
                 const gustes = Object.assign(guests, obje);
 
                 const gusting = Object.assign(gustes, objee);
-                console.log(gusting);
+                const gusting1=Object.assign(gusting,obj1)
+                const guestdata=Object.assign(gusting1,obj2)
+                console.log(gusting2);
                 console.log(gusting.amountPaid);
                 console.log(amountToPay);
-                if (gusting.amountPaid == amountToPay) {
+                if (guestdata.amountPaid == amountToPay) {
                   const res = await axios.post(
                     "/guest/addGuest",
 
-                    gusting
+                    guestdata
                   );
                   console.log(res.data);
                   if (res.data !== null) {
@@ -307,7 +311,9 @@ const GuestLoginForm = () => {
                 setTimeout(() => {
                   console.log(rent);
                 }, 50);
-              }}
+              
+            }
+            }
             >
               {(formProps) => (
                 <Form>
