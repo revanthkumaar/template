@@ -22,35 +22,6 @@ function Build() {
     // 		width:'1px'
     // 	}
     // },
-    
-    // {
-    //   title: "ID",
-    //   field: "building_id",
-	  // editable:false,
-    //   headerStyle: {
-    //     backgroundColor: "#1E90FF",
-    //     color: "white",
-    //   },
-    // },
-    // {
-    //   title: "Room Number",
-    //   field: "roomId",
-    //   headerStyle: {
-    //     backgroundColor: "#1E90FF",
-    //     color: "white",
-		// height:'20px',
-		// width:'1px'
-    //   },
-   // },
-    // {
-    //   title: "Floor Number",
-    //   field: "floorId",
-    //   headerStyle: {
-    //     backgroundColor: "#1E90FF",
-    //     color: "white",
-    //   },
-    // }, 
-   
 
     {
       title: "Building Name",
