@@ -1,9 +1,16 @@
 import React, { useState ,useEffect} from "react";
 import MaterialTable from "material-table";
 // import axios from "axios";
-import { Grid } from "@mui/material";
+import { Grid,InputLabel} from "@mui/material";
+import Select from "../../profile/GuestLoginForm/components/Select"
+// import Select from "@mui/material/Select"
+
 import axios from "../../../Uri";
 import { getGridNumericOperators } from "@mui/x-data-grid";
+import { Formik } from "formik";
+const INITIAL_FORM_STATE = {
+  occupancyType: ""
+}
 
 
 
@@ -12,22 +19,33 @@ import { getGridNumericOperators } from "@mui/x-data-grid";
 function Floor() {
   const [data, setData] = useState([]);
   const [building,setBuilding] =useState([])
+  const [buildings,setBuildings]=useState([])
+  const [buildName,setBuildName]=useState([])
   
-  
+  let buildingNames =[]
   useEffect(()=>{
     axios.get("/bed/getBuildingIdAndName")
     .then((res)=>{
       console.log(res.data)
       setBuilding(res.data)
+      res.data.map((post)=>{
+        buildingNames.push(post.buildingName)
+      })
+      console.log(buildingNames)
+      setBuildings(buildingNames)
       
-
-
-    })
+})
     .catch((err)=>{
       console.log(err)
     })
   },[])
-  console.log(building)
+  // console.log(building)
+  // building.map((item)=>{
+  //   console.log(item.buildingName)
+  //   buildingNames.push(item.buildingName)
+  //   setBuildings(buildingNames)
+
+  // })
   var obj = building.reduce(function(acc, cur, i) {
     acc[cur.buildingId] = cur.buildingName;
 
@@ -49,6 +67,10 @@ function Floor() {
         console.log(err);
       });
   }, []);
+  const selectBuild =(i)=>{
+    setBuildName(i.target.outerText)
+    console.log(i.target.dataset.value)
+  }
 
   return (
     
@@ -57,10 +79,59 @@ function Floor() {
     
     <Grid container>
         <Grid xs={30}>
-      
+          <Formik
+          initialValues={{ ...INITIAL_FORM_STATE }}>
+          <Grid item xs={12}>
+                      <InputLabel >
+                        
+                        Select Building
+                      </InputLabel>
+                      <Select
+                       
+                        name="occupancyType"
+                        options={obj}
+                        onClick={selectBuild}
+                        
+                      />
+                    </Grid>
+          </Formik>
+        <br/>
         <MaterialTable
           title="Manage Floors"
           columns = {[
+            {
+              title: "Building Name",
+              field: "buildingId",
+              lookup: obj,
+              headerStyle: {
+                backgroundColor: "#1E90FF",
+                color: "white",
+              },
+              validate:rowData =>{
+                if(rowData.buildingId===undefined){
+               return  "Building Id is Required"
+             
+            }
+            return true
+            }
+          },
+          {
+            title: "Floor Number",
+            field: "floorNumber",
+            type:getGridNumericOperators,
+            headerStyle: {
+              backgroundColor: "#1E90FF",
+              color: "white",
+             
+                
+                },
+                validate:rowData =>{
+                  if(rowData.floorNumber===undefined){
+                 return  "Floor Number is Required"
+               
+              }
+              return true
+             }} ,
             {
               title: "Floor ID",
               editable:false,
@@ -75,42 +146,8 @@ function Floor() {
         
               
             },
-            {
-              title: "Floor Number",
-              field: "floorNumber",
-              type:getGridNumericOperators,
-              headerStyle: {
-                backgroundColor: "#1E90FF",
-                color: "white",
-               
-                  
-                  },
-                  validate:rowData =>{
-                    if(rowData.floorNumber===undefined){
-                   return  "Floor Number is Required"
-                 
-                }
-                return true
-               }} ,
-            {
-              title: "Building Name",
-              field: "buildingId",
-              lookup: obj,
-             
-        
-              emptyValue: () => <div>"dfsdf"</div>,
-              headerStyle: {
-                backgroundColor: "#1E90FF",
-                color: "white",
-              },
-              validate:rowData =>{
-                if(rowData.buildingId===undefined){
-               return  "Building Id is Required"
-             
-            }
-            return true
-            }
-          },
+            
+           
         
           ]}
           data={data}

@@ -3,6 +3,8 @@ import MaterialTable from "material-table";
 import { Grid } from "@mui/material";
 // import axios from "axios";
 import axios from "../../../Uri";
+import Select from '../../profile/GuestLoginForm/components/Select'
+
 // import { height, width } from "@mui/system";
 
 function Beds() {
@@ -162,6 +164,7 @@ function Beds() {
 
   return (
     <div className="App">
+      
       <Grid container>
         {/* <h1 align="center"></h1>
       <h4 align='center'></h4> */}

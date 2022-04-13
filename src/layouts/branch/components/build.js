@@ -22,35 +22,6 @@ function Build() {
     // 		width:'1px'
     // 	}
     // },
-    
-    {
-      title: "ID",
-      field: "building_id",
-	  editable:false,
-      headerStyle: {
-        backgroundColor: "#1E90FF",
-        color: "white",
-      },
-    },
-    // {
-    //   title: "Room Number",
-    //   field: "roomId",
-    //   headerStyle: {
-    //     backgroundColor: "#1E90FF",
-    //     color: "white",
-		// height:'20px',
-		// width:'1px'
-    //   },
-   // },
-    // {
-    //   title: "Floor Number",
-    //   field: "floorId",
-    //   headerStyle: {
-    //     backgroundColor: "#1E90FF",
-    //     color: "white",
-    //   },
-    // }, 
-   
 
     {
       title: "Building Name",
@@ -70,6 +41,17 @@ function Build() {
         }
       
     },
+    {
+      title: "Role",
+      field: "role",
+      lookup:{manager:"Manager",admin:"Admin"},
+    
+   
+      headerStyle: {
+        backgroundColor: "#1E90FF",
+        color: "white"
+      }
+    },
 
     {
       title: "Manger Name",
@@ -88,7 +70,28 @@ function Build() {
           return true
         }
       },
-  
+      {
+        title: "Email",
+        field: "email",
+        type:"email",
+     
+        headerStyle: {
+          backgroundColor: "#1E90FF",
+          color: "white"
+        }
+      },
+      {
+        title: "Password",
+        field: "password",
+        type:"password",
+      
+     
+        headerStyle: {
+          backgroundColor: "#1E90FF",
+          color: "white"
+        }
+      },
+     
     {
       title: "Phone Number",
       field: "phone_number",
