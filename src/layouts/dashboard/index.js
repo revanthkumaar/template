@@ -34,7 +34,7 @@ function Dashboard({ authorized }) {
           </Grid>
         </Grid>
 
-        <h4 style={{ paddingTop: "10px" }}> Building Wise Summary</h4>
+        <h4 style={{ paddingTop: "10px" }}> Total Buildings Summary</h4>
         <MDBox mt={5}>
           <Grid container spacing={2}>
             <Grid item xs={12}>

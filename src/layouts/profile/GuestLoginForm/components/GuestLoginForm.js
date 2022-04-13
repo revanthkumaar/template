@@ -59,9 +59,8 @@ const INITIAL_FORM_STATE = {
   city: "",
   state: "",
   amountTopay: "",
-  // workPhone: "",
-  // workAddressLine1: "",
-  // workAddressLine2: "",
+  defaultRent: "",
+  securityDeposit: "",
   checkinNotes: "",
   //termsOfService: false,
 };
@@ -168,7 +167,7 @@ const GuestLoginForm = () => {
   const [occtype, setOcctype] = React.useState([]);
   const [amt, setAmt] = React.useState([]);
   //const [loading, setLoading] = React.useState(false);
-  const [regular, setRegular] = React.useState([]);
+  const [secureDepo, setSecureDepo] = React.useState([]);
 
   let buildingNamesArray = [];
   let availableBedsByBuidlingName = [];
@@ -218,6 +217,7 @@ const GuestLoginForm = () => {
     bedRent.map((post) => {
       setRent(post.defaultRent);
       setDefaultRentofBed(post.defaultRent);
+      setSecureDepo(post.securityDeposit);
     });
   };
   const occupency = (i) => {
@@ -225,35 +225,36 @@ const GuestLoginForm = () => {
     setOcctype(i.target.outerText);
     if (i.target.outerText == "Daily") {
       setDuration(days);
-      var checkInAmount = amt * (defaultRentofBed / 30) + 1000;
+      var checkInAmount = amt * (defaultRentofBed / 30) + secureDepo;
       setAmountToPay(checkInAmount.toFixed(2));
     } else if (i.target.outerText == "Monthly") {
       setOcctype(i.target.outerText);
       setDuration(months);
-      var checkInAmount = amt * defaultRentofBed + 3000;
+      var checkInAmount = amt * defaultRentofBed + secureDepo;
       setAmountToPay(checkInAmount);
     } else {
       setDuration(empty);
-      setAmountToPay(defaultRentofBed);
+      setAmountToPay(defaultRentofBed + secureDepo);
     }
   };
 
   const calculateCheckAmount = (a) => {
-    var size = Object.keys(duration).length;
-    console.log(size);
+    var occupencyTypeis = Object.keys(duration).length;
+    console.log(occupencyTypeis);
     console.log(occtype);
 
     console.log(a.target.outerText);
     setAmt(a.target.outerText);
 
-    if (size == 12) {
-      var checkInAmount = a.target.outerText * defaultRentofBed + 3000;
+    if (occupencyTypeis == 12) {
+      var checkInAmount = a.target.outerText * defaultRentofBed + secureDepo;
       setAmountToPay(checkInAmount);
-    } else if (size == 15) {
-      var checkInAmount = a.target.outerText * (defaultRentofBed / 30) + 1000;
+    } else if (occupencyTypeis == 15) {
+      var checkInAmount =
+        a.target.outerText * (defaultRentofBed / 30) + secureDepo;
       setAmountToPay(checkInAmount.toFixed(2));
     } else {
-      setAmountToPay(defaultRentofBed);
+      setAmountToPay(defaultRentofBed + secureDepo);
     }
   };
 
@@ -302,7 +303,6 @@ const GuestLoginForm = () => {
                 } else {
                   // setLoading(true);
                   alert("Guest Need to pay The full Amount");
-                  
                 }
                 setTimeout(() => {
                   console.log(rent);
@@ -374,8 +374,21 @@ const GuestLoginForm = () => {
                     ) : (
                       console.log("hi")
                     )}
-                    
 
+                    <Grid item xs={6}>
+                      <Textfield
+                        name="defaultRent"
+                        label="Default Rent"
+                        value={defaultRentofBed}
+                      />
+                    </Grid>
+                    <Grid item xs={6}>
+                      <Textfield
+                        name="securityDeposit"
+                        label="Security Deposit"
+                        value={secureDepo}
+                      />
+                    </Grid>
                     <Grid item xs={6}>
                       <Textfield
                         name="defaultRent"
