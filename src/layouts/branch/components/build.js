@@ -43,7 +43,7 @@ function Build() {
     },
     {
       title: "Role",
-      field: "role",
+      field: "userType",
       lookup:{manager:"Manager",admin:"Admin"},
     
    
@@ -55,16 +55,16 @@ function Build() {
 
     {
       title: "Manger Name",
-      field: "manager_name",
+      field: "userName",
       
      // lookup: { true: "Not Allocated", false: "Allocated" },
       headerStyle: {
         backgroundColor: "#1E90FF",
         color: "white"},
         validate:rowData =>{
-          if(rowData.manager_name === undefined||rowData.manager_name=== ""){
+          if(rowData.userName === undefined||rowData.userName=== ""){
             return "Required"
-          }else if(rowData.manager_name.length<3){
+          }else if(rowData.userName.length<3){
             return" Manager name should contains atleast 3 alphabets"
           }
           return true
@@ -80,30 +80,30 @@ function Build() {
           color: "white"
         }
       },
-      {
-        title: "Password",
-        field: "password",
-        type:"password",
+      // {
+      //   title: "Password",
+      //   field: "password",
+      //   type:"password",
       
      
-        headerStyle: {
-          backgroundColor: "#1E90FF",
-          color: "white"
-        }
-      },
+      //   headerStyle: {
+      //     backgroundColor: "#1E90FF",
+      //     color: "white"
+      //   }
+      // },
      
     {
       title: "Phone Number",
-      field: "phone_number",
+      field: "userPhoneNumber",
       
       headerStyle: {
         backgroundColor: "#1E90FF",
         color: "white",
       },
       validate: rowData => {
-        if (rowData.phone_number === undefined || rowData.phone_number === "") {
+        if (rowData.userPhoneNumber === undefined || rowData.userPhoneNumber === "") {
           return "Required"
-        } else if (rowData.phone_number.length < 10 || rowData.phone_number.length > 10) {
+        } else if (rowData.userPhoneNumber.length < 10 || rowData.userPhoneNumber.length > 10) {
           return "Phone number should contains 10 digits"
           //  return {isValid:false,helperText:"Phone number should contains 10 digits"}
         }
@@ -115,7 +115,7 @@ function Build() {
   useEffect(() => {
     axios
 
-      .get("/bed/getAllBuildings")
+      .get("/bed/getAllMasterData")
 
       .then((res) => {
         setData(res.data);
