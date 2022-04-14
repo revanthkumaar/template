@@ -27,7 +27,7 @@ function Floor() {
     axios.get("/bed/getBuildingIdAndName")
     .then((res)=>{
       console.log(res.data)
-      localStorage.setItem("buildInfo",JSON.stringify(res.data))
+     
       setBuilding(res.data)
       res.data.map((post)=>{
         buildingNames.push(post.buildingName)
@@ -73,9 +73,8 @@ function Floor() {
     setBuildName(i.target.outerText)
     console.log(i.target.dataset.value)
   }
-  //JSON.parse(localStorage.getItem('rowinfo'))
- let userData= sessionStorage.getItem('rowinfo')
- console.log(userData);
+  
+ 
 
   return (
     

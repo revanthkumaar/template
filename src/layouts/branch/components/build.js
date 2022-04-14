@@ -131,9 +131,7 @@ function Build() {
  
 
 
-  const owner="Super Admin"
-  const obje = { createdBy: owner };
-  //localStorage.getItem(rowinfo)
+ 
   
 
   return (
@@ -155,16 +153,15 @@ function Build() {
                     { id: Math.floor(Math.random() * 100), ...newRow },
                   ];
                   setTimeout(() => {
-                    const newRow1= Object.assign(newRow,obje)
+                    
                     const res = axios.post(
                       "/bed/addBuilding",
 
-                      newRow1
+                      newRow
                     );
-                    console.log(newRow1);
+                    console.log(newRow);
                     setData(updatedRows);
-                    sessionStorage.setItem("rowinfo",JSON.stringify(newRow1))
-                    // console.log(rowinfo)
+                   
                     resolve();
                   }, 2000);
                 }),
