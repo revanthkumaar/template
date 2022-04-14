@@ -133,6 +133,8 @@ function Build() {
 
   const owner="Super Admin"
   const obje = { createdBy: owner };
+  //localStorage.getItem(rowinfo)
+  
 
   return (
     <div className="App">
@@ -161,6 +163,8 @@ function Build() {
                     );
                     console.log(newRow1);
                     setData(updatedRows);
+                    sessionStorage.setItem("rowinfo",JSON.stringify(newRow1))
+                    // console.log(rowinfo)
                     resolve();
                   }, 2000);
                 }),

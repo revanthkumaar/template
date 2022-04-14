@@ -180,9 +180,21 @@ const GuestLoginForm = () => {
       .then((res) => {
         setoneBuilding(res.data);
         console.log(res.data);
+        // var obj = building.reduce(function(acc,cur,i) {
+        //   acc[cur.buildingId] = cur.buildingName;
+      
+        //   return acc;
+        // }, {});
+        // console.log(obj);
 
         res.data.map((data) => {
-          buildingNamesArray.push(data.buildingName);
+          if(currentBuildingId === data.buildingName){
+            buildingNamesArray.push(data.buildingName);
+          }
+          else{
+            console.log("hehdhdjdjdj")
+          }
+          
         });
 
         setBuilding(buildingNamesArray);
@@ -194,7 +206,10 @@ const GuestLoginForm = () => {
   }, []);
 
   const handleClick = (id) => {
-    setPutBuilding(id.target.outerText);
+    
+      setPutBuilding(id.target.outerText);
+   
+    
     const bool = oneBuilding.filter(
       (buildingData) => buildingData.buildingName == id.target.outerText
     );
@@ -270,6 +285,11 @@ const GuestLoginForm = () => {
     console.log(n.target.value);
   };
   console.log(occtype);
+  let userData= JSON.parse(sessionStorage.getItem('rowinfo'))
+  console.log(userData)
+  let currentBuildingId = userData.building_name
+ 
+  
 
   return (
     <Grid container>
@@ -378,9 +398,7 @@ const GuestLoginForm = () => {
                         />
                       </Grid>
                     ) : (
-                      <Grid item xs={6}>
-                      
-                    </Grid>
+                      console.log("")
                     )}
 
                     

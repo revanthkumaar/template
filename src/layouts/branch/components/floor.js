@@ -27,6 +27,7 @@ function Floor() {
     axios.get("/bed/getBuildingIdAndName")
     .then((res)=>{
       console.log(res.data)
+      localStorage.setItem("buildInfo",JSON.stringify(res.data))
       setBuilding(res.data)
       res.data.map((post)=>{
         buildingNames.push(post.buildingName)
@@ -46,12 +47,13 @@ function Floor() {
   //   setBuildings(buildingNames)
 
   // })
-  var obj = building.reduce(function(acc, cur, i) {
+  var obj = building.reduce(function(acc,cur,i) {
     acc[cur.buildingId] = cur.buildingName;
 
     return acc;
   }, {});
   console.log(obj);
+  localStorage.setItem("buildinfo",JSON.stringify(obj))
   useEffect(() => {
     axios
 
@@ -71,6 +73,9 @@ function Floor() {
     setBuildName(i.target.outerText)
     console.log(i.target.dataset.value)
   }
+  //JSON.parse(localStorage.getItem('rowinfo'))
+ let userData= sessionStorage.getItem('rowinfo')
+ console.log(userData);
 
   return (
     
