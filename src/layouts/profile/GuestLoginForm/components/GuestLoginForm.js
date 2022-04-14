@@ -154,6 +154,8 @@ const FORM_VALIDATION = Yup.object().shape({
   // transactionId: Yup.string().required("Required"),
 });
 
+console.log( JSON.parse(sessionStorage.getItem('userdata')))
+
 const GuestLoginForm = () => {
   const [building, setBuilding] = React.useState([]);
   const [oneBuilding, setoneBuilding] = React.useState([]);
@@ -180,21 +182,12 @@ const GuestLoginForm = () => {
       .then((res) => {
         setoneBuilding(res.data);
         console.log(res.data);
-        // var obj = building.reduce(function(acc,cur,i) {
-        //   acc[cur.buildingId] = cur.buildingName;
-      
-        //   return acc;
-        // }, {});
-        // console.log(obj);
+       
 
         res.data.map((data) => {
-          if(currentBuildingId === data.buildingName){
+      
             buildingNamesArray.push(data.buildingName);
-          }
-          else{
-            console.log("hehdhdjdjdj")
-          }
-          
+     
         });
 
         setBuilding(buildingNamesArray);
@@ -285,9 +278,8 @@ const GuestLoginForm = () => {
     console.log(n.target.value);
   };
   console.log(occtype);
-  let userData= JSON.parse(sessionStorage.getItem('rowinfo'))
-  console.log(userData)
-  let currentBuildingId = userData.building_name
+  
+ 
  
   
 
