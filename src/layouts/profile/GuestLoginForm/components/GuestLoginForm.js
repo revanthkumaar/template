@@ -175,8 +175,14 @@ const GuestLoginForm = () => {
   let availableBedsByBuidlingName = [];
   let empty = [];
   const classes = useStyles();
+  
+  
 
   useEffect(() => {
+    let userData = JSON.parse(sessionStorage.getItem('userdata'))
+    //console.log(userData.buildingId)
+    let userBuildingId = userData.buildingId
+    console.log(userBuildingId)
     axios
       .get("/bed/getAvailableBedsByBuildings")
       .then((res) => {
@@ -185,8 +191,15 @@ const GuestLoginForm = () => {
        
 
         res.data.map((data) => {
-      
+          if(userBuildingId === data.buildingId){
+
             buildingNamesArray.push(data.buildingName);
+          }
+          else{
+            console.log("hi")
+          }
+      
+           
      
         });
 
