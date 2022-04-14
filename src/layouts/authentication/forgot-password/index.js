@@ -32,7 +32,8 @@ function ForgotBasic() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		// console.log(password);
+		 console.log(email);
+		 console.log(confirmPassword);
 
 		// const res = await axios.get(Urls.signIn);
 		// console.log(res.data);
@@ -48,14 +49,15 @@ function ForgotBasic() {
 		// 	});
 		// }
 
-    alert('confirm submit password')
 		const submitpassword = async () => {
-			const result = await axios.put('/login/resetPassword', { email, newPassword, confirmPassword });
+
+			const result = await axios.put('/login/updateUserByEmail', { email, newPassword, confirmPassword });
 			{
 				result.data
 					? navigate('/authentication/sign-in')
 					: alert('something went wrong, unable to update password');
 			}
+			
 		};
 
 		submitpassword();
@@ -128,7 +130,7 @@ function ForgotBasic() {
 								variant="gradient"
 								color="info"
 								onClick={handleSubmit}
-								// type="submit"
+								type="submit"
 								fullWidth
 							>
 								<MDTypography variant="button" color="inherit" fontWeight="medium" textGradient>

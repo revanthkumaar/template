@@ -14,7 +14,7 @@ import bgImage from "assets/images/bg-sign-in-basic.jpeg";
 // import axios from "axios";
 import axios from '../../../Uri';
 import { createUseGridApiEventHandler } from "@mui/x-data-grid";
-import { CollectionsOutlined } from "@mui/icons-material";
+import { CollectionsOutlined, ImageNotSupportedSharp } from "@mui/icons-material";
 
 function Basic() {
   var userStatus = {}
@@ -49,6 +49,8 @@ function Basic() {
     if(userStatus.status === true ){
       sessionStorage.setItem('userdata' , JSON.stringify(userData));
       console.log( JSON.parse(sessionStorage.getItem('userdata')))
+      // sessionStorage.getItem('isAuth')
+      console.log(JSON.parse(sessionStorage.getItem('isAuth')))
 
       navigate("/dashboard")
     }
