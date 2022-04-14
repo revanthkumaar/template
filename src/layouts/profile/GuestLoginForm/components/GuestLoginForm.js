@@ -19,6 +19,8 @@ import Button from "./Button";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import days from "./Days";
 import months from "./Months";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 //import Button from "@mui/material/Button"
 
 const useStyles = makeStyles({
@@ -192,6 +194,9 @@ const GuestLoginForm = () => {
         console.log(err);
       });
   }, []);
+ 
+    const notify = () => toast();
+
 
   const handleClick = (id) => {
     setPutBuilding(id.target.outerText);
@@ -287,7 +292,7 @@ const GuestLoginForm = () => {
                 const gusting = Object.assign(gustes, objee);
                 const gusting1=Object.assign(gusting,obj1)
                 const guestdata=Object.assign(gusting1,obj2)
-                console.log(gusting2);
+                // console.log(gusting2);
                 console.log(gusting.amountPaid);
                 console.log(amountToPay);
                 if (guestdata.amountPaid == amountToPay) {
@@ -297,16 +302,19 @@ const GuestLoginForm = () => {
                     guestdata
                   );
                   console.log(res.data);
-                  if (res.data !== null) {
+                  if(res.data!==null){
+                    toast.success("OnBoarded Successfully");
+                  
+                  
                     // setLoading(true);
-                    alert("Guest On Boarded Successfully");
+                    
 
                     resetForm();
                     // setLoading(false);
                   }
                 } else {
                   // setLoading(true);
-                  alert("Guest Need to pay The full Amount");
+                  toast.error(" Need to pay full Amount");
                 }
                 setTimeout(() => {
                   console.log(rent);
@@ -602,10 +610,25 @@ const GuestLoginForm = () => {
                     </Grid> */}
 
                     <Grid item xs={3} sx={{ paddingBottom: 3 }}>
-                      <Button>Submit</Button>
+                      <Button onClick={notify}>Submit</Button>
                     </Grid>
                   </Grid>
+                  <ToastContainer
+               position="top-right"
+               min-width= "2%"
+               autoClose={3000}
+               hideProgressBar={false}
+               newestOnTop={false}
+               closeOnClick
+               rtl={false}
+               pauseOnFocusLoss
+               draggable
+               pauseOnHover
+               />
+              
                 </Form>
+                
+              
               )}
             </Formik>
           </div>
