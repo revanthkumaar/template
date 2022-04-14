@@ -12,6 +12,8 @@ import Select from "layouts/profile/GuestLoginForm/components/Select";
 import Purpose from "./Purpose";
 
 import Button from "layouts/profile/GuestLoginForm/components/Button";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 // import { height } from "@mui/system";
@@ -35,6 +37,7 @@ const FORM_VALIDATION = Yup.object().shape({
   amountPaid: Yup.number().required("Required"),
   transactionId: Yup.string().required("Required"),
 });
+const notify = () => toast();
 
 const RecordpaymentsinPopUp = (props) => {
   var GuestID = props.guestdetails.id;
@@ -60,6 +63,17 @@ const RecordpaymentsinPopUp = (props) => {
 
                 const res = await axios.post("/payment/addAfterOnBoard", guest);
                 console.log(res.data);
+                if(res.data!==null){
+                  toast.success("Payment Recorded Successfully");
+                
+                }else
+                toast.error("Something");
+
+                
+                
+                
+                
+              
                 setTimeout(() => {
                   resetForm();
                 }, 50);
@@ -91,9 +105,21 @@ const RecordpaymentsinPopUp = (props) => {
                     </Grid>
 
                     <Grid item xs={6} sx={{ marginTop: 2 }}>
-                      <Button>Record Payment</Button>
+                      <Button  >Record Payment</Button>
                     </Grid>
                   </Grid>
+                  <ToastContainer  maxWidth="sx"
+               position="top-right"
+               autoClose={3000}
+               type="toast.TYPE.SUCCESS"
+               hideProgressBar={false}
+               newestOnTop={false}
+               closeOnClick
+               rtl={false}
+               pauseOnFocusLoss
+               draggable
+               pauseOnHover
+               />
                 </Form>
               )}
             </Formik>
