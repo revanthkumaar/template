@@ -156,6 +156,8 @@ const FORM_VALIDATION = Yup.object().shape({
   // transactionId: Yup.string().required("Required"),
 });
 
+console.log( JSON.parse(sessionStorage.getItem('userdata')))
+
 const GuestLoginForm = () => {
   const [building, setBuilding] = React.useState([]);
   const [oneBuilding, setoneBuilding] = React.useState([]);
@@ -182,9 +184,12 @@ const GuestLoginForm = () => {
       .then((res) => {
         setoneBuilding(res.data);
         console.log(res.data);
+       
 
         res.data.map((data) => {
-          buildingNamesArray.push(data.buildingName);
+      
+            buildingNamesArray.push(data.buildingName);
+     
         });
 
         setBuilding(buildingNamesArray);
@@ -199,7 +204,10 @@ const GuestLoginForm = () => {
 
 
   const handleClick = (id) => {
-    setPutBuilding(id.target.outerText);
+    
+      setPutBuilding(id.target.outerText);
+   
+    
     const bool = oneBuilding.filter(
       (buildingData) => buildingData.buildingName == id.target.outerText
     );
@@ -275,6 +283,10 @@ const GuestLoginForm = () => {
     console.log(n.target.value);
   };
   console.log(occtype);
+  
+ 
+ 
+  
 
   return (
     <Grid container>
@@ -386,9 +398,7 @@ const GuestLoginForm = () => {
                         />
                       </Grid>
                     ) : (
-                      <Grid item xs={6}>
-                      
-                    </Grid>
+                      console.log("")
                     )}
 
                     
