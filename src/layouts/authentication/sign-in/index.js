@@ -13,13 +13,19 @@ import BasicLayout from "layouts/authentication/components/BasicLayout";
 import bgImage from "assets/images/bg-sign-in-basic.jpeg";
 // import axios from "axios";
 import axios from '../../../Uri';
+import { createUseGridApiEventHandler } from "@mui/x-data-grid";
+import { CollectionsOutlined } from "@mui/icons-material";
 
 function Basic() {
+  var userStatus = {}
+  var userData = {}
+  var userdata ={}
   const [rememberMe, setRememberMe] = useState(false);
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  // const[userData, setUserData]= useState({})
 
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
 
@@ -27,27 +33,42 @@ function Basic() {
     event.preventDefault();
     console.log(email);
     console.log(password);
-    const res = await axios.get("/login/users");
-    console.log(res.data);
-    
-    
-    const result = res.data.filter(
-      (u) => u.email === email && u.password === password 
-    );
-    console.log(result);
-    console.log(result.userId);
-    if (result === "undefined") {
-      alert("Invalid credentials");
-    } else {
-      result.map((u) => {
-        // console.log(u.)
-        if (u.email === email && u.password === password ) {
-          // navigate("/dashboard")
-          alert("loggedin")
-          ;
-        }
+    await axios.get(`/login/getUsersByUserEmailId?email=${email}&password=${password}`)
+      .then((res) => {
+        // console.log(res.data);
+        userStatus = res.data
+        userData = userStatus.data
+        console.log(userData)
+      })
+      .catch((err) => {
+        console.log(err);
+        
       });
+    
+    
+    if(userStatus.status === true ){
+      sessionStorage.setItem('userdata' , JSON.stringify(userData));
+      console.log( JSON.parse(sessionStorage.getItem('userdata')))
+
+      navigate("/dashboard")
     }
+    // const result = res.data.filter(
+    //   (u) => u.email === email && u.password === password 
+    // );
+    // console.log(result);
+    // console.log(result.userId);
+    // if (result === "undefined") {
+    //   alert("Invalid credentials");
+    // } else {
+    //   result.map((u) => {
+    //     // console.log(u.)
+    //     if (u.email === email && u.password === password ) {
+    //       // navigate("/dashboard")
+    //       alert("loggedin")
+    //       ;
+    //     }
+    //   });
+    // }
   };
 
   const forgotPassword = () => {
@@ -104,18 +125,7 @@ function Basic() {
                 fullwidth
               />
             </MDBox>
-            {/* <MDBox display="flex" alignItems="center" ml={-1}>
-							<Switch checked={rememberMe} onChange={handleSetRememberMe} />
-							<MDTypography
-								variant="button"
-								fontWeight="regular"
-								color="text"
-								onClick={handleSetRememberMe}
-								sx={{ cursor: 'pointer', userSelect: 'none', ml: -1 }}
-							>
-								&nbsp;&nbsp;Remember me
-							</MDTypography>
-						</MDBox> */}
+           
             <MDBox mt={4} mb={1}>
               <MDButton
                 onClick={handleSubmit}
