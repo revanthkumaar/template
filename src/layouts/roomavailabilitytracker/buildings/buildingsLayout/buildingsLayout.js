@@ -36,7 +36,9 @@ const BuildingsLayout = (props) => {
   console.log(props.buildingId)
 
   useEffect(async () => {
+    
     await axios
+    
       .get(`/bed/getBedsByBuildingId/${props.buildingId}`)
       .then((res) => {
         setBuildingInfo(res.data);

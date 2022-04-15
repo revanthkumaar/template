@@ -4,85 +4,77 @@ import MenuItem from "@mui/material/MenuItem";
 import { Link } from "react-router-dom";
 import Select from "@mui/material/Select";
 import axios from "../../../Uri";
-import BuildingsLayout from './buildingsLayout/buildingsLayout';
-import BedSummaryChart from './buildingspieCharts/bedSummaryChart';
-import PaymentSummaryChart from './buildingspieCharts/paymentSummaryChart';
+import BuildingsLayout from "./buildingsLayout/buildingsLayout";
+import BedSummaryChart from "./buildingspieCharts/bedSummaryChart";
+import PaymentSummaryChart from "./buildingspieCharts/paymentSummaryChart";
 import { Grid } from "@mui/material";
 
-
-
 function BuildingDropdown(props) {
-  const [selected, setSelected] = React.useState('');
-  const [building, setBuilding] = React.useState([])
-  const [buildingId, setbuildingId] = React.useState()
+  const [selected, setSelected] = React.useState("");
+  const [building, setBuilding] = React.useState([]);
+  
 
   function handleChange(event) {
-    ;
-    console.log(event.target)
-
+    console.log(event.target.outerText);
+    setSelected(event.target.outerText)
   }
-
+  let userData = JSON.parse(sessionStorage.getItem('userdata'))
+  let buildingsId = userData.buildingId;
+    console.log(buildingsId)
 
   useEffect(() => {
-    axios.get("bed/getAllBuildings").then((res) => {
-      console.log(res.data)
-      setBuilding(res.data)
+    
+    axios.get(`bed/getBuildingsById/${buildingsId}`).then((res) => {
+      console.log(res.data);
+      setBuilding(res.data);
 
-    })
-  }, [])
+    });
+  }, []);
+  console.log(building);
 
+  return (
+    <>
+      
 
-  return (<>
-
-
-    <label value="Select Building: ">Select Building: </label>
-
-    <Select
-      sx={{ minHeight: 44 }}
-      style={{ width: "30%", height: "10%" }}
-      value={selected}
-      name="building"
-    >
-      {building.map((post) => {
-        return (
-          <MenuItem value={post.building_name} onClick={async () => {
-            setSelected(post.building_name)
-            console.log(post.building_id)
-            setbuildingId(post.building_id)
-          }}> {post.building_name}  </MenuItem>
-        )
-      })}
-
-
-
-    </Select>
-
-
-    {buildingId == null ? (<div></div>) : (<div>    <Grid container direction="row" justifyContent="left" alignItems="left">
-      <Grid item xs={6}>
-        <BedSummaryChart buildingId={buildingId} />
+      <Select
+        sx={{ minHeight: 44 }}
+        style={{ width: "30%", height: "10%" }}
+        defaultValue={building.building_name}
+        name="building"
+      >
+        
+            <MenuItem
+              value={building.building_name}
+              onClick={handleChange}
+            >
+              {" "}
+              {building.building_name}{" "}
+            </MenuItem>
+         
+      </Select>
+      {building.building_name === selected ? (
+        <Grid>
+        <Grid container direction="row" justifyContent="left" alignItems="left">
+        <Grid item xs={6}>
+          <BedSummaryChart buildingId={buildingsId} />
+        </Grid>
+        <Grid item xs={6}>
+          <PaymentSummaryChart buildingId={buildingsId} />
+        </Grid>
       </Grid>
-      <Grid item xs={6}>
-        <PaymentSummaryChart buildingId={buildingId} />
-      </Grid>
-    </Grid>
-      <BuildingsLayout buildingId={buildingId} />    
-      </div>)}
+        <BuildingsLayout buildingId={buildingsId} /> 
+        </Grid>
 
+      ):(
+        console.log("hi")
+      ) }
 
+         
+      
 
-
-
-
-
-
-
-
-
-    {console.log(building)}
-
-
-  </>);
+      {console.log(building)}
+    </>
+  );
 }
 
 export default BuildingDropdown;
