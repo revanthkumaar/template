@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate, component } from 'react-router-dom';
 
 // @mui material components
-import Card from '@mui/material/Card';
+import {Card,Grid} from '@mui/material';
 
 // @mui icons
 // import FacebookIcon from "@mui/icons-material/Facebook";
@@ -24,6 +24,7 @@ import bgImage from 'assets/images/bg-sign-in-basic.jpeg';
 //import bgImage from 'assets/images/signin.jpg';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
+
 
 function ForgotBasic() {
 	const navigate = useNavigate();
@@ -61,7 +62,7 @@ function ForgotBasic() {
 			{
 				result.data
 					? navigate('/authentication/sign-in')
-					: alert('something went wrong, unable to update password');
+					: toast.error('something went wrong, unable to update password');
 			}
 			
 		};
@@ -71,7 +72,7 @@ function ForgotBasic() {
 	
     else
 	{
-		alert("Please make sure that new password and confrim password are same");
+		toast.error("new password and confrim password should be same");
 	}
 };
 	useEffect(() => {
@@ -178,6 +179,21 @@ function ForgotBasic() {
 						</MDBox>
 					</MDBox>
 				</MDBox>
+			
+				<ToastContainer
+               position="top-right"
+               min-width= "2%"
+			  
+               autoClose={3000}
+               hideProgressBar={false}
+               newestOnTop={false}
+               closeOnClick
+               rtl={false}
+               pauseOnFocusLoss
+               draggable
+               pauseOnHover
+               />
+			  
 			</Card>
 		</BasicLayout>
 	);
