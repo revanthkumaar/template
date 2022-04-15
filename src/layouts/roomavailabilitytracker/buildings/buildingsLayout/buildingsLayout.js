@@ -21,6 +21,7 @@ import GuestPopUp from "../GuestPopUp/guestPopUP";
 import "./buildingLayout.css";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
+import Tooltip from "@material-ui/core/Tooltip";
 
 var GuestDetails = {};
 
@@ -107,24 +108,15 @@ const BuildingsLayout = (props) => {
                                               {(() => {
                                                 if (bdno.bedStatus === true) {
                                                   return (
-                                                    <HotelOutlinedIcon
-                                                      key={bdno.bedId}
-                                                      className="click"
-                                                      color="success"
-                                                    />
-                                                  );
-                                                } else {
+                                                    <HotelOutlinedIcon key={bdno.bedId} className="click" color="success"/>
+                                                  );} 
+                                                  else {
                                                   return (
-                                                    <HotelOutlinedIcon
-                                                      key={bdno.bedId}
-                                                      color="error"
-                                                      className="click"
-                                                      id={bdno.guestId}
+                                                    <Tooltip title={bdno.bedId}>
+                                                    <HotelOutlinedIcon    key={bdno.bedId} color="error"  className="click" id={bdno.guestId}
                                                       onClick={async () => {
-                                                        setLoading(false);
-                                                        console.log(
-                                                          bdno.guestId
-                                                        );
+                                                                             setLoading(false);
+                                                                             console.log(bdno.guestId);
 
                                                         await axios
                                                           .get(
@@ -144,7 +136,13 @@ const BuildingsLayout = (props) => {
                                                             console.log(err);
                                                           });
                                                       }}
+
+
                                                     />
+                                                    </Tooltip>
+
+
+
                                                   );
                                                 }
                                               })()}
