@@ -15,6 +15,8 @@ import bgImage from "assets/images/bg-sign-in-basic.jpeg";
 import axios from '../../../Uri';
 import { createUseGridApiEventHandler } from "@mui/x-data-grid";
 import { CollectionsOutlined, ImageNotSupportedSharp } from "@mui/icons-material";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Basic() {
   var userStatus = {}
@@ -22,6 +24,7 @@ function Basic() {
   var userdata ={}
   const [rememberMe, setRememberMe] = useState(false);
   const navigate = useNavigate();
+  const notify = () => toast();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -57,7 +60,7 @@ function Basic() {
 
 
     else {
-      alert("Invalid credentials");
+      toast.error("Invalid Credentials");
     }
     // const result = res.data.filter(
     //   (u) => u.email === email && u.password === password 
@@ -186,6 +189,18 @@ function Basic() {
             </MDBox>
           </MDBox>
         </MDBox>
+        <ToastContainer
+               position="top-right"
+               min-width= "2%"
+               autoClose={3000}
+               hideProgressBar={false}
+               newestOnTop={false}
+               closeOnClick
+               rtl={false}
+               pauseOnFocusLoss
+               draggable
+               pauseOnHover
+               />
       </Card>
     </BasicLayout>
   );
