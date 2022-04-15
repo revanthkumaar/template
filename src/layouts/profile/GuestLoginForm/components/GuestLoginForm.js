@@ -49,6 +49,7 @@ const INITIAL_FORM_STATE = {
   gender: "",
   aadharNumber: "",
   buildingName: "",
+  buildingId:"",
   bedId: "",
   occupancyType: "",
   duration: "",
@@ -172,6 +173,7 @@ const GuestLoginForm = () => {
   const [amt, setAmt] = React.useState([]);
   //const [loading, setLoading] = React.useState(false);
   const [secureDepo, setSecureDepo] = React.useState([]);
+  const [bid,setBid]= React.useState([])
 
   let buildingNamesArray = [];
   let availableBedsByBuidlingName = [];
@@ -185,6 +187,7 @@ const GuestLoginForm = () => {
     
     let userBuildingId = userData.buildingId
     console.log(userBuildingId)
+    setBid(userBuildingId)
     axios
       .get("/bed/getAvailableBedsByBuildings")
       .then((res) => {
@@ -219,6 +222,7 @@ const GuestLoginForm = () => {
   const handleClick = (id) => {
     
       setPutBuilding(id.target.outerText);
+      console.log(id)
    
     
     const bool = oneBuilding.filter(
@@ -288,7 +292,7 @@ const GuestLoginForm = () => {
 
   const obj = { bedId: bed };
 
-  const obje = { buildingName: putBuilding };
+  const obje = { buildingId: bid };
   const objee = { defaultRent: rent };
   const obj1={securityDeposit:secureDepo};
   const obj2={amountToPay:amountToPay};
@@ -317,7 +321,7 @@ const GuestLoginForm = () => {
                 const gusting = Object.assign(gustes, objee);
                 const gusting1=Object.assign(gusting,obj1)
                 const guestdata=Object.assign(gusting1,obj2)
-                // console.log(gusting2);
+                console.log(guestdata);
                 console.log(gusting.amountPaid);
                 console.log(amountToPay);
                 if (guestdata.amountPaid == amountToPay) {
@@ -345,7 +349,7 @@ const GuestLoginForm = () => {
                   console.log(rent);
                 }, 50);
               
-            }
+             }
             }
             >
               {(formProps) => (
