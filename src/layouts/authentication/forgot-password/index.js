@@ -22,6 +22,8 @@ import BasicLayout from 'layouts/authentication/components/BasicLayout';
 import bgImage from 'assets/images/bg-sign-in-basic.jpeg';
 // Images
 //import bgImage from 'assets/images/signin.jpg';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
 
 function ForgotBasic() {
 	const navigate = useNavigate();
@@ -30,10 +32,14 @@ function ForgotBasic() {
 	const [ email, setEmail ] = useState('');
 	const [ confirmPassword, setConfirmPassword ] = useState('');
 
+
+	const notify = () => toast();
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		 console.log(email);
 		 console.log(confirmPassword);
+		 console.log(newPassword);
 
 		// const res = await axios.get(Urls.signIn);
 		// console.log(res.data);
@@ -48,7 +54,7 @@ function ForgotBasic() {
 		// 		}
 		// 	});
 		// }
-
+        if(newPassword==confirmPassword){
 		const submitpassword = async () => {
 
 			const result = await axios.put('/login/updateUserByEmail', { email, newPassword, confirmPassword });
@@ -61,8 +67,13 @@ function ForgotBasic() {
 		};
 
 		submitpassword();
-	};
-
+	}
+	
+    else
+	{
+		alert("Please make sure that new password and confrim password are same");
+	}
+};
 	useEffect(() => {
 		const listener = (event) => {
 			if (event.code === 'Enter' || event.code === 'NumpadEnter') {
@@ -77,6 +88,20 @@ function ForgotBasic() {
 			document.removeEventListener('keydown', listener);
 		};
 	}, []);
+
+
+	<ToastContainer
+               position="top-right"
+               min-width= "2%"
+               autoClose={3000}
+               hideProgressBar={false}
+               newestOnTop={false}
+               closeOnClick
+               rtl={false}
+               pauseOnFocusLoss
+               draggable
+               pauseOnHover
+               />
 
 	return (
 		<BasicLayout image={bgImage}>
