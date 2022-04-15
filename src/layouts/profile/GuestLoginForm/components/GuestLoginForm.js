@@ -182,7 +182,7 @@ const GuestLoginForm = () => {
 
   useEffect(() => {
     let userData = JSON.parse(sessionStorage.getItem('userdata'))
-    //console.log(userData.buildingId)
+    
     let userBuildingId = userData.buildingId
     console.log(userBuildingId)
     axios
