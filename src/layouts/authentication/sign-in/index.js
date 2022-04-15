@@ -35,7 +35,7 @@ function Basic() {
     console.log(password);
     await axios.get(`/login/getUsersByUserEmailId?email=${email}&password=${password}`)
       .then((res) => {
-        // console.log(res.data);
+         console.log(res.data);
         userStatus = res.data
         userData = userStatus.data
         console.log(userData)
@@ -48,11 +48,16 @@ function Basic() {
     
     if(userStatus.status === true ){
       sessionStorage.setItem('userdata' , JSON.stringify(userData));
-      console.log( JSON.parse(sessionStorage.getItem('userdata')))
-      // sessionStorage.getItem('isAuth')
-      console.log(JSON.parse(sessionStorage.getItem('isAuth')))
+      // console.log( JSON.parse(sessionStorage.getItem('userdata')))
+      
+     
 
       navigate("/dashboard")
+    }
+
+
+    else {
+      alert("Invalid credentials");
     }
     // const result = res.data.filter(
     //   (u) => u.email === email && u.password === password 
