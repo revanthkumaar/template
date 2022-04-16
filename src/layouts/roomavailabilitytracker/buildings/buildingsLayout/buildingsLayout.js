@@ -114,7 +114,7 @@ const BuildingsLayout = (props) => {
                                                   );} 
                                                   else {
                                                   return (
-                                                    <Tooltip title={bdno.bedId}>
+                                                    <Tooltip title={bdno.guestName}>
                                                     <HotelOutlinedIcon    key={bdno.bedId} color="error"  className="click" id={bdno.guestId}
                                                       onClick={async () => {
                                                                              setLoading(false);
