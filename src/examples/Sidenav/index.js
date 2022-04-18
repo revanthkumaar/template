@@ -74,6 +74,25 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
   const renderRoutes = routes.map(({ type, name, icon, title, noCollapse, key, href, route }) => {
     let returnValue;
 
+    var userData = JSON.parse(sessionStorage.getItem('userdata'))
+    // userData = JSON.parse(userData)
+    // 
+    // console.log(userData.userType);
+    console.log(userData)
+    console.log('hehehe')
+    if (userData) {
+      let typeOfUser = userData.userType;
+
+      if (typeOfUser == "manager" && (key == "dashboard" || key == "branch")) {
+        console.log('inside iffff')
+        type = "main";
+      }
+
+    }
+
+
+
+
     if (type === "collapse") {
       returnValue = href ? (
         <Link
