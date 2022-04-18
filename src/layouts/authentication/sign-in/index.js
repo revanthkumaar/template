@@ -42,26 +42,34 @@ function Basic() {
         userStatus = res.data
         userData = userStatus.data
         console.log(userData)
+       
       })
       .catch((err) => {
-        console.log(err);
+        toast.error("Something went wrong")
         
       });
+      if(userStatus.data===true){
+        toast.success("login successfully")
+      }
     
     
     if(userStatus.status === true ){
       sessionStorage.setItem('userdata' , JSON.stringify(userData));
-      // console.log( JSON.parse(sessionStorage.getItem('userdata')))
+   
       
-     
-
+      let userdata =  JSON.parse(sessionStorage.getItem('userdata'))
+      console.log(userdata)
+      if(userdata.email === email)
+      toast.success("login successfully")
       navigate("/dashboard")
+    
     }
+    
 
 
-    else {
-      toast.error("Invalid Credentials");
-    }
+    
+   
+
     // const result = res.data.filter(
     //   (u) => u.email === email && u.password === password 
     // );

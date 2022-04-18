@@ -61,13 +61,16 @@ const RecordpaymentsinPopUp = (props) => {
               onSubmit={async (guest, { resetForm }) => {
                 console.log(guest);
 
-                const res = await axios.post("/payment/addAfterOnBoard", guest);
+                const res = await axios.post("/payment/addPaymentAtOnBoarding", guest)
+                .catch((err) => {
+                  toast.error("Server error");
+                });
                 console.log(res.data);
+               
                 if(res.data!==null){
                   toast.success("Payment Recorded Successfully");
                 
-                }else
-                toast.error("Something");
+                }
 
                 
                 
