@@ -189,6 +189,7 @@ const GuestLoginForm = () => {
     console.log(userBuildingId)
     setBid(userBuildingId)
     axios
+    
       .get("/bed/getAvailableBedsByBuildings")
       .then((res) => {
         setoneBuilding(res.data);
@@ -198,6 +199,9 @@ const GuestLoginForm = () => {
         res.data.map((data) => {
           if(userBuildingId === data.buildingId){
 
+            buildingNamesArray.push(data.buildingName);
+          }
+          else if(userBuildingId === 0){
             buildingNamesArray.push(data.buildingName);
           }
           else{
