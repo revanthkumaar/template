@@ -25,7 +25,7 @@ const BuildingsTracker = () => {
       <DashboardNavbar />
 
       <MDBox bgColor="white" padding="8px">
-        {userdetails.userType == "Manager" ? (< MgrBuildingDropdown />) : (<AdmBuildingDropdown />)}
+        {userdetails.userType == "manager" ? (< MgrBuildingDropdown />) : (<AdmBuildingDropdown />)}
       </MDBox>
 
       <br />
