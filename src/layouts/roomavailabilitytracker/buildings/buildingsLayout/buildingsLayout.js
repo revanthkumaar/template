@@ -46,7 +46,9 @@ const BuildingsLayout = (props) => {
         console.log(res.data)
       })
       .catch((err) => {
-        console.log(err);
+       
+          toast.error("Server error");
+        ;
         closeLoading();
       });
   }, [props.buildingId]);

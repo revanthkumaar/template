@@ -333,7 +333,10 @@ const GuestLoginForm = () => {
                     "/guest/addGuest",
 
                     guestdata
-                  );
+                  )
+                  .catch((err) => {
+                    toast.error("Server error");
+                  });
                   console.log(res.data);
                   if(res.data!==null){
                     toast.success("OnBoarded Successfully");
@@ -345,10 +348,13 @@ const GuestLoginForm = () => {
                     resetForm();
                     // setLoading(false);
                   }
+                  
                 } else {
                   // setLoading(true);
                   toast.error(" Need to pay full Amount");
                 }
+               
+      
                 setTimeout(() => {
                   console.log(rent);
                 }, 50);

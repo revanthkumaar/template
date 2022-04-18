@@ -20,7 +20,7 @@ export default function TransactionHistory(props) {
   // var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
   // var yyyy = today.getFullYear();
   // today = mm + '-' + dd + '-' + yyyy;
-  function formatDate (transactionDate) {
+  function transaction (transactionDate) {
     var datePart = transactionDate.match(/\d+/g),
     year = datePart[0].substring(2), // get only two digits
     month = datePart[1], day = datePart[2];
@@ -76,7 +76,7 @@ export default function TransactionHistory(props) {
                 }
                   return day+'/'+month+'/'+year;} */}
                 {/* {date} */}
-                {formatDate(props.guestdetails.transactionDate)}
+                {transaction(props.guestdetails.transactionDate)}
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 {row.amountPaid}
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
