@@ -57,7 +57,7 @@ const RecordpaymentsinPopUp = (props) => {
           <div>
             <Formik
               initialValues={{ ...INITIAL_FORM_STATE }}
-              validationSchema={FORM_VALIDATION}
+              validationSchema={FORM_VALIDATION} 
               onSubmit={async (guest, { resetForm }) => {
                 console.log(guest);
 
