@@ -15,19 +15,12 @@ import axios from "../../../../Uri";
 export default function TransactionHistory(props) {
   console.log(props.guestdetails.id);
   const [history, setHistory] = useState([]);
-  // var today = new Date();
-  // var dd = String(today.getDate()).padStart(2, '0');
-  // var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-  // var yyyy = today.getFullYear();
-  // today = mm + '-' + dd + '-' + yyyy;
-  function transaction (transactionDate) {
-    var datePart = transactionDate.match(/\d+/g),
-    year = datePart[0].substring(2), // get only two digits
-    month = datePart[1], day = datePart[2];
   
-    return day+'-'+month+'-'+year;
-  }
-  
+  function ChangeFormateDate(transactionDate){
+    let day=transactionDate.split("-").reverse().join("-");
+    return day;
+
+ }
   
   useEffect(() => {
     async function fetchData() {
@@ -36,8 +29,7 @@ export default function TransactionHistory(props) {
       );
       console.log(response.data);
       setHistory(response.data);
-      //  .then((data) => setTableData(data))
-      //  console.log(tableData)
+ 
     }
     fetchData();
   }, []);
@@ -69,14 +61,8 @@ export default function TransactionHistory(props) {
               
                 {row.paymentId}
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                {/* ()=>{
-                  var datePart =transactionDate.match(/\d+/g),
-                  year = datePart[0].substring(2),
-                  month = datePart[1], day = datePart[2];
-                }
-                  return day+'/'+month+'/'+year;} */}
-                {/* {date} */}
-                {transaction(props.guestdetails.transactionDate)}
+
+                {row.transactionDate.split("-").reverse().join("-")}
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 {row.amountPaid}
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
