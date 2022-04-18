@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect , useState } from "react";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import MDBox from "components/MDBox";
+// import { useEffect } from "react";
 
 import { Grid} from "@mui/material";
 
@@ -9,15 +10,22 @@ import BuildingsLayout from "./buildingsLayout/buildingsLayout";
 import BedSummaryChart from "./buildingspieCharts/bedSummaryChart";
 import PaymentSummaryChart from "./buildingspieCharts/paymentSummaryChart";
 
-import BuildingDropdown from "layouts/roomavailabilitytracker/buildings/BuildingDropdown";
+import AdmBuildingDropdown from "./AdmBuildingDropdown";
+import MgrBuildingDropdown from "./MgrBuildingDropdown";
 
-const BuildingsTracker = (props) => {
+const BuildingsTracker = () => {
+  const [userdetails , setUserDetails] = React.useState({})
+  useEffect(() => {
+    setUserDetails(JSON.parse(sessionStorage.getItem('userdata')))
+    console.log(userdetails)
+    
+  } , [])
   return (
     <DashboardLayout>
       <DashboardNavbar />
 
       <MDBox bgColor="white" padding="8px">
-        <BuildingDropdown  />
+        {userdetails.userType == "Manager" ? (< MgrBuildingDropdown />) : (<AdmBuildingDropdown />)}
       </MDBox>
 
       <br />

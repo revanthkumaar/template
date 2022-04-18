@@ -9,7 +9,7 @@ import BedSummaryChart from "./buildingspieCharts/bedSummaryChart";
 import PaymentSummaryChart from "./buildingspieCharts/paymentSummaryChart";
 import { Grid } from "@mui/material";
 
-function BuildingDropdown(props) {
+function MgrBuildingDropdown(props) {
   const [selected, setSelected] = React.useState("");
   const [building, setBuilding] = React.useState([]);
   
@@ -77,4 +77,4 @@ function BuildingDropdown(props) {
   );
 }
 
-export default BuildingDropdown;
+export default MgrBuildingDropdown;
