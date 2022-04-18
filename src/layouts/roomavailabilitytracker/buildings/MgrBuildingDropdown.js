@@ -35,7 +35,7 @@ function MgrBuildingDropdown(props) {
   return (
     <>
       
-
+      <label value="Select Building: ">Select Building: </label>
       <Select
         sx={{ minHeight: 44 }}
         style={{ width: "30%", height: "10%" }}
