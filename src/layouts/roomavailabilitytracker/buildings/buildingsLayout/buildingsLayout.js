@@ -22,6 +22,7 @@ import "./buildingLayout.css";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
 import Tooltip from "@material-ui/core/Tooltip";
+import { ToastContainer,toast } from "react-toastify";
 
 var GuestDetails = {};
 
