@@ -4,6 +4,8 @@ import { Grid } from "@mui/material";
 // import axios from "axios";
 import axios from "../../../Uri";
 import Select from '../../profile/GuestLoginForm/components/Select'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 // import { height, width } from "@mui/system";
 
@@ -186,6 +188,7 @@ function Beds() {
 
       .catch((err) => {
         console.log(err);
+        toast.error("Server error");
       });
   }, []);
 
@@ -215,6 +218,7 @@ function Beds() {
 
                       newRow1
                     );
+                    toast.success("New Bed added")
                     //console.log(newRow1);
                     setData(updatedRows);
                     resolve();
@@ -267,6 +271,18 @@ function Beds() {
               },
             }}
           />
+             <ToastContainer  maxWidth="sx"
+               position="top-right"
+               autoClose={3000}
+               type="toast.TYPE.SUCCESS"
+               hideProgressBar={false}
+               newestOnTop={false}
+               closeOnClick
+               rtl={false}
+               pauseOnFocusLoss
+               draggable
+               pauseOnHover
+               />
         </Grid>
       </Grid>
     </div>
