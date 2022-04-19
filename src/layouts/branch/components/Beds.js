@@ -8,7 +8,35 @@ import Select from '../../profile/GuestLoginForm/components/Select'
 // import { height, width } from "@mui/system";
 
 function Beds() {
+
   const [data, setData] = useState([]);
+  const [building,setBuilding] =useState([])
+  const [buildings,setBuildings]=useState([])
+  const [buildName,setBuildName]=useState([])
+  let buildingNames =[]
+  useEffect(()=>{
+    axios.get("/bed/getBuildingIdAndName")
+    .then((res)=>{
+      console.log(res.data)
+     
+      setBuilding(res.data)
+      res.data.map((post)=>{
+        buildingNames.push(post.buildingName)
+      })
+      console.log(buildingNames)
+      setBuildings(buildingNames)
+      
+})
+    .catch((err)=>{
+      console.log(err)
+    })
+  },[])
+  var obj = building.reduce(function(acc,cur,i) {
+    acc[cur.buildingId] = cur.buildingName;
+
+    return acc;
+  }, {});
+  console.log(obj);
   const columns = [
     // {
     // 	title: 'ID',
@@ -61,8 +89,9 @@ function Beds() {
     // },
 
     {
-      title: "Building ID",
+      title: "Building Name",
       field: "buildingId",
+      lookup: obj,
       headerStyle: {
         backgroundColor: "#1E90FF",
         color: "white",
@@ -73,10 +102,8 @@ function Beds() {
      
     }
     return true
-      },
-       
-      },
-    
+    }
+  },
 
     {
       title: "Bed Status",
