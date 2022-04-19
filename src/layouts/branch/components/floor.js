@@ -8,6 +8,8 @@ import Select from "../../profile/GuestLoginForm/components/Select"
 import axios from "../../../Uri";
 import { getGridNumericOperators } from "@mui/x-data-grid";
 import { Formik } from "formik";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const INITIAL_FORM_STATE = {
   occupancyType: ""
 }
@@ -199,9 +201,15 @@ function Floor() {
                   const res = axios.put(
                     `/bed/updateBuildingById/${index}`,
                     updatedRow
-                  );
-
-                  console.log(updatedRows);
+                  )
+                  .catch((err) => {
+                    toast.error("Server error");
+                  });
+                 
+                    
+                  
+                  
+                    toast.success("Floor added  Successfully");
                   setData(updatedRows);
                   resolve();
                 }, 2000);
@@ -224,6 +232,18 @@ function Floor() {
             },
           }}
         />
+           <ToastContainer  maxWidth="sx"
+               position="top-right"
+               autoClose={3000}
+               type="toast.TYPE.SUCCESS"
+               hideProgressBar={false}
+               newestOnTop={false}
+               closeOnClick
+               rtl={false}
+               pauseOnFocusLoss
+               draggable
+               pauseOnHover
+               />
       </Grid>
       </Grid>
     

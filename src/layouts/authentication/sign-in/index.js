@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React,{ useState } from "react";
 import { Link, useNavigate } from "react-router-dom"; 
 
 import Card from "@mui/material/Card";
@@ -17,12 +17,20 @@ import { createUseGridApiEventHandler } from "@mui/x-data-grid";
 import { CollectionsOutlined, ImageNotSupportedSharp } from "@mui/icons-material";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Backdrop,CircularProgress } from "@mui/material";
 
 function Basic() {
   var userStatus = {}
   var userData = {}
   var userdata ={}
   const [rememberMe, setRememberMe] = useState(false);
+  const [open, setOpen] = React.useState(false);
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleToggle = () => {
+    setOpen(!open);
+  };
   const navigate = useNavigate();
   const notify = () => toast();
 
@@ -36,6 +44,7 @@ function Basic() {
     event.preventDefault();
     console.log(email);
     console.log(password);
+    handleToggle()
     await axios.get(`/login/getUsersByUserEmailId?email=${email}&password=${password}`)
       .then((res) => {
          console.log(res.data);
@@ -64,6 +73,9 @@ function Basic() {
       navigate("/dashboard")
     
     }
+    if(userdata.email !==email)
+    handleClose()
+      toast.error("Invalid Email or Password")
     
 
 
@@ -210,7 +222,15 @@ function Basic() {
                pauseOnHover
                />
       </Card>
+      <Backdrop
+        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={open}
+        onClick={handleClose}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
     </BasicLayout>
+    
   );
 }
 
