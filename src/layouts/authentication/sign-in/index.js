@@ -49,20 +49,20 @@ function Basic() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(email);
-    console.log(password);
+    // console.log(email);
+    // console.log(password);
     handleToggle()
     await axios.get(`/login/getUsersByUserEmailId?email=${email}&password=${password}`)
       .then((res) => {
-       console.log(res.data);
+       //console.log(res.data);
         userStatus = res.data
         userData = userStatus.data
-        console.log(userData)
+       // console.log(userData)
         isAuth.login = true;
         sessionStorage.setItem('isLogin' , JSON.stringify(isAuth));
       })
       .catch((err) => {
-        console.log(err);
+        //console.log(err);
                 isAuth.login = false;
                 sessionStorage.setItem('isLogin' , JSON.stringify(isAuth));
 

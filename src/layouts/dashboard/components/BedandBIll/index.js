@@ -18,7 +18,7 @@ function BedandBill(props) {
       .get("/bed/getAllBedsCount")
       .then((res) => {
 
-        console.log(res.data);
+        //console.log(res.data);
         setBuild(res.data)
 
 
@@ -28,7 +28,7 @@ function BedandBill(props) {
         console.log(err);
       });
   }, []);
-  console.log(build.totalAvailbleBeds);
+  //console.log(build.totalAvailbleBeds);
   const [payments, setPayments] = React.useState(0)
   let pendingPayments = []
   const [overDue, setOverDue] = React.useState([])

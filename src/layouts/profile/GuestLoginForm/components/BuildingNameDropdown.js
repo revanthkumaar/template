@@ -54,7 +54,7 @@ useEffect(() => {
     .then((res) => {
       setBuilding(res.data);
 
-      console.log(res.data);
+      //console.log(res.data);
     })
 
     .catch((err) => {

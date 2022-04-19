@@ -15,22 +15,22 @@ function MgrBuildingDropdown(props) {
   
 
   function handleChange(event) {
-    console.log(event.target.outerText);
+    //console.log(event.target.outerText);
     setSelected(event.target.outerText)
   }
   let userData = JSON.parse(sessionStorage.getItem('userdata'))
   let buildingsId = userData.data.buildingId;
-    console.log(buildingsId)
+    //console.log(buildingsId)
 
   useEffect(() => {
     
     axios.get(`bed/getBuildingsById/${buildingsId}`).then((res) => {
-      console.log(res.data);
+      //console.log(res.data);
       setBuilding(res.data);
 
     });
   }, []);
-  console.log(building);
+  //console.log(building);
 
   return (
     <>

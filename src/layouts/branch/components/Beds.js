@@ -17,13 +17,13 @@ function Beds() {
   useEffect(()=>{
     axios.get("/bed/getBuildingIdAndName")
     .then((res)=>{
-      console.log(res.data)
+      //console.log(res.data)
      
       setBuilding(res.data)
       res.data.map((post)=>{
         buildingNames.push(post.buildingName)
       })
-      console.log(buildingNames)
+      //console.log(buildingNames)
       setBuildings(buildingNames)
       
 })
@@ -36,7 +36,7 @@ function Beds() {
 
     return acc;
   }, {});
-  console.log(obj);
+  //console.log(obj);
   const columns = [
     // {
     // 	title: 'ID',
@@ -181,7 +181,7 @@ function Beds() {
       .then((res) => {
         setData(res.data);
 
-        console.log(res.data);
+        //console.log(res.data);
       })
 
       .catch((err) => {
@@ -215,7 +215,7 @@ function Beds() {
 
                       newRow1
                     );
-                    console.log(newRow1);
+                    //console.log(newRow1);
                     setData(updatedRows);
                     resolve();
                   }, 2000);
@@ -227,8 +227,8 @@ function Beds() {
                   updatedRows.splice(index, 1);
                   setTimeout(() => {
                     const res = axios.delete(`/bed/deleteBed/${index}`);
-                    console.log(res);
-                    console.log(updatedRows);
+                    // console.log(res);
+                    // console.log(updatedRows);
                     setData(updatedRows);
                     resolve();
                   }, 2000);
@@ -244,7 +244,7 @@ function Beds() {
                       updatedRow
                     );
 
-                    console.log(updatedRows);
+                    //console.log(updatedRows);
                     setData(updatedRows);
                     resolve();
                   }, 2000);

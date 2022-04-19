@@ -22,7 +22,7 @@ export const options = {
 export default function BedSummaryChart(props) {
   const [apidata, setapiData] = React.useState([]);
   // const [buildingid ,setbuildingid] =React.useState(1)
-  console.log(props.buildingId)
+  //console.log(props.buildingId)
   // setbuildingid(props.buildingId)
   useEffect(() => {
 

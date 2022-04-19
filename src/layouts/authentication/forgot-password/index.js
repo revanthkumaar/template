@@ -38,9 +38,9 @@ function ForgotBasic() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		 console.log(email);
-		 console.log(confirmPassword);
-		 console.log(newPassword);
+		//  console.log(email);
+		//  console.log(confirmPassword);
+		//  console.log(newPassword);
 	
 
 		// const res = await axios.get(Urls.signIn);
@@ -82,7 +82,7 @@ function ForgotBasic() {
 		const listener = (event) => {
 			if (event.code === 'Enter' || event.code === 'NumpadEnter') {
 				navigate('/dashboard');
-				console.log('Enter key was pressed. Run your function.');
+				//console.log('Enter key was pressed. Run your function.');
 				event.preventDefault();
 				// callMyFunction();
 			}

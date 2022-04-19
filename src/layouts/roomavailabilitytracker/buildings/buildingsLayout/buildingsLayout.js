@@ -33,7 +33,7 @@ const BuildingsLayout = (props) => {
 
   const [loading, setLoading] = React.useState(false);
   const closeLoading = () => setLoading(!loading);
-  console.log(props.buildingId)
+  //console.log(props.buildingId)
 
   useEffect(async () => {
     
@@ -43,7 +43,7 @@ const BuildingsLayout = (props) => {
       .then((res) => {
         setBuildingInfo(res.data);
         setLoading(true);
-        console.log(res.data)
+        c//onsole.log(res.data)
       })
       .catch((err) => {
        
@@ -116,7 +116,7 @@ const BuildingsLayout = (props) => {
                                                     <HotelOutlinedIcon    key={bdno.bedId} color="error"  className="click" id={bdno.guestId}
                                                       onClick={async () => {
                                                                              setLoading(false);
-                                                                             console.log(bdno.guestId);
+                                                                             //console.log(bdno.guestId);
 
                                                         await axios
                                                           .get(
@@ -125,9 +125,9 @@ const BuildingsLayout = (props) => {
                                                           .then((res) => {
                                                             GuestDetails =
                                                               res.data;
-                                                            console.log(
-                                                              GuestDetails
-                                                            );
+                                                            //console.log(
+                                                            //   GuestDetails
+                                                            // );
 
                                                             setOpen(true);
                                                             setLoading(true);

@@ -28,13 +28,13 @@ function Floor() {
   useEffect(()=>{
     axios.get("/bed/getBuildingIdAndName")
     .then((res)=>{
-      console.log(res.data)
+      //console.log(res.data)
      
       setBuilding(res.data)
       res.data.map((post)=>{
         buildingNames.push(post.buildingName)
       })
-      console.log(buildingNames)
+      //console.log(buildingNames)
       setBuildings(buildingNames)
       
 })
@@ -54,7 +54,7 @@ function Floor() {
 
     return acc;
   }, {});
-  console.log(obj);
+  //console.log(obj);
   localStorage.setItem("buildinfo",JSON.stringify(obj))
   useEffect(() => {
     axios
@@ -64,7 +64,7 @@ function Floor() {
       .then((res) => {
         setData(res.data);
 
-        console.log(res.data);
+        //console.log(res.data);
       })
 
       .catch((err) => {
@@ -73,7 +73,7 @@ function Floor() {
   }, []);
   const selectBuild =(i)=>{
     setBuildName(i.target.outerText)
-    console.log(i.target.dataset.value)
+    //console.log(i.target.dataset.value)
   }
   
  
@@ -172,7 +172,7 @@ function Floor() {
 
                     newRow
                   );
-                  console.log(newRow);
+                  //console.log(newRow);
                   setData(updatedRows);
                   resolve();
                 }, 2000);
@@ -186,8 +186,8 @@ function Floor() {
                   const res = axios.delete(
                     `/bed/deleteBuilding/${index}`
                   );
-                  console.log(res);
-                  console.log(updatedRows);
+                  // console.log(res);
+                  // console.log(updatedRows);
                   setData(updatedRows);
                   resolve();
                 }, 2000);

@@ -195,17 +195,17 @@ const GuestLoginForm = () => {
 
   useEffect(() => {
     let userData = JSON.parse(sessionStorage.getItem("userdata"));
-    console.log(userData);
+    //console.log(userData);
 
     let userBuildingId = userData.data.buildingId;
-    console.log(userBuildingId);
+    //console.log(userBuildingId);
     setBid(userBuildingId);
     axios
 
       .get("/bed/getAvailableBedsByBuildings")
       .then((res) => {
         setoneBuilding(res.data);
-        console.log(res.data);
+        //console.log(res.data);
 
         res.data.map((data) => {
           if (userBuildingId === data.buildingId) {
@@ -229,7 +229,7 @@ const GuestLoginForm = () => {
 
   const handleClick = (id) => {
     setPutBuilding(id.target.outerText);
-    console.log(id);
+    //console.log(id);
 
     const bool = oneBuilding.filter(
       (buildingData) => buildingData.buildingName == id.target.outerText
@@ -248,7 +248,7 @@ const GuestLoginForm = () => {
     const bedRent = availableBeds.filter(
       (bed) => bed.bedId == e.target.outerText
     );
-    console.log(bedRent);
+    //console.log(bedRent);
 
     bedRent.map((post) => {
       setRent(post.defaultRent);
@@ -257,7 +257,7 @@ const GuestLoginForm = () => {
     });
   };
   const occupency = (i) => {
-    console.log(i.target.outerText);
+    //console.log(i.target.outerText);
     setOcctype(i.target.outerText);
     if (i.target.outerText == "Daily") {
       setDuration(days);
@@ -276,10 +276,10 @@ const GuestLoginForm = () => {
 
   const calculateCheckAmount = (a) => {
     var occupencyTypeis = Object.keys(duration).length;
-    console.log(occupencyTypeis);
-    console.log(occtype);
+    // console.log(occupencyTypeis);
+    // console.log(occtype);
 
-    console.log(a.target.outerText);
+    // console.log(a.target.outerText);
     setAmt(a.target.outerText);
 
     if (occupencyTypeis == 12) {
@@ -294,7 +294,7 @@ const GuestLoginForm = () => {
     }
   };
 
-  console.log(rent);
+  //console.log(rent);
 
   const obj = { bedId: bed };
 
@@ -303,9 +303,9 @@ const GuestLoginForm = () => {
   const obj1 = { securityDeposit: secureDepo };
   const obj2 = { amountToPay: amountToPay };
   const amountNeedToPay = (n) => {
-    console.log(n.target.value);
+   // console.log(n.target.value);
   };
-  console.log(occtype);
+  //console.log(occtype);
 
   return (
     <div>
@@ -327,9 +327,9 @@ const GuestLoginForm = () => {
                 const gusting = Object.assign(gustes, objee);
                 const gusting1 = Object.assign(gusting, obj1);
                 const guestdata = Object.assign(gusting1, obj2);
-                console.log(guestdata);
-                console.log(gusting.amountPaid);
-                console.log(amountToPay);
+                // console.log(guestdata);
+                // console.log(gusting.amountPaid);
+                // console.log(amountToPay);
                 if (guestdata.amountPaid == amountToPay) {
                   const res = await axios
                     .post(
@@ -344,7 +344,7 @@ const GuestLoginForm = () => {
                     });
                    
                     
-                  console.log(res.data);
+                  //console.log(res.data);
                   if (res.data !== null) {
                       handleClose()
                     
@@ -361,7 +361,7 @@ const GuestLoginForm = () => {
                 }
 
                 setTimeout(() => {
-                  console.log(rent);
+                  //console.log(rent);
                 }, 50);
               }}
             >
@@ -413,7 +413,7 @@ const GuestLoginForm = () => {
                         onClick={occupency}
                       />
                     </Grid>
-                    {console.log(occtype)}
+                    {/* {console.log(occtype)} */}
                     {occtype === "Daily" || occtype === "Monthly" ? (
                       <Grid item xs={6}>
                         <InputLabel id="demo-simple-select-labe">
