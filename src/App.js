@@ -1,12 +1,14 @@
+
 import { useState, useEffect, useMemo } from "react";
 
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import SignIn from "layouts/authentication/sign-in";
 
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Icon from "@mui/material/Icon";
 
-import MDBox from "components/MDBox";
+import MDBox from "components/MDBox"
 
 import Sidenav from "examples/Sidenav";
 import Configurator from "examples/Configurator";
@@ -31,6 +33,7 @@ import {
 
 import brandWhite from "assets/images/hostel1.png";
 import brandDark from "assets/images/hostel1.png";
+import ProtectedRoute from "layouts/authentication/ProtectedRoute";
 
 export default function App() {
   const [controller, dispatch] = useMaterialUIController();
@@ -180,8 +183,11 @@ export default function App() {
       )}
       {layout === "vr" && <Configurator />}
       <Routes>
+        <Route path="/" element={<SignIn />}/>
+        <Route element={<ProtectedRoute/>}>
         {getRoutes(routes)}
-        <Route path="*" element={<Navigate to="/authentication/sign-in" />} />
+        </Route>
+        {/* <Route path="*" element={<Navigate to="/authentication/sign-in" />} /> */}
       </Routes>
     </ThemeProvider>
   );
