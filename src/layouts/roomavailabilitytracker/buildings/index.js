@@ -14,18 +14,24 @@ import AdmBuildingDropdown from "./AdmBuildingDropdown";
 import MgrBuildingDropdown from "./MgrBuildingDropdown";
 
 const BuildingsTracker = () => {
-  const [userdetails , setUserDetails] = React.useState({})
-  useEffect(() => {
-    setUserDetails(JSON.parse(sessionStorage.getItem('userdata')))
-    console.log(userdetails)
+  var typeofUser = {}
+  var userData = JSON.parse(sessionStorage.getItem('userdata'))
+  if (userData) {
+    var typeofUser = userData.data.userType;
+  }
+  // const [userdetails , setUserDetails] = React.useState({})
+  // useEffect(() => {
+  //   setUserDetails(JSON.parse(sessionStorage.getItem('userData')))
+  //   console.log(userdetails)
     
-  } , [])
+  // } , [])
   return (
     <DashboardLayout>
       <DashboardNavbar />
 
       <MDBox bgColor="white" padding="8px">
-        {userdetails.userType == "manager" ? (< MgrBuildingDropdown />) : (<AdmBuildingDropdown />)}
+      
+        {typeofUser == "manager" ? (< MgrBuildingDropdown />) : (<AdmBuildingDropdown />)}
       </MDBox>
 
       <br />

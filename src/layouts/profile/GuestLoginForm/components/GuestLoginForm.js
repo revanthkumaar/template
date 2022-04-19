@@ -19,9 +19,11 @@ import Button from "./Button";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import days from "./Days";
 import months from "./Months";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-//import Button from "@mui/material/Button"
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
+
 
 const useStyles = makeStyles({
   root: {
@@ -49,7 +51,7 @@ const INITIAL_FORM_STATE = {
   gender: "",
   aadharNumber: "",
   buildingName: "",
-  buildingId:"",
+  buildingId: "",
   bedId: "",
   occupancyType: "",
   duration: "",
@@ -157,7 +159,7 @@ const FORM_VALIDATION = Yup.object().shape({
   // transactionId: Yup.string().required("Required"),
 });
 
-console.log( JSON.parse(sessionStorage.getItem('userdata')))
+console.log(JSON.parse(sessionStorage.getItem("userdata")));
 
 const GuestLoginForm = () => {
   const [building, setBuilding] = React.useState([]);
@@ -173,43 +175,46 @@ const GuestLoginForm = () => {
   const [amt, setAmt] = React.useState([]);
   //const [loading, setLoading] = React.useState(false);
   const [secureDepo, setSecureDepo] = React.useState([]);
-  const [bid,setBid]= React.useState([])
+  const [bid, setBid] = React.useState([]);
+ // const [loading, setLoading] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
+  
+
+ // const closeLoading = () => setLoading(!loading);
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleToggle = () => {
+    setOpen(!open);
+  };
 
   let buildingNamesArray = [];
   let availableBedsByBuidlingName = [];
   let empty = [];
   const classes = useStyles();
-  
-  
 
   useEffect(() => {
-    let userData = JSON.parse(sessionStorage.getItem('userdata'))
-    
-    let userBuildingId = userData.buildingId
-    console.log(userBuildingId)
-    setBid(userBuildingId)
+    let userData = JSON.parse(sessionStorage.getItem("userdata"));
+    console.log(userData);
+
+    let userBuildingId = userData.data.buildingId;
+    console.log(userBuildingId);
+    setBid(userBuildingId);
     axios
-    
+
       .get("/bed/getAvailableBedsByBuildings")
       .then((res) => {
         setoneBuilding(res.data);
         console.log(res.data);
-       
 
         res.data.map((data) => {
-          if(userBuildingId === data.buildingId){
-
+          if (userBuildingId === data.buildingId) {
             buildingNamesArray.push(data.buildingName);
-          }
-          else if(userBuildingId === 0){
+          } else if (userBuildingId === 0) {
             buildingNamesArray.push(data.buildingName);
+          } else {
+            console.log("hi");
           }
-          else{
-            console.log("hi")
-          }
-      
-           
-     
         });
 
         setBuilding(buildingNamesArray);
@@ -219,16 +224,13 @@ const GuestLoginForm = () => {
         console.log(err);
       });
   }, []);
- 
-    const notify = () => toast();
 
+  const notify = () => toast();
 
   const handleClick = (id) => {
-    
-      setPutBuilding(id.target.outerText);
-      console.log(id)
-   
-    
+    setPutBuilding(id.target.outerText);
+    console.log(id);
+
     const bool = oneBuilding.filter(
       (buildingData) => buildingData.buildingName == id.target.outerText
     );
@@ -298,19 +300,17 @@ const GuestLoginForm = () => {
 
   const obje = { buildingId: bid };
   const objee = { defaultRent: rent };
-  const obj1={securityDeposit:secureDepo};
-  const obj2={amountToPay:amountToPay};
+  const obj1 = { securityDeposit: secureDepo };
+  const obj2 = { amountToPay: amountToPay };
   const amountNeedToPay = (n) => {
     console.log(n.target.value);
   };
   console.log(occtype);
-  
- 
- 
-  
 
   return (
-    <Grid container>
+    <div>
+    
+      <Grid container>
       <Grid item xs={12}>
         <Container maxWidth="md">
           <div>
@@ -318,49 +318,52 @@ const GuestLoginForm = () => {
               initialValues={{ ...INITIAL_FORM_STATE }}
               validationSchema={FORM_VALIDATION}
               onSubmit={async (guest, { resetForm }) => {
+                // setLoading(true);
+                handleToggle()
                 const guests = Object.assign(guest, obj);
 
                 const gustes = Object.assign(guests, obje);
 
                 const gusting = Object.assign(gustes, objee);
-                const gusting1=Object.assign(gusting,obj1)
-                const guestdata=Object.assign(gusting1,obj2)
+                const gusting1 = Object.assign(gusting, obj1);
+                const guestdata = Object.assign(gusting1, obj2);
                 console.log(guestdata);
                 console.log(gusting.amountPaid);
                 console.log(amountToPay);
                 if (guestdata.amountPaid == amountToPay) {
-                  const res = await axios.post(
-                    "/guest/addGuest",
+                  const res = await axios
+                    .post(
+                      "/guest/addGuest",
 
-                    guestdata
-                  )
-                  .catch((err) => {
-                    toast.error("Server error");
-                  });
+                      guestdata
+                    )
+                    
+                    
+                    .catch((err) => {
+                      toast.error("Server error");
+                    });
+                   
+                    
                   console.log(res.data);
-                  if(res.data!==null){
+                  if (res.data !== null) {
+                      handleClose()
+                    
                     toast.success("OnBoarded Successfully");
-                  
-                  
-                    // setLoading(true);
+
                     
 
                     resetForm();
-                    // setLoading(false);
+                    
                   }
-                  
                 } else {
-                  // setLoading(true);
+                 ;
                   toast.error(" Need to pay full Amount");
                 }
-               
-      
+
                 setTimeout(() => {
                   console.log(rent);
                 }, 50);
-              
-             }
-            }
+              }}
             >
               {(formProps) => (
                 <Form>
@@ -428,10 +431,7 @@ const GuestLoginForm = () => {
                       console.log("")
                     )}
 
-                    
-                    <Grid item xs={6}>
-                     
-                    </Grid>
+                    <Grid item xs={6}></Grid>
                     <Grid item xs={6}>
                       <Textfield
                         name="securityDeposit"
@@ -439,9 +439,7 @@ const GuestLoginForm = () => {
                         value={secureDepo}
                       />
                     </Grid>
-                    <Grid item xs={6}>
-                     
-                    </Grid>
+                    <Grid item xs={6}></Grid>
                     <Grid item xs={6}>
                       <Textfield
                         name="defaultRent"
@@ -449,9 +447,7 @@ const GuestLoginForm = () => {
                         value={defaultRentofBed}
                       />
                     </Grid>
-                    <Grid item xs={6}>
-                     
-                    </Grid>
+                    <Grid item xs={6}></Grid>
                     <Grid item xs={6}>
                       <Textfield
                         name="amountTopay"
@@ -651,27 +647,36 @@ const GuestLoginForm = () => {
                     </Grid>
                   </Grid>
                   <ToastContainer
-               position="top-right"
-               min-width= "2%"
-               autoClose={3000}
-               hideProgressBar={false}
-               newestOnTop={false}
-               closeOnClick
-               rtl={false}
-               pauseOnFocusLoss
-               draggable
-               pauseOnHover
-               />
-              
+                    position="top-right"
+                    min-width="2%"
+                    autoClose={3000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                  />
                 </Form>
-                
-              
               )}
             </Formik>
           </div>
         </Container>
       </Grid>
     </Grid>
+   
+      <Backdrop
+      sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+      open={open}
+      onClick={handleClose}
+    >
+      <CircularProgress color="inherit" />
+    </Backdrop>
+    
+  
+  </div>
+    
   );
 };
 
