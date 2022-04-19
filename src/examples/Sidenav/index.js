@@ -76,14 +76,14 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
 
     var userData = JSON.parse(sessionStorage.getItem('userdata'))
     
-    console.log(userData)
-    console.log('hehehe')
+    // console.log(userData)
+    // console.log('hehehe')
     if (userData) {
       let typeOfUser = userData.data.userType;
-      console.log(typeOfUser)
+      // console.log(typeOfUser)
 
       if (typeOfUser == "manager" && (key == "dashboard" || key == "branch")) {
-        console.log('inside iffff')
+        // console.log('inside iffff')
         type = "main";
       }
     }
