@@ -31,6 +31,7 @@ function BedandBill(props) {
   //console.log(build.totalAvailbleBeds);
   const [payments, setPayments] = React.useState(0)
   let pendingPayments = []
+  let dueAmount = []
   const [overDue, setOverDue] = React.useState([])
   useEffect(() => {
     axios
@@ -44,7 +45,17 @@ function BedandBill(props) {
       })
   }, []);
 
-
+  useEffect(() => {
+    axios
+      .get('/guest/getDueAmountOnDashBoard')
+      .then((res) => {
+        dueAmount = res.data
+        setOverDue(dueAmount[0])  
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }, []);
   return (
     <div>
       <Grid item xs={12} md={6} lg={3}>
@@ -119,7 +130,7 @@ function BedandBill(props) {
             <Card sx={{ minWidth: 240, minHeight: 100, background: '#00008B' }}>
               <CardContent sx={{ align: 'center' }}>
                 <MDTypography color="light" mt={1} fontWeight="regular" style={{ fontSize: '2em' }}>
-                  145
+                  {overDue}
                 </MDTypography>
                 <MDTypography color="light" fontWeight="light">
                   Overdue amount
