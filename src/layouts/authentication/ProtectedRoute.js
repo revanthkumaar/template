@@ -8,7 +8,7 @@ const useAuth = () => {
 
   const[logged, setLoggedIn] = useState(false)
   const stat = JSON.parse(sessionStorage.getItem('userdata'))
-  console.log(stat)
+  //console.log(stat)
   // {
   //   stat.status ? return true : 
   // }

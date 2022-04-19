@@ -145,7 +145,7 @@ function UnAllocatedInventory() {
   ];
   useEffect(() => {
     axios.get("http://localhost:8085/bed/getAvailableBeds").then((res) => {
-      console.log(res.data);
+      //console.log(res.data);
       setData(res.data);
     });
   }, []);

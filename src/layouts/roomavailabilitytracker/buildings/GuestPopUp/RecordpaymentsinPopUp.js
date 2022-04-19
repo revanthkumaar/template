@@ -67,14 +67,14 @@ const RecordpaymentsinPopUp = (props) => {
               initialValues={{ ...INITIAL_FORM_STATE }}
               validationSchema={FORM_VALIDATION} 
               onSubmit={async (guest, { resetForm }) => {
-                console.log(guest);
+                //console.log(guest);
                 handleToggle()
 
                 const res = await axios.post("/payment/addPaymentAtOnBoarding", guest)
                 .catch((err) => {
                   toast.error("Server error");
                 });
-                console.log(res.data);
+                //console.log(res.data);
                
                 if(res.data!==null){
                   handleClose()

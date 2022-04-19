@@ -106,7 +106,7 @@ function RoomTable() {
       .then((res) => {
         setData(res.data);
 
-        console.log(res.data);
+        //console.log(res.data);
       })
 
       .catch((err) => {
@@ -138,7 +138,7 @@ function RoomTable() {
 
                       newRow
                     );
-                    console.log(newRow);
+                    //console.log(newRow);
                     setData(updatedRows);
                     resolve();
                   }, 2000);
@@ -150,8 +150,8 @@ function RoomTable() {
                   updatedRows.splice(index, 1);
                   setTimeout(() => {
                     const res = axios.delete(`/bed/deleteBed/${index}`);
-                    console.log(res);
-                    console.log(updatedRows);
+                    // console.log(res);
+                    // console.log(updatedRows);
                     setData(updatedRows);
                     resolve();
                   }, 2000);
@@ -167,7 +167,7 @@ function RoomTable() {
                       updatedRow
                     );
 
-                    console.log(updatedRows);
+                    //console.log(updatedRows);
                     setData(updatedRows);
                     resolve();
                   }, 2000);

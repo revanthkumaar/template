@@ -64,7 +64,7 @@ function Room() {
       .then((res) => {
         setData(res.data);
 
-        console.log(res.data);
+        //console.log(res.data);
       })
 
       .catch((err) => {
@@ -101,7 +101,7 @@ function Room() {
 
                     newRow1
                   );
-                  console.log(newRow1);
+                  //console.log(newRow1);
                   setData(updatedRows);
                   resolve();
                 }, 2000);
@@ -115,8 +115,8 @@ function Room() {
                   const res = axios.delete(
                     `/bed/deleteBuilding/${index}`
                   );
-                  console.log(res);
-                  console.log(updatedRows);
+                  // console.log(res);
+                  // console.log(updatedRows);
                   setData(updatedRows);
                   resolve();
                 }, 2000);
@@ -132,7 +132,7 @@ function Room() {
                     updatedRow
                   );
 
-                  console.log(updatedRows);
+                  //console.log(updatedRows);
                   setData(updatedRows);
                   resolve();
                 }, 2000);

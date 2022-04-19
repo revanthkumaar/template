@@ -83,7 +83,7 @@ function PaymentReport() {
       .then((res) => {
         setData(res.data);
 
-        console.log(res.data);
+        //console.log(res.data);
       })
 
       .catch((err) => {
@@ -117,7 +117,7 @@ function PaymentReport() {
                       newRow
                     );
 
-                    console.log(res);
+                    //console.log(res);
                     // console.log(newRow)
                     setData(updatedRows);
                     resolve();
@@ -128,13 +128,13 @@ function PaymentReport() {
                   const index = selectedRow.guestId;
                   const updatedRows = [...data];
                   updatedRows.splice(index, 1);
-                  console.log(index);
+                  //console.log(index);
                   setTimeout(() => {
                     const res = axios.delete(
                       `http://localhost:8080/api/v1/payments/${index}`
                     );
-                    console.log(res);
-                    console.log(updatedRows);
+                    // console.log(res);
+                    // console.log(updatedRows);
                     setData(updatedRows);
                     resolve();
                   }, 1);
@@ -149,8 +149,8 @@ function PaymentReport() {
                     const res = axios.put(
                       `http://localhost:8080/api/v1/payments/${index}`, updatedRow
                     );
-                    console.log(res);
-                    console.log(updatedRows);
+                    // console.log(res);
+                    // console.log(updatedRows);
                     setData(updatedRows);
                     resolve();
                   });

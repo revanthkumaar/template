@@ -27,7 +27,7 @@ export default function AvailableRooms() {
 		  .get("/bed/getAvailableBeds")
 		  .then((res) => {
 			setTable(res.data);
-			console.log(res.data);
+			//console.log(res.data);
 		  })
 	
 		  .catch((err) => {

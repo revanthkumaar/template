@@ -34,6 +34,7 @@ import {
 import brandWhite from "assets/images/hostel1.png";
 import brandDark from "assets/images/hostel1.png";
 import ProtectedRoute from "layouts/authentication/ProtectedRoute";
+import ForgotBasic from "layouts/authentication/forgot-password";
 
 export default function App() {
   const [controller, dispatch] = useMaterialUIController();
@@ -184,6 +185,7 @@ export default function App() {
       {layout === "vr" && <Configurator />}
       <Routes>
         <Route path="/" element={<SignIn />}/>
+        <Route path="/forgotPassword" element={<ForgotBasic/>} />
         <Route element={<ProtectedRoute/>}>
         {getRoutes(routes)}
         </Route>

@@ -67,7 +67,7 @@ const BulkImportForm = () => {
                   initialValues={INITIAL_FORM_STATE}
                   validationSchema={FORM_VALIDATION}
                   onSubmit={(values) => {
-                    console.log(values);
+                    //console.log(values);
                   }}
                 >
                   <Form>

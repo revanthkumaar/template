@@ -28,7 +28,7 @@ export default function AvailableRooms() {
 		  .get("/payment/getRecentPayments?field=date")
 		  .then((res) => {
 			setTransaction(res.data);
-			console.log(res.data);
+			//console.log(res.data);
 		  })
 	
 		  .catch((err) => {

@@ -18,14 +18,14 @@ function AdmBuildingDropdown(props) {
 
   function handleChange(event) {
     ;
-    console.log(event.target)
+    //console.log(event.target)
 
   }
 
 
   useEffect(() => {
     axios.get("bed/getAllBuildings").then((res) => {
-      console.log(res.data)
+      //console.log(res.data)
       setBuilding(res.data)
 
     })
@@ -47,7 +47,7 @@ function AdmBuildingDropdown(props) {
         return (
           <MenuItem value={post.building_name} onClick={async () => {
             setSelected(post.building_name)
-            console.log(post.building_id)
+            //console.log(post.building_id)
             setbuildingId(post.building_id)
           }}> {post.building_name}  </MenuItem>
         )

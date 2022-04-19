@@ -13,7 +13,7 @@ import axios from "../../../../Uri";
 // const [tableData,setTableData] = useState([])
 
 export default function TransactionHistory(props) {
-  console.log(props.guestdetails.id);
+  //console.log(props.guestdetails.id);
   const [history, setHistory] = useState([]);
   
   function ChangeFormateDate(transactionDate){
@@ -27,7 +27,7 @@ export default function TransactionHistory(props) {
       const response = await axios.get(
         `/payment/getTrasactionHistoryByGuestId/${props.guestdetails.id}`
       );
-      console.log(response.data);
+      //.log(response.data);
       setHistory(response.data);
  
     }

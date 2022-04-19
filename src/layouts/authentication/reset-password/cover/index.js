@@ -67,7 +67,7 @@ function ResetPassword() {
 		const listener = (event) => {
 			if (event.code === 'Enter' || event.code === 'NumpadEnter') {
 				navigate('/dashboard');
-				console.log('Enter key was pressed. Run your function.');
+				//console.log('Enter key was pressed. Run your function.');
 				event.preventDefault();
 				// callMyFunction();
 			}
