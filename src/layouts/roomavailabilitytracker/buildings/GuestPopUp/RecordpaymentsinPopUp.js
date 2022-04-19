@@ -74,7 +74,7 @@ const RecordpaymentsinPopUp = (props) => {
                 .catch((err) => {
                   toast.error("Server error");
                 });
-                //console.log(res.data);
+                console.log(res.data);
                
                 if(res.data!==null){
                   handleClose()
@@ -108,11 +108,11 @@ const RecordpaymentsinPopUp = (props) => {
                       </InputLabel>
 
                       <Select
-                        IconComponent={(Purpose) => (
-                          <ArrowDropDownIcon className={classes.size} />
-                        )}
-                        name="paymentPurpose"
-                        options={Purpose}
+                        // IconComponent={(Purpose) => (
+                        //   <ArrowDropDownIcon className={classes.size} />
+                        // )}
+                        name ="paymentPurpose"
+                        options = {Purpose}
                         className={classes.root}
                       />
                     </Grid>
