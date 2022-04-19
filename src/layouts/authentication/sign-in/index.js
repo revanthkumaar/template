@@ -34,8 +34,28 @@ function Basic() {
     setOpen(!open);
   };
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  const initialData = {
+    email: '',
+		password: ''
+  }
+  const [ values, setValues ] = useState(initialData);
+
+  const handleInputChange = (e) => {
+		const { name, value } = e.target;
+		setValues({
+			...values,
+			[name]: value
+		});
+	};
+
+  // const submitData = (e) => {
+	// 	e.preventDefault();
+	// 	console.log(values.email);
+	// 	console.log(values.password);
+	// };
+
   const[userData, setUserData] = useState({});
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
 
@@ -49,10 +69,10 @@ function Basic() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // console.log(email);
-    // console.log(password);
-    handleToggle()
-    await axios.get(`/login/getUsersByUserEmailId?email=${email}&password=${password}`)
+    //  console.log(values.email);
+    //  console.log(values.password);
+     handleToggle()
+    await axios.get(`/login/getUsersByUserEmailId?email=${values.email}&password=${values.password}`)
       .then((res) => {
        //console.log(res.data);
         userStatus = res.data
@@ -74,7 +94,7 @@ function Basic() {
        navigate("/tracker")
     }
 
-    if(userData.email !==email)
+    if(userData.email !==values.email)
     handleClose()
       toast.error("Invalid Email or Password")
     
@@ -143,13 +163,14 @@ function Basic() {
           </MDTypography>
         </MDBox>
         <MDBox pt={4} pb={3} px={3}>
-          <MDBox component="form" role="form">
+          <MDBox component="form" role="form" onSubmit={handleSubmit}>
             <MDBox mb={2}>
               <MDInput
                 style={{ width: "100%" }}
                 type="email"
                 name="email"
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={handleInputChange}
+                value={values.email}
                 label="Email"
                 fullwidth
               />
@@ -159,7 +180,8 @@ function Basic() {
                 style={{ width: "100%" }}
                 type="password"
                 name="password"
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={handleInputChange}
+                value={values.password}
                 label="Password"
                 fullwidth
               />
@@ -167,7 +189,8 @@ function Basic() {
            
             <MDBox mt={4} mb={1}>
               <MDButton
-                onClick={handleSubmit}
+                //onClick={handleSubmit}
+                type="submit"
                 variant="gradient"
                 color="info"
                 fullWidth
