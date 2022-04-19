@@ -20,6 +20,8 @@ import MDButton from 'components/MDButton';
 // Authentication layout components
 import BasicLayout from 'layouts/authentication/components/BasicLayout';
 import bgImage from 'assets/images/bg-sign-in-basic.jpeg';
+  import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 // Images
 //import bgImage from 'assets/images/signin.jpg';
 
@@ -48,7 +50,7 @@ function ResetPassword() {
 		// 	});
 		// }
 
-    alert('confirm submit password')
+    toast.error('confirm submit password')
 		const submitpassword = async () => {
 			const result = await axios.put('/login/resetPassword', { email, newPassword, confirmPassword });
 			{

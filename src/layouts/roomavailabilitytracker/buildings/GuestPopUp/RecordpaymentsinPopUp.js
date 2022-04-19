@@ -14,6 +14,7 @@ import Purpose from "./Purpose";
 import Button from "layouts/profile/GuestLoginForm/components/Button";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Backdrop,CircularProgress } from "@mui/material";
 
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 // import { height } from "@mui/system";
@@ -40,6 +41,13 @@ const FORM_VALIDATION = Yup.object().shape({
 const notify = () => toast();
 
 const RecordpaymentsinPopUp = (props) => {
+  const [open, setOpen] = React.useState(false);
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleToggle = () => {
+    setOpen(!open);
+  };
   var GuestID = props.guestdetails.id;
   var INITIAL_FORM_STATE = {
     paymentPurpose: "",
@@ -60,6 +68,7 @@ const RecordpaymentsinPopUp = (props) => {
               validationSchema={FORM_VALIDATION} 
               onSubmit={async (guest, { resetForm }) => {
                 console.log(guest);
+                handleToggle()
 
                 const res = await axios.post("/payment/addPaymentAtOnBoarding", guest)
                 .catch((err) => {
@@ -68,6 +77,7 @@ const RecordpaymentsinPopUp = (props) => {
                 console.log(res.data);
                
                 if(res.data!==null){
+                  handleClose()
                   toast.success("Payment Recorded Successfully");
                 
                 }
@@ -127,6 +137,13 @@ const RecordpaymentsinPopUp = (props) => {
               )}
             </Formik>
           </div>
+          <Backdrop
+        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={open}
+        onClick={handleClose}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
         </Container>
       </Grid>
     </Grid>

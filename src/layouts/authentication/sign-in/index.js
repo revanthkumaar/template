@@ -1,4 +1,6 @@
 
+import React,{ useState } from "react";
+
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom"; 
 import Card from "@mui/material/Card";
@@ -13,13 +15,24 @@ import bgImage from "assets/images/bg-sign-in-basic.jpeg";
 import axios from '../../../Uri';
 import { createUseGridApiEventHandler } from "@mui/x-data-grid";
 import { CollectionsOutlined, ImageNotSupportedSharp } from "@mui/icons-material";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Backdrop,CircularProgress } from "@mui/material";
 import ProtectedRoutes from "../ProtectedRoute";
+
 
 function Basic() {
   var userStatus = {}
   var userData = {}
   var isAuth = {login: false};
   const [rememberMe, setRememberMe] = useState(false);
+  const [open, setOpen] = React.useState(false);
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleToggle = () => {
+    setOpen(!open);
+  };
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -38,6 +51,7 @@ function Basic() {
     event.preventDefault();
     console.log(email);
     console.log(password);
+    handleToggle()
     await axios.get(`/login/getUsersByUserEmailId?email=${email}&password=${password}`)
       .then((res) => {
        console.log(res.data);
@@ -59,12 +73,27 @@ function Basic() {
       // console.log( JSON.parse(sessionStorage.getItem('userdata')))
        navigate("/tracker")
     }
+
+    if(userdata.email !==email)
+    handleClose()
+      toast.error("Invalid Email or Password")
+    
+
+
+    
+   
+
+    // const result = res.data.filter(
+    //   (u) => u.email === email && u.password === password 
+    // );
+
     //  if(userStatus.status===true){
     //    return <ProtectedRoutes auth={userStatus.status}/>
     //  }
   //  const result = res.data.filter(
   //     (u) => u.email === email && u.password === password 
   //   );
+
     // console.log(result);
     // console.log(result.userId);
     // if (result === "undefined") {
@@ -173,7 +202,15 @@ function Basic() {
           </MDBox>
         </MDBox>
       </Card>
+      <Backdrop
+        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={open}
+        onClick={handleClose}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
     </BasicLayout>
+    
   );
 }
 export default Basic;

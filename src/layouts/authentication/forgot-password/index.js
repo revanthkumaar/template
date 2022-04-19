@@ -41,6 +41,7 @@ function ForgotBasic() {
 		 console.log(email);
 		 console.log(confirmPassword);
 		 console.log(newPassword);
+	
 
 		// const res = await axios.get(Urls.signIn);
 		// console.log(res.data);
@@ -59,6 +60,7 @@ function ForgotBasic() {
 		const submitpassword = async () => {
 
 			const result = await axios.put('/login/updateUserByEmail', { email, newPassword, confirmPassword });
+
 			{
 				result.data
 					? navigate('/authentication/sign-in')
@@ -75,6 +77,7 @@ function ForgotBasic() {
 		toast.error("new password and confrim password should be same");
 	}
 };
+
 	useEffect(() => {
 		const listener = (event) => {
 			if (event.code === 'Enter' || event.code === 'NumpadEnter') {
@@ -91,18 +94,7 @@ function ForgotBasic() {
 	}, []);
 
 
-	<ToastContainer
-               position="top-right"
-               min-width= "2%"
-               autoClose={3000}
-               hideProgressBar={false}
-               newestOnTop={false}
-               closeOnClick
-               rtl={false}
-               pauseOnFocusLoss
-               draggable
-               pauseOnHover
-               />
+	
 
 	return (
 		<BasicLayout image={bgImage}>
