@@ -170,7 +170,7 @@ function Beds() {
       },
     },
   ];
-  const owner="Super Admin"
+  const owner="admin"
   const obje = { createdBy: owner };
 
   useEffect(() => {

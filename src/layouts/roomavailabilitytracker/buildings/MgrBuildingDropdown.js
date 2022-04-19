@@ -19,7 +19,7 @@ function MgrBuildingDropdown(props) {
     setSelected(event.target.outerText)
   }
   let userData = JSON.parse(sessionStorage.getItem('userdata'))
-  let buildingsId = userData.buildingId;
+  let buildingsId = userData.data.buildingId;
     console.log(buildingsId)
 
   useEffect(() => {

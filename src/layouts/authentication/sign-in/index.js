@@ -55,7 +55,8 @@ function Basic() {
       });
     if(userStatus.status === true ){
       sessionStorage.setItem('userdata' , JSON.stringify(userStatus));
-      console.log( JSON.parse(sessionStorage.getItem('userdata')))
+      sessionStorage.setItem('userData' , JSON.stringify(userData));
+      // console.log( JSON.parse(sessionStorage.getItem('userdata')))
        navigate("/tracker")
     }
     //  if(userStatus.status===true){
