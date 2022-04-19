@@ -23,7 +23,7 @@ import ProtectedRoutes from "../ProtectedRoute";
 
 function Basic() {
   var userStatus = {}
-  var userData = {}
+  //var userData = {}
   var isAuth = {login: false};
   const [rememberMe, setRememberMe] = useState(false);
   const [open, setOpen] = React.useState(false);
@@ -36,7 +36,7 @@ function Basic() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const[userData, setUserData]= useState({})
+  const[userData, setUserData] = useState({});
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
 
   useEffect(() => {
@@ -74,7 +74,7 @@ function Basic() {
        navigate("/tracker")
     }
 
-    if(userdata.email !==email)
+    if(userData.email !==email)
     handleClose()
       toast.error("Invalid Email or Password")
     
@@ -202,6 +202,18 @@ function Basic() {
           </MDBox>
         </MDBox>
       </Card>
+      <ToastContainer  maxWidth="sx"
+               position="top-right"
+               autoClose={3000}
+               type="toast.TYPE.SUCCESS"
+               hideProgressBar={false}
+               newestOnTop={false}
+               closeOnClick
+               rtl={false}
+               pauseOnFocusLoss
+               draggable
+               pauseOnHover
+               />
       <Backdrop
         sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
         open={open}
