@@ -1,36 +1,38 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom"; 
 
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom"; 
 import Card from "@mui/material/Card";
 import Switch from "@mui/material/Switch";
-
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 import MDInput from "components/MDInput";
 import MDButton from "components/MDButton";
-
 import BasicLayout from "layouts/authentication/components/BasicLayout";
 import bgImage from "assets/images/bg-sign-in-basic.jpeg";
 // import axios from "axios";
 import axios from '../../../Uri';
 import { createUseGridApiEventHandler } from "@mui/x-data-grid";
 import { CollectionsOutlined, ImageNotSupportedSharp } from "@mui/icons-material";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import ProtectedRoutes from "../ProtectedRoute";
 
 function Basic() {
   var userStatus = {}
   var userData = {}
-  var userdata ={}
+  var isAuth = {login: false};
   const [rememberMe, setRememberMe] = useState(false);
   const navigate = useNavigate();
-  const notify = () => toast();
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // const[userData, setUserData]= useState({})
-
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
+
+  useEffect(() => {
+    isAuth.login = false;
+    sessionStorage.setItem('isLogin' , JSON.stringify(isAuth));
+    sessionStorage.removeItem('userdata');
+  },[]);
+
+  
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -38,41 +40,30 @@ function Basic() {
     console.log(password);
     await axios.get(`/login/getUsersByUserEmailId?email=${email}&password=${password}`)
       .then((res) => {
-         console.log(res.data);
+       console.log(res.data);
         userStatus = res.data
         userData = userStatus.data
         console.log(userData)
-       
+        isAuth.login = true;
+        sessionStorage.setItem('isLogin' , JSON.stringify(isAuth));
       })
       .catch((err) => {
-        toast.error("Something went wrong")
-        
+        console.log(err);
+                isAuth.login = false;
+                sessionStorage.setItem('isLogin' , JSON.stringify(isAuth));
+
       });
-      if(userStatus.data===true){
-        toast.success("login successfully")
-      }
-    
-    
     if(userStatus.status === true ){
-      sessionStorage.setItem('userdata' , JSON.stringify(userData));
-   
-      
-      let userdata =  JSON.parse(sessionStorage.getItem('userdata'))
-      console.log(userdata)
-      if(userdata.email === email)
-      toast.success("login successfully")
-      navigate("/dashboard")
-    
+      sessionStorage.setItem('userdata' , JSON.stringify(userStatus));
+      console.log( JSON.parse(sessionStorage.getItem('userdata')))
+       navigate("/tracker")
     }
-    
-
-
-    
-   
-
-    // const result = res.data.filter(
-    //   (u) => u.email === email && u.password === password 
-    // );
+    //  if(userStatus.status===true){
+    //    return <ProtectedRoutes auth={userStatus.status}/>
+    //  }
+  //  const result = res.data.filter(
+  //     (u) => u.email === email && u.password === password 
+  //   );
     // console.log(result);
     // console.log(result.userId);
     // if (result === "undefined") {
@@ -83,7 +74,7 @@ function Basic() {
     //     if (u.email === email && u.password === password ) {
     //       // navigate("/dashboard")
     //       alert("loggedin")
-    //       ;
+    //       ; 
     //     }
     //   });
     // }
@@ -178,40 +169,10 @@ function Basic() {
                 </MDTypography>
               </MDButton>
             </MDBox>
-            <MDBox mt={4} mb={1}>
-              {/* <MDButton
-                onClick={resetPassword}
-                variant="gradient"
-                color="info"
-                fullWidth
-              >
-                <MDTypography
-                  variant="button"
-                  color="inherit"
-                  fontWeight="medium"
-                  textGradient
-                >
-                  RESET PASSWORD
-                </MDTypography>
-              </MDButton> */}
-            </MDBox>
           </MDBox>
         </MDBox>
-        <ToastContainer
-               position="top-right"
-               min-width= "2%"
-               autoClose={3000}
-               hideProgressBar={false}
-               newestOnTop={false}
-               closeOnClick
-               rtl={false}
-               pauseOnFocusLoss
-               draggable
-               pauseOnHover
-               />
       </Card>
     </BasicLayout>
   );
 }
-
 export default Basic;
