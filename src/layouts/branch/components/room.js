@@ -3,6 +3,8 @@ import MaterialTable from "material-table";
 // import axios from "axios";
 import { Grid } from "@mui/material";
 import axios from "../../../Uri";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 
 
@@ -69,6 +71,7 @@ function Room() {
 
       .catch((err) => {
         console.log(err);
+        toast.error("Server error");
       });
   }, []);
   const owner="Super Admin"
@@ -102,6 +105,7 @@ function Room() {
                     newRow1
                   );
                   //console.log(newRow1);
+                  toast.success("New Room added")
                   setData(updatedRows);
                   resolve();
                 }, 2000);
@@ -155,6 +159,18 @@ function Room() {
             },
           }}
         />
+           <ToastContainer  maxWidth="sx"
+               position="top-right"
+               autoClose={3000}
+               type="toast.TYPE.SUCCESS"
+               hideProgressBar={false}
+               newestOnTop={false}
+               closeOnClick
+               rtl={false}
+               pauseOnFocusLoss
+               draggable
+               pauseOnHover
+               />
       </Grid>
       </Grid>
     

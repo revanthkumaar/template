@@ -40,6 +40,7 @@ function Floor() {
 })
     .catch((err)=>{
       console.log(err)
+      toast.success("Server Error")
     })
   },[])
   // console.log(building)
@@ -173,8 +174,11 @@ function Floor() {
                     newRow
                   );
                   //console.log(newRow);
+                toast.success("Floor Added Successfully")
+                 
                   setData(updatedRows);
                   resolve();
+                  
                 }, 2000);
               }),
             onRowDelete: (selectedRow) =>

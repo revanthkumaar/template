@@ -6,6 +6,10 @@ import { Grid } from "@mui/material";
 import axios from "../../../Uri";
 // import { height, width } from "@mui/system";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
+
+
 function Build() {
   
   const [data, setData] = useState([]);
@@ -124,7 +128,8 @@ function Build() {
       })
 
       .catch((err) => {
-        console.log(err);
+        console.log(err)
+        toast.error("Server Error")
       });
   }, []);
 
@@ -160,6 +165,7 @@ function Build() {
                       newRow
                     );
                     //console.log(newRow);
+                    toast.success("New Buiding added")
                     setData(updatedRows);
                    
                     resolve();
@@ -212,6 +218,18 @@ function Build() {
               },
             }}
           />
+            <ToastContainer  maxWidth="sx"
+               position="top-right"
+               autoClose={3000}
+               type="toast.TYPE.SUCCESS"
+               hideProgressBar={false}
+               newestOnTop={false}
+               closeOnClick
+               rtl={false}
+               pauseOnFocusLoss
+               draggable
+               pauseOnHover
+               />
         </Grid>
       </Grid>
     </div>
