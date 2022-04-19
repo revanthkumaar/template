@@ -20,46 +20,30 @@ function BedandBill(props) {
 
         console.log(res.data);
         setBuild(res.data)
-     
-       
+
+
       })
 
       .catch((err) => {
         console.log(err);
       });
   }, []);
-console.log(build.totalAvailbleBeds);
-const [payments, setPayments] = React.useState([])
-
+  console.log(build.totalAvailbleBeds);
+  const [payments, setPayments] = React.useState(0)
+  let pendingPayments = []
+  const [overDue, setOverDue] = React.useState([])
   useEffect(() => {
     axios
-      .get("/payment/pendingPayments")
+      .get('/payment/getpendingPayment')
       .then((res) => {
-
-        console.log(res.data);
-        setPayments(res.data)
-      
+        pendingPayments = res.data
+        setPayments(pendingPayments[0])  
       })
-
       .catch((err) => {
         console.log(err);
-      });
+      })
   }, []);
-  console.log(payments.pendingPayments);
-  const [overDue, setOverDue] =React.useState([])
 
-  useEffect(() =>{
-    axios
-    .get('/payment/fetchingOverAllDueAmount')
-    .then((res) =>{
-      console.log(res.data)
-      setOverDue(res.data)
-    })
-    .catch((err) => {
-      console.log(err);
-    })
-  },[]);
-  console.log(overDue.overAllDue)
 
   return (
     <div>
@@ -131,31 +115,31 @@ const [payments, setPayments] = React.useState([])
           </MDBox>
         </Grid>
         <Grid item xs={12} md={6} lg={3}>
-					<MDBox mb={1.5}>
-						<Card sx={{ minWidth: 240, minHeight: 100, background: '#00008B' }}>
-							<CardContent sx={{ align: 'center' }}>
-								<MDTypography color="light" mt={1} fontWeight="regular" style={{ fontSize: '2em' }}>
-									{overDue.overAllDue}
-								</MDTypography>
-								<MDTypography color="light" fontWeight="light">
-								Overdue amount
-								</MDTypography>
-								<Divider variant="insent" fullWidth />
-								<MDTypography
-									color="light"
-									align="center"
-									textTransform="capitalize"
-									fontWeight="regular"
-								>
-									More Info
-									<IconButton>
-										<ArrowCircleRightRoundedIcon fontSize="medium" />
-									</IconButton>
-								</MDTypography>
-							</CardContent>
-						</Card>
-					</MDBox>
-				</Grid>
+          <MDBox mb={1.5}>
+            <Card sx={{ minWidth: 240, minHeight: 100, background: '#00008B' }}>
+              <CardContent sx={{ align: 'center' }}>
+                <MDTypography color="light" mt={1} fontWeight="regular" style={{ fontSize: '2em' }}>
+                  145
+                </MDTypography>
+                <MDTypography color="light" fontWeight="light">
+                  Overdue amount
+                </MDTypography>
+                <Divider variant="insent" fullWidth />
+                <MDTypography
+                  color="light"
+                  align="center"
+                  textTransform="capitalize"
+                  fontWeight="regular"
+                >
+                  More Info
+                  <IconButton>
+                    <ArrowCircleRightRoundedIcon fontSize="medium" />
+                  </IconButton>
+                </MDTypography>
+              </CardContent>
+            </Card>
+          </MDBox>
+        </Grid>
         <Grid item xs={12} md={6} lg={3}>
           <MDBox mb={1.5}>
             <Card sx={{ minWidth: 240, minHeight: 100, background: "#800080" }}>
@@ -166,7 +150,7 @@ const [payments, setPayments] = React.useState([])
                   fontWeight="regular"
                   style={{ fontSize: "2em" }}
                 >
-                   {payments.pendingPayments}
+                  {payments}
                 </MDTypography>
                 <MDTypography color="light" fontWeight="light">
                   Pending payments
