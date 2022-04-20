@@ -67,7 +67,7 @@ const RecordpaymentsinPopUp = (props) => {
               initialValues={{ ...INITIAL_FORM_STATE }}
               validationSchema={FORM_VALIDATION} 
               onSubmit={async (guest, { resetForm }) => {
-                //console.log(guest);
+                console.log(guest);
                 handleToggle()
 
                 const res = await axios.post("/payment/addPaymentAtOnBoarding", guest)
@@ -111,7 +111,7 @@ const RecordpaymentsinPopUp = (props) => {
                         // IconComponent={(Purpose) => (
                         //   <ArrowDropDownIcon className={classes.size} />
                         // )}
-                        name ="paymentPurpose"
+                        name = "paymentPurpose"
                         options = {Purpose}
                         className={classes.root}
                       />
