@@ -8,6 +8,7 @@ import axios from "../../../Uri";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
+import { string } from "prop-types";
 
 
 function Build() {
@@ -30,16 +31,42 @@ function Build() {
     {
       title: "Building Name",
       field: "building_name",
+      type:"text",
     
    
       headerStyle: {
         backgroundColor: "#1E90FF",
-        color: "white"},
+        color: "white",
+      },
         validate:rowData =>{
           if(rowData.building_name === undefined||rowData.building_name=== ""){
             return "Required"
-          }else if(rowData.building_name.length<3){
-            return" Building name should contains atleast 3 alphabets"
+          }else if(rowData.building_name=="1"){
+            return" Please enter alphabets"
+          }
+          else if(rowData.building_name=="2"){
+            return" Please enter alphabets"
+          }
+          else if(rowData.building_name=="3"){
+            return" Please enter alphabets"
+          }
+          else if(rowData.building_name=="4"){
+            return" Please enter alphabets"
+          }
+          else if(rowData.building_name=="6"){
+            return" Please enter alphabets"
+          }
+          else if(rowData.building_name=="7"){
+            return" Please enter alphabets"
+          }
+          else if(rowData.building_name=="8"){
+            return" Please enter alphabets"
+          }
+          else if(rowData.building_name=="9"){
+            return"Please enter alphabets"
+          }
+          else if(rowData.building_name=="0"){
+            return" Please enter alphabets"
           }
           return true
         }
@@ -68,8 +95,33 @@ function Build() {
         validate:rowData =>{
           if(rowData.userName === undefined||rowData.userName=== ""){
             return "Required"
-          }else if(rowData.userName.length<3){
-            return" Manager name should contains atleast 3 alphabets"
+          }else if(rowData.userName =="1"){
+            return" Please enter alphabets"
+          }
+          else if(rowData.userName =="2"){
+            return" Please enter alphabets"
+          }
+          else if(rowData.userName =="3"){
+            return" Please enter alphabets"
+          }
+          else if(rowData.userName =="4"){
+            return" Please enter alphabets"
+          }
+          else if(rowData.userName =="6"){
+            return" Please enter alphabets"
+          }
+          else if(rowData.userName =="7"){
+            return" Please enter alphabets"
+          }
+          else if(rowData.userName =="8"){
+            return" Please enter alphabets"
+          }
+          else if(rowData.userName =="9"){
+            return"Please enter alphabets"
+          }
+          else if(rowData.building_name=="0"){
+            return" Please enter alphabets"
+          
           }
           return true
         }
@@ -83,7 +135,17 @@ function Build() {
           backgroundColor: "#1E90FF",
           color: "white"
         }
-      },
+      ,
+      validate: rowData => {
+        if (rowData.email === undefined || rowData.email === "") {
+          return "Required"
+        } else if (!rowData.email.includes ('@'&&'.')) {
+          return "Enter Valid Email Address"
+          //  return {isValid:false,helperText:"Phone number should contains 10 digits"}
+        }
+      
+        return true
+      }},
       // {
       //   title: "Password",
       //   field: "password",
@@ -111,6 +173,7 @@ function Build() {
           return "Phone number should contains 10 digits"
           //  return {isValid:false,helperText:"Phone number should contains 10 digits"}
         }
+        
         return true
       },
     }
@@ -129,7 +192,7 @@ function Build() {
 
       .catch((err) => {
         console.log(err)
-        toast.error("Server Error")
+        // toast.error("Server Error")
       });
   }, []);
 

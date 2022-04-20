@@ -39,8 +39,8 @@ function Floor() {
       
 })
     .catch((err)=>{
-      console.log(err)
-      toast.success("Server Error")
+      // console.log(err)
+      
     })
   },[])
   // console.log(building)

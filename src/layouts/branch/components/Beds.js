@@ -100,7 +100,7 @@ function Beds() {
       },
       validate:rowData =>{
         if(rowData.buildingId===undefined){
-       return  "Building Id is Required"
+       return  "Building Name is Required"
      
     }
     return true
@@ -156,7 +156,7 @@ function Beds() {
       },
       validate:rowData =>{
         if(rowData.bedName===undefined){
-       return  "Bed Name is Required"
+       return  "Security Deposit is Required"
      
     }
     return true
