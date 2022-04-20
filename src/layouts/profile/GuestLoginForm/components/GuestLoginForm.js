@@ -155,7 +155,7 @@ const FORM_VALIDATION = Yup.object().shape({
   buildingId: Yup.number().required("Required"),
   occupancyType: Yup.string().required("Required"),
   amountPaid: Yup.number().required("Required"),
-  // transactionId: Yup.string().required("Required"),
+  transactionId: Yup.string().required("Required"),
 });
 
 console.log(JSON.parse(sessionStorage.getItem("userdata")));
@@ -482,6 +482,7 @@ const GuestLoginForm = () => {
                         <Textfield
                           name="transactionId"
                           label="Transaction ID"
+                          required
                         />
                       </Grid>
 
