@@ -49,8 +49,8 @@ const INITIAL_FORM_STATE = {
   occupation: "",
   gender: "",
   aadharNumber: "",
-  buildingName: "",
   buildingId: "",
+  // buildingId: "",
   bedId: "",
   occupancyType: "",
   duration: "",
@@ -152,7 +152,7 @@ const FORM_VALIDATION = Yup.object().shape({
     .required("Required"),
   // workAddressLine1: Yup.string().required("Required"),
   // workAddressLine2: Yup.string().required("Required"),
-  buildingName: Yup.string().required("Required"),
+  buildingId: Yup.number().required("Required"),
   occupancyType: Yup.string().required("Required"),
   amountPaid: Yup.number().required("Required"),
   // transactionId: Yup.string().required("Required"),
@@ -203,7 +203,7 @@ const GuestLoginForm = () => {
       .get("/bed/getAvailableBedsByBuildings")
       .then((res) => {
         setoneBuilding(res.data);
-        //console.log(res.data);
+        console.log(res.data);
 
         res.data.map((data) => {
           if (userBuildingId === data.buildingId) {
@@ -222,10 +222,18 @@ const GuestLoginForm = () => {
         console.log(err);
       });
   }, []);
+  var obje1 = oneBuilding.reduce(function(acc,cur,i) {
+    acc[cur.buildingId] = cur.buildingName;
+
+    return acc;
+  }, {});
+  //console.log(obj);
 
   const notify = () => toast();
+  
 
   const handleClick = (id) => {
+    console.log(id)
     setPutBuilding(id.target.outerText);
     //console.log(id);
 
@@ -296,7 +304,7 @@ const GuestLoginForm = () => {
 
   const obj = { bedId: bed };
 
-  const obje = { buildingId: bid };
+  // const obje = { buildingId: bid };
   const objee = { defaultRent: rent };
   const obj1 = { securityDeposit: secureDepo };
   const obj2 = { amountToPay: amountToPay };
@@ -307,9 +315,10 @@ const GuestLoginForm = () => {
 
   return (
     <div>
-      <Grid container>
+      <Grid container onClick = {handleClose}>
         <Grid item xs={12}>
           <Container maxWidth="md">
+            
             <div>
               <Formik
                 initialValues={{ ...INITIAL_FORM_STATE }}
@@ -317,16 +326,16 @@ const GuestLoginForm = () => {
                 onSubmit={async (guest, { resetForm }) => {
                   // setLoading(true);
                   handleToggle();
-                  const guests = Object.assign(guest, obj);
+                  //const guests = Object.assign(guest, obj);
 
-                  const gustes = Object.assign(guests, obje);
+                  const gustes = Object.assign(guest, obj);
 
                   const gusting = Object.assign(gustes, objee);
                   const gusting1 = Object.assign(gusting, obj1);
                   const guestdata = Object.assign(gusting1, obj2);
-                  // console.log(guestdata);
-                  // console.log(gusting.amountPaid);
-                  // console.log(amountToPay);
+                  console.log(guestdata);
+                  console.log(gusting.amountPaid);
+                  console.log(amountToPay);
                   if (guestdata.amountPaid == amountToPay) {
                     const res = await axios
                       .post(
@@ -336,6 +345,7 @@ const GuestLoginForm = () => {
                       )
 
                       .catch((err) => {
+                        handleClose();
                         toast.error("Server error");
                       });
 
@@ -375,8 +385,8 @@ const GuestLoginForm = () => {
 
                         <Select
                           className={classes.root}
-                          name="buildingName"
-                          options={building}
+                          name="buildingId"
+                          options={obje1}
                           onClick={handleClick}
                           required
                         ></Select>
