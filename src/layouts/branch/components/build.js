@@ -163,13 +163,30 @@ function Build() {
                       "/bed/addBuilding",
 
                       newRow
-                    );
+                    )
+                    .catch((err) => {
+                      toast.error("Server error");
+                    });
                     //console.log(newRow);
-                    toast.success("New Buiding added")
-                    setData(updatedRows);
+                
+                     toast.success("New Buiding added")
+                    setData(updatedRows)
+                     
+                  
                    
                     resolve();
-                  }, 2000);
+                  }, 2000)
+                  
+                  // if(setData.data!==null){
+                  //   toast.success("New Buiding added")
+                  // }
+
+                  // if(setData.data==null){
+                  
+                  //   toast.error("Server is down")
+                  // }
+                  
+                
                 }),
               onRowDelete: (selectedRow) =>
                 new Promise((resolve, reject) => {
