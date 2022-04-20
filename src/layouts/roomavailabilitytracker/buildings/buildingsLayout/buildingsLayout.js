@@ -22,9 +22,9 @@ import "./buildingLayout.css";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
 import Tooltip from "@material-ui/core/Tooltip";
-import { ToastContainer,toast } from "react-toastify";
 
 var GuestDetails = {};
+var GuestDueAmount = []
 
 const BuildingsLayout = (props) => {
 
@@ -34,7 +34,7 @@ const BuildingsLayout = (props) => {
 
   const [loading, setLoading] = React.useState(false);
   const closeLoading = () => setLoading(!loading);
-  //console.log(props.buildingId)
+  console.log(props.buildingId)
 
   useEffect(async () => {
     
@@ -44,7 +44,7 @@ const BuildingsLayout = (props) => {
       .then((res) => {
         setBuildingInfo(res.data);
         setLoading(true);
-        c//onsole.log(res.data)
+        console.log(res.data)
       })
       .catch((err) => {
        
@@ -117,7 +117,7 @@ const BuildingsLayout = (props) => {
                                                     <HotelOutlinedIcon    key={bdno.bedId} color="error"  className="click" id={bdno.guestId}
                                                       onClick={async () => {
                                                                              setLoading(false);
-                                                                             //console.log(bdno.guestId);
+                                                                             console.log(bdno.guestId);
 
                                                         await axios
                                                           .get(
@@ -126,9 +126,9 @@ const BuildingsLayout = (props) => {
                                                           .then((res) => {
                                                             GuestDetails =
                                                               res.data;
-                                                            //console.log(
-                                                            //   GuestDetails
-                                                            // );
+                                                            console.log(
+                                                              GuestDetails
+                                                            );
 
                                                             setOpen(true);
                                                             setLoading(true);
@@ -136,6 +136,12 @@ const BuildingsLayout = (props) => {
                                                           .catch((err) => {
                                                             console.log(err);
                                                           });
+                                                          // await axios .get(`guest/getPendingAndCompletedById/${bdno.guestId}`)
+                                                          // .then((res) => {
+                                                          //   GuestDueAmount = res.data;
+                                                          //   console.log(GuestDueAmount)
+
+                                                          // })
                                                       }}
 
 

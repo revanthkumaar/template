@@ -65,7 +65,7 @@ function Floor() {
       .then((res) => {
         setData(res.data);
 
-        //console.log(res.data);
+        console.log(res.data);
       })
 
       .catch((err) => {
@@ -74,7 +74,7 @@ function Floor() {
   }, []);
   const selectBuild =(i)=>{
     setBuildName(i.target.outerText)
-    //console.log(i.target.dataset.value)
+    console.log(i.target.dataset.value)
   }
   
  
@@ -175,7 +175,7 @@ function Floor() {
                   )    .catch((err) => {
                     toast.error("Server error");
                   });
-                  //console.log(newRow);
+                  console.log(newRow);
               
                    toast.success("New Floor added");
                   //console.log(newRow);

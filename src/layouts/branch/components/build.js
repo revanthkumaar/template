@@ -75,7 +75,7 @@ function Build() {
     {
       title: "Role",
       field: "userType",
-      lookup:{manager:"Manager",admin:"Admin"},
+      lookup:{manager:"Manager",},
     
    
       headerStyle: {

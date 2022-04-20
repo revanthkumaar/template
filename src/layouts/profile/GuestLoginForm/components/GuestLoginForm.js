@@ -24,7 +24,6 @@ import "react-toastify/dist/ReactToastify.css";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
 
-
 const useStyles = makeStyles({
   root: {
     height: 35,
@@ -50,8 +49,8 @@ const INITIAL_FORM_STATE = {
   occupation: "",
   gender: "",
   aadharNumber: "",
-  buildingName: "",
   buildingId: "",
+  // buildingId: "",
   bedId: "",
   occupancyType: "",
   duration: "",
@@ -87,7 +86,7 @@ const FORM_VALIDATION = Yup.object().shape({
         moment().diff(moment(date), "years") >= 12 &&
         moment().diff(moment(date), "years") <= 80
     ),
-  // gender: Yup.string().required("Required"),
+  gender: Yup.string().required("Required"),
   // localGuardianName: Yup.string()
   //   .matches(/^[aA-zZ\s]+$/, "Invalid Name ")
   //   .required("Required"),
@@ -144,7 +143,7 @@ const FORM_VALIDATION = Yup.object().shape({
   //   .required("Required"),
 
   addressLine1: Yup.string().required("Required"),
-  addressLine2: Yup.string().required("Required"),
+  // addressLine2: Yup.string().required("Required"),
   city: Yup.string()
     .matches(/^[aA-zZ\s]+$/, "Invalid City Name")
     .required("Required"),
@@ -153,7 +152,7 @@ const FORM_VALIDATION = Yup.object().shape({
     .required("Required"),
   // workAddressLine1: Yup.string().required("Required"),
   // workAddressLine2: Yup.string().required("Required"),
-  buildingName: Yup.string().required("Required"),
+  buildingId: Yup.number().required("Required"),
   occupancyType: Yup.string().required("Required"),
   amountPaid: Yup.number().required("Required"),
   // transactionId: Yup.string().required("Required"),
@@ -176,11 +175,10 @@ const GuestLoginForm = () => {
   //const [loading, setLoading] = React.useState(false);
   const [secureDepo, setSecureDepo] = React.useState([]);
   const [bid, setBid] = React.useState([]);
- // const [loading, setLoading] = React.useState(true);
+  // const [loading, setLoading] = React.useState(true);
   const [open, setOpen] = React.useState(false);
-  
 
- // const closeLoading = () => setLoading(!loading);
+  // const closeLoading = () => setLoading(!loading);
   const handleClose = () => {
     setOpen(false);
   };
@@ -205,7 +203,7 @@ const GuestLoginForm = () => {
       .get("/bed/getAvailableBedsByBuildings")
       .then((res) => {
         setoneBuilding(res.data);
-        //console.log(res.data);
+        console.log(res.data);
 
         res.data.map((data) => {
           if (userBuildingId === data.buildingId) {
@@ -224,10 +222,18 @@ const GuestLoginForm = () => {
         console.log(err);
       });
   }, []);
+  var obje1 = oneBuilding.reduce(function(acc,cur,i) {
+    acc[cur.buildingId] = cur.buildingName;
+
+    return acc;
+  }, {});
+  //console.log(obj);
 
   const notify = () => toast();
+  
 
   const handleClick = (id) => {
+    console.log(id)
     setPutBuilding(id.target.outerText);
     //console.log(id);
 
@@ -261,12 +267,12 @@ const GuestLoginForm = () => {
     setOcctype(i.target.outerText);
     if (i.target.outerText == "Daily") {
       setDuration(days);
-      var checkInAmount = amt * (defaultRentofBed / 30) + secureDepo;
-      setAmountToPay(checkInAmount.toFixed(2));
+      var checkInAmount = amt * (defaultRentofBed / 30) ;
+      setAmountToPay(checkInAmount.toFixed(0));
     } else if (i.target.outerText == "Monthly") {
       setOcctype(i.target.outerText);
       setDuration(months);
-      var checkInAmount = amt * defaultRentofBed + secureDepo;
+      var checkInAmount = amt * defaultRentofBed ;
       setAmountToPay(checkInAmount);
     } else {
       setDuration(empty);
@@ -283,12 +289,12 @@ const GuestLoginForm = () => {
     setAmt(a.target.outerText);
 
     if (occupencyTypeis == 12) {
-      var checkInAmount = a.target.outerText * defaultRentofBed + secureDepo;
+      var checkInAmount = a.target.outerText * defaultRentofBed ;
       setAmountToPay(checkInAmount);
     } else if (occupencyTypeis == 15) {
       var checkInAmount =
-        a.target.outerText * (defaultRentofBed / 30) + secureDepo;
-      setAmountToPay(checkInAmount.toFixed(2));
+        a.target.outerText * (defaultRentofBed / 30) ;
+      setAmountToPay(checkInAmount.toFixed(0));
     } else {
       setAmountToPay(defaultRentofBed + secureDepo);
     }
@@ -298,308 +304,312 @@ const GuestLoginForm = () => {
 
   const obj = { bedId: bed };
 
-  const obje = { buildingId: bid };
+  // const obje = { buildingId: bid };
   const objee = { defaultRent: rent };
   const obj1 = { securityDeposit: secureDepo };
   const obj2 = { amountToPay: amountToPay };
   const amountNeedToPay = (n) => {
-   // console.log(n.target.value);
+    // console.log(n.target.value);
   };
   //console.log(occtype);
 
   return (
     <div>
-    
-      <Grid container>
-      <Grid item xs={12}>
-        <Container maxWidth="md">
-          <div>
-            <Formik
-              initialValues={{ ...INITIAL_FORM_STATE }}
-              validationSchema={FORM_VALIDATION}
-              onSubmit={async (guest, { resetForm }) => {
-                // setLoading(true);
-                handleToggle()
-                const guests = Object.assign(guest, obj);
+      <Grid container onClick = {handleClose}>
+        <Grid item xs={12}>
+          <Container maxWidth="md">
+            
+            <div>
+              <Formik
+                initialValues={{ ...INITIAL_FORM_STATE }}
+                validationSchema={FORM_VALIDATION}
+                onSubmit={async (guest, { resetForm }) => {
+                  // setLoading(true);
+                  handleToggle();
+                  //const guests = Object.assign(guest, obj);
 
-                const gustes = Object.assign(guests, obje);
+                  const gustes = Object.assign(guest, obj);
 
-                const gusting = Object.assign(gustes, objee);
-                const gusting1 = Object.assign(gusting, obj1);
-                const guestdata = Object.assign(gusting1, obj2);
-                // console.log(guestdata);
-                // console.log(gusting.amountPaid);
-                // console.log(amountToPay);
-                if (guestdata.amountPaid == amountToPay) {
-                  const res = await axios
-                    .post(
-                      "/guest/addGuest",
+                  const gusting = Object.assign(gustes, objee);
+                  const gusting1 = Object.assign(gusting, obj1);
+                  const guestdata = Object.assign(gusting1, obj2);
+                  console.log(guestdata);
+                  console.log(gusting.amountPaid);
+                  console.log(amountToPay);
+                  if (guestdata.amountPaid == amountToPay) {
+                    const res = await axios
+                      .post(
+                        "/guest/addGuest",
 
-                      guestdata
-                    )
-                    
-                    
-                    .catch((err) => {
-                      toast.error("Server error");
-                    });
-                   
-                    
-                  //console.log(res.data);
-                  if (res.data !== null) {
-                      handleClose()
-                    
-                    toast.success("OnBoarded Successfully");
+                        guestdata
+                      )
 
-                    
+                      .catch((err) => {
+                        handleClose();
+                        toast.error("Server error");
+                      });
 
-                    resetForm();
-                    
+                    //console.log(res.data);
+                    if (res.data !== null) {
+                      handleClose();
+
+                      toast.success("OnBoarded Successfully");
+
+                      resetForm();
+                    }
+                  } else {
+                    toast.error(" Need to pay full Amount");
                   }
-                } else {
-                 ;
-                  toast.error(" Need to pay full Amount");
-                }
 
-                setTimeout(() => {
-                  //console.log(rent);
-                }, 50);
-              }}
-            >
-              {(formProps) => (
-                <Form>
-                  <Grid container spacing={2}>
-                    <Grid item xs={12}>
-                      <Typography>
-                        <br />
-                        <h4 align="center">Allocate Room</h4>
-                        <br />
-                      </Typography>
-                      <InputLabel id="demo-simple-select-labe">
-                        {" "}
-                        * indicates fields are Required
-                      </InputLabel>
-                    </Grid>
-                    <Grid item xs={6}>
-                      <h6>Select Building *</h6>
+                  setTimeout(() => {
+                    //console.log(rent);
+                  }, 50);
+                }}
+              >
+                {(formProps) => (
+                  <Form>
+                    <Grid container spacing={2}>
+                      <Grid item xs={12}>
+                        <Typography>
+                          <br />
+                          <h4 align="center">Allocate Room</h4>
+                          <br />
+                        </Typography>
+                        <InputLabel id="demo-simple-select-labe">
+                          {" "}
+                          * indicates fields are Required
+                        </InputLabel>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <h6>Select Building *</h6>
 
-                      <Select
-                        className={classes.root}
-                        name="buildingName"
-                        options={building}
-                        onClick={handleClick}
-                        required
-                      ></Select>
+                        <Select
+                          className={classes.root}
+                          name="buildingId"
+                          options={obje1}
+                          onClick={handleClick}
+                          required
+                        ></Select>
 
-                      <Grid item xs={6}></Grid>
-                    </Grid>
-                    <Grid item xs={6}>
-                      <h6>Select Bed *</h6>
-                      <Select
-                        className={classes.root}
-                        name="bedId"
-                        options={availableBedsByBuidlingName}
-                        onClick={selectBed}
-                      ></Select>
-                    </Grid>
-                    <Grid item xs={6}>
-                      <InputLabel id="demo-simple-select-labe">
-                        {" "}
-                        OccupancyType *
-                      </InputLabel>
-                      <Select
-                        className={classes.root}
-                        name="occupancyType"
-                        options={Occupancytype}
-                        onClick={occupency}
-                      />
-                    </Grid>
-                    {/* {console.log(occtype)} */}
-                    {occtype === "Daily" || occtype === "Monthly" ? (
+                        <Grid item xs={6}></Grid>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <h6>Select Bed *</h6>
+                        <Select
+                          className={classes.root}
+                          name="bedId"
+                          options={availableBedsByBuidlingName}
+                          onClick={selectBed}
+                        ></Select>
+                      </Grid>
                       <Grid item xs={6}>
                         <InputLabel id="demo-simple-select-labe">
                           {" "}
-                          Duration
+                          OccupancyType *
                         </InputLabel>
                         <Select
                           className={classes.root}
-                          name="duration"
-                          options={duration}
-                          onClick={calculateCheckAmount}
+                          name="occupancyType"
+                          options={Occupancytype}
+                          onClick={occupency}
                         />
                       </Grid>
-                    ) : (
-                      console.log("")
-                    )}
 
-                    <Grid item xs={6}></Grid>
-                    <Grid item xs={6}>
-                      <Textfield
-                        name="securityDeposit"
-                        label="Security Deposit"
-                        value={secureDepo}
-                      />
-                    </Grid>
-                    <Grid item xs={6}></Grid>
-                    <Grid item xs={6}>
-                      <Textfield
-                        name="defaultRent"
-                        label="Default Rent"
-                        value={defaultRentofBed}
-                      />
-                    </Grid>
-                    <Grid item xs={6}></Grid>
-                    <Grid item xs={6}>
-                      <Textfield
-                        name="amountTopay"
-                        label="Amount To Be Paid"
-                        value={amountToPay}
-                      />
-                    </Grid>
-                    <Grid item xs={12}>
-                      <Typography>
-                        <br />
-                        <h4 align="center">Booking/Payment Details</h4>
-                        <br />
-                      </Typography>
-                    </Grid>
+                      {/* {console.log(occtype)} */}
+                      {occtype === "Daily" || occtype === "Monthly" ? (
+                        
+                        <Grid item xs={6}>
+                          <InputLabel id="demo-simple-select-labe">
+                            {" "}
+                            Duration
+                          </InputLabel>
+                          <Select
+                            className={classes.root}
+                            name="duration"
+                            options={duration}
+                            onClick={calculateCheckAmount}
+                          />
+                        </Grid>
+                      ) : (
+                        console.log("")
+                      )}
 
-                    <Grid item xs={6}>
-                      <Textfield
-                        name="amountPaid"
-                        label="Amount Paid"
-                        required
-                        onClick={amountNeedToPay}
-                      />
-                    </Grid>
-                    <Grid item xs={6}>
-                      <Textfield name="transactionId" label="Transaction ID" />
-                    </Grid>
+                      <Grid item xs={6}></Grid>
+                      {occtype === "Daily" || occtype === "Monthly" ? (console.log("")):(
+                        <Grid item xs={6}>
+                        <Textfield
+                          name="securityDeposit"
+                          label="Security Deposit"
+                          value={secureDepo}
+                        />
+                      </Grid>
 
-                    <Grid item xs={12}>
-                      <Typography>
-                        <br />
-                        <h4 align="center">Guest's Personal Information</h4>
-                        <br />
-                      </Typography>
-                    </Grid>
+                      )}
+                      
+                      <Grid item xs={6}></Grid>
+                      <Grid item xs={6}>
+                        <Textfield
+                          name="defaultRent"
+                          label="Default Rent"
+                          value={defaultRentofBed}
+                        />
+                      </Grid>
+                      <Grid item xs={6}></Grid>
+                      <Grid item xs={6}>
+                        <Textfield
+                          name="amountTopay"
+                          label="Amount To Be Paid"
+                          value={amountToPay}
+                        />
+                      </Grid>
+                      <Grid item xs={12}>
+                        <Typography>
+                          <br />
+                          <h4 align="center">Booking/Payment Details</h4>
+                          <br />
+                        </Typography>
+                      </Grid>
 
-                    <Grid item xs={6}>
-                      <Textfield name="firstName" label="First Name" required />
-                    </Grid>
+                      <Grid item xs={6}>
+                        <Textfield
+                          name="amountPaid"
+                          label="Amount Paid"
+                          required
+                          onClick={amountNeedToPay}
+                        />
+                      </Grid>
+                      <Grid item xs={6}>
+                        <Textfield
+                          name="transactionId"
+                          label="Transaction ID"
+                        />
+                      </Grid>
 
-                    <Grid item xs={6}>
-                      <Textfield name="lastName" label="Last Name" required />
-                    </Grid>
-                    <Grid item xs={6}>
-                      <Textfield name="email" label="Email" required />
-                    </Grid>
-                    <Grid item xs={6}>
-                      <DateTimePicker
-                        maxdate={new Date()}
-                        name="dateOfBirth"
-                        label="Date of Birth"
-                        required
-                      />
-                    </Grid>
+                      <Grid item xs={12}>
+                        <Typography>
+                          <br />
+                          <h4 align="center">Guest's Personal Information</h4>
+                          <br />
+                        </Typography>
+                      </Grid>
 
-                    <Grid item xs={6}>
-                      <Textfield
-                        name="personalNumber"
-                        label="Personal Phone"
-                        required
-                      />
-                    </Grid>
-                    <Grid item xs={6}>
-                      <Textfield
-                        name="secondaryPhoneNumber"
-                        label="Secondary Phone"
-                      />
-                    </Grid>
-                    <Grid item xs={6}>
-                      <Textfield name="fatherName" label="Father's Name" />
-                    </Grid>
-                    <Grid item xs={6}>
-                      <Textfield name="fatherNumber" label="Father's Phone" />
-                    </Grid>
+                      <Grid item xs={6}>
+                        <Textfield
+                          name="firstName"
+                          label="First Name"
+                          required
+                        />
+                      </Grid>
 
-                    <Grid item xs={6}>
-                      <Textfield name="bloodGroup" label="Blood Group" />
-                    </Grid>
-                    <Grid item xs={6}>
-                      <Textfield name="occupation" label="Occupation" />
-                    </Grid>
-                    <br />
+                      <Grid item xs={6}>
+                        <Textfield name="lastName" label="Last Name" required />
+                      </Grid>
+                      <Grid item xs={6}>
+                        <Textfield name="email" label="Email" required />
+                      </Grid>
+                      <Grid item xs={6}>
+                        <DateTimePicker
+                          maxdate={new Date()}
+                          name="dateOfBirth"
+                          label="Date of Birth"
+                          required
+                        />
+                      </Grid>
 
-                    <Grid item xs={6}>
-                      <InputLabel id="demo-simple-select-label">
-                        Select Gender
-                      </InputLabel>
+                      <Grid item xs={6}>
+                        <Textfield
+                          name="personalNumber"
+                          label="Personal Phone"
+                          required
+                        />
+                      </Grid>
+                      <Grid item xs={6}>
+                        <Textfield
+                          name="secondaryPhoneNumber"
+                          label="Secondary Phone"
+                        />
+                      </Grid>
+                      <Grid item xs={6}>
+                        <Textfield name="fatherName" label="Father's Name" />
+                      </Grid>
+                      <Grid item xs={6}>
+                        <Textfield name="fatherNumber" label="Father's Phone" />
+                      </Grid>
 
-                      <Select
-                        IconComponent={(Gender) => (
-                          <ArrowDropDownIcon className={classes.size} />
-                        )}
-                        name="gender"
-                        options={Gender}
-                        className={classes.root}
-                      ></Select>
-                    </Grid>
-                    <Grid item xs={6}>
-                      <Textfield
-                        name="aadharNumber"
-                        label="Aadhar Number"
-                        required
-                      />
-                    </Grid>
+                      <Grid item xs={6}>
+                        <Textfield name="bloodGroup" label="Blood Group" />
+                      </Grid>
+                      <Grid item xs={6}>
+                        <Textfield name="occupation" label="Occupation" />
+                      </Grid>
+                      <br />
 
-                    <Grid item xs={12} />
+                      <Grid item xs={6}>
+                        <InputLabel id="demo-simple-select-label">
+                          Select Gender *
+                        </InputLabel>
 
-                    <Grid item xs={12}>
-                      <Typography>
-                        <h4 align="center">Permanent Address</h4>
-                        <br />
-                      </Typography>
-                    </Grid>
+                        <Select
+                          IconComponent={(Gender) => (
+                            <ArrowDropDownIcon className={classes.size} />
+                          )}
+                          name="gender"
+                          options={Gender}
+                          className={classes.root}
+                        ></Select>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <Textfield
+                          name="aadharNumber"
+                          label="Aadhar Number"
+                          required
+                        />
+                      </Grid>
 
-                    <Grid item xs={12}>
-                      <Textfield
-                        name="addressLine1"
-                        label="Address Line 1"
-                        required
-                      />
-                    </Grid>
+                      <Grid item xs={12} />
 
-                    <Grid item xs={6}>
-                      <Textfield
-                        name="addressLine2"
-                        label="Address Line 2"
-                        required
-                      />
-                    </Grid>
-                    <Grid item xs={6}>
-                      <Textfield name="pincode" label="Pincode" required />
-                    </Grid>
+                      <Grid item xs={12}>
+                        <Typography>
+                          <h4 align="center">Permanent Address</h4>
+                          <br />
+                        </Typography>
+                      </Grid>
 
-                    <Grid item xs={6}>
-                      <Textfield name="city" label="City" required />
-                    </Grid>
+                      <Grid item xs={12}>
+                        <Textfield
+                          name="addressLine1"
+                          label="Address Line 1"
+                          required
+                        />
+                      </Grid>
 
-                    <Grid item xs={6}>
-                      <InputLabel id="demo-simple-select-label">
-                        Select state *
-                      </InputLabel>
+                      <Grid item xs={6}>
+                        <Textfield name="addressLine2" label="Address Line 2" />
+                      </Grid>
+                      <Grid item xs={6}>
+                        <Textfield name="pincode" label="Pincode" required />
+                      </Grid>
 
-                      <Select
-                        IconComponent={(Gender) => (
-                          <ArrowDropDownIcon className={classes.size} />
-                        )}
-                        name="state"
-                        options={state}
-                        className={classes.root}
-                      ></Select>
-                    </Grid>
+                      <Grid item xs={6}>
+                        <Textfield name="city" label="City" required />
+                      </Grid>
 
-                    {/* <Divider variant="middle" />
+                      <Grid item xs={6}>
+                        <InputLabel id="demo-simple-select-label">
+                          Select state *
+                        </InputLabel>
+
+                        <Select
+                          IconComponent={(Gender) => (
+                            <ArrowDropDownIcon className={classes.size} />
+                          )}
+                          name="state"
+                          options={state}
+                          className={classes.root}
+                        ></Select>
+                      </Grid>
+
+                      {/* <Divider variant="middle" />
                     <Grid item xs={12}>
                       <Typography>
                         <br />
@@ -625,16 +635,16 @@ const GuestLoginForm = () => {
                       />
                     </Grid> */}
 
-                    <Grid item xs={12}>
-                      <Textfield
-                        name="checkinNotes"
-                        label="Check-in Notes"
-                        multiline
-                        rows={3}
-                      />
-                    </Grid>
+                      <Grid item xs={12}>
+                        <Textfield
+                          name="checkinNotes"
+                          label="Check-in Notes"
+                          multiline
+                          rows={3}
+                        />
+                      </Grid>
 
-                    {/* <Grid item xs={12}>
+                      {/* <Grid item xs={12}>
                       <Checkbox
                         name="termsOfService"
                         legend="Terms of service"
@@ -642,41 +652,38 @@ const GuestLoginForm = () => {
                       />
                     </Grid> */}
 
-                    <Grid item xs={3} sx={{ paddingBottom: 3 }}>
-                      <Button onClick={notify}>Submit</Button>
+                      <Grid item xs={3} sx={{ paddingBottom: 3 }}>
+                        <Button onClick={notify}>Submit</Button>
+                      </Grid>
                     </Grid>
-                  </Grid>
-                  <ToastContainer
-                    position="top-right"
-                    min-width="2%"
-                    autoClose={3000}
-                    hideProgressBar={false}
-                    newestOnTop={false}
-                    closeOnClick
-                    rtl={false}
-                    pauseOnFocusLoss
-                    draggable
-                    pauseOnHover
-                  />
-                </Form>
-              )}
-            </Formik>
-          </div>
-        </Container>
+                    <ToastContainer
+                      position="top-right"
+                      min-width="2%"
+                      autoClose={3000}
+                      hideProgressBar={false}
+                      newestOnTop={false}
+                      closeOnClick
+                      rtl={false}
+                      pauseOnFocusLoss
+                      draggable
+                      pauseOnHover
+                    />
+                  </Form>
+                )}
+              </Formik>
+            </div>
+          </Container>
+        </Grid>
       </Grid>
-    </Grid>
-   
+
       <Backdrop
-      sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
-      open={open}
-      onClick={handleClose}
-    >
-      <CircularProgress color="inherit" />
-    </Backdrop>
-    
-  
-  </div>
-    
+        sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={open}
+        onClick={handleClose}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
+    </div>
   );
 };
 
