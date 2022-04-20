@@ -111,7 +111,7 @@ function Beds() {
       title: "Bed Status",
       field: "bedStatus",
      // editable: true,
-      lookup: { true: "Not Allocated", false: "Allocated" },
+      lookup: { true: "Not Allocated" },
       headerStyle: {
         backgroundColor: "#1E90FF",
         color: "white",
