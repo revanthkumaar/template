@@ -103,9 +103,15 @@ function Room() {
                     "/bed/addRoom",
 
                     newRow1
-                  );
-                  //console.log(newRow1);
+                  )
+                  .catch((err) => {
+                    toast.error("Server error");
+                  });
+                  //console.log(newRow);
+              
                   toast.success("New Room added")
+                  //console.log(newRow1);
+                  
                   setData(updatedRows);
                   resolve();
                 }, 2000);
