@@ -65,7 +65,7 @@ function Floor() {
       .then((res) => {
         setData(res.data);
 
-        //console.log(res.data);
+        console.log(res.data);
       })
 
       .catch((err) => {
@@ -88,7 +88,7 @@ function Floor() {
         <Grid xs={30}>
           <Formik
           initialValues={{ ...INITIAL_FORM_STATE }}>
-          <Grid item xs={12}>
+          {/* <Grid item xs={12}>
                       <InputLabel >
                         
                         Select Building
@@ -100,7 +100,7 @@ function Floor() {
                         onClick={selectBuild}
                         
                       />
-                    </Grid>
+                    </Grid> */}
           </Formik>
         <br/>
         <MaterialTable

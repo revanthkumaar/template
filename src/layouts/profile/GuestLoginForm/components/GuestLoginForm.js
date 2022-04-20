@@ -259,12 +259,12 @@ const GuestLoginForm = () => {
     setOcctype(i.target.outerText);
     if (i.target.outerText == "Daily") {
       setDuration(days);
-      var checkInAmount = amt * (defaultRentofBed / 30) + secureDepo;
+      var checkInAmount = amt * (defaultRentofBed / 30) ;
       setAmountToPay(checkInAmount.toFixed(0));
     } else if (i.target.outerText == "Monthly") {
       setOcctype(i.target.outerText);
       setDuration(months);
-      var checkInAmount = amt * defaultRentofBed + secureDepo;
+      var checkInAmount = amt * defaultRentofBed ;
       setAmountToPay(checkInAmount);
     } else {
       setDuration(empty);
@@ -281,11 +281,11 @@ const GuestLoginForm = () => {
     setAmt(a.target.outerText);
 
     if (occupencyTypeis == 12) {
-      var checkInAmount = a.target.outerText * defaultRentofBed + secureDepo;
+      var checkInAmount = a.target.outerText * defaultRentofBed ;
       setAmountToPay(checkInAmount);
     } else if (occupencyTypeis == 15) {
       var checkInAmount =
-        a.target.outerText * (defaultRentofBed / 30) + secureDepo;
+        a.target.outerText * (defaultRentofBed / 30) ;
       setAmountToPay(checkInAmount.toFixed(0));
     } else {
       setAmountToPay(defaultRentofBed + secureDepo);
@@ -425,13 +425,17 @@ const GuestLoginForm = () => {
                       )}
 
                       <Grid item xs={6}></Grid>
-                      <Grid item xs={6}>
+                      {occtype === "Daily" || occtype === "Monthly" ? (console.log("")):(
+                        <Grid item xs={6}>
                         <Textfield
                           name="securityDeposit"
                           label="Security Deposit"
                           value={secureDepo}
                         />
                       </Grid>
+
+                      )}
+                      
                       <Grid item xs={6}></Grid>
                       <Grid item xs={6}>
                         <Textfield
