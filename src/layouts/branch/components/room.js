@@ -71,7 +71,7 @@ function Room() {
 
       .catch((err) => {
         console.log(err);
-        toast.error("Server error");
+        // toast.error("Server error");
       });
   }, []);
   const owner="Super Admin"
