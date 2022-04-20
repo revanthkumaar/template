@@ -116,7 +116,7 @@ function Floor() {
               },
               validate:rowData =>{
                 if(rowData.buildingId===undefined){
-               return  "Building Id is Required"
+               return  "Building Name is Required"
              
             }
             return true
@@ -172,11 +172,17 @@ function Floor() {
                     "/bed/addFloor",
 
                     newRow
-                  );
+                  )    .catch((err) => {
+                    toast.error("Server error");
+                  });
                   //console.log(newRow);
-                toast.success("Floor Added Successfully")
+              
+                   toast.success("New Floor added");
+                  //console.log(newRow);
+              
                  
                   setData(updatedRows);
+                  // toast.success("Floor Added Successfully")
                   resolve();
                   
                 }, 2000);

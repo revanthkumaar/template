@@ -217,8 +217,14 @@ function Beds() {
                       "/bed/addBed",
 
                       newRow1
-                    );
-                    toast.success("New Bed added")
+                    )
+                    .catch((err) => {
+                      toast.error("Server error");
+                    });
+                    //console.log(newRow);
+                
+                     toast.success("New Bed added");
+                    
                     //console.log(newRow1);
                     setData(updatedRows);
                     resolve();
