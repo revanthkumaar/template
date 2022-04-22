@@ -15,6 +15,8 @@ import Button from "layouts/profile/GuestLoginForm/components/Button";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Backdrop,CircularProgress } from "@mui/material";
+import "./guest.css";
+
 
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 // import { height } from "@mui/system";
@@ -59,7 +61,8 @@ const RecordpaymentsinPopUp = (props) => {
   const classes = useStyles();
 
   return (
-    <Grid container>
+    <div className="record-payment">
+ <Grid container>
       <Grid item xs={12}>
         <Container maxWidth="md">
           <div>
@@ -82,10 +85,7 @@ const RecordpaymentsinPopUp = (props) => {
                 
                 }
 
-                
-                
-                
-                
+                       
               
                 setTimeout(() => {
                   resetForm();
@@ -147,7 +147,9 @@ const RecordpaymentsinPopUp = (props) => {
         </Container>
       </Grid>
     </Grid>
-  );
+
+    </div>
+      );
 };
 
 export default RecordpaymentsinPopUp;

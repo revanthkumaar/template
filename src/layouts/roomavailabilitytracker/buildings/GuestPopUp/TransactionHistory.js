@@ -34,7 +34,8 @@ export default function TransactionHistory(props) {
     fetchData();
   }, []);
   return (
-    <TableContainer sx={{ alignContent: "center" }} component={Paper}>
+    <div className="payBox">
+<TableContainer sx={{ alignContent: "center" }} component={Paper}>
       <Table sx={{ minWidth: 500 }} aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -77,5 +78,7 @@ export default function TransactionHistory(props) {
         </TableBody>
       </Table>
     </TableContainer>
+    </div>
+    
   );
 }
