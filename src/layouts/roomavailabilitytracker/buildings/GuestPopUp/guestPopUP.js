@@ -86,6 +86,9 @@ export default function GuestPopUp({ open, handleClose, ...props }) {
           <DialogContent>
             <Guestdetails guestdetails={props.GuestDetails} />
           
+          <br/>
+          <h3 className='head-1-checkOut'>Transaction History</h3>
+          <br/>
             <TransactionHistory guestdetails={props.GuestDetails} />
           </DialogContent>
           <DialogActions>
