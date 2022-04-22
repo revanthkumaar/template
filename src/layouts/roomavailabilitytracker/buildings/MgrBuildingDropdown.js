@@ -58,9 +58,9 @@ function MgrBuildingDropdown(props) {
         <Grid item xs={6}>
           <BedSummaryChart buildingId={buildingsId} />
         </Grid>
-        <Grid item xs={6}>
+        {/* <Grid item xs={6}>
           <PaymentSummaryChart buildingId={buildingsId} />
-        </Grid>
+        </Grid> */}
       </Grid>
         <BuildingsLayout buildingId={buildingsId} /> 
         </Grid>

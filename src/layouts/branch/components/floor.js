@@ -56,7 +56,25 @@ function Floor() {
     return acc;
   }, {});
   //console.log(obj);
-  localStorage.setItem("buildinfo",JSON.stringify(obj))
+  // localStorage.setItem("buildinfo",JSON.stringify(obj))
+
+
+  useEffect(() => {
+    axios
+
+      .get("/bed/getAllFloors")
+
+      .then((res) => {
+        setData(res.data);
+
+        console.log(res.data);
+      })
+
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   useEffect(() => {
     axios
 
@@ -82,25 +100,18 @@ function Floor() {
   return (
     
       
-    
+    <>
     
     <Grid container>
         <Grid xs={30}>
           <Formik
           initialValues={{ ...INITIAL_FORM_STATE }}>
-          <Grid item xs={12}>
-                      <InputLabel >
-                        
-                        Select Building
-                      </InputLabel>
-                      <Select
-                       
-                        name="occupancyType"
-                        options={obj}
-                        onClick={selectBuild}
-                        
-                      />
-                    </Grid>
+          <Grid item xs={3}><InputLabel >Select Building</InputLabel>
+                      <Select name="occupancyType" options={obj} onClick={selectBuild}/>
+          </Grid>
+          <Grid item xs={3}><InputLabel >Select Building</InputLabel>
+                      <Select name="occupancyType" options={obj} onClick={selectBuild}/>
+          </Grid>
           </Formik>
         <br/>
         <MaterialTable
@@ -189,12 +200,12 @@ function Floor() {
               }),
             onRowDelete: (selectedRow) =>
               new Promise((resolve, reject) => {
-                const index = selectedRow.building_id;
+                const index = selectedRow.floor_id;
                 const updatedRows = [...data];
                 updatedRows.splice(index, 1);
                 setTimeout(() => {
                   const res = axios.delete(
-                    `/bed/deleteBuilding/${index}`
+                    `/deleteFloor/${index}`
                   );
                   // console.log(res);
                   // console.log(updatedRows);
@@ -204,12 +215,12 @@ function Floor() {
               }),
             onRowUpdate: (updatedRow, oldRow) =>
               new Promise((resolve, reject) => {
-                const index = oldRow.building_id;
+                const index = oldRow.floor_id;
                 const updatedRows = [...data];
                 updatedRows[index] = updatedRow;
                 setTimeout(() => {
                   const res = axios.put(
-                    `/bed/updateBuildingById/${index}`,
+                    `/bed/updateFlooById/${index}`,
                     updatedRow
                   )
                   .catch((err) => {
@@ -258,6 +269,6 @@ function Floor() {
       </Grid>
     
  
-);
+      </>);
 }
 export default Floor;
