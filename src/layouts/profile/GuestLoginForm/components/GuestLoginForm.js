@@ -207,14 +207,17 @@ const GuestLoginForm = () => {
 
         res.data.map((data) => {
           if (userBuildingId === data.buildingId) {
+            console.log('this is manager')
             buildingNamesArray.push(data.buildingName);
+            console.log(buildingNamesArray)
           } else if (userBuildingId === 0) {
+            console.log('this is admin')
             buildingNamesArray.push(data.buildingName);
           } else {
             console.log("hi");
           }
         });
-
+        console.log(buildingNamesArray)
         setBuilding(buildingNamesArray);
       })
 
@@ -386,7 +389,7 @@ const GuestLoginForm = () => {
                         <Select
                           className={classes.root}
                           name="buildingId"
-                          options={obje1}
+                          options={building}
                           onClick={handleClick}
                           required
                         ></Select>
