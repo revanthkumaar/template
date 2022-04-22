@@ -1,4 +1,3 @@
-import React from "react";
 import { Grid } from "@mui/material";
 import "./guest.css";
 //import formatDate from "../guestPopUP/formateDate";
@@ -20,12 +19,13 @@ function Guestdetails(props) {
 
   return (
     <Grid>
+      <h2 className="header-p">Personal Details </h2>
       <div class="float-container">
-        <div class="float-child">
+        <div class="float-child-1">
           <Grid container spacing={2} columns={16}>
             <Grid item xs={12}>
               <h4 style={{ width: "65%", marginBottom: "5px" }}>
-                Guest Id &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+                Guest Id &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
                 &nbsp;{props.guestdetails.id}
               </h4>
             </Grid>
@@ -53,21 +53,25 @@ function Guestdetails(props) {
                 CheckIn Date&nbsp;:{formatDate(props.guestdetails.checkInDate)}
               </h4>
             </Grid>
-            {props.guestdetails.checkInDate == "regular" ? (
+            {props.guestdetails.checkOutDate == "regular" ? (
+                           <Grid item xs={12}>
+                           <h4 style={{ width: "80%", marginBottom: "10px" }}>
+                             CheckOut Date&nbsp;:{(props.guestdetails.checkOutDate)}
+                           </h4>
+                         </Grid>
+           
+            ):(
               <Grid item xs={12}>
-              <h4 style={{ width: "80%", marginBottom: "10px" }}>
-                CheckIn Date&nbsp;:Not Applicable
-              </h4>
-            </Grid>
-            ):(<Grid item xs={12}>
-              <h4 style={{ width: "80%", marginBottom: "10px" }}>
-                CheckOut Date&nbsp;:{(props.guestdetails.checkOutDate)}
-              </h4>
-            </Grid>)}
+              {/* <h4 style={{ width: "80%", marginBottom: "10px" }}>
+                CheckOut Date&nbsp; : Not Applicable
+              </h4> */}
+              </Grid>
+            )}
+            
           </Grid>
         </div>
 
-        <div class="float-child">
+        <div class="float-child-2">
           <Grid item xs={12}>
             <h4
               style={{ width: "65%", marginLeft: "50px", marginBottom: "20px" }}
@@ -84,6 +88,21 @@ function Guestdetails(props) {
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:{" "}
               {props.guestdetails.bedId}
             </h4>
+          </Grid>
+          <Grid item xs={12}>
+
+            <h4
+
+              style={{ width: "65%", marginLeft: "50px", marginBottom: "20px" }}
+
+            >
+
+              Duration&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:{" "}
+
+              {props.guestdetails.duration}
+
+            </h4>
+
           </Grid>
           <Grid item xs={12}>
             <h4
@@ -106,20 +125,9 @@ function Guestdetails(props) {
             <h4
               style={{ width: "65%", marginLeft: "50px", marginBottom: "20px" }}
             >
-              
-              Amount To Be Paid &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:{" "}
-              {props.guestdetails.amountToBePaid}
-              {/* //amountToBePaid */}
-            </h4>
-          </Grid>
-          <Grid item xs={12}>
-            <h4
-              style={{ width: "65%", marginLeft: "50px", marginBottom: "20px" }}
-            >
               Due
               Amount&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:{" "}
               {props.guestdetails.dueAmount}
-              {/* //amountToBePaid */}
             </h4>
           </Grid>
         </div>

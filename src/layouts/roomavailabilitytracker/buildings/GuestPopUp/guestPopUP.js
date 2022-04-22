@@ -17,6 +17,8 @@ import TransactionHistory from "./TransactionHistory";
 import RecordpaymentsinPopUp from "./RecordpaymentsinPopUp";
 import Guestdetails from "./guestdetails";
 // import AppBar from "@mui/material/AppBar";
+import CheckOut from "./CheckOut";
+import "./guest.css";
 
 import Toolbar from "@mui/material/Toolbar";
 
@@ -38,12 +40,16 @@ export default function GuestPopUp({ open, handleClose, ...props }) {
           <DialogContent>
             <Guestdetails guestdetails={props.GuestDetails} />
             <br />
-            <br />
-            <br />
+
+
+            <CheckOut guestdetails={props.GuestDetails} />
+            <br/>
+            <h2 className='head-1-checkOut'>Payments</h2>
+            <br/>
             <RecordpaymentsinPopUp guestdetails={props.GuestDetails} />
             <DialogTitle>
               <br />
-              TRANSACTION HISTORY
+              <h3 className='head-1-checkOut'>Transaction History</h3>
             </DialogTitle>
             <TransactionHistory guestdetails={props.GuestDetails} />
           </DialogContent>
@@ -79,7 +85,7 @@ export default function GuestPopUp({ open, handleClose, ...props }) {
           </MDButton>
           <DialogContent>
             <Guestdetails guestdetails={props.GuestDetails} />
-
+          
             <TransactionHistory guestdetails={props.GuestDetails} />
           </DialogContent>
           <DialogActions>
