@@ -85,7 +85,11 @@ export default function GuestPopUp({ open, handleClose, ...props }) {
           </MDButton>
           <DialogContent>
             <Guestdetails guestdetails={props.GuestDetails} />
-          
+            <br />
+
+<CheckOut guestdetails={props.GuestDetails} />
+<br/>
+
           <br/>
           <h3 className='head-1-checkOut'>Transaction History</h3>
           <br/>
