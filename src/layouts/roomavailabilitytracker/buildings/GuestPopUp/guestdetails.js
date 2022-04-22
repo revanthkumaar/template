@@ -53,6 +53,17 @@ function Guestdetails(props) {
                 CheckIn Date&nbsp;:{formatDate(props.guestdetails.checkInDate)}
               </h4>
             </Grid>
+            {props.guestdetails.checkInDate == "regular" ? (
+              <Grid item xs={12}>
+              <h4 style={{ width: "80%", marginBottom: "10px" }}>
+                CheckIn Date&nbsp;:Not Applicable
+              </h4>
+            </Grid>
+            ):(<Grid item xs={12}>
+              <h4 style={{ width: "80%", marginBottom: "10px" }}>
+                CheckOut Date&nbsp;:{(props.guestdetails.checkOutDate)}
+              </h4>
+            </Grid>)}
           </Grid>
         </div>
 
@@ -95,9 +106,20 @@ function Guestdetails(props) {
             <h4
               style={{ width: "65%", marginLeft: "50px", marginBottom: "20px" }}
             >
+              
+              Amount To Be Paid &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:{" "}
+              {props.guestdetails.amountToBePaid}
+              {/* //amountToBePaid */}
+            </h4>
+          </Grid>
+          <Grid item xs={12}>
+            <h4
+              style={{ width: "65%", marginLeft: "50px", marginBottom: "20px" }}
+            >
               Due
               Amount&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:{" "}
               {props.guestdetails.dueAmount}
+              {/* //amountToBePaid */}
             </h4>
           </Grid>
         </div>

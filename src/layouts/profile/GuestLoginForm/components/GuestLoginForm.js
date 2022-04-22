@@ -54,7 +54,7 @@ const INITIAL_FORM_STATE = {
   bedId: "",
   occupancyType: "",
   duration: "",
-  amountTopay: "",
+  // amountTopay: "",
   amountPaid: "",
   transactionId: "",
   addressLine1: "",
@@ -62,7 +62,7 @@ const INITIAL_FORM_STATE = {
   pincode: "",
   city: "",
   state: "",
-  amountTopay: "",
+  amountToBePaid: "",
   defaultRent: "",
   securityDeposit: "",
   checkinNotes: "",
@@ -169,7 +169,7 @@ const GuestLoginForm = () => {
   const [rent, setRent] = React.useState([]);
   const [duration, setDuration] = React.useState([]);
   const [defaultRentofBed, setDefaultRentofBed] = React.useState([]);
-  const [amountToPay, setAmountToPay] = React.useState([]);
+  const [amountTooPay, setAmountToPay] = React.useState([]);
   const [occtype, setOcctype] = React.useState([]);
   const [amt, setAmt] = React.useState([]);
   //const [loading, setLoading] = React.useState(false);
@@ -233,7 +233,7 @@ const GuestLoginForm = () => {
   
 
   const handleClick = (id) => {
-    console.log(id)
+    
     setPutBuilding(id.target.outerText);
     //console.log(id);
 
@@ -307,7 +307,7 @@ const GuestLoginForm = () => {
   // const obje = { buildingId: bid };
   const objee = { defaultRent: rent };
   const obj1 = { securityDeposit: secureDepo };
-  const obj2 = { amountToPay: amountToPay };
+  const obj2 = { amountToBePaid: amountTooPay };
   const amountNeedToPay = (n) => {
     // console.log(n.target.value);
   };
@@ -335,8 +335,8 @@ const GuestLoginForm = () => {
                   const guestdata = Object.assign(gusting1, obj2);
                   console.log(guestdata);
                   console.log(gusting.amountPaid);
-                  console.log(amountToPay);
-                  if (guestdata.amountPaid == amountToPay) {
+                  console.log(amountTooPay);
+                  if (guestdata.amountPaid == amountTooPay) {
                     const res = await axios
                       .post(
                         "/guest/addGuest",
@@ -457,9 +457,9 @@ const GuestLoginForm = () => {
                       <Grid item xs={6}></Grid>
                       <Grid item xs={6}>
                         <Textfield
-                          name="amountTopay"
+                          name="amountToBePaid"
                           label="Amount To Be Paid"
-                          value={amountToPay}
+                          value={amountTooPay}
                         />
                       </Grid>
                       <Grid item xs={12}>
