@@ -9,9 +9,10 @@ import { useState,useEffect } from 'react';
 import axios from "../../../../Uri";
 
 
-
+var OccupancyType = null
   
 const CheckOut = (props) => {
+  OccupancyType = props.guestdetails.occupancyType
     const[dueAmount,setDueAmount]=useState(null)
     const[checkOutDate,setCheckOutDate]=useState(null)
   const dt = null;
@@ -20,6 +21,7 @@ const CheckOut = (props) => {
     let dt = new Date().toLocaleDateString();
     setDate(dt);
     console.log(props.guestdetails.id)
+    // console.log(props.guestdetails.occupancyType)
 
     axios.get( `guest/getFinalDueAmountForCheckout/${props.guestdetails.id}`).then((res)=>setDueAmount(res.data))
 
@@ -35,10 +37,13 @@ const CheckOut = (props) => {
      
     <div className=' checkOutBox'>
         <Grid container>
-<Grid xs={5} sx={{pt:"30px",pr:"40px"}}>
+          {OccupancyType == "daily" || OccupancyType == "monthly" ? (<div></div>) : (<Grid xs={5} sx={{pt:"30px",pr:"40px"}}>
     <Button variant="contained" color="primary" style={{color:"white"}} onClick={handelDate}>Initiate CheckOut</Button>
     <p className="Text-CheckOut">Checkout Initiated on: {cdate}</p>
-    </Grid>
+    </Grid>)}
+
+          {}
+
 
     {dueAmount == null ? (<div></div>) :  ( <Grid xs={3} sx={{}}>
        
