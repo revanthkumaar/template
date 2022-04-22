@@ -361,6 +361,7 @@ const GuestLoginForm = () => {
                       resetForm();
                     }
                   } else {
+                    handleClose();
                     toast.error(" Need to pay full Amount");
                   }
 
