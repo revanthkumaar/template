@@ -77,9 +77,9 @@ export default function LeaveManagementTabs() {
           aria-label="full width tabs example"
         >
           <Tab label="Buildings" {...a11yProps(0)} />
-          <Tab label="Floors" {...a11yProps(1)} />
-          <Tab label="Rooms" {...a11yProps(2)} />
-          <Tab label="Beds" {...a11yProps(3)} />
+          {/* <Tab label="Floors" {...a11yProps(1)} /> */}
+          <Tab label="Rooms" {...a11yProps(1)} />
+          <Tab label="Beds" {...a11yProps(2)} />
          
         </Tabs>
       </AppBar>
@@ -90,13 +90,13 @@ export default function LeaveManagementTabs() {
         <TabPanel value={value} index={0} >
         <Build/>
         </TabPanel>
-        <TabPanel value={value} index={1} >
+        {/* <TabPanel value={value} index={1} >
         <Floor/>
-        </TabPanel>
-        <TabPanel value={value} index={2} >
+        </TabPanel> */}
+        <TabPanel value={value} index={1} >
           <Room/>
         </TabPanel>
-        <TabPanel value={value} index={3} >
+        <TabPanel value={value} index={2} >
           <Beds/>
         </TabPanel>
         {/* <TabPanel value={value} index={4} >

@@ -1,29 +1,124 @@
-import React, { useState ,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import MaterialTable from "material-table";
 // import axios from "axios";
-import { Grid } from "@mui/material";
+import { Grid, InputLabel } from "@mui/material";
 import axios from "../../../Uri";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
+import Select from "../../profile/GuestLoginForm/components/Select";
+import { Formik, Form } from "formik";
 
 
+// var buildingId = null
+// var Floor = []
 
+
+const INITIAL_FORM_STATE = {
+  selectBuilding: "",
+  selectFloor: ""
+
+}
 
 
 function Room() {
   const [data, setData] = useState([]);
-  
+  const [building, setBuilding] = useState([]);
+  const [floor, setFloor] = useState([])
+  const [buildName, setBuildName] = useState([])
+  const [floorName, setFloorName] = useState([])
+  const [buildingId , setBuildingId] = useState(null)
+  const [floorId , setFloorId] = useState(null)
+  let buildingNames = []
+  useEffect(() => {
+    axios.get("/bed/getBuildingIdAndName")
+      .then((res) => {
+       
+
+        setBuilding(res.data)
+        res.data.map((post) => {
+          buildingNames.push(post.buildingName)
+        })
+        
+
+      })
+      .catch((err) => {
+      })
+  }, [])
+  var obj = building.reduce(function (acc, cur, i) {
+    acc[cur.buildingId] = cur.buildingName;
+
+    return acc;
+  }, {});
+  console.log(obj)
+
+  // useEffect(() => {
+  //   axios
+
+  //     .get(`bed/getFloorIdAndNameByBuildingId/${obj}`)
+
+  //     .then((res) => {
+  //       setFloor(res.data);
+
+  //       console.log(res.data);
+  //     })
+
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, [obj]);
+  var obj1 = null
+
+
   const columns = [
-    {
-      title: "Room Id",
-      editable:false,
-      field: "roomId",
-      headerStyle: {
-        backgroundColor: "#1E90FF",
-        color: "white",
-      },
-  
-    },
+    // {
+    //   title: "Building Name",
+    //   field: "buildingId",
+    //   lookup: obj,
+    //   onClick: rowData => {
+    //     alert(rowData.buildingId)
+    //   },
+    //   // data.map(ro=>console.log(ro.beds)),
+    //   headerStyle: {
+    //     backgroundColor: "#1E90FF",
+    //     color: "white",
+    //   },
+    //   validate: rowData => {
+    //     if (rowData.buildingId === undefined) {
+    //       return "Building Name is Required"
+
+    //     }
+    //     return true
+    //   }
+    // },
+    // {
+    //   title: "Floor Number",
+    //   field: "floorNumber",
+    //   // lookup:obj1,
+    //   // type:getGridNumericOperators,
+    //   headerStyle: {
+    //     backgroundColor: "#1E90FF",
+    //     color: "white",
+
+
+    //   },
+    //   validate: rowData => {
+    //     if (rowData.floorNumber === undefined) {
+    //       return "Floor Number is Required"
+
+    //     }
+    //     return true
+    //   }
+    // },
+    // {
+    //   title: "Room Id",
+    //   editable:false,
+    //   field: "roomId",
+    //   headerStyle: {
+    //     backgroundColor: "#1E90FF",
+    //     color: "white",
+    //   },
+
+    // },
     {
       title: "Room Number",
       field: "roomNumber",
@@ -31,64 +126,118 @@ function Room() {
         backgroundColor: "#1E90FF",
         color: "white",
       },
-      validate:rowData =>{
-        if(rowData.roomNumber===undefined){
-       return  "Room Number is Required"
-     
-    }
-    return true
+      validate: rowData => {
+        if (rowData.roomNumber === undefined) {
+          return "Room Number is Required"
+
+        }
+        return true
       }
-      
+
     },
-    {
-      title: "Floor Id",
-      field: "floorId",
-      headerStyle: {
-        backgroundColor: "#1E90FF",
-        color: "white",
-      },
-      validate:rowData =>{
-        if(rowData.floorId===undefined){
-       return  "floor id is Required"
-     
-    }
-    return true
-      }
-    },
+    
 
   ];
 
   useEffect(() => {
     axios
 
-      .get("/bed/getAllRooms")
+      .get(`/bed/getRoomIdAndNameByFloorId/${floorId}`)
 
       .then((res) => {
         setData(res.data);
 
-        //console.log(res.data);
+        
       })
 
       .catch((err) => {
         console.log(err);
-        // toast.error("Server error");
+        
       });
-  }, []);
-  const owner="Super Admin"
-  const obje = { createdBy: owner };
+  }, [floorId]);
+  
+
+
+
+  const selectBuild = (i) => {
+    
+    console.log(i.target.dataset.value)
+
+
+  }
+  const selectFloor = (e) => {
+    setFloorName(e.target.outerText)
+    console.log(e.target.dataset.value)
+  }
+
+  useEffect(() => {
+     axios.get(`bed/getFloorIdAndNameByBuildingId/${buildingId}`)
+
+      .then((res) => {
+        setFloor(res.data)
+
+        console.log(res.data);
+      })
+
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [buildingId]);
+  obj1 = floor.reduce(function (acc, cur, i) {
+    acc[cur.floorId] = cur.floorNumber;
+
+    return acc;
+  }, {});
+
+const obje = {floorId:floorId}
+
 
   return (
-    
-      
-    
-    
-    <Grid container>
-        <Grid xs={30}>
-      
+  <div>
+    <Grid container rowSpacing={8}>
+
+      <Grid item xs={12}>
+        <Formik
+          initialValues={{ ...INITIAL_FORM_STATE }}>
+          {(formProps) => (<Form>
+            <Grid container>
+ 
+            <Grid item xs={4}>
+              <InputLabel >Select Building</InputLabel>
+              <Select name="selectBuilding" options={obj}
+                onClick={(i) => {
+                  setBuildingId(i.target.dataset.value)
+                  console.log(buildingId)
+                }}
+              />
+            </Grid>
+           
+       
+           
+            { obj1 === null ? (console.log("obj1 is null")) : (<Grid item xs={4}><InputLabel >Select Floor</InputLabel> 
+                                           <Select name="selectFloor" options={obj1} onClick={(i)=>{
+                                             
+                                             setFloorId(i.target.dataset.value)
+                                             console.log(floorId)
+                                             }} /></Grid>)}
+              
+           
+            </Grid>
+          </Form>)}
+
+        </Formik>
+        </Grid>
+        
+
+
+
+        {/* <Grid xs={30}> */}
+        <Grid item xs={12}>
         <MaterialTable
           title="Manage Rooms"
           data={data}
           sx={{ color: "white" }}
+          rowsPerPageOptions={20}
           columns={columns}
           editable={{
             onRowAdd: (newRow) =>
@@ -104,14 +253,14 @@ function Room() {
 
                     newRow1
                   )
-                  .catch((err) => {
-                    toast.error("Server error");
-                  });
-                  //console.log(newRow);
-              
+                    .catch((err) => {
+                      toast.error("Server error");
+                    });
+                  console.log(newRow1);
+
                   toast.success("New Room added")
                   //console.log(newRow1);
-                  
+
                   setData(updatedRows);
                   resolve();
                 }, 2000);
@@ -148,9 +297,13 @@ function Room() {
                 }, 2000);
               }),
           }}
+          // actions={[{onClick:(rowData) => {
+          //   console.log(lookup[rowData.buildingId])
+          // }}]}
           options={{
-            exportButton:true,
-            grouping:true,
+            exportButton: true,
+            grouping: true,
+
             actionsColumnIndex: -1,
             addRowPosition: "first",
             headerStyle: {
@@ -165,22 +318,24 @@ function Room() {
             },
           }}
         />
-           <ToastContainer  maxWidth="sx"
-               position="top-right"
-               autoClose={3000}
-               type="toast.TYPE.SUCCESS"
-               hideProgressBar={false}
-               newestOnTop={false}
-               closeOnClick
-               rtl={false}
-               pauseOnFocusLoss
-               draggable
-               pauseOnHover
-               />
+        <ToastContainer maxWidth="sx"
+          position="top-right"
+          autoClose={3000}
+          type="toast.TYPE.SUCCESS"
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+      </Grid> 
+  
+
       </Grid>
-      </Grid>
-    
- 
-);
+      </div>
+
+      );
 }
 export default Room;

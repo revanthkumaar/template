@@ -62,9 +62,9 @@ function AdmBuildingDropdown(props) {
       <Grid item xs={6}>
         <BedSummaryChart buildingId={buildingId} />
       </Grid>
-      <Grid item xs={6}>
+      {/* <Grid item xs={6}>
         <PaymentSummaryChart buildingId={buildingId} />
-      </Grid>
+      </Grid> */}
     </Grid>
       <BuildingsLayout buildingId={buildingId} />    
       </div>)}
