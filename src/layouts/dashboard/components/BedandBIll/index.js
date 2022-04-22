@@ -79,7 +79,7 @@ function BedandBill(props) {
                   Total Beds
                 </MDTypography>
                 <Divider variant="insent" fullWidth />
-                <MDTypography
+                {/* <MDTypography
                   color="light"
                   align="center"
                   textTransform="capitalize"
@@ -89,7 +89,7 @@ function BedandBill(props) {
                   <IconButton>
                     <ArrowCircleRightRoundedIcon fontSize="medium" />
                   </IconButton>
-                </MDTypography>
+                </MDTypography> */}
               </CardContent>
             </Card>
           </MDBox>
@@ -110,7 +110,7 @@ function BedandBill(props) {
                   Available Beds
                 </MDTypography>
                 <Divider variant="insent" fullWidth />
-                <MDTypography
+                {/* <MDTypography
                   color="light"
                   align="center"
                   textTransform="capitalize"
@@ -120,7 +120,7 @@ function BedandBill(props) {
                   <IconButton>
                     <ArrowCircleRightRoundedIcon fontSize="medium" />
                   </IconButton>
-                </MDTypography>
+                </MDTypography> */}
               </CardContent>
             </Card>
           </MDBox>
@@ -136,7 +136,7 @@ function BedandBill(props) {
                   Overdue amount
                 </MDTypography>
                 <Divider variant="insent" fullWidth />
-                <MDTypography
+                {/* <MDTypography
                   color="light"
                   align="center"
                   textTransform="capitalize"
@@ -146,7 +146,7 @@ function BedandBill(props) {
                   <IconButton>
                     <ArrowCircleRightRoundedIcon fontSize="medium" />
                   </IconButton>
-                </MDTypography>
+                </MDTypography> */}
               </CardContent>
             </Card>
           </MDBox>
@@ -167,7 +167,7 @@ function BedandBill(props) {
                   Pending payments
                 </MDTypography>
                 <Divider variant="insent" fullWidth />
-                <MDTypography
+                {/* <MDTypography
                   color="light"
                   align="center"
                   textTransform="capitalize"
@@ -177,7 +177,7 @@ function BedandBill(props) {
                   <IconButton>
                     <ArrowCircleRightRoundedIcon fontSize="medium" />
                   </IconButton>
-                </MDTypography>
+                </MDTypography> */}
               </CardContent>
             </Card>
           </MDBox>
