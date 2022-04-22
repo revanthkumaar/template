@@ -89,6 +89,14 @@ function Guestdetails(props) {
             <h4
               style={{ width: "65%", marginLeft: "50px", marginBottom: "20px" }}
             >
+              Duration&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:{" "}
+              {props.guestdetails.duration}
+            </h4>
+          </Grid>
+          <Grid item xs={12}>
+            <h4
+              style={{ width: "65%", marginLeft: "50px", marginBottom: "20px" }}
+            >
               Security Deposit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:{" "}
               {props.guestdetails.securityDeposit}
             </h4>
