@@ -41,88 +41,11 @@ function Build() {
         validate:rowData =>{
           if(rowData.building_name === undefined||rowData.building_name=== ""){
             return "Required"
-          }else if(rowData.building_name=="1"){
-            return" Please enter alphabets"
+          }else if(!rowData.building_name.match(/[^0-9]/g)){
+            return" Enter Valid Name"
           }
-          else if(rowData.building_name=="2"){
-            return" Please enter alphabets"
-          }
-          else if(rowData.building_name=="3"){
-            return" Please enter alphabets"
-          }
-          else if(rowData.building_name=="4"){
-            return" Please enter alphabets"
-          }
-          else if(rowData.building_name=="6"){
-            return" Please enter alphabets"
-          }
-          else if(rowData.building_name=="7"){
-            return" Please enter alphabets"
-          }
-          else if(rowData.building_name=="8"){
-            return" Please enter alphabets"
-          }
-          else if(rowData.building_name=="9"){
-            return"Please enter alphabets"
-          }
-          else if(rowData.building_name=="0"){
-            return" Please enter alphabets"
-          }
-          return true
-        }
-      
-    },
-    {
-      title: "Role",
-      field: "userType",
-      lookup:{manager:"Manager",},
-    
-   
-      headerStyle: {
-        backgroundColor: "#1E90FF",
-        color: "white"
-      }
-    },
-
-    {
-      title: "Manger Name",
-      field: "userName",
-      
-     // lookup: { true: "Not Allocated", false: "Allocated" },
-      headerStyle: {
-        backgroundColor: "#1E90FF",
-        color: "white"},
-        validate:rowData =>{
-          if(rowData.userName === undefined||rowData.userName=== ""){
-            return "Required"
-          }else if(rowData.userName =="1"){
-            return" Please enter alphabets"
-          }
-          else if(rowData.userName =="2"){
-            return" Please enter alphabets"
-          }
-          else if(rowData.userName =="3"){
-            return" Please enter alphabets"
-          }
-          else if(rowData.userName =="4"){
-            return" Please enter alphabets"
-          }
-          else if(rowData.userName =="6"){
-            return" Please enter alphabets"
-          }
-          else if(rowData.userName =="7"){
-            return" Please enter alphabets"
-          }
-          else if(rowData.userName =="8"){
-            return" Please enter alphabets"
-          }
-          else if(rowData.userName =="9"){
-            return"Please enter alphabets"
-          }
-          else if(rowData.building_name=="0"){
-            return" Please enter alphabets"
           
-          }
+          
           return true
         }
       },
@@ -169,10 +92,9 @@ function Build() {
       validate: rowData => {
         if (rowData.userPhoneNumber === undefined || rowData.userPhoneNumber === "") {
           return "Required"
-        } else if (rowData.userPhoneNumber.length < 10 || rowData.userPhoneNumber.length > 10) {
-          return "Phone number should contains 10 digits"
-          //  return {isValid:false,helperText:"Phone number should contains 10 digits"}
-        }
+        } else if(rowData.userPhoneNumber.match(/[^0-9]/g)){
+          return" Please enter valid Phone number"
+        } 
         
         return true
       },

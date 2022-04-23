@@ -126,6 +126,9 @@ function Beds() {
        return  "Bed Name is Required"
      
   }
+  else if(!rowData.bedName.match(/[^0-9]/g)){
+    return" Please enter valid name"
+  }
     return true
       },
     },
@@ -141,6 +144,9 @@ function Beds() {
        return  "Default Rent is Required"
      
     }
+    else if(rowData.defaultRent.match(/[^0-9]/g)){
+      return" Please enter valid number"
+    }
     return true
       },
     },
@@ -152,9 +158,12 @@ function Beds() {
         color: "white",
       },
       validate:rowData =>{
-        if(rowData.bedName===undefined){
+        if(rowData.securityDeposit===undefined){
        return  "Security Deposit is Required"
      
+    }
+    else if(rowData.securityDeposit.match(/[^0-9]/g)){
+      return" Please enter valid numbers"
     }
     return true
       },
