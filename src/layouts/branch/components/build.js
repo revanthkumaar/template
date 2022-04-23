@@ -95,7 +95,10 @@ function Build() {
         } else if(rowData.userPhoneNumber.match(/[^0-9]/g)){
           return" Please enter valid Phone number"
         } 
-        
+        else if(rowData.userPhoneNumber.length<10||rowData.userPhoneNumber.length>10){
+          return" Please enter valid mobile number"
+  
+          }
         return true
       },
     }
