@@ -92,10 +92,10 @@ function Build() {
       validate: rowData => {
         if (rowData.userPhoneNumber === undefined || rowData.userPhoneNumber === "") {
           return "Required"
-        } else if(rowData.userPhoneNumber.match(/[^0-9]/g)){
-          return" Please enter valid Phone number"
-        } 
-        else if(rowData.userPhoneNumber.length<10||rowData.userPhoneNumber.length>10){
+        // } else if(rowData.userPhoneNumber.match(/[^0-9]/g)){
+        //   return" Please enter valid Phone number"
+         } 
+        else if (rowData.userPhoneNumber.length<10||rowData.userPhoneNumber.length>10){
           return" Please enter valid mobile number"
   
           }
