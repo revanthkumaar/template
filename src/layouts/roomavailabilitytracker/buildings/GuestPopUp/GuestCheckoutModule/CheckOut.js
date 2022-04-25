@@ -1,28 +1,16 @@
 import React from 'react'
 //import Button from "layouts/profile/GuestLoginForm/components/Button";
-import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
-//import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import "./guest.css";
+
+import  "./CheckOut.css"
 //import { Button } from '@mui/material';
 import Button from '@mui/material/Button';
 import { Container, Grid, InputLabel } from "@mui/material";
-import { useState, useEffect } from 'react';
-import axios from "../../../../Uri";
-import Refund from "./Refund";
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  height: 500,
-  transform: 'translate(-50%, -50%)',
-  width: 500,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-};
+
+import { useState,useEffect } from 'react';
+import axios from "../../../../../Uri";
+import ManagerPaymentsinPopup from './managerPaymentModule/managerPaymentinPopUp';
+import GuestpaymentsinPopUp from './GuestPaymentModule/GuestpaymentsinPopUp';
+
 
 function formatDate(checkInDate) {
   var datePart = checkInDate.match(/\d+/g),
@@ -60,37 +48,37 @@ const CheckOut = (props) => {
   }
   return (
     <>
-      <h2 className='head-1-checkOut'>CheckOut</h2>
-
-      <div className=' checkOutBox'>
+     
+      {/* <ManagerPaymentsinPopup  guestdetails={props.guestdetails}/> */}
+      {/* <GuestpaymentsinPopUp guestdetails={props.guestdetails}/> */}
         <Grid container>
-          {OccupancyType == "daily" || OccupancyType == "monthly" ? (<div></div>) : (
-          
-          <Grid xs={5} sx={{ pt: "30px", pr: "40px" }}>
-            <Button variant="contained" color="primary" style={{ color: "white" }} onClick={handelDate}>Initiate CheckOut</Button>
-            <p className="Text-CheckOut">Checkout Initiated on: {cdate}</p>
+
+          {OccupancyType == "daily" || OccupancyType == "monthly" ? (<div></div>) : (<Grid xs={5} sx={{pt:"30px",pr:"40px"}}>
+    <Button variant="contained" color="primary" style={{color:"white"}} onClick={handelDate}>Initiate CheckOut</Button>
+    <p className="Text-CheckOut">Checkout Initiated on: {cdate}</p>
+    </Grid>)}
+
+          {}
+
+
+    {dueAmount == null ? (<div></div>) :  ( <Grid xs={3} sx={{}}>
+       
+       <Button variant="outlined" color="primary" style={{color:"black"}}>Final Due Amount:  {dueAmount}</Button>
           </Grid>)}
 
           { }
 
 
-          {dueAmount == null ? (<div></div>) : (<Grid xs={3} sx={{}}>
-            <Button variant="outlined" color="primary" style={{ color: "black" }}>DueAmount:  {dueAmount}</Button>
-            <br />
-            <br />
-            {dueAmount < 0 ? (
-              <Button variant="contained" color="primary" style={{ color: "white" }} onClick={() => { setManagerPayment(true) }}>Refund Payment</Button>
-            ) : (<Grid>  </Grid>)}
-
-          </Grid>)}
+          
           <Grid xs={4} sx={{ pt: "30px", pl: "90px" }} >
             <Button variant="contained" color="primary" style={{ color: "white" }} onClick={finalCheckOutHandler}>Final CheckOut</Button>
             <p className="Text-CheckOut">Checkout Date:{checkOutDate}</p>
 
           </Grid>
         </Grid>
+        <GuestpaymentsinPopUp guestdetails={props.guestdetails}/>
 
-      </div>
+      {/* </div> */}
     </>
   )
 }

@@ -1,10 +1,12 @@
 import React from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import axios from "../../../../Uri";
+// import axios from "axios";
+import axios from "../../../../../../Uri";
 import { Container, Grid, InputLabel } from "@mui/material";
 
 import { makeStyles } from "@mui/styles";
+import MDTypography from "components/MDTypography";
 
 import Textfield from "layouts/profile/GuestLoginForm/components/TextField";
 import Select from "layouts/profile/GuestLoginForm/components/Select";
@@ -14,7 +16,7 @@ import Button from "layouts/profile/GuestLoginForm/components/Button";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Backdrop,CircularProgress } from "@mui/material";
-import "./guest.css";
+import "./GuestPaymentsinPopUp.css";
 
 const useStyles = makeStyles({
   root: {
@@ -37,7 +39,7 @@ const FORM_VALIDATION = Yup.object().shape({
 });
 const notify = () => toast();
 
-const RecordpaymentsinPopUp = (props) => {
+const GuestpaymentsinPopUp = (props) => {
   const [open, setOpen] = React.useState(false);
   const handleClose = () => {
     setOpen(false);
@@ -58,6 +60,7 @@ const RecordpaymentsinPopUp = (props) => {
   return (
     <div className="record-payment">
  <Grid container>
+ <Grid item xs={12}><MDTypography>Clear the Due Amount</MDTypography></Grid>
       <Grid item xs={12}>
         <Container maxWidth="md">
           <div>
@@ -154,4 +157,4 @@ const RecordpaymentsinPopUp = (props) => {
       );
 };
 
-export default RecordpaymentsinPopUp;
+export default GuestpaymentsinPopUp;

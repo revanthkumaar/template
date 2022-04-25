@@ -8,7 +8,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { useEffect, useState } from "react";
 // import axios from "axios";
-import axios from "../../../../Uri";
+import axios from "../../../../../Uri";
 
 // const [tableData,setTableData] = useState([])
 
