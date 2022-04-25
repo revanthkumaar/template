@@ -104,14 +104,14 @@ function Guestdetails(props) {
             </h4>
 
           </Grid>
-          <Grid item xs={12}>
+          {/* <Grid item xs={12}>
             <h4
               style={{ width: "65%", marginLeft: "50px", marginBottom: "20px" }}
             >
               Duration&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:{" "}
               {props.guestdetails.duration}
             </h4>
-          </Grid>
+          </Grid> */}
           <Grid item xs={12}>
             <h4
               style={{ width: "65%", marginLeft: "50px", marginBottom: "20px" }}

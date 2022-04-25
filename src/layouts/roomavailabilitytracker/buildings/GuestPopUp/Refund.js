@@ -1,13 +1,14 @@
 import React from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
+// import axios from "axios";
 import axios from "../../../../Uri";
 import { Container, Grid, InputLabel } from "@mui/material";
 
 import { makeStyles } from "@mui/styles";
 
-import Textfield from "layouts/profile/GuestLoginForm/components/TextField";
-import Select from "layouts/profile/GuestLoginForm/components/Select";
+import Textfield from "../../../profile/GuestLoginForm/components/TextField";
+import Select from "../../../profile/GuestLoginForm/components/Select";
 import Purpose from "./Purpose";
 
 import Button from "layouts/profile/GuestLoginForm/components/Button";
@@ -16,17 +17,21 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Backdrop,CircularProgress } from "@mui/material";
 import "./guest.css";
 
+
+
+// import { height } from "@mui/system";
+
 const useStyles = makeStyles({
   root: {
-    height: 40,
+    height: 20,
   },
   size: {
-    width: 40,
-    height: 30,
+    width: 20,
+    height: 20,
   },
   gap: {
-    paddingLeft: 20,
-    height: 100,
+    paddingLeft: 10,
+    height: 50,
   },
 });
 
@@ -37,7 +42,7 @@ const FORM_VALIDATION = Yup.object().shape({
 });
 const notify = () => toast();
 
-const RecordpaymentsinPopUp = (props) => {
+const Refund = (props) => {
   const [open, setOpen] = React.useState(false);
   const handleClose = () => {
     setOpen(false);
@@ -48,8 +53,8 @@ const RecordpaymentsinPopUp = (props) => {
   var GuestID = props.guestdetails.id;
   var INITIAL_FORM_STATE = {
     paymentPurpose: "",
-    amountPaid: "",
     transactionId: "",
+    refundAmount: "",
     guestId: GuestID,
   };
 
@@ -59,7 +64,7 @@ const RecordpaymentsinPopUp = (props) => {
     <div className="record-payment">
  <Grid container>
       <Grid item xs={12}>
-        <Container maxWidth="md">
+        {/* <Container maxWidth="md"> */}
           <div>
             <Formik
               initialValues={{ ...INITIAL_FORM_STATE }}
@@ -79,18 +84,9 @@ const RecordpaymentsinPopUp = (props) => {
                   toast.success("Payment Recorded Successfully");
                 
                 }
-
-                       
-              
+            
                 setTimeout(() => {
-                  try{
-                    resetForm();
-
-                  }
-                  catch{
-                    console.log("error")
-                  }
-                 
+                  resetForm();
                 }, 50);
               }}
             >
@@ -98,7 +94,7 @@ const RecordpaymentsinPopUp = (props) => {
                 <Form>
                   <Grid container spacing={2}>
                     <Grid item xs={6}>
-                      <Textfield name="amountPaid" label="Amount Paid" />
+                      <Textfield name="refundAmount" label="Refund Amount" />
                     </Grid>
                     <Grid item xs={6}>
                       <Textfield name="transactionId" label="Transaction ID" />
@@ -146,7 +142,7 @@ const RecordpaymentsinPopUp = (props) => {
       >
         <CircularProgress color="inherit" />
       </Backdrop>
-        </Container>
+        {/* </Container> */}
       </Grid>
     </Grid>
 
@@ -154,4 +150,4 @@ const RecordpaymentsinPopUp = (props) => {
       );
 };
 
-export default RecordpaymentsinPopUp;
+export default Refund;
