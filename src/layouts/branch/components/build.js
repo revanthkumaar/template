@@ -92,6 +92,10 @@ function Build() {
       validate: rowData => {
         if (rowData.userPhoneNumber === undefined || rowData.userPhoneNumber === "") {
           return "Required"
+
+
+
+          
         // } else if(rowData.userPhoneNumber.match(/[^0-9]/g)){
         //   return" Please enter valid Phone number"
          } 
