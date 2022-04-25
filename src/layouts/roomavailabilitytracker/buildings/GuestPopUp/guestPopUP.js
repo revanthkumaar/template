@@ -13,12 +13,12 @@ import { Grid } from "@mui/material";
 // import { borderRadius } from "@mui/system";
 // import { Link } from "react-router-dom";
 // import RecentTransactions from "layouts/dashboard/components/summaryTables/Recenttransactions";
-import TransactionHistory from "./TransactionHistory";
-import RecordpaymentsinPopUp from "./RecordpaymentsinPopUp";
-import Guestdetails from "./guestdetails";
+import TransactionHistory from "./TransactionHistoryModule/TransactionHistory";
+// import RecordpaymentsinPopUp from "./GuestPaymentModule/GuestpaymentsinPopUp";
+import Guestdetails from "./GuestDetails/guestdetails";
 // import AppBar from "@mui/material/AppBar";
-import CheckOut from "./CheckOut";
-import "./guest.css";
+import CheckOut from "./GuestCheckoutModule/CheckOut";
+import "./GuestPopUp.css";
 
 import Toolbar from "@mui/material/Toolbar";
 
@@ -48,7 +48,7 @@ export default function GuestPopUp({ open, handleClose, ...props }) {
 
             <h2 className='head-1-checkOut'>Payments</h2>
             <br/>
-            <RecordpaymentsinPopUp guestdetails={props.GuestDetails} />
+            {/* <RecordpaymentsinPopUp guestdetails={props.GuestDetails} /> */}
             <DialogTitle>
               <br />
               <h3 className='head-1-checkOut'>Transaction History</h3>

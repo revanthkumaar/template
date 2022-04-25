@@ -1,20 +1,25 @@
 import React from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import axios from "../../../../Uri";
+// import axios from "axios";
+import axios from "../../../../../Uri";
 import { Container, Grid, InputLabel } from "@mui/material";
 
 import { makeStyles } from "@mui/styles";
 
 import Textfield from "layouts/profile/GuestLoginForm/components/TextField";
 import Select from "layouts/profile/GuestLoginForm/components/Select";
-import Purpose from "./Purpose";
+import ManagerPaymentPurpose from "./ManagerPaymentPurpose";
 
 import Button from "layouts/profile/GuestLoginForm/components/Button";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Backdrop,CircularProgress } from "@mui/material";
-import "./guest.css";
+import "./managerPaymentinPopUp.css";
+
+
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+// import { height } from "@mui/system";
 
 const useStyles = makeStyles({
   root: {
@@ -37,7 +42,7 @@ const FORM_VALIDATION = Yup.object().shape({
 });
 const notify = () => toast();
 
-const RecordpaymentsinPopUp = (props) => {
+const ManagerPaymentsinPopup = (props) => {
   const [open, setOpen] = React.useState(false);
   const handleClose = () => {
     setOpen(false);
@@ -48,6 +53,7 @@ const RecordpaymentsinPopUp = (props) => {
   var GuestID = props.guestdetails.id;
   var INITIAL_FORM_STATE = {
     paymentPurpose: "",
+    paymentmethod: "",
     amountPaid: "",
     transactionId: "",
     guestId: GuestID,
@@ -83,14 +89,7 @@ const RecordpaymentsinPopUp = (props) => {
                        
               
                 setTimeout(() => {
-                  try{
-                    resetForm();
-
-                  }
-                  catch{
-                    console.log("error")
-                  }
-                 
+                  resetForm();
                 }, 50);
               }}
             >
@@ -113,8 +112,8 @@ const RecordpaymentsinPopUp = (props) => {
                         // IconComponent={(Purpose) => (
                         //   <ArrowDropDownIcon className={classes.size} />
                         // )}
-                        name = "paymentPurpose"
-                        options = {Purpose}
+                        name = "paymentMethod"
+                        options = {ManagerPaymentPurpose}
                         className={classes.root}
                       />
                     </Grid>
@@ -154,4 +153,4 @@ const RecordpaymentsinPopUp = (props) => {
       );
 };
 
-export default RecordpaymentsinPopUp;
+export default ManagerPaymentsinPopup;
