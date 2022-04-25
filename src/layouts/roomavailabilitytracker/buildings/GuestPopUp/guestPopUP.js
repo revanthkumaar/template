@@ -23,6 +23,7 @@ import "./guest.css";
 import Toolbar from "@mui/material/Toolbar";
 
 export default function GuestPopUp({ open, handleClose, ...props }) {
+  
   return (
     <div>
       {props.GuestDetails.occupancyType === "regular" ? (
@@ -44,6 +45,7 @@ export default function GuestPopUp({ open, handleClose, ...props }) {
 
             <CheckOut guestdetails={props.GuestDetails} />
             <br/>
+
             <h2 className='head-1-checkOut'>Payments</h2>
             <br/>
             <RecordpaymentsinPopUp guestdetails={props.GuestDetails} />
