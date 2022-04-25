@@ -46,7 +46,7 @@ export default function GuestPopUp({ open, handleClose, ...props }) {
             <CheckOut guestdetails={props.GuestDetails} />
             <br/>
 
-            <h2 className='head-1-checkOut'>Payments</h2>
+            
             <br/>
             {/* <RecordpaymentsinPopUp guestdetails={props.GuestDetails} /> */}
             <DialogTitle>

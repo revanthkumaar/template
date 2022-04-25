@@ -8,8 +8,8 @@ import { Container, Grid, InputLabel } from "@mui/material";
 
 import { useState,useEffect } from 'react';
 import axios from "../../../../../Uri";
-import ManagerPaymentsinPopup from '../managerPaymentModule/managerPaymentinPopUp';
-import GuestpaymentsinPopUp from '../GuestPaymentModule/GuestpaymentsinPopUp';
+import ManagerPaymentsinPopup from './managerPaymentModule/managerPaymentinPopUp';
+import GuestpaymentsinPopUp from './GuestPaymentModule/GuestpaymentsinPopUp';
 
 
 function formatDate(checkInDate) {
@@ -48,9 +48,7 @@ const CheckOut = (props) => {
   }
   return (
     <>
-      <h2 className='head-1-checkOut'>CheckOut</h2>
      
-    <div className=' checkOutBox'>
       {/* <ManagerPaymentsinPopup  guestdetails={props.guestdetails}/> */}
       {/* <GuestpaymentsinPopUp guestdetails={props.guestdetails}/> */}
         <Grid container>
@@ -65,29 +63,22 @@ const CheckOut = (props) => {
 
     {dueAmount == null ? (<div></div>) :  ( <Grid xs={3} sx={{}}>
        
-       <Button variant="outlined" color="primary" style={{color:"black"}}>DueAmount:  {dueAmount}</Button>
+       <Button variant="outlined" color="primary" style={{color:"black"}}>Final Due Amount:  {dueAmount}</Button>
           </Grid>)}
 
           { }
 
 
-          {dueAmount == null ? (<div></div>) : (<Grid xs={3} sx={{}}>
-            <Button variant="outlined" color="primary" style={{ color: "black" }}>DueAmount:  {dueAmount}</Button>
-            <br />
-            <br />
-            {dueAmount < 0 ? (
-              <Button variant="contained" color="primary" style={{ color: "white" }} onClick={() => { setManagerPayment(true) }}>Refund Payment</Button>
-            ) : (<Grid>  </Grid>)}
-
-          </Grid>)}
+          
           <Grid xs={4} sx={{ pt: "30px", pl: "90px" }} >
             <Button variant="contained" color="primary" style={{ color: "white" }} onClick={finalCheckOutHandler}>Final CheckOut</Button>
             <p className="Text-CheckOut">Checkout Date:{checkOutDate}</p>
 
           </Grid>
         </Grid>
+        <GuestpaymentsinPopUp guestdetails={props.guestdetails}/>
 
-      </div>
+      {/* </div> */}
     </>
   )
 }
