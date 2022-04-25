@@ -304,19 +304,7 @@ function Room() {
               },
             }}
           />
-          <ToastContainer
-            maxWidth="sx"
-            position="top-right"
-            autoClose={3000}
-            type="toast.TYPE.SUCCESS"
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-          />
+        
         </Grid>
       </Grid>
     </div>

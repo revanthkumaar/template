@@ -17,6 +17,8 @@ import Beds from "./Beds"
 import Floor from "./floor"
 import Room from "./room"
 import Build from "./build"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function TabPanel(props) {
@@ -93,7 +95,9 @@ export default function LeaveManagementTabs() {
         {/* <TabPanel value={value} index={1} >
         <Floor/>
         </TabPanel> */}
-        <TabPanel value={value} index={1} >
+        <TabPanel value={value} index={1}>
+         
+
           <Room/>
         </TabPanel>
         <TabPanel value={value} index={2} >
@@ -104,6 +108,7 @@ export default function LeaveManagementTabs() {
         </TabPanel> */}
 
       </SwipeableViews>
+      <ToastContainer/>
     </Box>
   );
 }
