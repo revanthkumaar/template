@@ -39,11 +39,11 @@ export default function GuestPopUp({ open, handleClose, ...props }) {
             Guest Details
           </MDButton>
           <DialogContent>
-            <Guestdetails guestdetails={props.GuestDetails} />
+            <Guestdetails guestdetails={props.GuestDetails} GuestDueAmount={props.GuestDueAmount}/>
             <br />
 
 
-            <CheckOut guestdetails={props.GuestDetails} />
+            <CheckOut guestdetails={props.GuestDetails} GuestDueAmount={props.GuestDueAmount}/>
             <br/>
 
             
@@ -86,10 +86,10 @@ export default function GuestPopUp({ open, handleClose, ...props }) {
             Guest Details
           </MDButton>
           <DialogContent>
-            <Guestdetails guestdetails={props.GuestDetails} />
+            <Guestdetails guestdetails={props.GuestDetails} GuestDueAmount={props.GuestDueAmount}/>
             <br />
 
-<CheckOut guestdetails={props.GuestDetails} />
+<CheckOut guestdetails={props.GuestDetails} GuestDueAmount={props.GuestDueAmount}/>
 <br/>
 
           <br/>

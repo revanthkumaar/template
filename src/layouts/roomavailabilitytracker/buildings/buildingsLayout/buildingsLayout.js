@@ -24,7 +24,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Tooltip from "@material-ui/core/Tooltip";
 
 var GuestDetails = {};
-var GuestDueAmount = []
+var GuestDueAmount = null;
 
 const BuildingsLayout = (props) => {
 
@@ -69,6 +69,7 @@ const BuildingsLayout = (props) => {
                   open={open}
                   handleClose={handleClose}
                   GuestDetails={GuestDetails}
+                  GuestDueAmount={GuestDueAmount}
                 />
 
                 <Grid container spacing={2}>
@@ -118,6 +119,8 @@ const BuildingsLayout = (props) => {
                                                       onClick={async () => {
                                                                              setLoading(false);
                                                                              console.log(bdno.guestId);
+                                                                             await axios.get(`guest/getFinalDueAmountForCheckout/${bdno.guestId}`).then((response) => GuestDueAmount= response.data )
+                                                                             console.log(GuestDueAmount)
 
                                                         await axios
                                                           .get(
@@ -136,6 +139,8 @@ const BuildingsLayout = (props) => {
                                                           .catch((err) => {
                                                             console.log(err);
                                                           });
+
+                                                         
                                                           // await axios .get(`guest/getPendingAndCompletedById/${bdno.guestId}`)
                                                           // .then((res) => {
                                                           //   GuestDueAmount = res.data;
@@ -143,6 +148,7 @@ const BuildingsLayout = (props) => {
 
                                                           // })
                                                       }}
+                                                      
 
 
                                                     />
