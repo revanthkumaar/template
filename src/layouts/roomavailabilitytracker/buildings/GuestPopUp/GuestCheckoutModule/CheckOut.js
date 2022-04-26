@@ -22,6 +22,8 @@ function formatDate(checkInDate) {
 var OccupancyType = null
 
 const CheckOut = (props) => {
+
+    var guestdueamount = props.GuestDueAmount
   OccupancyType = props.guestdetails.occupancyType
 
   const [dueAmount, setDueAmount] = useState(null)
@@ -32,16 +34,18 @@ const CheckOut = (props) => {
   const handleClose = () => setOpen(false);
   const dt = null;
   const [cdate, setDate] = useState(dt);
-  const handelDate = () => {
-    let dt = new Date().toLocaleDateString();
-    console.log(props.guestdetails.id)
+
+
+//   const handelDate = () => {
+    // let dt = new Date().toLocaleDateString();
+    // console.log(props.guestdetails.id)
     // console.log(props.guestdetails.occupancyType)
    
 
-    axios.get(`guest/getFinalDueAmountForCheckout/${props.guestdetails.id}`).then((res) => setDueAmount(res.data))
-    setCheckOutDate(formatDate(props.guestdetails.checkOutDate));
-    setDate(dt);
-  }
+//     axios.get(`guest/getFinalDueAmountForCheckout/${props.guestdetails.id}`).then((res) => setDueAmount(res.data))
+    // setCheckOutDate(formatDate(props.guestdetails.checkOutDate));
+    // setDate(dt);
+//   }
   const finalCheckOutHandler = () => {
 
     axios.get(`guest/checkOutGuest/${props.guestdetails.id}`).then((res) => console.log(res.data))
@@ -49,34 +53,37 @@ const CheckOut = (props) => {
   return (
     <>
      
-      {/* <ManagerPaymentsinPopup  guestdetails={props.guestdetails}/> */}
-      {/* <GuestpaymentsinPopUp guestdetails={props.guestdetails}/> */}
+      
         <Grid container>
+        <Grid xs={5} sx={{pt:"30px",pr:"40px"}}>
+    <Button variant="contained" color="primary" style={{color:"white"}}>INITIATE THE CHECKOUT PROCESS</Button>
+    {/* <p className="Text-CheckOut">Checkout Initiated on: {cdate}</p> */}
+    </Grid>
 
-          {OccupancyType == "daily" || OccupancyType == "monthly" ? (<div></div>) : (<Grid xs={5} sx={{pt:"30px",pr:"40px"}}>
-    <Button variant="contained" color="primary" style={{color:"white"}} onClick={handelDate}>Initiate CheckOut</Button>
-    <p className="Text-CheckOut">Checkout Initiated on: {cdate}</p>
-    </Grid>)}
+         
 
           {}
 
 
-    {dueAmount == null ? (<div></div>) :  ( <Grid xs={3} sx={{}}>
+    {/* {guestdueamount == null ? (<div></div>) :  ( <Grid xs={3} sx={{}}>
        
-       <Button variant="outlined" color="primary" style={{color:"black"}}>Final Due Amount:  {dueAmount}</Button>
-          </Grid>)}
+       <Button variant="outlined" color="primary" style={{color:"black"}}>Final Due Amount:  {guestdueamount}</Button>
+          </Grid>)} */}
 
           { }
 
 
-          
-          <Grid xs={4} sx={{ pt: "30px", pl: "90px" }} >
+          {guestdueamount == 0 ? (<Grid xs={4} sx={{ pt: "30px", pl: "90px" }} >
             <Button variant="contained" color="primary" style={{ color: "white" }} onClick={finalCheckOutHandler}>Final CheckOut</Button>
-            <p className="Text-CheckOut">Checkout Date:{checkOutDate}</p>
+            {/* <p className="Text-CheckOut">Checkout Date:{checkOutDate}</p> */}
 
-          </Grid>
+          </Grid>) : (<div></div>)}
+          
         </Grid>
-        <GuestpaymentsinPopUp guestdetails={props.guestdetails}/>
+
+        { guestdueamount < 0 ? (<ManagerPaymentsinPopup  />) : (<GuestpaymentsinPopUp />)} 
+        {/* 
+        
 
       {/* </div> */}
     </>

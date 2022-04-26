@@ -52,13 +52,13 @@ const ManagerPaymentsinPopup = (props) => {
   const handleToggle = () => {
     setOpen(!open);
   };
-  var GuestID = props.guestdetails.id;
+  // var GuestID = props.guestdetails.id;
   var INITIAL_FORM_STATE = {
     paymentPurpose: "",
     paymentmethod: "",
     amountPaid: "",
     transactionId: "",
-    guestId: GuestID,
+    // guestId: GuestID,
   };
 
   const classes = useStyles();
@@ -66,7 +66,7 @@ const ManagerPaymentsinPopup = (props) => {
   return (
     <div className="record-payment">
  <Grid container>
-   <Grid item xs={12}><MDTypography>Refund</MDTypography></Grid>
+   <Grid item xs={12}><MDTypography>REFUND TO THE GUEST :</MDTypography></Grid>
       <Grid item xs={12}>
         <Container maxWidth="md">
           <div>
@@ -108,7 +108,7 @@ const ManagerPaymentsinPopup = (props) => {
 
                     <Grid item xs={6}>
                       <InputLabel id="demo-simple-select-label">
-                        &nbsp; Payment Purpose
+                        &nbsp; Payment Method
                       </InputLabel>
 
                       <Select
@@ -122,7 +122,7 @@ const ManagerPaymentsinPopup = (props) => {
                     </Grid>
 
                     <Grid item xs={6} sx={{ marginTop: 2 }}>
-                      <Button  >Record Payment</Button>
+                      <Button  >REFUND</Button>
                     </Grid>
                   </Grid>
                   <ToastContainer  maxWidth="sx"

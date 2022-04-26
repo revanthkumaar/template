@@ -92,17 +92,7 @@ function Guestdetails(props) {
                 <h4>{props.guestdetails.firstName}</h4>
               </Grid>
             </Grid>
-            <Grid item xs={4} container spacing={1}>
-              <Grid item xs={6}>
-                <h4>SecurityDeposit</h4>
-              </Grid>
-              <Grid item xs={0}>
-                :
-              </Grid>
-              <Grid item xs={4}>
-                <h4>{props.guestdetails.securityDeposit}</h4>
-              </Grid>
-            </Grid>
+            
             <Grid item xs={4} container spacing={1}>
               <Grid item xs={6}>
                 <h4>occupancyType</h4>
@@ -112,6 +102,17 @@ function Guestdetails(props) {
               </Grid>
               <Grid item xs={3}>
                 <h4>{props.guestdetails.occupancyType}</h4>
+              </Grid>
+            </Grid>
+            <Grid item xs={4} container spacing={1}>
+              <Grid item xs={6}>
+                <h4>SecurityDeposit</h4>
+              </Grid>
+              <Grid item xs={0}>
+                :
+              </Grid>
+              <Grid item xs={4}>
+                <h4>{props.guestdetails.securityDeposit}</h4>
               </Grid>
             </Grid>
           </React.Fragment>
@@ -130,6 +131,19 @@ function Guestdetails(props) {
               </Grid>
             </Grid>
             <Grid item xs={4} container spacing={1}>
+              <Grid item xs={6}>
+                <h4>CheckInDate</h4>
+              </Grid>
+              <Grid item xs={0}>
+                :
+              </Grid>
+              <Grid item xs={5}>
+                <h4>{formatDate(props.guestdetails.checkInDate)}</h4>
+              </Grid>
+            </Grid>
+            
+            
+            <Grid item xs={4} container spacing={1}>
               <Grid item xs={5}>
                 <h4>Amount Paid</h4>
               </Grid>
@@ -138,17 +152,6 @@ function Guestdetails(props) {
               </Grid>
               <Grid item xs={3}>
                 <h4>{props.guestdetails.amountPaid}</h4>
-              </Grid>
-            </Grid>
-            <Grid item xs={4} container spacing={1}>
-              <Grid item xs={6}>
-                <h4>CheckOutDate</h4>
-              </Grid>
-              <Grid item xs={0}>
-                :
-              </Grid>
-              <Grid item xs={3}>
-                <h4>{props.guestdetails.dueAmount}</h4>
               </Grid>
             </Grid>
           </React.Fragment>
@@ -166,9 +169,10 @@ function Guestdetails(props) {
                 <h4>{props.guestdetails.personalNumber}</h4>
               </Grid>
             </Grid>
+
             <Grid item xs={4} container spacing={1}>
-              <Grid item xs={5}>
-                <h4>DueAmount</h4>
+              <Grid item xs={6}>
+                <h4>CheckOut Initiated Date</h4>
               </Grid>
               <Grid item xs={0}>
                 :
@@ -177,17 +181,88 @@ function Guestdetails(props) {
                 <h4>{props.guestdetails.dueAmount}</h4>
               </Grid>
             </Grid>
-            <Grid item xs={4} container spacing={1}>
+
+            {/* <Grid item xs={4} container spacing={1}>
               <Grid item xs={6}>
-                <h4>CheckInDate</h4>
+                <h4>CheckOut Date</h4>
               </Grid>
               <Grid item xs={0}>
                 :
               </Grid>
+              <Grid item xs={3}>
+                <h4>{props.guestdetails.dueAmount}</h4>
+              </Grid>
+            </Grid> */}
+            
+            
+            <Grid item xs={4} container spacing={1}>
               <Grid item xs={5}>
-                <h4>{formatDate(props.guestdetails.checkInDate)}</h4>
+                <h4>DueAmount</h4>
+              </Grid>
+              <Grid item xs={0}>
+                :
+              </Grid>
+              <Grid item xs={3}>
+                <h4>{props.GuestDueAmount}</h4>
               </Grid>
             </Grid>
+            
+          </React.Fragment>
+        </Grid>
+
+
+
+        <Grid container item spacing={10}>
+          <React.Fragment>
+            <Grid item xs={4} container spacing={1}>
+              <Grid item xs={3}>
+                {}
+              </Grid>
+              <Grid item xs={0}>
+                {}
+              </Grid>
+              <Grid item xs={3}>
+                {}
+              </Grid>
+            </Grid>
+
+            <Grid item xs={4} container spacing={1}>
+              <Grid item xs={6}>
+                {}
+              </Grid>
+              <Grid item xs={0}>
+                {}
+              </Grid>
+              <Grid item xs={3}>
+                {}
+              </Grid>
+            </Grid>
+
+            <Grid item xs={4} container spacing={1}>
+              <Grid item xs={6}>
+                <h4>CheckOut Date</h4>
+              </Grid>
+              <Grid item xs={0}>
+                :
+              </Grid>
+              <Grid item xs={3}>
+                <h4>{props.guestdetails.dueAmount}</h4>
+              </Grid>
+            </Grid>
+            
+            
+            {/* <Grid item xs={4} container spacing={1}>
+              <Grid item xs={5}>
+                {}
+              </Grid>
+              <Grid item xs={0}>
+                {}
+              </Grid>
+              <Grid item xs={3}>
+                {}
+              </Grid> */}
+            {/* </Grid> */}
+            
           </React.Fragment>
         </Grid>
 
