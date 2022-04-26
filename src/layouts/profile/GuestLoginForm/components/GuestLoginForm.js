@@ -1,21 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-// import axios from "axios";
 import axios from "../../../../Uri";
-import { Container, Grid, Typography, InputLabel, Alert } from "@mui/material";
+import { Container, Grid, Typography, InputLabel } from "@mui/material";
 import moment from "moment";
-//import Divider from "@mui/material/Divider";
 import { makeStyles } from "@mui/styles";
 import Occupancytype from "./OccupancyType";
 import Textfield from "./TextField";
 import Select from "./Select";
 import Gender from "./Gender";
 import state from "./State";
-//import Checkbox from "./CheckBox";
 import DateTimePicker from "./DataTimePicker";
 import Button from "./Button";
-//import MDButton from "components/MDButton";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import days from "./Days";
 import months from "./Months";
@@ -43,18 +39,14 @@ const INITIAL_FORM_STATE = {
   secondaryPhoneNumber: "",
   fatherName: "",
   fatherNumber: "",
-  // localGuardianName: "",
-  // localGuardianPhoneNumber: "",
   bloodGroup: "",
   occupation: "",
   gender: "",
   aadharNumber: "",
   buildingId: "",
-  // buildingId: "",
   bedId: "",
   occupancyType: "",
   duration: "",
-  // amountTopay: "",
   amountPaid: "",
   transactionId: "",
   addressLine1: "",
@@ -66,7 +58,6 @@ const INITIAL_FORM_STATE = {
   defaultRent: "",
   securityDeposit: "",
   checkinNotes: "",
-  //termsOfService: false,
 };
 
 const FORM_VALIDATION = Yup.object().shape({
@@ -87,71 +78,28 @@ const FORM_VALIDATION = Yup.object().shape({
         moment().diff(moment(date), "years") <= 80
     ),
   gender: Yup.string().required("Required"),
-  // localGuardianName: Yup.string()
-  //   .matches(/^[aA-zZ\s]+$/, "Invalid Name ")
-  //   .required("Required"),
-
-  // localGuardianPhoneNumber: Yup.string()
-  //   .matches(/^[6-9]\d{9}$/, {
-  //     message: "Please enter Valid Mobile Number",
-  //     excludeEmptyString: false,
-  //   })
-  //   .required("Required"),
   personalNumber: Yup.string()
     .matches(/^[6-9]\d{9}$/, {
       message: "Please enter Valid Mobile Number",
       excludeEmptyString: false,
     })
     .required("Required"),
-  // secondaryPhoneNumber: Yup.string()
-  //   .matches(/^[6-9]\d{9}$/, {
-  //     message: "Please enter Valid Mobile Number",
-  //     excludeEmptyString: false,
-  //   })
-  //   .required("Required"),
   aadharNumber: Yup.string()
     .matches(/^\d{4}\d{4}\d{4}$/, "Invalid Aadhar Number")
     .required("Required"),
-  // fatherName: Yup.string()
-  //   .matches(/^[aA-zZ\s]+$/, "Invalid FatherName ")
-  //   .required("Required"),
-  // fatherNumber: Yup.string()
-  //   .matches(/^[6-9]\d{9}$/, {
-  //     message: "Please enter valid Mobile number.",
-  //     excludeEmptyString: false,
-  //   })
-  //   .required("Required"),
   pincode: Yup.string()
     .matches(/^\d{2}\d{2}\d{2}$/, "Invalid PinCode Number")
     .required("Required"),
-  // workPhone: Yup.string()
-  //   .matches(/^[6-9]\d{9}$/, {
-  //     message: "Please enter valid Mobile number.",
-  //     excludeEmptyString: false,
-  //   })
-  //   .required("Required"),
 
   bedId: Yup.string().required("Required"),
-  // bloodGroup: Yup.string()
-  //   .matches(/^(A|B|AB|O)[+-]$/, {
-  //     message: "Please enter valid Blood Group.",
-  //     excludeEmptyString: false,
-  //   })
-  //   .required("Required"),
-  // occupation: Yup.string()
-  //   .matches(/^[aA-zZ\s]+$/, "Occuaption ")
-  //   .required("Required"),
 
   addressLine1: Yup.string().required("Required"),
-  // addressLine2: Yup.string().required("Required"),
   city: Yup.string()
     .matches(/^[aA-zZ\s]+$/, "Invalid City Name")
     .required("Required"),
   state: Yup.string()
     .matches(/^[aA-zZ\s]+$/, "Invalid State ")
     .required("Required"),
-  // workAddressLine1: Yup.string().required("Required"),
-  // workAddressLine2: Yup.string().required("Required"),
   buildingId: Yup.number().required("Required"),
   occupancyType: Yup.string().required("Required"),
   amountPaid: Yup.number().required("Required"),
@@ -165,20 +113,14 @@ const GuestLoginForm = () => {
   const [oneBuilding, setoneBuilding] = React.useState([]);
   const [bed, setBed] = React.useState([]);
   const [availableBeds, setAvailableBeds] = React.useState([]);
-  const [putBuilding, setPutBuilding] = React.useState([]);
   const [rent, setRent] = React.useState([]);
   const [duration, setDuration] = React.useState([]);
   const [defaultRentofBed, setDefaultRentofBed] = React.useState([]);
   const [amountTooPay, setAmountToPay] = React.useState([]);
   const [occtype, setOcctype] = React.useState([]);
   const [amt, setAmt] = React.useState([]);
-  //const [loading, setLoading] = React.useState(false);
   const [secureDepo, setSecureDepo] = React.useState([]);
-  const [bid, setBid] = React.useState([]);
-  // const [loading, setLoading] = React.useState(true);
   const [open, setOpen] = React.useState(false);
-
-  // const closeLoading = () => setLoading(!loading);
   const handleClose = () => {
     setOpen(false);
   };
@@ -193,11 +135,8 @@ const GuestLoginForm = () => {
 
   useEffect(() => {
     let userData = JSON.parse(sessionStorage.getItem("userdata"));
-    //console.log(userData);
 
     let userBuildingId = userData.data.buildingId;
-    //console.log(userBuildingId);
-    setBid(userBuildingId);
     axios
 
       .get("/bed/getAvailableBedsByBuildings")
@@ -207,17 +146,17 @@ const GuestLoginForm = () => {
 
         res.data.map((data) => {
           if (userBuildingId === data.buildingId) {
-            console.log('this is manager')
+            console.log("this is manager");
             buildingNamesArray.push(data.buildingName);
-            console.log(buildingNamesArray)
+            console.log(buildingNamesArray);
           } else if (userBuildingId === 0) {
-            console.log('this is admin')
+            console.log("this is admin");
             buildingNamesArray.push(data.buildingName);
           } else {
             console.log("hi");
           }
         });
-        console.log(buildingNamesArray)
+        console.log(buildingNamesArray);
         setBuilding(buildingNamesArray);
       })
 
@@ -225,20 +164,17 @@ const GuestLoginForm = () => {
         console.log(err);
       });
   }, []);
-  var obje1 = oneBuilding.reduce(function(acc,cur,i) {
+  var obje1 = oneBuilding.reduce(function (acc, cur, i) {
     acc[cur.buildingId] = cur.buildingName;
 
     return acc;
   }, {});
-  //console.log(obj);
+  console.log(obje1);
 
   const notify = () => toast();
-  
 
   const handleClick = (id) => {
-    
-    setPutBuilding(id.target.outerText);
-    //console.log(id);
+    console.log(id);
 
     const bool = oneBuilding.filter(
       (buildingData) => buildingData.buildingName == id.target.outerText
@@ -257,7 +193,6 @@ const GuestLoginForm = () => {
     const bedRent = availableBeds.filter(
       (bed) => bed.bedId == e.target.outerText
     );
-    //console.log(bedRent);
 
     bedRent.map((post) => {
       setRent(post.defaultRent);
@@ -266,16 +201,15 @@ const GuestLoginForm = () => {
     });
   };
   const occupency = (i) => {
-    //console.log(i.target.outerText);
     setOcctype(i.target.outerText);
     if (i.target.outerText == "Daily") {
       setDuration(days);
-      var checkInAmount = amt * (defaultRentofBed / 30) ;
+      var checkInAmount = amt * (defaultRentofBed / 30);
       setAmountToPay(checkInAmount.toFixed(0));
     } else if (i.target.outerText == "Monthly") {
       setOcctype(i.target.outerText);
       setDuration(months);
-      var checkInAmount = amt * defaultRentofBed ;
+      var checkInAmount = amt * defaultRentofBed;
       setAmountToPay(checkInAmount);
     } else {
       setDuration(empty);
@@ -285,25 +219,18 @@ const GuestLoginForm = () => {
 
   const calculateCheckAmount = (a) => {
     var occupencyTypeis = Object.keys(duration).length;
-    // console.log(occupencyTypeis);
-    // console.log(occtype);
-
-    // console.log(a.target.outerText);
     setAmt(a.target.outerText);
 
     if (occupencyTypeis == 12) {
-      var checkInAmount = a.target.outerText * defaultRentofBed ;
+      var checkInAmount = a.target.outerText * defaultRentofBed;
       setAmountToPay(checkInAmount);
     } else if (occupencyTypeis == 15) {
-      var checkInAmount =
-        a.target.outerText * (defaultRentofBed / 30) ;
+      var checkInAmount = a.target.outerText * (defaultRentofBed / 30);
       setAmountToPay(checkInAmount.toFixed(0));
     } else {
       setAmountToPay(defaultRentofBed + secureDepo);
     }
   };
-
-  //console.log(rent);
 
   const obj = { bedId: bed };
 
@@ -311,25 +238,19 @@ const GuestLoginForm = () => {
   const objee = { defaultRent: rent };
   const obj1 = { securityDeposit: secureDepo };
   const obj2 = { amountToBePaid: amountTooPay };
-  const amountNeedToPay = (n) => {
-    // console.log(n.target.value);
-  };
-  //console.log(occtype);
+  const amountNeedToPay = (n) => {};
 
   return (
     <div>
-      <Grid container onClick = {handleClose}>
+      <Grid container onClick={handleClose}>
         <Grid item xs={12}>
           <Container maxWidth="md">
-            
             <div>
               <Formik
                 initialValues={{ ...INITIAL_FORM_STATE }}
                 validationSchema={FORM_VALIDATION}
                 onSubmit={async (guest, { resetForm }) => {
-                  // setLoading(true);
                   handleToggle();
-                  //const guests = Object.assign(guest, obj);
 
                   const gustes = Object.assign(guest, obj);
 
@@ -365,9 +286,7 @@ const GuestLoginForm = () => {
                     toast.error(" Need to pay full Amount");
                   }
 
-                  setTimeout(() => {
-                    //console.log(rent);
-                  }, 50);
+                  setTimeout(() => {}, 50);
                 }}
               >
                 {(formProps) => (
@@ -419,9 +338,7 @@ const GuestLoginForm = () => {
                         />
                       </Grid>
 
-                      {/* {console.log(occtype)} */}
                       {occtype === "Daily" || occtype === "Monthly" ? (
-                        
                         <Grid item xs={6}>
                           <InputLabel id="demo-simple-select-labe">
                             {" "}
@@ -439,17 +356,18 @@ const GuestLoginForm = () => {
                       )}
 
                       <Grid item xs={6}></Grid>
-                      {occtype === "Daily" || occtype === "Monthly" ? (console.log("")):(
+                      {occtype === "Daily" || occtype === "Monthly" ? (
+                        console.log("")
+                      ) : (
                         <Grid item xs={6}>
-                        <Textfield
-                          name="securityDeposit"
-                          label="Security Deposit"
-                          value={secureDepo}
-                        />
-                      </Grid>
-
+                          <Textfield
+                            name="securityDeposit"
+                            label="Security Deposit"
+                            value={secureDepo}
+                          />
+                        </Grid>
                       )}
-                      
+
                       <Grid item xs={6}></Grid>
                       <Grid item xs={6}>
                         <Textfield
@@ -614,32 +532,6 @@ const GuestLoginForm = () => {
                         ></Select>
                       </Grid>
 
-                      {/* <Divider variant="middle" />
-                    <Grid item xs={12}>
-                      <Typography>
-                        <br />
-                        <h4 align="center">Work Related Information</h4>
-                      </Typography>
-                      <br />
-                      <Grid item xs={6}>
-                        <Textfield name="workPhone" label="Work Phone Number" />
-                      </Grid>
-                    </Grid>
-
-                    <Grid item xs={12}>
-                      <Textfield
-                        name="workAddressLine1"
-                        label="Work Address Line 1"
-                      />
-                    </Grid>
-
-                    <Grid item xs={12}>
-                      <Textfield
-                        name="workAddressLine2"
-                        label="Work Address Line 2 "
-                      />
-                    </Grid> */}
-
                       <Grid item xs={12}>
                         <Textfield
                           name="checkinNotes"
@@ -648,14 +540,6 @@ const GuestLoginForm = () => {
                           rows={3}
                         />
                       </Grid>
-
-                      {/* <Grid item xs={12}>
-                      <Checkbox
-                        name="termsOfService"
-                        legend="Terms of service"
-                        label="I agree"
-                      />
-                    </Grid> */}
 
                       <Grid item xs={3} sx={{ paddingBottom: 3 }}>
                         <Button onClick={notify}>Submit</Button>
