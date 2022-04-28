@@ -174,6 +174,7 @@ function Room() {
 
     return acc;
   }, {});
+  console.log(obj1)
 
   const obje = { floorId: floorId };
 
