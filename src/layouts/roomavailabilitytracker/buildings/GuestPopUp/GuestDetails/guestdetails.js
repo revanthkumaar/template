@@ -169,8 +169,11 @@ function Guestdetails(props) {
                 <h4>{props.guestdetails.personalNumber}</h4>
               </Grid>
             </Grid>
+            {props.guestdetails.guestStatus == "InNotice" ? (<Grid item xs={4} container spacing={1}>
+           <Grid item xs={6}><h4>CheckOut Initiated Date</h4></Grid><Grid item xs={0}>:</Grid><Grid item xs={3}><h4>{props.guestdetails.noticeDate}</h4></Grid>
+           </Grid>) : (<div></div>)}
 
-            <Grid item xs={4} container spacing={1}>
+            {/* <Grid item xs={4} container spacing={1}>
               <Grid item xs={6}>
                 <h4>CheckOut Initiated Date</h4>
               </Grid>
@@ -179,6 +182,58 @@ function Guestdetails(props) {
               </Grid>
               <Grid item xs={3}>
                 <h4>{props.guestdetails.dueAmount}</h4>
+              </Grid>
+            </Grid> */}
+
+           {/* {props.guestdetails.guestStatus == !Active ? ()} */}
+           {props.guestdetails.guestStatus == "InNotice" ? (<Grid item xs={4} container spacing={1}>
+           <Grid item xs={6}><h4>CheckOut Date</h4></Grid><Grid item xs={0}>:</Grid><Grid item xs={3}><h4>{props.guestdetails.plannedCheckOutDate}</h4></Grid>
+           </Grid>) : (<div></div>)}
+
+            
+            
+            
+           
+            
+          </React.Fragment>
+        </Grid>
+
+
+
+        <Grid container item spacing={10}>
+          <React.Fragment>
+            <Grid item xs={4} container spacing={1}>
+              <Grid item xs={3}>
+              <h4>Guest status</h4>
+              </Grid>
+              <Grid item xs={0}>
+                :
+              </Grid>
+              <Grid item xs={3}>
+                {props.guestdetails.guestStatus}
+              </Grid>
+            </Grid>
+
+            <Grid item xs={4} container spacing={1}>
+              <Grid item xs={6}>
+                {}
+              </Grid>
+              <Grid item xs={0}>
+                {}
+              </Grid>
+              <Grid item xs={3}>
+                {}
+              </Grid>
+            </Grid>
+            <Grid item xs={4} container spacing={1}>
+              <Grid item xs={5}>
+                <h4>DueAmount</h4>
+              </Grid>
+              <Grid item xs={0}>
+                :
+              </Grid>
+              <Grid item xs={3}>
+                <h4>{props.GuestDueAmount}</h4>
               </Grid>
             </Grid>
 
@@ -193,62 +248,6 @@ function Guestdetails(props) {
                 <h4>{props.guestdetails.dueAmount}</h4>
               </Grid>
             </Grid> */}
-            
-            
-            <Grid item xs={4} container spacing={1}>
-              <Grid item xs={5}>
-                <h4>DueAmount</h4>
-              </Grid>
-              <Grid item xs={0}>
-                :
-              </Grid>
-              <Grid item xs={3}>
-                <h4>{props.GuestDueAmount}</h4>
-              </Grid>
-            </Grid>
-            
-          </React.Fragment>
-        </Grid>
-
-
-
-        <Grid container item spacing={10}>
-          <React.Fragment>
-            <Grid item xs={4} container spacing={1}>
-              <Grid item xs={3}>
-                {}
-              </Grid>
-              <Grid item xs={0}>
-                {}
-              </Grid>
-              <Grid item xs={3}>
-                {}
-              </Grid>
-            </Grid>
-
-            <Grid item xs={4} container spacing={1}>
-              <Grid item xs={6}>
-                {}
-              </Grid>
-              <Grid item xs={0}>
-                {}
-              </Grid>
-              <Grid item xs={3}>
-                {}
-              </Grid>
-            </Grid>
-
-            <Grid item xs={4} container spacing={1}>
-              <Grid item xs={6}>
-                <h4>CheckOut Date</h4>
-              </Grid>
-              <Grid item xs={0}>
-                :
-              </Grid>
-              <Grid item xs={3}>
-                <h4>{props.guestdetails.dueAmount}</h4>
-              </Grid>
-            </Grid>
             
             
             {/* <Grid item xs={4} container spacing={1}>

@@ -119,7 +119,7 @@ const BuildingsLayout = (props) => {
                                                       onClick={async () => {
                                                                              setLoading(false);
                                                                              console.log(bdno.guestId);
-                                                                             await axios.get(`guest/getFinalDueAmountForCheckout/${bdno.guestId}`).then((response) => GuestDueAmount= response.data )
+                                                                             await axios.get(`guest/onClickDues/${bdno.guestId}`).then((response) => GuestDueAmount= response.data )
                                                                              console.log(GuestDueAmount)
 
                                                         await axios
