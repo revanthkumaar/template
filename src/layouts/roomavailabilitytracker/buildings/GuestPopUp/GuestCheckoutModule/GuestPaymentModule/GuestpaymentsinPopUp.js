@@ -35,7 +35,16 @@ const useStyles = makeStyles({
 const FORM_VALIDATION = Yup.object().shape({
   paymentPurpose: Yup.string().required("Required"),
   amountPaid: Yup.number().required("Required"),
-  transactionId: Yup.string().required("Required"),
+  transactionId:Yup.string().test(
+    'len',
+    'can be empty or with string at least 10 characters and not more than 30',
+    (val) => {
+        if (val == undefined) {
+            return true;
+        }
+        return  ((val.length == 0 || (val.length >= 10 && val.length <= 30)))
+    }
+).required("Required"),
 });
 const notify = () => toast();
 
