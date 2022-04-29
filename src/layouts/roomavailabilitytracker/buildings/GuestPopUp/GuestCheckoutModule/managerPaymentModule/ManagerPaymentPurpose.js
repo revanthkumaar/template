@@ -1,6 +1,6 @@
 const ManagerPaymentPurpose = {
-    "roomrent" : "Room Rent",
-    "securitydeposit" : "Security Deposit",
+    "Cash" : "Cash",
+    "Online" : "Online",
   };
   export default ManagerPaymentPurpose;
   
