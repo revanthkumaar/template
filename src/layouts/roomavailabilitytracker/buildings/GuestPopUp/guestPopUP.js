@@ -15,7 +15,8 @@ import { Grid } from "@mui/material";
 // import RecentTransactions from "layouts/dashboard/components/summaryTables/Recenttransactions";
 import TransactionHistory from "./TransactionHistoryModule/TransactionHistory";
 // import RecordpaymentsinPopUp from "./GuestPaymentModule/GuestpaymentsinPopUp";
-import Guestdetails from "./GuestDetails/guestdetails";
+import Guestdetails from "./GuestDetails/DOMguestdetails/guestdetails";
+import GuestDetailsIndex from "./GuestDetails";
 // import AppBar from "@mui/material/AppBar";
 import CheckOut from "./GuestCheckoutModule/CheckOut";
 import "./GuestPopUp.css";
@@ -39,7 +40,7 @@ export default function GuestPopUp({ open, handleClose, ...props }) {
             Guest Details
           </MDButton>
           <DialogContent>
-            <Guestdetails guestdetails={props.GuestDetails} GuestDueAmount={props.GuestDueAmount}/>
+            <GuestDetailsIndex guestdetails={props.GuestDetails} GuestDueAmount={props.GuestDueAmount}/>
             <br />
 
 
@@ -86,7 +87,7 @@ export default function GuestPopUp({ open, handleClose, ...props }) {
             Guest Details
           </MDButton>
           <DialogContent>
-            <Guestdetails guestdetails={props.GuestDetails} GuestDueAmount={props.GuestDueAmount}/>
+            <GuestDetailsIndex guestdetails={props.GuestDetails} GuestDueAmount={props.GuestDueAmount}/>
             <br />
 
 <CheckOut guestdetails={props.GuestDetails} GuestDueAmount={props.GuestDueAmount}/>
