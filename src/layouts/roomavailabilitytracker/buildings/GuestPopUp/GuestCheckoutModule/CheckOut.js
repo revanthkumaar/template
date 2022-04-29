@@ -49,7 +49,7 @@ var plannedcheckoutdate = null
 
   const finalCheckOutHandler = () => {
 
-    axios.get(`guest/checkOutGuest/${props.guestdetails.id}`).then((res) => console.log(res.data))
+    axios.get(`guest/getFinalCheckout/${props.guestdetails.id}`).then((res) => console.log(res.data))
   }
   return (
     <>
@@ -71,7 +71,7 @@ var plannedcheckoutdate = null
           { }
 
 
-          {props.guestdetails.guestStatus== "InNotice" && guestdueamount == 0 ? (<Grid xs={4} sx={{ pt: "30px", pl: "90px" }} >
+          {props.guestdetails.guestStatus== "InNotice" && guestdueamount == 0 ? (<Grid xs={4} sx={{ pt: "30px", pl: "90px" ,float:"right"}} >
             <Button variant="contained" color="primary" style={{ color: "white" }} onClick={finalCheckOutHandler}>Final CheckOut</Button>
             </Grid>) : (<div></div>)}
             {/* <p className="Text-CheckOut">Checkout Date:{checkOutDate}</p> */}

@@ -1,6 +1,6 @@
 //import { Grid } from "@mui/material";
 import * as React from "react";
-import "./guest.css";
+
 import Box from "@mui/material/Box";
 //import Paper from '@mui/material/Paper';
 //import * as React from 'react';
@@ -29,16 +29,16 @@ function Guestdetails(props) {
 
     return day + "-" + month + "-" + year;
   }
-  if (props.guestdetails.noticeDate) {
-    var myDate = props.guestdetails.noticeDate;
-    myDate = myDate.split("");
-    console.log(myDate);
-    var date = [];
-    date.push(myDate);
-    console.log(date);
-  } else {
-    console.log("");
-  }
+  // if (props.guestdetails.noticeDate) {
+  //   var myDate = props.guestdetails.noticeDate;
+  //   myDate = myDate.split("");
+  //   console.log(myDate);
+  //   var date = [];
+  //   date.push(myDate);
+  //   console.log(date);
+  // } else {
+  //   console.log("");
+  // }
   var s = props.guestdetails.plannedCheckOutDate.toLocaleString("ko-KR", {
     timeZone: "Asia/Kolkata",
   });
@@ -63,9 +63,10 @@ function Guestdetails(props) {
   const rows1=[
     
     createData('Check-In Date', formatDate(props.guestdetails.checkInDate)),
-    createData('Due Amount', 'Rs.'+props.GuestDueAmount),
     createData('Check-Out Date',props.guestdetails.checkOutDate),
-    createData('PlannedCheck-OutDate',da),
+    createData('Due Amount', 'Rs.'+props.GuestDueAmount),
+    
+   
     createData('AmountPaid', 'Rs.'+ props.guestdetails.amountPaid),
     
     createData('SecurityDeposit','Rs.'+ props.guestdetails.securityDeposit ),

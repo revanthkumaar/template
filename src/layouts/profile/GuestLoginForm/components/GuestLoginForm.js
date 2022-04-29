@@ -271,32 +271,32 @@ const GuestLoginForm = () => {
                   console.log(guestdata);
                   console.log(gusting.amountPaid);
                   console.log(amountTooPay);
-                  // if (guestdata.amountPaid == amountTooPay) {
-                  //   const res = await axios
-                  //     .post(
-                  //       "/guest/addGuest",
+                  if (guestdata.amountPaid == amountTooPay) {
+                    const res = await axios
+                      .post(
+                        "/guest/addGuest",
 
-                  //       guestdata
-                  //     )
+                        guestdata
+                      )
 
-                  //     .catch((err) => {
-                  //       handleClose();
-                  //       toast.error("Server error");
-                  //     });
+                      .catch((err) => {
+                        handleClose();
+                        toast.error("Server error");
+                      });
 
-                  //   //console.log(res.data);
-                  //   if (res.data !== null) {
-                  //     handleClose();
+                    //console.log(res.data);
+                    if (res.data !== null) {
+                      handleClose();
 
-                  //     toast.success("OnBoarded Successfully");
+                      toast.success("OnBoarded Successfully");
 
-                  //     resetForm();
-                  //   }
-                  // } else {
-                  //   handleClose();
-                  //   toast.error(" Need to pay full Amount");
-                  // }
-                  // setTimeout(() => {}, 50);
+                      resetForm();
+                    }
+                  } else {
+                    handleClose();
+                    toast.error(" Need to pay full Amount");
+                  }
+                  setTimeout(() => {}, 50);
                 }}
               >
                 {(formProps) => (
