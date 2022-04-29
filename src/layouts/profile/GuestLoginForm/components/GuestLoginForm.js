@@ -233,11 +233,12 @@ const GuestLoginForm = () => {
   };
 
   const obj = { bedId: bed };
-
+  const OnBoarding= 'OnBoarding'
   // const obje = { buildingId: bid };
   const objee = { defaultRent: rent };
   const obj1 = { securityDeposit: secureDepo };
   const obj2 = { amountToBePaid: amountTooPay };
+  const obj3={paymentPurpose:OnBoarding}
   const amountNeedToPay = (n) => {};
 
   return (
@@ -256,37 +257,37 @@ const GuestLoginForm = () => {
 
                   const gusting = Object.assign(gustes, objee);
                   const gusting1 = Object.assign(gusting, obj1);
-                  const guestdata = Object.assign(gusting1, obj2);
+                  const guestdata1 = Object.assign(gusting1, obj2);
+                  const guestdata=Object.assign(guestdata1,obj3);
                   console.log(guestdata);
                   console.log(gusting.amountPaid);
                   console.log(amountTooPay);
-                  if (guestdata.amountPaid == amountTooPay) {
-                    const res = await axios
-                      .post(
-                        "/guest/addGuest",
+                  // if (guestdata.amountPaid == amountTooPay) {
+                  //   const res = await axios
+                  //     .post(
+                  //       "/guest/addGuest",
 
-                        guestdata
-                      )
+                  //       guestdata
+                  //     )
 
-                      .catch((err) => {
-                        handleClose();
-                        toast.error("Server error");
-                      });
+                  //     .catch((err) => {
+                  //       handleClose();
+                  //       toast.error("Server error");
+                  //     });
 
-                    //console.log(res.data);
-                    if (res.data !== null) {
-                      handleClose();
+                  //   //console.log(res.data);
+                  //   if (res.data !== null) {
+                  //     handleClose();
 
-                      toast.success("OnBoarded Successfully");
+                  //     toast.success("OnBoarded Successfully");
 
-                      resetForm();
-                    }
-                  } else {
-                    handleClose();
-                    toast.error(" Need to pay full Amount");
-                  }
-
-                  setTimeout(() => {}, 50);
+                  //     resetForm();
+                  //   }
+                  // } else {
+                  //   handleClose();
+                  //   toast.error(" Need to pay full Amount");
+                  // }
+                  // setTimeout(() => {}, 50);
                 }}
               >
                 {(formProps) => (

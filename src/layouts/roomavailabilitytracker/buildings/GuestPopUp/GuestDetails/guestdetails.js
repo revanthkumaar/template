@@ -52,21 +52,22 @@ function Guestdetails(props) {
     createData('GuestId', props.guestdetails.id),
     createData('GuestName', props.guestdetails.firstName),
     createData('Mobile', props.guestdetails.personalNumber),
-    
+    createData('Email', props.guestdetails.email),
     createData('BedID', props.guestdetails.bedId),
-    createData('GuestStatus', props.guestdetails.guestStatus),
+    createData('Guest Status', props.guestdetails.guestStatus),
     createData('Duration', props.guestdetails.duration),
     createData('Occupency Type', props.guestdetails.occupancyType),
-    createData('Email', props.guestdetails.email),
+    
 
   ];
   const rows1=[
     
     createData('Check-In Date', formatDate(props.guestdetails.checkInDate)),
     createData('Due Amount', 'Rs.'+props.GuestDueAmount),
-    createData('AmountPaid', 'Rs.'+ props.guestdetails.amountPaid),
     createData('Check-Out Date',props.guestdetails.checkOutDate),
     createData('PlannedCheck-OutDate',da),
+    createData('AmountPaid', 'Rs.'+ props.guestdetails.amountPaid),
+    
     createData('SecurityDeposit','Rs.'+ props.guestdetails.securityDeposit ),
     createData('Default Rent','Rs.'+ props.guestdetails.defaultRent )
 
