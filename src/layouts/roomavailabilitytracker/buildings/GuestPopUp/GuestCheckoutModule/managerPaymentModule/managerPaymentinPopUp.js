@@ -12,7 +12,7 @@ import Textfield from "layouts/profile/GuestLoginForm/components/TextField";
 import Select from "layouts/profile/GuestLoginForm/components/Select";
 import ManagerPaymentPurpose from "./ManagerPaymentPurpose";
 
-import Button from "layouts/profile/GuestLoginForm/components/Button";
+import Button from '../../../../../profile/GuestLoginForm/components/Button';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Backdrop,CircularProgress } from "@mui/material";
@@ -38,8 +38,8 @@ const useStyles = makeStyles({
 });
 
 const FORM_VALIDATION = Yup.object().shape({
-  paymentPurpose: Yup.string().required("Required"),
-  amountPaid: Yup.number().required("Required"),
+  // paymentPurpose: Yup.string().required("Required"),
+  refundAmount: Yup.number().required("Required"),
   transactionId: Yup.string().required("Required"),
 });
 const notify = () => toast();
@@ -52,13 +52,13 @@ const ManagerPaymentsinPopup = (props) => {
   const handleToggle = () => {
     setOpen(!open);
   };
-  // var GuestID = props.guestdetails.id;
+  var GuestID = props.guestdetails.id;
   var INITIAL_FORM_STATE = {
-    paymentPurpose: "",
-    paymentmethod: "",
-    amountPaid: "",
+    // paymentPurpose: "",
+    // paymentmethod: "",
+    refundAmount: "",
     transactionId: "",
-    // guestId: GuestID,
+    guestId: GuestID,
   };
 
   const classes = useStyles();
@@ -77,7 +77,8 @@ const ManagerPaymentsinPopup = (props) => {
                 console.log(guest);
                 handleToggle()
 
-                const res = await axios.post("/payment/addPaymentAtOnBoarding", guest)
+
+                const res = await axios.post("/payment/addAfterOnBoard", guest)
                 .catch((err) => {
                   toast.error("Server error");
                 });
@@ -100,29 +101,16 @@ const ManagerPaymentsinPopup = (props) => {
                 <Form>
                   <Grid container spacing={2}>
                     <Grid item xs={6}>
-                      <Textfield name="amountPaid" label="Amount Paid" />
+                      <Textfield name="refundAmount" label="Refund Amount" />
                     </Grid>
                     <Grid item xs={6}>
                       <Textfield name="transactionId" label="Transaction ID" />
                     </Grid>
 
-                    <Grid item xs={6}>
-                      <InputLabel id="demo-simple-select-label">
-                        &nbsp; Payment Method
-                      </InputLabel>
-
-                      <Select
-                        // IconComponent={(Purpose) => (
-                        //   <ArrowDropDownIcon className={classes.size} />
-                        // )}
-                        name = "paymentMethod"
-                        options = {ManagerPaymentPurpose}
-                        className={classes.root}
-                      />
-                    </Grid>
+                   
 
                     <Grid item xs={6} sx={{ marginTop: 2 }}>
-                      <Button  >REFUND</Button>
+                      <Button type="Submit" >REFUND</Button>
                     </Grid>
                   </Grid>
                   <ToastContainer  maxWidth="sx"

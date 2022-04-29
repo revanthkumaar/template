@@ -47,12 +47,12 @@ const GuestpaymentsinPopUp = (props) => {
   const handleToggle = () => {
     setOpen(!open);
   };
-  // var GuestID = props.guestdetails.id;
+  var GuestID = props.guestdetails.id;
   var INITIAL_FORM_STATE = {
     paymentPurpose: "",
     amountPaid: "",
     transactionId: "",
-    // guestId: GuestID,
+    guestId: GuestID,
   };
 
   const classes = useStyles();

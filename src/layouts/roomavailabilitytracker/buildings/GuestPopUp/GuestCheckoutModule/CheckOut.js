@@ -80,8 +80,8 @@ var plannedcheckoutdate = null
           
         </Grid>
 
-        { guestdueamount < 0 ? (<ManagerPaymentsinPopup  />) : (<div></div>)} 
-        { guestdueamount > 0 ? (<GuestpaymentsinPopUp />) : (<div></div>)}
+        { guestdueamount < 0 ? (<ManagerPaymentsinPopup guestdetails={props.guestdetails} />) : (<div></div>)} 
+        { guestdueamount > 0 ? (<GuestpaymentsinPopUp guestdetails={props.guestdetails}/>) : (<div></div>)}
        
     </>
   )

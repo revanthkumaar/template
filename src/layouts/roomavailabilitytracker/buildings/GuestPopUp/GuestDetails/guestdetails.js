@@ -52,14 +52,16 @@ function Guestdetails(props) {
     createData('GuestId', props.guestdetails.id),
     createData('GuestName', props.guestdetails.firstName),
     createData('Mobile', props.guestdetails.personalNumber),
-    createData('Email', props.guestdetails.email),
+    
     createData('BedID', props.guestdetails.bedId),
     createData('GuestStatus', props.guestdetails.guestStatus),
+    createData('Duration', props.guestdetails.duration),
+    createData('Occupency Type', props.guestdetails.occupancyType),
+    createData('Email', props.guestdetails.email),
 
   ];
   const rows1=[
-    createData('Duration', props.guestdetails.duration),
-    createData('Occupency Type', props.guestdetails.occupancyType),
+    
     createData('Check-In Date', formatDate(props.guestdetails.checkInDate)),
     createData('Due Amount', 'Rs.'+props.GuestDueAmount),
     createData('AmountPaid', 'Rs.'+ props.guestdetails.amountPaid),
@@ -90,7 +92,7 @@ function Guestdetails(props) {
           </TableCell>
           <TableCell align="right">{row.calories}</TableCell>
           <TableCell align="right">{row.fat}</TableCell>
-          <TableCell align="right">{row.carbs}</TableCell>
+          {/* <TableCell align="right">{row.carbs}</TableCell> */}
           <TableCell align="right">{row.protein}</TableCell>
         </TableRow>
       ))}
