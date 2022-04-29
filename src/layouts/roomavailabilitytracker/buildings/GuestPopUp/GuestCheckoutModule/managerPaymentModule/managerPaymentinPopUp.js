@@ -15,8 +15,8 @@ import ManagerPaymentPurpose from "./ManagerPaymentPurpose";
 import Button from '../../../../../profile/GuestLoginForm/components/Button';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Backdrop,CircularProgress } from "@mui/material";
-import "./managerPaymentinPopUp.css";
+import { Backdrop,CircularProgress,Typography } from "@mui/material";
+//import "./managerPaymentinPopUp.css";
 
 
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
@@ -73,9 +73,16 @@ const ManagerPaymentsinPopup = (props) => {
   const classes = useStyles();
 
   return (
-    <div className="record-payment">
+    // <div className="record-payment">
  <Grid container>
-   <Grid item xs={12}><MDTypography>REFUND TO THE GUEST :</MDTypography></Grid>
+   {/* <Grid item xs={12}><MDTypography>REFUND TO THE GUEST :</MDTypography></Grid> */}
+   <Grid item xs={12}>
+                        <Typography color="black">
+                         
+                          <h4 align="center" color="black" font-weight="800">REFUND TO THE GUEST </h4>
+                          
+                        </Typography>
+                      </Grid>
       <Grid item xs={12}>
         <Container maxWidth="md">
           <div>
@@ -108,18 +115,15 @@ const ManagerPaymentsinPopup = (props) => {
             >
               {(formProps) => (
                 <Form>
-                  <Grid container spacing={2}>
+                  <Grid container spacing={3}>
                     <Grid item xs={6}>
                       <Textfield name="refundAmount" label="Refund Amount" />
                     </Grid>
                     <Grid item xs={6}>
                       <Textfield name="transactionId" label="Transaction ID" />
                     </Grid>
-
-                   
-
                     <Grid item xs={6} sx={{ marginTop: 2 }}>
-                      <Button type="Submit" >REFUND</Button>
+                      <Button type="Submit" align="center">REFUND</Button>
                     </Grid>
                   </Grid>
                   <ToastContainer  maxWidth="sx"
@@ -149,7 +153,7 @@ const ManagerPaymentsinPopup = (props) => {
       </Grid>
     </Grid>
 
-    </div>
+    // </div>
       );
 };
 

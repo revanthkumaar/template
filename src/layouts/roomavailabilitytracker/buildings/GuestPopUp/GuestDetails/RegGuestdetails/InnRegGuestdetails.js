@@ -48,12 +48,12 @@ function InnregGuestDetails(props) {
       }
       
       const rows = [
-        createData('GuestId', props.guestdetails.id),
-        createData('GuestName', props.guestdetails.firstName),
-        createData('Mobile', props.guestdetails.personalNumber),
-        createData('Email', props.guestdetails.email),
-        createData('BedID', props.guestdetails.bedId),
-        createData('Guest Status', props.guestdetails.guestStatus),
+        createData(<h4>Guest Id</h4>, props.guestdetails.id),
+        createData(<h4>Guest Name</h4>, props.guestdetails.firstName),
+        createData(<h4>Mobile</h4>, props.guestdetails.personalNumber),
+        createData(<h4>Email</h4>, props.guestdetails.email),
+        createData(<h4>Bed ID</h4>, props.guestdetails.bedId),
+        createData(<h4>Guest Status</h4>, props.guestdetails.guestStatus),
         
         createData('Occupency Type', props.guestdetails.occupancyType),
         
@@ -61,15 +61,15 @@ function InnregGuestDetails(props) {
       ];
       const rows1=[
         
-        createData('Check-In Date', formatDate(props.guestdetails.checkInDate)),
-        createData('Due Amount', 'Rs.'+props.GuestDueAmount),
-        createData('Check Out Initiated Date',formatDate(props.guestdetails.noticeDate)),
+        createData(<h4>Check-In Date</h4>, formatDate(props.guestdetails.checkInDate)),
+        createData(<h4>Due Amount</h4>, 'Rs.'+props.GuestDueAmount),
+        createData(<h4>Check Out Initiated Date</h4>,formatDate(props.guestdetails.noticeDate)),
         
-        createData('PlannedCheck-OutDate',da),
-        createData('AmountPaid', 'Rs.'+ props.guestdetails.amountPaid),
+        createData(<h4>PlannedCheck-OutDate</h4>,da),
+        createData(<h4>AmountPaid</h4>, 'Rs.'+ props.guestdetails.amountPaid),
         
-        createData('SecurityDeposit','Rs.'+ props.guestdetails.securityDeposit ),
-        createData('Default Rent','Rs.'+ props.guestdetails.defaultRent )
+        createData(<h4>Security Deposit</h4>,'Rs.'+ props.guestdetails.securityDeposit ),
+        createData(<h4>Default Rent</h4>,'Rs.'+ props.guestdetails.defaultRent )
     
       ]
 

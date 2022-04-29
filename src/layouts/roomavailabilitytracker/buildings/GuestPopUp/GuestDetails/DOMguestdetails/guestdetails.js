@@ -49,28 +49,28 @@ function Guestdetails(props) {
   }
   
   const rows = [
-    createData('GuestId', props.guestdetails.id),
-    createData('GuestName', props.guestdetails.firstName),
-    createData('Mobile', props.guestdetails.personalNumber),
-    createData('Email', props.guestdetails.email),
-    createData('BedID', props.guestdetails.bedId),
-    createData('Guest Status', props.guestdetails.guestStatus),
-    createData('Duration', props.guestdetails.duration),
-    createData('Occupency Type', props.guestdetails.occupancyType),
+    createData(<h4>Guest Id</h4>, props.guestdetails.id),
+    createData(<h4>Guest Name</h4>, props.guestdetails.firstName),
+    createData(<h4>Mobile</h4>, props.guestdetails.personalNumber),
+    createData(<h4>Email</h4>, props.guestdetails.email),
+    createData(<h4>BedID</h4>, props.guestdetails.bedId),
+    createData(<h4>Guest Status</h4>, props.guestdetails.guestStatus),
+    createData(<h4>Duration</h4>, props.guestdetails.duration),
+    createData(<h4>Occupency Type</h4>, props.guestdetails.occupancyType),
     
 
   ];
   const rows1=[
     
-    createData('Check-In Date', formatDate(props.guestdetails.checkInDate)),
-    createData('Check-Out Date',props.guestdetails.checkOutDate),
-    createData('Due Amount', 'Rs.'+props.GuestDueAmount),
+    createData(<h4>Check-In Date</h4>, formatDate(props.guestdetails.checkInDate)),
+    createData(<h4>Check-Out Date</h4>,props.guestdetails.checkOutDate),
+    createData(<h4>Due Amount</h4>, 'Rs.'+props.GuestDueAmount),
     
    
-    createData('AmountPaid', 'Rs.'+ props.guestdetails.amountPaid),
+    createData(<h4>AmountPaid</h4>, 'Rs.'+ props.guestdetails.amountPaid),
     
-    createData('SecurityDeposit','Rs.'+ props.guestdetails.securityDeposit ),
-    createData('Default Rent','Rs.'+ props.guestdetails.defaultRent )
+    createData(<h4>SecurityDeposit</h4>,'Rs.'+ props.guestdetails.securityDeposit ),
+    createData(<h4>Default Rent</h4>,'Rs.'+ props.guestdetails.defaultRent )
 
   ]
 
