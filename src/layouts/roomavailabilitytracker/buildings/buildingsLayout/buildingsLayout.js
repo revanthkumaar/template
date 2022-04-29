@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Grid } from "@mui/material";
 import MDBox from "components/MDBox";
 // import buildingsData from './buildingsData';
- import HotelOutlinedIcon from "@mui/icons-material/HotelOutlined";
+import HotelOutlinedIcon from "@mui/icons-material/HotelOutlined";
 // import IconButton from "@material-ui/core/IconButton";
 // import { pink } from "@mui/material/colors";
 // import MDTypography from "components/MDTypography";
@@ -27,29 +27,25 @@ var GuestDetails = {};
 var GuestDueAmount = null;
 
 const BuildingsLayout = (props) => {
-
   // console.log(props.buildingId)
   const [buildingInfo, setBuildingInfo] = React.useState({});
   // const [buildingid , setbuildingid]= React.useState(1)
 
   const [loading, setLoading] = React.useState(false);
   const closeLoading = () => setLoading(!loading);
-  console.log(props.buildingId)
+  console.log(props.buildingId);
 
   useEffect(async () => {
-    
     await axios
-    
+
       .get(`/bed/getBedsByBuildingId/${props.buildingId}`)
       .then((res) => {
         setBuildingInfo(res.data);
         setLoading(true);
-        console.log(res.data)
+        console.log(res.data);
       })
       .catch((err) => {
-       
-          toast.error("Server error");
-        ;
+        toast.error("Server error");
         closeLoading();
       });
   }, [props.buildingId]);
@@ -110,52 +106,67 @@ const BuildingsLayout = (props) => {
                                               {(() => {
                                                 if (bdno.bedStatus === true) {
                                                   return (
-                                                    <HotelOutlinedIcon key={bdno.bedId} className="click" color="success"/>
-                                                  );} 
-                                                  else {
+                                                    <HotelOutlinedIcon
+                                                      key={bdno.bedId}
+                                                      className="click"
+                                                      color="success"
+                                                    />
+                                                  );
+                                                } else {
                                                   return (
-                                                    <Tooltip title={bdno.guestName}>
-                                                    <HotelOutlinedIcon    key={bdno.bedId} color="error"  className="click" id={bdno.guestId}
-                                                      onClick={async () => {
-                                                                             setLoading(false);
-                                                                             console.log(bdno.guestId);
-                                                                             await axios.get(`guest/onClickDues/${bdno.guestId}`).then((response) => GuestDueAmount= response.data )
-                                                                             console.log(GuestDueAmount)
-
-                                                        await axios
-                                                          .get(
-                                                            `/guest/getGuestByGuestId/${bdno.guestId}`
-                                                          )
-                                                          .then((res) => {
-                                                            GuestDetails =
-                                                              res.data;
-                                                            console.log(
-                                                              GuestDetails
+                                                    <Tooltip
+                                                      title={bdno.guestName}
+                                                    >
+                                                      <HotelOutlinedIcon
+                                                        key={bdno.bedId}
+                                                        color="error"
+                                                        className="click"
+                                                        id={bdno.guestId}
+                                                        onClick={async () => {
+                                                          setLoading(false);
+                                                          console.log(
+                                                            bdno.guestId
+                                                          );
+                                                          await axios
+                                                            .get(
+                                                              `guest/onClickDues/${bdno.guestId}`
+                                                            )
+                                                            .then(
+                                                              (response) =>
+                                                                (GuestDueAmount =
+                                                                  response.data)
                                                             );
+                                                          console.log(
+                                                            GuestDueAmount
+                                                          );
 
-                                                            setOpen(true);
-                                                            setLoading(true);
-                                                          })
-                                                          .catch((err) => {
-                                                            console.log(err);
-                                                          });
+                                                          await axios
+                                                            .get(
+                                                              `/guest/getGuestByGuestId/${bdno.guestId}`
+                                                            )
+                                                            .then((res) => {
+                                                              GuestDetails =
+                                                                res.data;
+                                                              console.log(
+                                                                GuestDetails
+                                                              );
 
-                                                         
+                                                              setOpen(true);
+                                                              setLoading(true);
+                                                            })
+                                                            .catch((err) => {
+                                                              console.log(err);
+                                                            });
+
                                                           // await axios .get(`guest/getPendingAndCompletedById/${bdno.guestId}`)
                                                           // .then((res) => {
                                                           //   GuestDueAmount = res.data;
                                                           //   console.log(GuestDueAmount)
 
                                                           // })
-                                                      }}
-                                                      
-
-
-                                                    />
+                                                        }}
+                                                      />
                                                     </Tooltip>
-
-
-
                                                   );
                                                 }
                                               })()}

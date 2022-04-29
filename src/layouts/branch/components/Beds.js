@@ -277,7 +277,7 @@ const obje2 = {roomId:roomId}
                 onClick={(i) => {
                   setBuildingId(i.target.dataset.value)
                   console.log(i.target.dataset.value)
-                 // console.log(buildingId)
+                 console.log(i)
                 }}
               />
             </Grid>

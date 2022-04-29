@@ -302,7 +302,7 @@ const GuestLoginForm = () => {
                           {" "}
                           * indicates fields are Required
                         </InputLabel>
-                      </Grid>
+                       </Grid>
                       <Grid item xs={6}>
                         <h6>Select Building *</h6>
 
