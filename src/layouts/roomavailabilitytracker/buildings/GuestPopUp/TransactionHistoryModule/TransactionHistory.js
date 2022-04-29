@@ -13,10 +13,10 @@ import Grid from "@mui/material/Grid";
 import axios from "../../../../../Uri";
 const useStyles = makeStyles({
   root: {
-    paddingLeft:140
+    paddingLeft:120
   },
   date:{
-    paddingLeft:90
+    paddingLeft:100
   },
   header: {
     paddingLeft:20
@@ -26,6 +26,9 @@ const useStyles = makeStyles({
   },
   amount:{
     paddingLeft:120
+  },
+  negetive:{
+    paddingLeft:-20
   }
 });
 
@@ -52,6 +55,14 @@ export default function TransactionHistory(props) {
     }
     fetchData();
   }, []);
+  function formatDate(checkInDate) {
+    var datePart = checkInDate.match(/\d+/g),
+      year = datePart[0].substring(2), // get only two digits
+      month = datePart[1],
+      day = datePart[2];
+
+    return day + "-" + month + "-" + year;
+  }
   // var s = history.transactionDate.toLocaleString("ko-KR", {
   //   timeZone: "Asia/Kolkata",
   // });
@@ -119,8 +130,8 @@ export default function TransactionHistory(props) {
 
   <TableHead>
     <TableRow>
-    <TableCell >PAYMENT ID</TableCell>
-    <TableCell className={classes.header}>TRANSACTION DATE</TableCell>
+    <TableCell className={classes.negetive}>PAYMENT ID</TableCell>
+    <TableCell className={classes.negetive}>TRANSACTION DATE</TableCell>
     <TableCell align="center" className={classes.header}>AMOUNT</TableCell>
     <TableCell align="center" className={classes.header}>PAYMENT PURPOSE</TableCell>
     <TableCell align="center"className={classes.header}>TRANSACTION ID</TableCell>
@@ -135,7 +146,7 @@ export default function TransactionHistory(props) {
         <TableCell component="th" scope="row">
           {row.paymentId}
         </TableCell>
-        <TableCell align="right" padding='normal' className={classes.date} >{row.transactionDate}</TableCell>
+        <TableCell align="right" padding='normal' className={classes.date} >{formatDate(row.transactionDate)}</TableCell>
         <TableCell align="right" padding='normal' className={classes.amount}>{row.amountPaid}</TableCell>
         <TableCell align="right" padding='normal'className={classes.root}>{row.paymentPurpose}</TableCell>
         <TableCell align="right" padding='normal' className={classes.transaction}>{row.transactionId}</TableCell>
