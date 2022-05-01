@@ -10,6 +10,7 @@ import { makeStyles } from "@mui/styles";
 import { useEffect, useState } from "react";
 import Grid from "@mui/material/Grid";
 // import axios from "axios";
+//import Table from 'react-bootstrap'
 import axios from "../../../../../Uri";
 const useStyles = makeStyles({
   root: {
@@ -55,6 +56,7 @@ export default function TransactionHistory(props) {
     }
     fetchData();
   }, []);
+  console.log(history);
   function formatDate(checkInDate) {
     var datePart = checkInDate.match(/\d+/g),
       year = datePart[0].substring(2), // get only two digits
@@ -68,19 +70,57 @@ export default function TransactionHistory(props) {
   // });
   // console.log(s);
   // var da = formatDate(s)
-  function createData(name, calories, fat, carbs, protein) {
-    return { name, calories, fat, carbs, protein };
-  }
+  // function createData(name, calories, fat, carbs, protein) {
+  //   return { name, calories, fat, carbs, protein };
+  // }
   
-  const rows = [
-    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
-  ];
+  // const rows = [
+  //   createData(props.paymentId, formatDate(row.transactionDate), row.amountPaid, 24, 4.0),
+  //   createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
+  //   createData('Eclair', 262, 16.0, 24, 6.0),
+  //   createData('Cupcake', 305, 3.7, 67, 4.3),
+  //   createData('Gingerbread', 356, 16.0, 49, 3.9),
+  // ];
   
   return (
+    
+    <Table striped bordered hover >
+  <thead>
+    <tr >
+      <th >PAYMENT ID</th>
+      <th>TRANSACTION DATE</th>
+      <th>AMOUNT</th>
+      <th>PAYMENT PURPOSE</th>
+      <th>TRANSACTION ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    {history.map((row)=>(
+      <tr>
+      <td>{row.paymentId}</td>
+      <td>{formatDate(row.transactionDate)}</td>
+      <td>{row.amountPaid}</td>
+      <td>{row.paymentPurpose}</td>
+      <td>{row.transactionId}</td>
+    </tr>
+    ))}
+    
+    {/* <tr>
+      <td>2</td>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td colSpan={2}>Larry the Bird</td>
+      <td>@twitter</td>
+    </tr> */}
+  </tbody>
+</Table>
+
+  )
+}
 //     <div className="payBox">
 // <TableContainer sx={{ alignContent: "center" }} component={Paper}>
 //       <Table sx={{ minWidth: 500 }} aria-label="simple table">
@@ -126,7 +166,8 @@ export default function TransactionHistory(props) {
 //       </Table>
 //     </TableContainer>
 //     </div>
-<Grid>
+
+{/* <Grid>
 
   <TableHead>
     <TableRow>
@@ -155,6 +196,4 @@ export default function TransactionHistory(props) {
   </TableBody>
 
 </Grid>
-    
-  );
-}
+     */}

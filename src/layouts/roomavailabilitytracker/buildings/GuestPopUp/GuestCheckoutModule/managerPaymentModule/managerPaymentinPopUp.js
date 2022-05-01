@@ -116,14 +116,14 @@ const ManagerPaymentsinPopup = (props) => {
               {(formProps) => (
                 <Form>
                   <Grid container spacing={3}>
-                    <Grid item xs={6}>
+                    <Grid item xs={5}>
                       <Textfield name="refundAmount" label="Refund Amount" />
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={5}>
                       <Textfield name="transactionId" label="Transaction ID" />
                     </Grid>
-                    <Grid item xs={6} sx={{ marginTop: 2 }}>
-                      <Button type="Submit" align="center">REFUND</Button>
+                    <Grid item xs={2} sx={{ marginTop: 0.5}} width={100}>
+                      <Button type="Submit" align="center" >REFUND</Button>
                     </Grid>
                   </Grid>
                   <ToastContainer  maxWidth="sx"
