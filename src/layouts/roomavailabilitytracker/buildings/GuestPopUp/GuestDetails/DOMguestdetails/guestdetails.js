@@ -63,7 +63,7 @@ function Guestdetails(props) {
   const rows1=[
     
     createData(<h4>Check-In Date</h4>, formatDate(props.guestdetails.checkInDate)),
-    createData(<h4>PlannedCheck-OutDate</h4>,da),
+    createData(<h4>Planned Check-Out Date</h4>,da),
     createData(<h4>Due Amount</h4>, 'Rs.'+props.GuestDueAmount),
     
    

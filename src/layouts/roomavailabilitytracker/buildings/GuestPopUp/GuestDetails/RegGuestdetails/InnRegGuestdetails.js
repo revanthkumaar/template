@@ -65,7 +65,7 @@ function InnregGuestDetails(props) {
         createData(<h4>Due Amount</h4>, 'Rs.'+props.GuestDueAmount),
         createData(<h4>Check Out Initiated Date</h4>,formatDate(props.guestdetails.noticeDate)),
         
-        createData(<h4>PlannedCheck-OutDate</h4>,da),
+        createData(<h4>Planned Check-Out Date</h4>,da),
         createData(<h4>AmountPaid</h4>, 'Rs.'+ props.guestdetails.amountPaid),
         
         createData(<h4>Security Deposit</h4>,'Rs.'+ props.guestdetails.securityDeposit ),

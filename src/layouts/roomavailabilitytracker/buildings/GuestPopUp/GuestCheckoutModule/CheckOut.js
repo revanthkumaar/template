@@ -78,7 +78,7 @@ var plannedcheckoutdate = null
 
 
             {props.guestdetails.occupancyType == 'Daily' || props.guestdetails.occupancyType == 'Monthly'  ? (
-            <Button className="btn-float-left" variant="contained" color="primary"  style={{ color: "white" ,float: "right"}} onClick={finalCheckOutHandler} >Finish CheckOut</Button>
+            <Button className="btn-float-left" variant="contained" color="primary"  style={{ color: "white" ,float: "right"}} onClick={finalCheckOutHandler} >CheckOut</Button>
             ) : (<div></div>)}
 
     

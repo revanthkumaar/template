@@ -8,6 +8,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { makeStyles } from "@mui/styles";
 import { useEffect, useState } from "react";
+import './TransactionHistory.css'
 import Grid from "@mui/material/Grid";
 // import axios from "axios";
 //import Table from 'react-bootstrap'
@@ -87,7 +88,7 @@ export default function TransactionHistory(props) {
     <Table striped bordered hover >
   <thead>
     <tr >
-      <th align="left">PAYMENT ID</th>
+      <th   align="left">PAYMENT ID</th>
       <th align="left">TRANSACTION DATE</th>
       <th align="left">REFUND</th>
       <th align="left">AMOUNT</th>
