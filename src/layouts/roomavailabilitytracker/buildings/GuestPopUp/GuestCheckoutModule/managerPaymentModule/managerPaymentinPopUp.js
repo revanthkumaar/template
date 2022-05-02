@@ -67,6 +67,7 @@ const ManagerPaymentsinPopup = (props) => {
     // paymentmethod: "",
     refundAmount: "",
     transactionId: "",
+    paymentPurpose:"Refund",
     guestId: GuestID,
   };
 
@@ -77,9 +78,9 @@ const ManagerPaymentsinPopup = (props) => {
  <Grid container>
    {/* <Grid item xs={12}><MDTypography>REFUND TO THE GUEST :</MDTypography></Grid> */}
    <Grid item xs={12}>
-                        <Typography color="black">
+                        <Typography color="black" gutterBottom>
                          
-                          <h4 align="center" color="black" font-weight="800">REFUND TO THE GUEST </h4>
+                        <h4 className='head-1-checkOut'>Refund to the Guest</h4>
                           
                         </Typography>
                       </Grid>

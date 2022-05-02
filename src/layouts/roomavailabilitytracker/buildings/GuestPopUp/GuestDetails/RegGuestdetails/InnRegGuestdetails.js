@@ -55,7 +55,7 @@ function InnregGuestDetails(props) {
         createData(<h4>Bed ID</h4>, props.guestdetails.bedId),
         createData(<h4>Guest Status</h4>, props.guestdetails.guestStatus),
         
-        createData('Occupency Type', props.guestdetails.occupancyType),
+        createData(<h4>Occupancy Type</h4>, props.guestdetails.occupancyType),
         
     
       ];
@@ -73,9 +73,9 @@ function InnregGuestDetails(props) {
     
       ]
 
-      // console.log(ndate)
+      console.log('this is innotice regular guy')
   return (
-    <Grid container spacing={2} columns={16}>
+    <Grid container spacing={2} columns={16} >
     <Grid item xs={8}>
 {/* <TableContainer component={Paper}> */}
   <Table sx={{ minWidth: 500 }} size="small" aria-label="a dense table">

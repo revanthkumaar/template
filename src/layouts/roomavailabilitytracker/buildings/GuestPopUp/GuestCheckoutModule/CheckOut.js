@@ -56,8 +56,8 @@ var plannedcheckoutdate = null
      
       
         <Grid container>
-          {props.guestdetails.guestStatus == "InNotice" ? (<div></div>)  : (<Grid xs={5} sx={{pt:"30px",pr:"40px"}}>
-    <Button variant="contained" color="primary" onClick={initiateCheckoutProcess} style={{color:"white"} }>INITIATE THE CHECKOUT PROCESS</Button>
+          {props.guestdetails.guestStatus == "InNotice" || props.guestdetails.occupancyType == 'Daily' || props.guestdetails.occupancyType == 'Monthly' ? (<div></div>)  : (<Grid xs={5} sx={{pt:"30px",pr:"40px"}}>
+    <Button variant="contained" color="primary" onClick={initiateCheckoutProcess} style={{color:"white"} }>INITIATE CHECKOUT</Button>
     </Grid>)}
 
 
@@ -71,10 +71,15 @@ var plannedcheckoutdate = null
           { }
 
 
-          {props.guestdetails.guestStatus== "InNotice" && guestdueamount == 0 ? (<Grid xs={4} sx={{ pt: "30px", pl: "90px" ,float:"right"}} >
-            <Button variant="contained" color="primary" style={{ color: "white" }} onClick={finalCheckOutHandler}>Final CheckOut</Button>
-            </Grid>) : (<div></div>)}
+          {props.guestdetails.guestStatus== "InNotice" && guestdueamount == 0 ? (
+            <Button variant="contained" color="primary" style={{ color: "white" ,float: "right"}}onClick={finalCheckOutHandler} >Finish CheckOut</Button>
+          ) : (<div></div>)}
             {/* <p className="Text-CheckOut">Checkout Date:{checkOutDate}</p> */}
+
+
+            {props.guestdetails.occupancyType == 'Daily' || props.guestdetails.occupancyType == 'Monthly'  ? (
+            <Button className="btn-float-left" variant="contained" color="primary"  style={{ color: "white" ,float: "right"}} onClick={finalCheckOutHandler} >Finish CheckOut</Button>
+            ) : (<div></div>)}
 
     
           
