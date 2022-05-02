@@ -67,9 +67,9 @@ const GuestpaymentsinPopUp = (props) => {
   const classes = useStyles();
 
   return (
-    <div className="record-payment">
+    // <div className="record-payment">
  <Grid container>
- <Grid item xs={12}><MDTypography>Clear the Due Amount</MDTypography></Grid>
+ <Grid item xs={12}><MDTypography gutterBottom><h5 className='head-1-checkOut' >Clear Due amount</h5></MDTypography></Grid>
       <Grid item xs={12}>
         <Container maxWidth="md">
           <div>
@@ -162,7 +162,7 @@ const GuestpaymentsinPopUp = (props) => {
       </Grid>
     </Grid>
 
-    </div>
+    // </div>
       );
 };
 

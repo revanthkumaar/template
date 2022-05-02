@@ -38,7 +38,7 @@ function ActregGuestDetails(props) {
         createData(<h4>Bed ID</h4>, props.guestdetails.bedId),
         createData(<h4>Guest Status</h4>, props.guestdetails.guestStatus),
         
-        createData(<h4>Occupency Type</h4>, props.guestdetails.occupancyType),
+        createData(<h4>Occupancy Type</h4>, props.guestdetails.occupancyType),
         
     
       ];
