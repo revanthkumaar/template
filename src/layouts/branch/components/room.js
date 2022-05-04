@@ -19,8 +19,8 @@ const INITIAL_FORM_STATE = {
 function Room() {
 
   let userData = JSON.parse(sessionStorage.getItem("userdata"));
-  let userType = userData.data.userType
-  console.log(userType)
+  let userId = userData.data.userId
+  console.log(userId)
   const [data, setData] = useState([]);
   const [building, setBuilding] = useState([]);
   const [floor, setFloor] = useState([]);
@@ -181,7 +181,7 @@ function Room() {
   console.log(obj1)
 
   const obje1 = { floorId: floorId };
-  const obje = { createdBy:userType}
+  const obje = { createdBy:userId}
 
   return (
     <div>

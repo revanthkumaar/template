@@ -6,6 +6,7 @@ import Select from "@mui/material/Select";
 import axios from "../../../Uri";
 import BuildingsLayout from "./buildingsLayout/buildingsLayout";
 import BedSummaryChart from "./buildingspieCharts/bedSummaryChart";
+import SummaryTable from "./buildingsSummaryTable/SummaryTable";
 import PaymentSummaryChart from "./buildingspieCharts/paymentSummaryChart";
 import { Grid } from "@mui/material";
 
@@ -66,9 +67,9 @@ function AdmBuildingDropdown(props) {
             <Grid item xs={6}>
               <BedSummaryChart buildingId={buildingId} />
             </Grid>
-            {/* <Grid item xs={6}>
-        <PaymentSummaryChart buildingId={buildingId} />
-      </Grid> */}
+            <Grid item xs={6}>
+        <SummaryTable buildingId={buildingId} />
+      </Grid>
           </Grid>
           <BuildingsLayout buildingId={buildingId} />
         </div>

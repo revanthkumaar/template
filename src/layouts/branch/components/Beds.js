@@ -13,8 +13,8 @@ import Select from "../../profile/GuestLoginForm/components/Select";
 
 function Beds() {
   let userData = JSON.parse(sessionStorage.getItem("userdata"));
-  let userType = userData.data.userType
-  console.log(userType)
+  let userId = userData.data.userId
+  console.log(userId)
   var obj1 = null
   var obj2 = null
 
@@ -261,7 +261,7 @@ useEffect(() => {
 }, [roomId]);
 
 // const owner="admin"
-  const obje = { createdBy: userType };
+  const obje = { createdBy: userId };
 
 const obje1 = {buildingId:buildingId};
 

@@ -54,6 +54,11 @@ const FORM_VALIDATION = Yup.object().shape({
 const notify = () => toast();
 
 const ManagerPaymentsinPopup = (props) => {
+
+  let userData = JSON.parse(sessionStorage.getItem("userdata"));
+  let userId = userData.data.userId
+  console.log(userId)
+
   const [open, setOpen] = React.useState(false);
   const handleClose = () => {
     setOpen(false);
@@ -69,6 +74,7 @@ const ManagerPaymentsinPopup = (props) => {
     transactionId: "",
     paymentPurpose:"Refund",
     guestId: GuestID,
+    createdBy: userId
   };
 
   const classes = useStyles();
