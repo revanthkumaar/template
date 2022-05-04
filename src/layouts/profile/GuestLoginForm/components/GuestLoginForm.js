@@ -142,11 +142,12 @@ const GuestLoginForm = () => {
   let availableBedsByBuidlingName = [];
   let empty = [];
   const classes = useStyles();
+  let userData = JSON.parse(sessionStorage.getItem("userdata"));
 
+  let userBuildingId = userData.data.buildingId;
+  var userID=userData.data.userId
   useEffect(() => {
-    let userData = JSON.parse(sessionStorage.getItem("userdata"));
-
-    let userBuildingId = userData.data.buildingId;
+   
     axios
 
       .get("/bed/getAvailableBedsByBuildings")
@@ -244,7 +245,7 @@ const GuestLoginForm = () => {
 
   const obj = { bedId: bed };
   const OnBoarding= 'OnBoarding'
-  // const obje = { buildingId: bid };
+   const obj4 = { createdBy: userID };
   const objee = { defaultRent: rent };
   const obj1 = { securityDeposit: secureDepo };
   const obj2 = { amountToBePaid: amountTooPay };
@@ -269,39 +270,41 @@ const GuestLoginForm = () => {
                   const gusting = Object.assign(gustes, objee);
                   const gusting1 = Object.assign(gusting, obj1);
                   const guestdata1 = Object.assign(gusting1, obj2);
-                  const guestdata=Object.assign(guestdata1,obj3);
+                  const guestdata2=Object.assign(guestdata1,obj4)
+                  const guestdata=Object.assign(guestdata2,obj3);
+                  
                   console.log(guestdata);
-                  console.log(gusting.amountPaid);
-                  console.log(amountTooPay);
-                  if (guestdata.amountPaid == amountTooPay) {
-                    const res =  axios
-                      .post(
-                        "/guest/addGuest",
+                  // console.log(gusting.amountPaid);
+                  // console.log(amountTooPay);
+                  // if (guestdata.amountPaid == amountTooPay) {
+                  //   const res =  axios
+                  //     .post(
+                  //       "/guest/addGuest",
 
-                        guestdata
-                      )
+                  //       guestdata
+                  //     )
 
-                      .catch((err) => {
-                        handleClose();
-                        toast.error("Server error");
-                      });
+                  //     .catch((err) => {
+                  //       handleClose();
+                  //       toast.error("Server error");
+                  //     });
 
-                    //console.log(res.data);
-                    if (res.data !== null) {
-                      handleClose();
+                  //   //console.log(res.data);
+                  //   if (res.data !== null) {
+                  //     handleClose();
 
-                      toast.success("OnBoarded Successfully");
+                  //     toast.success("OnBoarded Successfully");
 
-                      resetForm();
-                      setTimeout(() => {
-                        navigate("/tracker")
-                      }, 4000);
+                  //     resetForm();
+                  //     setTimeout(() => {
+                  //       navigate("/tracker")
+                  //     }, 4000);
                       
-                    }
-                  } else {
-                    handleClose();
-                    toast.error(" Need to pay full Amount");
-                  }
+                  //   }
+                  // } else {
+                  //   handleClose();
+                  //   toast.error(" Need to pay full Amount");
+                  // }
                   
                   
                 }}

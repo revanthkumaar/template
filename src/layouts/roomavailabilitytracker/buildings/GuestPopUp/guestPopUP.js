@@ -24,7 +24,6 @@ import "./GuestPopUp.css";
 import Toolbar from "@mui/material/Toolbar";
 
 export default function GuestPopUp({ open, handleClose, ...props }) {
-  
   return (
     <div>
       {props.GuestDetails.occupancyType === "regular" ? (
@@ -40,19 +39,23 @@ export default function GuestPopUp({ open, handleClose, ...props }) {
             Guest Details
           </MDButton>
           <DialogContent>
-            <GuestDetailsIndex guestdetails={props.GuestDetails} GuestDueAmount={props.GuestDueAmount}/>
+            <GuestDetailsIndex
+              guestdetails={props.GuestDetails}
+              GuestDueAmount={props.GuestDueAmount}
+            />
             <br />
 
+            <CheckOut
+              guestdetails={props.GuestDetails}
+              GuestDueAmount={props.GuestDueAmount}
+            />
+            <br />
 
-            <CheckOut guestdetails={props.GuestDetails} GuestDueAmount={props.GuestDueAmount}/>
-            <br/>
-
-            
-            <br/>
+            <br />
             {/* <RecordpaymentsinPopUp guestdetails={props.GuestDetails} /> */}
             <DialogTitle>
               <br />
-              <h3 className='head-1-checkOut'>Transaction History</h3>
+              <h3 className="head-1-checkOut">Transaction History</h3>
             </DialogTitle>
             <TransactionHistory guestdetails={props.GuestDetails} />
           </DialogContent>
@@ -87,15 +90,21 @@ export default function GuestPopUp({ open, handleClose, ...props }) {
             Guest Details
           </MDButton>
           <DialogContent>
-            <GuestDetailsIndex guestdetails={props.GuestDetails} GuestDueAmount={props.GuestDueAmount}/>
+            <GuestDetailsIndex
+              guestdetails={props.GuestDetails}
+              GuestDueAmount={props.GuestDueAmount}
+            />
             <br />
 
-<CheckOut guestdetails={props.GuestDetails} GuestDueAmount={props.GuestDueAmount}/>
-<br/>
+            <CheckOut
+              guestdetails={props.GuestDetails}
+              GuestDueAmount={props.GuestDueAmount}
+            />
+            <br />
 
-          <br/>
-          <h3 className='head-1-checkOut'>Transaction History</h3>
-          <br/>
+            <br />
+            <h3 className="head-1-checkOut">Transaction History</h3>
+            <br />
             <TransactionHistory guestdetails={props.GuestDetails} />
           </DialogContent>
           <DialogActions>
