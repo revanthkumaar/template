@@ -12,6 +12,9 @@ import Select from "../../profile/GuestLoginForm/components/Select";
 // import { height, width } from "@mui/system";
 
 function Beds() {
+  let userData = JSON.parse(sessionStorage.getItem("userdata"));
+  let userType = userData.data.userType
+  console.log(userType)
   var obj1 = null
   var obj2 = null
 
@@ -257,8 +260,8 @@ useEffect(() => {
     });
 }, [roomId]);
 
-const owner="admin"
-  const obje = { createdBy: owner };
+// const owner="admin"
+  const obje = { createdBy: userType };
 
 const obje1 = {buildingId:buildingId};
 
