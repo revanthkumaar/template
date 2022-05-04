@@ -12,6 +12,9 @@ import { string } from "prop-types";
 
 
 function Build() {
+  let userData = JSON.parse(sessionStorage.getItem("userdata"));
+  let userType = userData.data.userType
+  console.log(userType)
   
   const [data, setData] = useState([]);
  
@@ -109,6 +112,7 @@ function Build() {
   ];
 
   useEffect(() => {
+
     axios
 
       .get("/bed/getAllMasterData")
@@ -127,7 +131,7 @@ function Build() {
 
  
 
-
+const obje = { createdBy:userType}
  
   
 
@@ -150,11 +154,12 @@ function Build() {
                     { id: Math.floor(Math.random() * 100), ...newRow },
                   ];
                   setTimeout(() => {
+                    const newRow1 = Object.assign(newRow,obje)
                     
                     const res = axios.post(
                       "/bed/addBuilding",
 
-                      newRow
+                      newRow1
                     )
                     .catch((err) => {
                       toast.error("Server error");

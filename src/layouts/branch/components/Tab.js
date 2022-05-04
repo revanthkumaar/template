@@ -92,20 +92,14 @@ export default function LeaveManagementTabs() {
         <TabPanel value={value} index={0} >
         <Build/>
         </TabPanel>
-        {/* <TabPanel value={value} index={1} >
-        <Floor/>
-        </TabPanel> */}
+        
         <TabPanel value={value} index={1}>
-         
-
           <Room/>
         </TabPanel>
         <TabPanel value={value} index={2} >
           <Beds/>
         </TabPanel>
-        {/* <TabPanel value={value} index={4} >
-          <Build/>
-        </TabPanel> */}
+       
 
       </SwipeableViews>
       <ToastContainer/>

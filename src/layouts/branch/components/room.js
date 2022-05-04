@@ -17,6 +17,10 @@ const INITIAL_FORM_STATE = {
 };
 
 function Room() {
+
+  let userData = JSON.parse(sessionStorage.getItem("userdata"));
+  let userType = userData.data.userType
+  console.log(userType)
   const [data, setData] = useState([]);
   const [building, setBuilding] = useState([]);
   const [floor, setFloor] = useState([]);
@@ -176,7 +180,8 @@ function Room() {
   }, {});
   console.log(obj1)
 
-  const obje = { floorId: floorId };
+  const obje1 = { floorId: floorId };
+  const obje = { createdBy:userType}
 
   return (
     <div>
@@ -219,7 +224,7 @@ function Room() {
           </Formik>
         </Grid>
 
-        {/* <Grid xs={30}> */}
+        <Grid xs={30}>
         <Grid item xs={12}>
           <MaterialTable
             title="Manage Rooms"
@@ -236,16 +241,17 @@ function Room() {
                   ];
                   setTimeout(() => {
                     const newRow1 = Object.assign(newRow, obje);
+                    const newRow2 = Object.assign(newRow1, obje1)
                     const res = axios
                       .post(
                         "/bed/addRoom",
 
-                        newRow1
+                        newRow2
                       )
                       .catch((err) => {
                         toast.error("Server error");
                       });
-                    console.log(newRow1);
+                    console.log(newRow2);
 
                     toast.success("New Room added");
                     //console.log(newRow1);
@@ -307,6 +313,7 @@ function Room() {
           />
         
         </Grid>
+      </Grid>
       </Grid>
     </div>
   );

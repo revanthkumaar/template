@@ -16,11 +16,11 @@ function Dashboard() {
       <DashboardNavbar />
       <br />
       <MDBox borderRadius="lg" coloredShadow="info" py={0.01}>
-        <MDBox>
+        {/* <MDBox> */}
           <Grid container spacing={0.5}>
             <TabPanel/>
           </Grid>
-        </MDBox>
+        {/* </MDBox> */}
       </MDBox>
       <Footer />
     </DashboardLayout>
