@@ -19,6 +19,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
+import { Link, useNavigate } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -249,6 +250,7 @@ const GuestLoginForm = () => {
   const obj2 = { amountToBePaid: amountTooPay };
   const obj3={paymentPurpose:OnBoarding}
   const amountNeedToPay = (n) => {};
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -259,7 +261,7 @@ const GuestLoginForm = () => {
               <Formik
                 initialValues={{ ...INITIAL_FORM_STATE }}
                 validationSchema={FORM_VALIDATION}
-                onSubmit={async (guest, { resetForm }) => {
+                onSubmit={ (guest, { resetForm }) => {
                   handleToggle();
 
                   const gustes = Object.assign(guest, obj);
@@ -272,7 +274,7 @@ const GuestLoginForm = () => {
                   console.log(gusting.amountPaid);
                   console.log(amountTooPay);
                   if (guestdata.amountPaid == amountTooPay) {
-                    const res = await axios
+                    const res =  axios
                       .post(
                         "/guest/addGuest",
 
@@ -291,12 +293,17 @@ const GuestLoginForm = () => {
                       toast.success("OnBoarded Successfully");
 
                       resetForm();
+                      setTimeout(() => {
+                        navigate("/tracker")
+                      }, 4000);
+                      
                     }
                   } else {
                     handleClose();
                     toast.error(" Need to pay full Amount");
                   }
-                  setTimeout(() => {}, 50);
+                  
+                  
                 }}
               >
                 {(formProps) => (

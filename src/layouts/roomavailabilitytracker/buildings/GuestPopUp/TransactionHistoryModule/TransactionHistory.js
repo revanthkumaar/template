@@ -88,7 +88,7 @@ export default function TransactionHistory(props) {
     <Table striped bordered hover >
   <thead>
     <tr >
-      <th   align="left">PAYMENT ID</th>
+      <th align="left">PAYMENT ID</th>
       <th align="left">TRANSACTION DATE</th>
       <th align="left">REFUND</th>
       <th align="left">AMOUNT</th>
