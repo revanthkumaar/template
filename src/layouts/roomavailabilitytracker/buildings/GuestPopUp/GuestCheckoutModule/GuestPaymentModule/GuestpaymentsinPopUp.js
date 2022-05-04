@@ -49,6 +49,11 @@ const FORM_VALIDATION = Yup.object().shape({
 const notify = () => toast();
 
 const GuestpaymentsinPopUp = (props) => {
+
+  let userData = JSON.parse(sessionStorage.getItem("userdata"));
+  let userId = userData.data.userId
+  console.log(userId)
+
   const [open, setOpen] = React.useState(false);
   const handleClose = () => {
     setOpen(false);
@@ -62,6 +67,7 @@ const GuestpaymentsinPopUp = (props) => {
     amountPaid: "",
     transactionId: "",
     guestId: GuestID,
+    createdBy : userId
   };
 
   const classes = useStyles();

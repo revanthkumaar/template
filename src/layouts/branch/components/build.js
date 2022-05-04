@@ -13,8 +13,8 @@ import { string } from "prop-types";
 
 function Build() {
   let userData = JSON.parse(sessionStorage.getItem("userdata"));
-  let userType = userData.data.userType
-  console.log(userType)
+  let userId = userData.data.userId
+  console.log(userId)
   
   const [data, setData] = useState([]);
  
@@ -131,7 +131,7 @@ function Build() {
 
  
 
-const obje = { createdBy:userType}
+const obje = { createdBy:userId}
  
   
 
