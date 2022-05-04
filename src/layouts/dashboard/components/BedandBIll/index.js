@@ -130,7 +130,7 @@ function BedandBill(props) {
             <Card sx={{ minWidth: 240, minHeight: 100, background: '#00008B' }}>
               <CardContent sx={{ align: 'center' }}>
                 <MDTypography color="light" mt={1} fontWeight="regular" style={{ fontSize: '2em' }}>
-                  {overDue}
+                  {overDue !=0 ? overDue : 0}
                 </MDTypography>
                 <MDTypography color="light" fontWeight="light">
                   Overdue amount
@@ -161,7 +161,7 @@ function BedandBill(props) {
                   fontWeight="regular"
                   style={{ fontSize: "2em" }}
                 >
-                  {payments}
+                  {payments  !=0 ? payments : 0}
                 </MDTypography>
                 <MDTypography color="light" fontWeight="light">
                   Pending payments
