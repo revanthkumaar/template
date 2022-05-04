@@ -252,6 +252,9 @@ const GuestLoginForm = () => {
   const obj3={paymentPurpose:OnBoarding}
   const amountNeedToPay = (n) => {};
   const navigate = useNavigate();
+  const refreshPage = ()=>{
+    window.location.reload();
+ }
 
   return (
     <div>
@@ -274,37 +277,37 @@ const GuestLoginForm = () => {
                   const guestdata=Object.assign(guestdata2,obj3);
                   
                   console.log(guestdata);
-                  // console.log(gusting.amountPaid);
-                  // console.log(amountTooPay);
-                  // if (guestdata.amountPaid == amountTooPay) {
-                  //   const res =  axios
-                  //     .post(
-                  //       "/guest/addGuest",
+                  console.log(gusting.amountPaid);
+                  console.log(amountTooPay);
+                  if (guestdata.amountPaid == amountTooPay) {
+                    const res =  axios
+                      .post(
+                        "/guest/addGuest",
 
-                  //       guestdata
-                  //     )
+                        guestdata
+                      )
 
-                  //     .catch((err) => {
-                  //       handleClose();
-                  //       toast.error("Server error");
-                  //     });
+                      .catch((err) => {
+                        handleClose();
+                        toast.error("Server error");
+                      });
 
-                  //   //console.log(res.data);
-                  //   if (res.data !== null) {
-                  //     handleClose();
+                    //console.log(res.data);
+                    if (res.data !== null) {
+                      handleClose();
 
-                  //     toast.success("OnBoarded Successfully");
+                      toast.success("OnBoarded Successfully");
 
-                  //     resetForm();
-                  //     setTimeout(() => {
-                  //       navigate("/tracker")
-                  //     }, 4000);
+                      resetForm();
+                      setTimeout(() => {
+                        refreshPage();
+                      }, 4000);
                       
-                  //   }
-                  // } else {
-                  //   handleClose();
-                  //   toast.error(" Need to pay full Amount");
-                  // }
+                    }
+                  } else {
+                    handleClose();
+                    toast.error(" Need to pay full Amount");
+                  }
                   
                   
                 }}
