@@ -53,6 +53,17 @@ function Build() {
         }
       },
       {
+        title: "User Name",
+        field: "userName",
+       type:"text",
+      
+     
+        headerStyle: {
+          backgroundColor: "#1E90FF",
+          color: "white"
+        }
+      },
+      {
         title: "Email",
         field: "email",
         type:"email",
@@ -60,8 +71,7 @@ function Build() {
         headerStyle: {
           backgroundColor: "#1E90FF",
           color: "white"
-        }
-      ,
+        },
       validate: rowData => {
         if (rowData.email === undefined || rowData.email === "") {
           return "Required"
@@ -72,17 +82,17 @@ function Build() {
       
         return true
       }},
-      // {
-      //   title: "Password",
-      //   field: "password",
-      //   type:"password",
+      {
+        title: "Role",
+        field: "userType",
+       lookup:{manager:"Manager"},
       
      
-      //   headerStyle: {
-      //     backgroundColor: "#1E90FF",
-      //     color: "white"
-      //   }
-      // },
+        headerStyle: {
+          backgroundColor: "#1E90FF",
+          color: "white"
+        }
+      },
      
     {
       title: "Phone Number",
