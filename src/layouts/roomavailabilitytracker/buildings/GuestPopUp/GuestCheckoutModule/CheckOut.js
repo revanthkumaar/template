@@ -50,6 +50,7 @@ var plannedcheckoutdate = null
   const finalCheckOutHandler = () => {
 
     axios.get(`guest/getFinalCheckout/${props.guestdetails.id}`).then((res) => console.log(res.data))
+    window.location.reload();
   }
   return (
     <>

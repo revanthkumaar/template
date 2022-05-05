@@ -189,6 +189,7 @@ const GuestLoginForm = () => {
 
     const bool = oneBuilding.filter(
       (buildingData) => buildingData.buildingName == id.target.outerText
+      
     );
 
     bool.map((bed) => setAvailableBeds(bed.beds));
