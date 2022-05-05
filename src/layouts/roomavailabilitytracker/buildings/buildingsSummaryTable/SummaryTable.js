@@ -4,6 +4,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 //import Paper from '@mui/material/Paper';
 //import * as React from 'react';
+import {useState, useEffect} from 'react'
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -12,10 +13,26 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
+import axios from '../../../../Uri';
 //import Grid from '@mui/material/Grid'
 //import formatDate from "../guestPopUP/formateDate";
 
 function SummaryTable(props) {
+    const [apidata ,setapiData] = useState([])
+
+    useEffect(() => {
+
+        async function fetchData() {
+          const request = await axios.get(
+            `/bed/getBuildingSummaryForPieChartByBuildingId/${props.buildingId}`
+          );
+          console.log(request.data)
+          setapiData(request.data);
+        }
+        fetchData();
+      }, [props.buildingId]);
+
+    
   
   
 
@@ -45,7 +62,7 @@ function SummaryTable(props) {
     <Grid container spacing={2} columns={16}>
     <Grid item xs={8}>
 
-  <Table sx={{ minWidth: 500 }} size="small" aria-label="a dense table">
+  <Table sx={{ minWidth: 500 ,paddingTop:500}} size="small" aria-label="a dense table">
     <TableHead>
       <TableRow>
       </TableRow>
