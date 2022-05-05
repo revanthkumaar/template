@@ -30,7 +30,7 @@ const useStyles = makeStyles({
     height: 30,
   },
 });
-
+var bid = null
 const INITIAL_FORM_STATE = {
   firstName: "",
   lastName: "",
@@ -104,16 +104,18 @@ const FORM_VALIDATION = Yup.object().shape({
   buildingId: Yup.number().required("Required"),
   occupancyType: Yup.string().required("Required"),
   amountPaid: Yup.number().required("Required"),
-  transactionId: Yup.string().test(
-    'len',
-    'can be empty or with string at least 10 characters and not more than 30',
-    (val) => {
+  transactionId: Yup.string()
+    .test(
+      "len",
+      "can be empty or with string at least 10 characters and not more than 30",
+      (val) => {
         if (val == undefined) {
-            return true;
+          return true;
         }
-        return  ((val.length == 0 || (val.length >= 10 && val.length <= 30)))
-    }
-).required("Required"),
+        return val.length == 0 || (val.length >= 10 && val.length <= 30);
+      }
+    )
+    .required("Required"),
 });
 
 console.log(JSON.parse(sessionStorage.getItem("userdata")));
@@ -130,6 +132,7 @@ const GuestLoginForm = () => {
   const [occtype, setOcctype] = React.useState([]);
   const [amt, setAmt] = React.useState([]);
   const [secureDepo, setSecureDepo] = React.useState([]);
+  const [buildId,setBuildId]=React.useState('')
   const [open, setOpen] = React.useState(false);
   const handleClose = () => {
     setOpen(false);
@@ -145,11 +148,11 @@ const GuestLoginForm = () => {
   let userData = JSON.parse(sessionStorage.getItem("userdata"));
 
   let userBuildingId = userData.data.buildingId;
-  var userID=userData.data.userId
+   let userType = userData.data.userType
+  var userID = userData.data.userId;
   useEffect(() => {
-   
     axios
-
+    
       .get("/bed/getAvailableBedsByBuildings")
       .then((res) => {
         setoneBuilding(res.data);
@@ -160,13 +163,16 @@ const GuestLoginForm = () => {
             console.log("this is manager");
             buildingNamesArray.push(data.buildingName);
             console.log(buildingNamesArray);
-          } else if (userBuildingId === 0) {
-            console.log("this is admin");
-            buildingNamesArray.push(data.buildingName);
-          } else {
+          } 
+          // else if (userBuildingId === 0) {
+          //   console.log("this is admin");
+          //   buildingNamesArray.push(data.buildingName);
+          // } 
+          else {
             console.log("hi");
           }
         });
+        console.log(userID);
         console.log(buildingNamesArray);
         setBuilding(buildingNamesArray);
       })
@@ -175,6 +181,7 @@ const GuestLoginForm = () => {
         console.log(err);
       });
   }, []);
+
   var obje1 = oneBuilding.reduce(function (acc, cur, i) {
     acc[cur.buildingId] = cur.buildingName;
 
@@ -186,10 +193,19 @@ const GuestLoginForm = () => {
 
   const handleClick = (id) => {
     console.log(id);
+    if(userType !== "manager"){
+       bid =id.target.dataset.value
+      console.log(bid)
+      setBuildId(bid)
+    }
+    else{
+      bid =  userBuildingId
+      console.log(bid)
+      setBuildId(bid)
+    }
 
     const bool = oneBuilding.filter(
       (buildingData) => buildingData.buildingName == id.target.outerText
-      
     );
 
     bool.map((bed) => setAvailableBeds(bed.beds));
@@ -205,7 +221,7 @@ const GuestLoginForm = () => {
     const bedRent = availableBeds.filter(
       (bed) => bed.bedId == e.target.outerText
     );
-
+      
     bedRent.map((post) => {
       setRent(post.defaultRent);
       setDefaultRentofBed(post.defaultRent);
@@ -245,17 +261,18 @@ const GuestLoginForm = () => {
   };
 
   const obj = { bedId: bed };
-  const OnBoarding= 'OnBoarding'
-   const obj4 = { createdBy: userID };
+  const OnBoarding = "OnBoarding";
+  const obj4 = { createdBy: userID };
   const objee = { defaultRent: rent };
   const obj1 = { securityDeposit: secureDepo };
   const obj2 = { amountToBePaid: amountTooPay };
-  const obj3={paymentPurpose:OnBoarding}
+  const obj3 = { paymentPurpose: OnBoarding };
+  const obj5 = {buildingId:buildId}
   const amountNeedToPay = (n) => {};
   const navigate = useNavigate();
-  const refreshPage = ()=>{
+  const refreshPage = () => {
     window.location.reload();
- }
+  };
 
   return (
     <div>
@@ -266,7 +283,7 @@ const GuestLoginForm = () => {
               <Formik
                 initialValues={{ ...INITIAL_FORM_STATE }}
                 validationSchema={FORM_VALIDATION}
-                onSubmit={ (guest, { resetForm }) => {
+                onSubmit={(guest, { resetForm }) => {
                   handleToggle();
 
                   const gustes = Object.assign(guest, obj);
@@ -274,14 +291,15 @@ const GuestLoginForm = () => {
                   const gusting = Object.assign(gustes, objee);
                   const gusting1 = Object.assign(gusting, obj1);
                   const guestdata1 = Object.assign(gusting1, obj2);
-                  const guestdata2=Object.assign(guestdata1,obj4)
-                  const guestdata=Object.assign(guestdata2,obj3);
-                  
+                  const guestdata2 = Object.assign(guestdata1, obj4);
+                  const guestdata3 = Object.assign(guestdata2,obj5);
+                  const guestdata = Object.assign(guestdata3, obj3);
+
                   console.log(guestdata);
                   console.log(gusting.amountPaid);
                   console.log(amountTooPay);
                   if (guestdata.amountPaid == amountTooPay) {
-                    const res =  axios
+                    const res = axios
                       .post(
                         "/guest/addGuest",
 
@@ -303,14 +321,11 @@ const GuestLoginForm = () => {
                       setTimeout(() => {
                         refreshPage();
                       }, 4000);
-                      
                     }
                   } else {
                     handleClose();
                     toast.error(" Need to pay full Amount");
                   }
-                  
-                  
                 }}
               >
                 {(formProps) => (
@@ -324,10 +339,24 @@ const GuestLoginForm = () => {
                         </Typography>
                         <InputLabel id="demo-simple-select-labe">
                           {" "}
-                          * indicates fields are Required
+                          * Indicates fields are Required
                         </InputLabel>
-                       </Grid>
-                      <Grid item xs={6}>
+                      </Grid>
+                      {userType !== "manager" ?(
+                        <Grid item xs={6}>
+                        <h6>Select Building *</h6>
+
+                        <Select
+                          className={classes.root}
+                          name="buildingId"
+                          options={obje1}
+                          onClick={handleClick}
+                          required
+                        ></Select>
+
+                        <Grid item xs={6}></Grid>
+                      </Grid>
+                      ):(<Grid item xs={6}>
                         <h6>Select Building *</h6>
 
                         <Select
@@ -339,7 +368,8 @@ const GuestLoginForm = () => {
                         ></Select>
 
                         <Grid item xs={6}></Grid>
-                      </Grid>
+                      </Grid>)}
+                      
                       <Grid item xs={6}>
                         <h6>Select Bed *</h6>
                         <Select
