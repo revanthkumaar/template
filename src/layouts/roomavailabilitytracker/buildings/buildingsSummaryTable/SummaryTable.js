@@ -19,6 +19,13 @@ import axios from '../../../../Uri';
 
 function SummaryTable(props) {
     const [apidata ,setapiData] = useState([])
+    const [availBeds,setAvailBeds]=useState("")
+    var totalbed = null
+    var occupiedBed=null
+    var availBed = null 
+    var guestInNotices = null
+    var guestOndue = null
+    var totaldue = null
 
     useEffect(() => {
 
@@ -32,31 +39,42 @@ function SummaryTable(props) {
         fetchData();
       }, [props.buildingId]);
 
-    
-  
-  
+   
+ 
+ 
 
-  
  
  
-  
+ 
+ 
   function createData(name, calories) {
     return { name, calories };
   }
-  
+  console.log(apidata)
+  apidata.map((m)=>{
+     totalbed =m.totalBeds
+     occupiedBed= m.occupiedBeds
+     availBed = m.availableBeds
+     guestInNotices=m.guestsInNotice[0]
+     guestOndue=m.guestsOnDue[0]
+     totaldue= m.totalDueAmount[0]
+    console.log(m.totalBeds)
+   
+  })
   const rows = [
-    createData(<h4>Total Beds</h4>, 100),
-    createData(<h4>Occupied Beds</h4>, 20 ),
-    createData(<h4>Available Beds</h4>, 80),
-    createData(<h4>Guests in Notice</h4>, 8 ),
-    createData(<h4>Guests on Due</h4>,  9),
+    createData(<h4>Total Beds</h4>, totalbed),
+    createData(<h4>Occupied Beds</h4>, occupiedBed ),
+    createData(<h4>Available Beds</h4>, availBed),
+    createData(<h4>Guests in Notice</h4>, guestInNotices ),
+    createData(<h4>Guests on Due</h4>,  guestOndue),
+    createData(<h4>Total Due Amount</h4>,totaldue)
     // createData(<h4>Guest Status</h4>, props.guestdetails.guestStatus),
     // createData(<h4>Duration</h4>, props.guestdetails.duration),
     // createData(<h4>Occupancy Type</h4>, props.guestdetails.occupancyType),
-    
+   
 
   ];
-  
+ 
  
   return (
     <Grid container spacing={2} columns={16}>
@@ -91,7 +109,7 @@ function SummaryTable(props) {
   <Table sx={{ minWidth: 500 }} size="small" aria-label="a dense table">
     <TableHead>
       <TableRow>
-  
+ 
       </TableRow>
     </TableHead>
     <TableBody>
