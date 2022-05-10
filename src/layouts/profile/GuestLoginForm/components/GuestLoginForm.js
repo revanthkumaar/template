@@ -69,8 +69,7 @@ const FORM_VALIDATION = Yup.object().shape({
     .matches(/^[aA-zZ\s]+$/, "Invalid LastName ")
     .required("Required"),
   fatherName: Yup.string()
-    .matches(/^[aA-zZ\s]+$/, "Invalid LastName ")
-    .required("Required"),
+    .matches(/^[aA-zZ\s]+$/, "Invalid LastName "),
   email: Yup.string().email("Invalid email.").required("Required"),
   dateOfBirth: Yup.date()
     .required("DOB is Required")
@@ -85,12 +84,10 @@ const FORM_VALIDATION = Yup.object().shape({
     .matches(/^(A|B|AB|O)[+-]$/, {
       message: "Please enter valid Blood Group.",
       excludeEmptyString: false,
-    })
-    .required("Required"),
+    }),
 
   occupation: Yup.string()
-    .matches(/^[aA-zZ\s]+$/, "Occuaption ")
-    .required("Required"),
+    .matches(/^[aA-zZ\s]+$/, "Give a Valid Occupation Type "),
   gender: Yup.string().required("Required"),
   personalNumber: Yup.string()
     .matches(/^[6-9]\d{9}$/, {
@@ -102,14 +99,12 @@ const FORM_VALIDATION = Yup.object().shape({
     .matches(/^[6-9]\d{9}$/, {
       message: "Please enter Valid Mobile Number",
       excludeEmptyString: false,
-    })
-    .required("Required"),
+    }),
   fatherNumber: Yup.string()
     .matches(/^[6-9]\d{9}$/, {
       message: "Please enter Valid Mobile Number",
       excludeEmptyString: false,
-    })
-    .required("Required"),
+    }),
 
   aadharNumber: Yup.string()
     .matches(/^\d{4}\d{4}\d{4}$/, "Invalid Aadhar Number")
@@ -124,7 +119,7 @@ const FORM_VALIDATION = Yup.object().shape({
   city: Yup.string()
     .matches(/^[aA-zZ\s]+$/, "Invalid City Name")
     .required("Required"),
-  addressLine2: Yup.string().required("Required"),
+  addressLine2: Yup.string(),
   state: Yup.string()
     .matches(/^[aA-zZ\s]+$/, "Invalid State ")
     .required("Required"),
