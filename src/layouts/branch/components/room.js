@@ -260,35 +260,35 @@ function Room() {
                     resolve();
                   }, 2000);
                 }),
-              onRowDelete: (selectedRow) =>
-                new Promise((resolve, reject) => {
-                  const index = selectedRow.building_id;
-                  const updatedRows = [...data];
-                  updatedRows.splice(index, 1);
-                  setTimeout(() => {
-                    const res = axios.delete(`/bed/deleteBuilding/${index}`);
-                    // console.log(res);
-                    // console.log(updatedRows);
-                    setData(updatedRows);
-                    resolve();
-                  }, 2000);
-                }),
-              onRowUpdate: (updatedRow, oldRow) =>
-                new Promise((resolve, reject) => {
-                  const index = oldRow.building_id;
-                  const updatedRows = [...data];
-                  updatedRows[index] = updatedRow;
-                  setTimeout(() => {
-                    const res = axios.put(
-                      `/bed/updateBuildingById/${index}`,
-                      updatedRow
-                    );
+              // onRowDelete: (selectedRow) =>
+              //   new Promise((resolve, reject) => {
+              //     const index = selectedRow.building_id;
+              //     const updatedRows = [...data];
+              //     updatedRows.splice(index, 1);
+              //     setTimeout(() => {
+              //       const res = axios.delete(`/bed/deleteBuilding/${index}`);
+              //       // console.log(res);
+              //       // console.log(updatedRows);
+              //       setData(updatedRows);
+              //       resolve();
+              //     }, 2000);
+              //   }),
+              // onRowUpdate: (updatedRow, oldRow) =>
+              //   new Promise((resolve, reject) => {
+              //     const index = oldRow.building_id;
+              //     const updatedRows = [...data];
+              //     updatedRows[index] = updatedRow;
+              //     setTimeout(() => {
+              //       const res = axios.put(
+              //         `/bed/updateBuildingById/${index}`,
+              //         updatedRow
+              //       );
 
-                    //console.log(updatedRows);
-                    setData(updatedRows);
-                    resolve();
-                  }, 2000);
-                }),
+              //       //console.log(updatedRows);
+              //       setData(updatedRows);
+              //       resolve();
+              //     }, 2000);
+              //   }),
             }}
             // actions={[{onClick:(rowData) => {
             //   console.log(lookup[rowData.buildingId])
