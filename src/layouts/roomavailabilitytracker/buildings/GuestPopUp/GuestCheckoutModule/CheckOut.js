@@ -10,6 +10,8 @@ import { useState,useEffect } from 'react';
 import axios from "../../../../../Uri";
 import ManagerPaymentsinPopup from './managerPaymentModule/managerPaymentinPopUp';
 import GuestpaymentsinPopUp from './GuestPaymentModule/GuestpaymentsinPopUp';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 function formatDate(checkInDate) {
@@ -50,7 +52,11 @@ var plannedcheckoutdate = null
   const finalCheckOutHandler = () => {
 
     axios.get(`guest/getFinalCheckout/${props.guestdetails.id}`).then((res) => console.log(res.data))
-    window.location.reload();
+    toast.success("Guest Checked-Out Successfully");
+    setTimeout(()=>{
+      window.location.reload();
+    },4000)
+    
   }
   return (
     <>
@@ -88,7 +94,18 @@ var plannedcheckoutdate = null
 
         { guestdueamount < 0 ? (<ManagerPaymentsinPopup guestdetails={props.guestdetails} />) : (<div></div>)} 
         { guestdueamount > 0 ? (<GuestpaymentsinPopUp guestdetails={props.guestdetails}/>) : (<div></div>)}
-       
+        <ToastContainer
+                      position="top-right"
+                      min-width="2%"
+                      autoClose={3000}
+                      hideProgressBar={false}
+                      newestOnTop={false}
+                      closeOnClick
+                      rtl={false}
+                      pauseOnFocusLoss
+                      draggable
+                      pauseOnHover
+                    />
     </>
   )
 }
