@@ -6,18 +6,17 @@ import { Grid } from "@mui/material";
 import axios from "../../../Uri";
 // import { height, width } from "@mui/system";
 
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { string } from "prop-types";
-
 
 function Build() {
   let userData = JSON.parse(sessionStorage.getItem("userdata"));
-  let userId = userData.data.userId
-  console.log(userId)
-  
+  let userId = userData.data.userId;
+  console.log(userId);
+
   const [data, setData] = useState([]);
- 
+
   const columns = [
     // {
     // 	title: 'ID',
@@ -34,95 +33,115 @@ function Build() {
     {
       title: "Building Name",
       field: "building_name",
-      type:"text",
-    
-   
+      type: "text",
+
       headerStyle: {
         backgroundColor: "#1E90FF",
         color: "white",
       },
-        validate:rowData =>{
-          if(rowData.building_name === undefined||rowData.building_name=== ""){
-            return "Required"
-          }else if(!rowData.building_name.match(/[^0-9]/g)){
-            return" Enter Valid Name"
-          }
-          
-          
-          return true
+      validate: (rowData) => {
+        if (
+          rowData.building_name === undefined ||
+          rowData.building_name === ""
+        ) {
+          return "Required";
+        } else if (!rowData.building_name.match(/[^0-9]/g)) {
+          return " Enter Valid Name";
         }
+
+        return true;
       },
-      {
-        title: "User Name",
-        field: "userName",
-       type:"text",
-      
-     
-        headerStyle: {
-          backgroundColor: "#1E90FF",
-          color: "white"
+    },
+    {
+      title: "Operator Name",
+      field: "userName",
+      type: "text",
+
+      headerStyle: {
+        backgroundColor: "#1E90FF",
+        color: "white",
+      },
+      validate: (rowData) => {
+        if (rowData.userName === undefined || rowData.userName === "") {
+          return "Required";
+        } else if (!rowData.userName.match(/[^0-9]/g)) {
+          return " Enter Valid Name";
         }
+
+        return true;
       },
-      {
-        title: "Email",
-        field: "email",
-        type:"email",
-     
-        headerStyle: {
-          backgroundColor: "#1E90FF",
-          color: "white"
-        },
-      validate: rowData => {
+    },
+    {
+      title: "Email",
+      field: "email",
+      type: "email",
+
+      headerStyle: {
+        backgroundColor: "#1E90FF",
+        color: "white",
+      },
+      validate: (rowData) => {
         if (rowData.email === undefined || rowData.email === "") {
-          return "Required"
-        } else if (!rowData.email.includes ('@'&&'.')) {
-          return "Enter Valid Email Address"
+          return "Required";
+        } else if (!rowData.email.includes("@" && ".")) {
+          return "Enter Valid Email Address";
           //  return {isValid:false,helperText:"Phone number should contains 10 digits"}
         }
-      
-        return true
-      }},
-      {
-        title: "Role",
-        field: "userType",
-       lookup:{manager:"Manager"},
-      
-     
-        headerStyle: {
-          backgroundColor: "#1E90FF",
-          color: "white"
-        }
+
+        return true;
       },
-     
+    },
+    {
+      title: "Role",
+      field: "userType",
+      lookup: { manager: "Manager" },
+      headerStyle: {
+        backgroundColor: "#1E90FF",
+        color: "white",
+      },
+      validate: (rowData) => {
+        if (rowData.userType === undefined || rowData.userType === "") {
+          return "Required";
+        } 
+        
+        // else if (!rowData.userType.match(/[^0-9]/g)) {
+        //   return " Enter Valid Name";
+        // }
+
+        return true;
+      },
+      
+    },
+
     {
       title: "Phone Number",
       field: "userPhoneNumber",
-      
+
       headerStyle: {
         backgroundColor: "#1E90FF",
         color: "white",
       },
-      validate: rowData => {
-        if (rowData.userPhoneNumber === undefined || rowData.userPhoneNumber === "") {
-          return "Required"
+      validate: (rowData) => {
+        if (
+          rowData.userPhoneNumber === undefined ||
+          rowData.userPhoneNumber === ""
+        ) {
+          return "Required";
 
-
-
-
-        // } else if(rowData.userPhoneNumber.match(/[^0-9]/g)){
-        //   return" Please enter valid Phone number"
-         } 
-        else if (rowData.userPhoneNumber.length<10||rowData.userPhoneNumber.length>10){
-          return" Please enter valid mobile number"
-  
-          }
-        return true
+          // } else if(rowData.userPhoneNumber.match(/[^0-9]/g)){
+          //   return" Please enter valid Phone number"
+        } else if (
+          rowData.userPhoneNumber.length < 10 ||
+          rowData.userPhoneNumber.length > 10
+        ) {
+          return " Please enter valid mobile number";
+        }
+        return true;
       },
-    }
+    },
   ];
 
   useEffect(() => {
-
     axios
 
       .get("/bed/getAllMasterData")
@@ -134,16 +153,12 @@ function Build() {
       })
 
       .catch((err) => {
-        console.log(err)
+        console.log(err);
         // toast.error("Server Error")
       });
   }, []);
 
- 
-
-const obje = { createdBy:userId}
- 
-  
+  const obje = { createdBy: userId };
 
   return (
     <div className="App">
@@ -164,71 +179,68 @@ const obje = { createdBy:userId}
                     { id: Math.floor(Math.random() * 100), ...newRow },
                   ];
                   setTimeout(() => {
-                    const newRow1 = Object.assign(newRow,obje)
-                    
-                    const res = axios.post(
-                      "/bed/addBuilding",
+                    const newRow1 = Object.assign(newRow, obje);
 
-                      newRow1
-                    )
-                    .catch((err) => {
-                      toast.error("Server error");
-                    });
+                    const res = axios
+                      .post(
+                        "/bed/addBuilding",
+
+                        newRow1
+                      )
+                      .catch((err) => {
+                        toast.error("Server error");
+                      });
                     //console.log(newRow);
-                
-                     toast.success("New Buiding added")
-                    setData(updatedRows)
-                     
-                  
-                   
+
+                    toast.success("New Buiding added");
+                    setData(updatedRows);
+
                     resolve();
-                  }, 2000)
-                  
+                  }, 2000);
+
                   // if(setData.data!==null){
                   //   toast.success("New Buiding added")
                   // }
 
                   // if(setData.data==null){
-                  
+
                   //   toast.error("Server is down")
                   // }
-                  
-                
                 }),
-              onRowDelete: (selectedRow) =>
-                new Promise((resolve, reject) => {
-                  const index = selectedRow.building_id;
-                  const updatedRows = [...data];
-                  updatedRows.splice(index, 1);
-                  setTimeout(() => {
-                    const res = axios.delete(`/bed/deleteBuilding/${index}`);
-                    // console.log(res);
-                    // console.log(updatedRows);
-                    setData(updatedRows);
-                    resolve();
-                  }, 2000);
-                }),
-              onRowUpdate: (updatedRow, oldRow) =>
-                new Promise((resolve, reject) => {
-                  const index = oldRow.building_id;
-                  const updatedRows = [...data];
-                  updatedRows[index] = updatedRow;
-                  setTimeout(() => {
-                    const res = axios.put(
-                      `/bed/updateBuildingById/${index}`,
-                      updatedRow
-                    );
+              //   onRowDelete: (selectedRow) =>
+              //     new Promise((resolve, reject) => {
+              //       const index = selectedRow.building_id;
+              //       const updatedRows = [...data];
+              //       updatedRows.splice(index, 1);
+              //       setTimeout(() => {
+              //         const res = axios.delete(`/bed/deleteBuilding/${index}`);
+              //         // console.log(res);
+              //         // console.log(updatedRows);
+              //         setData(updatedRows);
+              //         resolve();
+              //       }, 2000);
+              //     }),
+              //   onRowUpdate: (updatedRow, oldRow) =>
+              //     new Promise((resolve, reject) => {
+              //       const index = oldRow.building_id;
+              //       const updatedRows = [...data];
+              //       updatedRows[index] = updatedRow;
+              //       setTimeout(() => {
+              //         const res = axios.put(
+              //           `/bed/updateBuildingById/${index}`,
+              //           updatedRow
+              //         );
 
-                    //console.log(updatedRows);
-                    setData(updatedRows);
-                    resolve();
-                  }, 2000);
-                }),
+              //         //console.log(updatedRows);
+              //         setData(updatedRows);
+              //         resolve();
+              //       }, 2000);
+              //     }),
             }}
             options={{
-              exportButton:true,
+              exportButton: true,
               actionsColumnIndex: -1,
-              grouping:true,
+              grouping: true,
               addRowPosition: "first",
               headerStyle: {
                 backgroundColor: "#1E90FF",
