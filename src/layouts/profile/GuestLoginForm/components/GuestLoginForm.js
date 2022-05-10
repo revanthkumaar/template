@@ -30,7 +30,7 @@ const useStyles = makeStyles({
     height: 30,
   },
 });
-var bid = null
+var bid = null;
 const INITIAL_FORM_STATE = {
   firstName: "",
   lastName: "",
@@ -68,6 +68,9 @@ const FORM_VALIDATION = Yup.object().shape({
   lastName: Yup.string()
     .matches(/^[aA-zZ\s]+$/, "Invalid LastName ")
     .required("Required"),
+  fatherName: Yup.string()
+    .matches(/^[aA-zZ\s]+$/, "Invalid LastName ")
+    .required("Required"),
   email: Yup.string().email("Invalid email.").required("Required"),
   dateOfBirth: Yup.date()
     .required("DOB is Required")
@@ -78,6 +81,16 @@ const FORM_VALIDATION = Yup.object().shape({
         moment().diff(moment(date), "years") >= 12 &&
         moment().diff(moment(date), "years") <= 80
     ),
+  bloodGroup: Yup.string()
+    .matches(/^(A|B|AB|O)[+-]$/, {
+      message: "Please enter valid Blood Group.",
+      excludeEmptyString: false,
+    })
+    .required("Required"),
+
+  occupation: Yup.string()
+    .matches(/^[aA-zZ\s]+$/, "Occuaption ")
+    .required("Required"),
   gender: Yup.string().required("Required"),
   personalNumber: Yup.string()
     .matches(/^[6-9]\d{9}$/, {
@@ -85,6 +98,19 @@ const FORM_VALIDATION = Yup.object().shape({
       excludeEmptyString: false,
     })
     .required("Required"),
+  secondaryPhoneNumber: Yup.string()
+    .matches(/^[6-9]\d{9}$/, {
+      message: "Please enter Valid Mobile Number",
+      excludeEmptyString: false,
+    })
+    .required("Required"),
+  fatherNumber: Yup.string()
+    .matches(/^[6-9]\d{9}$/, {
+      message: "Please enter Valid Mobile Number",
+      excludeEmptyString: false,
+    })
+    .required("Required"),
+
   aadharNumber: Yup.string()
     .matches(/^\d{4}\d{4}\d{4}$/, "Invalid Aadhar Number")
     .required("Required"),
@@ -98,6 +124,7 @@ const FORM_VALIDATION = Yup.object().shape({
   city: Yup.string()
     .matches(/^[aA-zZ\s]+$/, "Invalid City Name")
     .required("Required"),
+  addressLine2: Yup.string().required("Required"),
   state: Yup.string()
     .matches(/^[aA-zZ\s]+$/, "Invalid State ")
     .required("Required"),
@@ -132,7 +159,7 @@ const GuestLoginForm = () => {
   const [occtype, setOcctype] = React.useState([]);
   const [amt, setAmt] = React.useState([]);
   const [secureDepo, setSecureDepo] = React.useState([]);
-  const [buildId,setBuildId]=React.useState('')
+  const [buildId, setBuildId] = React.useState("");
   const [open, setOpen] = React.useState(false);
   const handleClose = () => {
     setOpen(false);
@@ -148,11 +175,11 @@ const GuestLoginForm = () => {
   let userData = JSON.parse(sessionStorage.getItem("userdata"));
 
   let userBuildingId = userData.data.buildingId;
-   let userType = userData.data.userType
+  let userType = userData.data.userType;
   var userID = userData.data.userId;
   useEffect(() => {
     axios
-    
+
       .get("/bed/getAvailableBedsByBuildings")
       .then((res) => {
         setoneBuilding(res.data);
@@ -163,11 +190,11 @@ const GuestLoginForm = () => {
             console.log("this is manager");
             buildingNamesArray.push(data.buildingName);
             console.log(buildingNamesArray);
-          } 
+          }
           // else if (userBuildingId === 0) {
           //   console.log("this is admin");
           //   buildingNamesArray.push(data.buildingName);
-          // } 
+          // }
           else {
             console.log("hi");
           }
@@ -193,15 +220,14 @@ const GuestLoginForm = () => {
 
   const handleClick = (id) => {
     console.log(id);
-    if(userType !== "manager"){
-       bid =id.target.dataset.value
-      console.log(bid)
-      setBuildId(bid)
-    }
-    else{
-      bid =  userBuildingId
-      console.log(bid)
-      setBuildId(bid)
+    if (userType !== "manager") {
+      bid = id.target.dataset.value;
+      console.log(bid);
+      setBuildId(bid);
+    } else {
+      bid = userBuildingId;
+      console.log(bid);
+      setBuildId(bid);
     }
 
     const bool = oneBuilding.filter(
@@ -221,7 +247,7 @@ const GuestLoginForm = () => {
     const bedRent = availableBeds.filter(
       (bed) => bed.bedId == e.target.outerText
     );
-      
+
     bedRent.map((post) => {
       setRent(post.defaultRent);
       setDefaultRentofBed(post.defaultRent);
@@ -267,7 +293,7 @@ const GuestLoginForm = () => {
   const obj1 = { securityDeposit: secureDepo };
   const obj2 = { amountToBePaid: amountTooPay };
   const obj3 = { paymentPurpose: OnBoarding };
-  const obj5 = {buildingId:buildId}
+  const obj5 = { buildingId: buildId };
   const amountNeedToPay = (n) => {};
   const navigate = useNavigate();
   const refreshPage = () => {
@@ -292,7 +318,7 @@ const GuestLoginForm = () => {
                   const gusting1 = Object.assign(gusting, obj1);
                   const guestdata1 = Object.assign(gusting1, obj2);
                   const guestdata2 = Object.assign(guestdata1, obj4);
-                  const guestdata3 = Object.assign(guestdata2,obj5);
+                  const guestdata3 = Object.assign(guestdata2, obj5);
                   const guestdata = Object.assign(guestdata3, obj3);
 
                   console.log(guestdata);
@@ -342,34 +368,36 @@ const GuestLoginForm = () => {
                           * Indicates fields are Required
                         </InputLabel>
                       </Grid>
-                      {userType !== "manager" ?(
+                      {userType !== "manager" ? (
                         <Grid item xs={6}>
-                        <h6>Select Building *</h6>
+                          <h6>Select Building *</h6>
 
-                        <Select
-                          className={classes.root}
-                          name="buildingId"
-                          options={obje1}
-                          onClick={handleClick}
-                          required
-                        ></Select>
+                          <Select
+                            className={classes.root}
+                            name="buildingId"
+                            options={obje1}
+                            onClick={handleClick}
+                            required
+                          ></Select>
 
-                        <Grid item xs={6}></Grid>
-                      </Grid>
-                      ):(<Grid item xs={6}>
-                        <h6>Select Building *</h6>
+                          <Grid item xs={6}></Grid>
+                        </Grid>
+                      ) : (
+                        <Grid item xs={6}>
+                          <h6>Select Building *</h6>
 
-                        <Select
-                          className={classes.root}
-                          name="buildingId"
-                          options={building}
-                          onClick={handleClick}
-                          required
-                        ></Select>
+                          <Select
+                            className={classes.root}
+                            name="buildingId"
+                            options={building}
+                            onClick={handleClick}
+                            required
+                          ></Select>
 
-                        <Grid item xs={6}></Grid>
-                      </Grid>)}
-                      
+                          <Grid item xs={6}></Grid>
+                        </Grid>
+                      )}
+
                       <Grid item xs={6}>
                         <h6>Select Bed *</h6>
                         <Select

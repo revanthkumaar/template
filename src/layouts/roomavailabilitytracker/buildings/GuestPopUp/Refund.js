@@ -37,7 +37,7 @@ const useStyles = makeStyles({
 
 const FORM_VALIDATION = Yup.object().shape({
   paymentPurpose: Yup.string().required("Required"),
-  amountPaid: Yup.number().required("Required"),
+  refundAmount: Yup.number().required("Required"),
   transactionId: Yup.string().required("Required"),
 });
 const notify = () => toast();

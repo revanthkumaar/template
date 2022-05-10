@@ -12,12 +12,11 @@ import Textfield from "layouts/profile/GuestLoginForm/components/TextField";
 import Select from "layouts/profile/GuestLoginForm/components/Select";
 import ManagerPaymentPurpose from "./ManagerPaymentPurpose";
 
-import Button from '../../../../../profile/GuestLoginForm/components/Button';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { Backdrop,CircularProgress,Typography } from "@mui/material";
+import Button from "../../../../../profile/GuestLoginForm/components/Button";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Backdrop, CircularProgress, Typography } from "@mui/material";
 //import "./managerPaymentinPopUp.css";
-
 
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 // import MDTypography from "components/MDTypography";
@@ -39,25 +38,30 @@ const useStyles = makeStyles({
 
 const FORM_VALIDATION = Yup.object().shape({
   // paymentPurpose: Yup.string().required("Required"),
-  refundAmount: Yup.number().required("Required"),
-  transactionId: Yup.string().test(
-    'len',
-    'can be empty or with string at least 10 characters and not more than 30',
-    (val) => {
+  refundAmount: Yup.number().required("Required").test(
+    'Is positive?', 
+    'ERROR: The Amount must be greater than 0!', 
+    (value) => value > 0
+  ),
+  transactionId: Yup.string()
+    .test(
+      "len",
+      "can be empty or with string at least 10 characters and not more than 30",
+      (val) => {
         if (val == undefined) {
-            return true;
+          return true;
         }
-        return  ((val.length == 0 || (val.length >= 10 && val.length <= 30)))
-    }
-).required("Required"),
+        return val.length == 0 || (val.length >= 10 && val.length <= 30);
+      }
+    )
+    .required("Required"),
 });
 const notify = () => toast();
 
 const ManagerPaymentsinPopup = (props) => {
-
   let userData = JSON.parse(sessionStorage.getItem("userdata"));
-  let userId = userData.data.userId
-  console.log(userId)
+  let userId = userData.data.userId;
+  console.log(userId);
 
   const [open, setOpen] = React.useState(false);
   const handleClose = () => {
@@ -67,58 +71,53 @@ const ManagerPaymentsinPopup = (props) => {
     setOpen(!open);
   };
   var GuestID = props.guestdetails.id;
-  var buildingId=props.guestdetails.buildingId
-  var occupancyType=props.guestdetails.occupancyType
-     var INITIAL_FORM_STATE = {
+  var buildingId = props.guestdetails.buildingId;
+  var occupancyType = props.guestdetails.occupancyType;
+  var INITIAL_FORM_STATE = {
     // paymentPurpose: "",
     // paymentmethod: "",
     refundAmount: "",
     transactionId: "",
-    buildingId:buildingId,
-    paymentPurpose:"Refund",
+    buildingId: buildingId,
+    paymentPurpose: "Refund",
     guestId: GuestID,
-    occupancyType:occupancyType,
-    createdBy: userId
+    occupancyType: occupancyType,
+    createdBy: userId,
   };
 
   const classes = useStyles();
 
   return (
     // <div className="record-payment">
- <Grid container>
-   {/* <Grid item xs={12}><MDTypography>REFUND TO THE GUEST :</MDTypography></Grid> */}
-   <Grid item xs={12}>
-                        <Typography color="black" gutterBottom>
-                         
-                        <h4 className='head-1-checkOut'>Refund to the Guest</h4>
-                          
-                        </Typography>
-                      </Grid>
+    <Grid container>
+      {/* <Grid item xs={12}><MDTypography>REFUND TO THE GUEST :</MDTypography></Grid> */}
+      <Grid item xs={12}>
+        <Typography color="black" gutterBottom>
+          <h4 className="head-1-checkOut">Refund to the Guest</h4>
+        </Typography>
+      </Grid>
       <Grid item xs={12}>
         <Container maxWidth="md">
           <div>
             <Formik
               initialValues={{ ...INITIAL_FORM_STATE }}
-              validationSchema={FORM_VALIDATION} 
+              validationSchema={FORM_VALIDATION}
               onSubmit={async (guest, { resetForm }) => {
                 console.log(guest);
-                handleToggle()
+                handleToggle();
 
-
-                const res = await axios.post("/payment/addPaymentAtOnBoarding", guest)
-                .catch((err) => {
-                  toast.error("Server error");
-                });
+                const res = await axios
+                  .post("/payment/addPaymentAtOnBoarding", guest)
+                  .catch((err) => {
+                    toast.error("Server error");
+                  });
                 console.log(res.data);
-               
-                if(res.data!==null){
-                  handleClose()
+
+                if (res.data !== null) {
+                  handleClose();
                   toast.success("Payment Recorded Successfully");
-                
                 }
 
-                       
-              
                 setTimeout(() => {
                   resetForm();
                 }, 50);
@@ -133,39 +132,42 @@ const ManagerPaymentsinPopup = (props) => {
                     <Grid item xs={5}>
                       <Textfield name="transactionId" label="Transaction ID" />
                     </Grid>
-                    <Grid item xs={2} sx={{ marginTop: 0.5}} width={100}>
-                      <Button type="Submit" align="center" >REFUND</Button>
+                    <Grid item xs={2} sx={{ marginTop: 0.5 }} width={100}>
+                      <Button type="Submit" align="center">
+                        REFUND
+                      </Button>
                     </Grid>
                   </Grid>
-                  <ToastContainer  maxWidth="sx"
-               position="top-right"
-               autoClose={3000}
-               type="toast.TYPE.SUCCESS"
-               hideProgressBar={false}
-               newestOnTop={false}
-               closeOnClick
-               rtl={false}
-               pauseOnFocusLoss
-               draggable
-               pauseOnHover
-               />
+                  <ToastContainer
+                    maxWidth="sx"
+                    position="top-right"
+                    autoClose={3000}
+                    type="toast.TYPE.SUCCESS"
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                  />
                 </Form>
               )}
             </Formik>
           </div>
           <Backdrop
-        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-        open={open}
-        onClick={handleClose}
-      >
-        <CircularProgress color="inherit" />
-      </Backdrop>
+            sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+            open={open}
+            onClick={handleClose}
+          >
+            <CircularProgress color="inherit" />
+          </Backdrop>
         </Container>
       </Grid>
     </Grid>
 
     // </div>
-      );
+  );
 };
 
 export default ManagerPaymentsinPopup;
