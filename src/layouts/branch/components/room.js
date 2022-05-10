@@ -234,32 +234,47 @@ function Room() {
             columns={columns}
             editable={{
               onRowAdd: (newRow) =>
+
+
                 new Promise((resolve, reject) => {
                   const updatedRows = [
                     ...data,
                     { id: Math.floor(Math.random() * 100), ...newRow },
                   ];
-                  setTimeout(() => {
-                    const newRow1 = Object.assign(newRow, obje);
-                    const newRow2 = Object.assign(newRow1, obje1)
-                    const res = axios
-                      .post(
-                        "/bed/addRoom",
 
-                        newRow2
-                      )
-                      .catch((err) => {
-                        toast.error("Server error");
-                      });
-                    console.log(newRow2);
+                  if(buildingId && floorId){
+                    setTimeout(() => {
+                      const newRow1 = Object.assign(newRow, obje);
+                      const newRow2 = Object.assign(newRow1, obje1)
+                      const res = axios
+                        .post(
+                          "/bed/addRoom",
+  
+                          newRow2
+                        )
+                        .catch((err) => {
+                          toast.error("Server error");
+                        });
+                      console.log(newRow2);
+  
+                      toast.success("New Room added");
+                      //console.log(newRow1);
+  
+                      setData(updatedRows);
+                      resolve();
+                    }, 2000);
 
-                    toast.success("New Room added");
-                    //console.log(newRow1);
-
-                    setData(updatedRows);
-                    resolve();
-                  }, 2000);
+                  }
+                  else{
+                    toast.error("Could not add a Room. Please Check your entry");
+                  }
+                  
                 }),
+
+
+
+
+
               // onRowDelete: (selectedRow) =>
               //   new Promise((resolve, reject) => {
               //     const index = selectedRow.buildingId;
