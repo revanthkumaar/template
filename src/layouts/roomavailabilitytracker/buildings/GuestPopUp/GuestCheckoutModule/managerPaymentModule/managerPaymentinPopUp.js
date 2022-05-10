@@ -67,13 +67,17 @@ const ManagerPaymentsinPopup = (props) => {
     setOpen(!open);
   };
   var GuestID = props.guestdetails.id;
-  var INITIAL_FORM_STATE = {
+  var buildingId=props.guestdetails.buildingId
+  var occupancyType=props.guestdetails.occupancyType
+     var INITIAL_FORM_STATE = {
     // paymentPurpose: "",
     // paymentmethod: "",
     refundAmount: "",
     transactionId: "",
+    buildingId:buildingId,
     paymentPurpose:"Refund",
     guestId: GuestID,
+    occupancyType:occupancyType,
     createdBy: userId
   };
 
@@ -101,7 +105,7 @@ const ManagerPaymentsinPopup = (props) => {
                 handleToggle()
 
 
-                const res = await axios.post("/payment/addAfterOnBoard", guest)
+                const res = await axios.post("/payment/addPaymentAtOnBoarding", guest)
                 .catch((err) => {
                   toast.error("Server error");
                 });
