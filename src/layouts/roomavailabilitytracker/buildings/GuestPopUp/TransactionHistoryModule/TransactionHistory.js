@@ -100,7 +100,7 @@ export default function TransactionHistory(props) {
     {history.map((row)=>(
       <tr>
       <td>{row.paymentId}</td>
-      <td>{formatDate(row.transactionDate)}</td>
+      <td>{row.transactionDate}</td>
       <td>{row.refundAmount}</td>
       <td>{row.amountPaid}</td>
       <td>{row.paymentPurpose}</td>

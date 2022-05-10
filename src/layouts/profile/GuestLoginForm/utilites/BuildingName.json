@@ -1,14 +1,14 @@
 [
     {
-        "Building_id": 1,
+        "BuildingId": 1,
         "name": "Sri kala nilayam"
     },
     {
-        "Building_id": 2,
+        "BuildingId": 2,
         "name": "Anandha Nilayam"
     },
     {
-        "Building_id": 3,
+        "BuildingId": 3,
         "name": "Sri nilayam"
     }
 ]

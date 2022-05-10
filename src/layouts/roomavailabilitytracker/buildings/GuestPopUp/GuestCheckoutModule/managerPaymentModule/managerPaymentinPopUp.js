@@ -107,7 +107,7 @@ const ManagerPaymentsinPopup = (props) => {
                 handleToggle();
 
                 const res = await axios
-                  .post("/payment/addPaymentAtOnBoarding", guest)
+                  .post("/payment/addAfterOnBoard", guest)
                   .catch((err) => {
                     toast.error("Server error");
                   });

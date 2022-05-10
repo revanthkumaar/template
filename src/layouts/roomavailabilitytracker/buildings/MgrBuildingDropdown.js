@@ -40,20 +40,20 @@ function MgrBuildingDropdown(props) {
       <Select
         sx={{ minHeight: 44 }}
         style={{ width: "30%", height: "10%" }}
-        defaultValue={building.building_name}
+        defaultValue={building.buildingName}
         name="building"
       >
         
             <MenuItem
-              value={building.building_name}
+              value={building.buildingName}
               onClick={handleChange}
             >
               {" "}
-              {building.building_name}{" "}
+              {building.buildingName}{" "}
             </MenuItem>
          
       </Select>
-      {building.building_name === selected ? (
+      {building.buildingName === selected ? (
         <Grid>
         <Grid container direction="row" justifyContent="left" alignItems="left">
         <Grid item xs={6}>

@@ -262,7 +262,7 @@ function Room() {
                 }),
               // onRowDelete: (selectedRow) =>
               //   new Promise((resolve, reject) => {
-              //     const index = selectedRow.building_id;
+              //     const index = selectedRow.buildingId;
               //     const updatedRows = [...data];
               //     updatedRows.splice(index, 1);
               //     setTimeout(() => {
@@ -275,7 +275,7 @@ function Room() {
               //   }),
               // onRowUpdate: (updatedRow, oldRow) =>
               //   new Promise((resolve, reject) => {
-              //     const index = oldRow.building_id;
+              //     const index = oldRow.buildingId;
               //     const updatedRows = [...data];
               //     updatedRows[index] = updatedRow;
               //     setTimeout(() => {
