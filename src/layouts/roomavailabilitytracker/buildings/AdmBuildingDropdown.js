@@ -39,15 +39,15 @@ function AdmBuildingDropdown(props) {
         {building.map((post) => {
           return (
             <MenuItem
-              value={post.building_name}
+              value={post.buildingName}
               onClick={async () => {
-                setSelected(post.building_name);
-                //console.log(post.building_id)
-                setbuildingId(post.building_id);
+                setSelected(post.buildingName);
+                //console.log(post.buildingId)
+                setbuildingId(post.buildingId);
               }}
             >
               {" "}
-              {post.building_name}{" "}
+              {post.buildingName}{" "}
             </MenuItem>
           );
         })}

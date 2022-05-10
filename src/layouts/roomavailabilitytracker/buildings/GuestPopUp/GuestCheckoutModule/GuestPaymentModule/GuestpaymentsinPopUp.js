@@ -34,7 +34,15 @@ const useStyles = makeStyles({
 
 const FORM_VALIDATION = Yup.object().shape({
   paymentPurpose: Yup.string().required("Required"),
-  amountPaid: Yup.number().required("Required"),
+  amountPaid: Yup.number().required("Required").test(
+
+    'Is positive?',
+
+    'ERROR: The Amount must be greater than 0!',
+
+    (value) => value > 0
+
+  ),
   transactionId:Yup.string().test(
     'len',
     'can be empty or with string at least 10 characters and not more than 30',
