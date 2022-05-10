@@ -55,7 +55,7 @@ var plannedcheckoutdate = null
     toast.success("Guest Checked-Out Successfully");
     setTimeout(()=>{
       window.location.reload();
-    },4000)
+    },2000)
     
   }
   return (

@@ -38,32 +38,23 @@ function ForgotBasic() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		//  console.log(email);
-		//  console.log(confirmPassword);
-		//  console.log(newPassword);
-	
-
-		// const res = await axios.get(Urls.signIn);
-		// console.log(res.data);
-		// const result = res.data.filter((u) => u.password === password);
-		// console.log(result);
-		// if (result === 'undefined') {
-		// 	alert('Invalid Credentials');
-		// } else {
-		// 	result.map((u) => {
-		// 		if (u.password === password) {
-		// 			navigate('/dashboard');
-		// 		}
-		// 	});
-		// }
+		
         if(newPassword==confirmPassword){
 		const submitpassword = async () => {
 
 			const result = await axios.put('/login/updateUserByEmail', { email, newPassword, confirmPassword });
+			// if(result.data){
+			// 	toast.success('password resetted successfully')
+			// 	navigate('/authentication/sign-in')
+
+			// }
+			// else{
+			// 	toast.error('something went wrong, unable to update password');
+			// }
 
 			{
 				result.data
-					? navigate('/authentication/sign-in')
+					? (navigate('/authentication/sign-in'),console.log('hii'))
 					: toast.error('something went wrong, unable to update password');
 			}
 			

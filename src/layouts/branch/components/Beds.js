@@ -9,12 +9,13 @@ import "react-toastify/dist/ReactToastify.css";
 import { Formik, Form } from "formik";
 import Select from "../../profile/GuestLoginForm/components/Select";
 
+
 // import { height, width } from "@mui/system";
 
 function Beds() {
   let userData = JSON.parse(sessionStorage.getItem("userdata"));
   let userId = userData.data.userId;
-  console.log(userId);
+  // console.log(userId);
   var obj1 = null;
   var obj2 = null;
 
@@ -193,7 +194,7 @@ function Beds() {
       .then((res) => {
         setFloor(res.data);
 
-        console.log(res.data);
+        // console.log(res.data);
       })
 
       .catch((err) => {
@@ -225,7 +226,7 @@ function Beds() {
 
     return acc;
   }, {});
-  console.log(obj2);
+  // console.log(obj2);
 
   useEffect(() => {
     axios
@@ -246,7 +247,8 @@ function Beds() {
 
   const obje1 = { buildingId: buildingId };
 
-  const obje2 = { roomId: roomId };
+  const obje2 = { roomId: roomId,
+                  floorId: floorId };
 
   return (
     <div className="App">
@@ -277,7 +279,7 @@ function Beds() {
                     options={obj1}
                     onClick={(i) => {
                       setFloorId(i.target.dataset.value);
-                      console.log(floorId);
+                      // console.log(floorId);
                     }}
                   />
                 </Grid>
@@ -311,63 +313,44 @@ function Beds() {
             sx={{ color: "white" }}
             columns={columns}
             editable={{
-              onRowAdd: (newRow) =>
+              onRowAdd: (newRow) => 
+
+              
+
                 new Promise((resolve, reject) => {
                   const updatedRows = [
                     ...data,
                     { id: Math.floor(Math.random() * 100), ...newRow },
                   ];
-                  setTimeout(() => {
-                    const newRow1 = Object.assign(newRow, obje);
-                    const newRow2 = Object.assign(newRow1, obje1);
-                    const newRow3 = Object.assign(newRow2, obje2);
-                    const res = axios
-                      .post(
-                        "/bed/addBed",
-
-                        newRow3
-                      )
-                      .catch((err) => {
-                        toast.error("Server error");
-                      });
-                    console.log(newRow3);
-
-                    toast.success("New Bed added");
-
-                    //console.log(newRow1);
-                    setData(updatedRows);
-                    resolve();
-                  }, 2000);
+                  console.log(buildingId);
+                  if(buildingId && floorId && roomId){
+                    setTimeout(() => {
+                      const newRow1 = Object.assign(newRow, obje);
+                      const newRow2 = Object.assign(newRow1, obje1);
+                      const newRow3 = Object.assign(newRow2, obje2);
+                      const res = axios
+                        .post(
+                          "/bed/addBed",
+  
+                          newRow3
+                        )
+                        .catch((err) => {
+                          toast.error("Server error");
+                        });
+                      console.log(newRow3);
+  
+                      toast.success("New Bed added");
+  
+                      //console.log(newRow1);
+                      setData(updatedRows);
+                      resolve();
+                    }, 2000);
+                  }
+                  else{
+                    toast.error("Could not add a bed. Please Check your entry");                  }
+                    
                 }),
-              // onRowDelete: (selectedRow) =>
-              //   new Promise((resolve, reject) => {
-              //     const index = selectedRow.id;
-              //     const updatedRows = [...data];
-              //     updatedRows.splice(index, 1);
-              //     setTimeout(() => {
-              //       const res = axios.delete(`/bed/deleteBed/${index}`);
-              //       // console.log(res);
-              //       // console.log(updatedRows);
-              //       setData(updatedRows);
-              //       resolve();
-              //     }, 2000);
-              //   }),
-              // onRowUpdate: (updatedRow, oldRow) =>
-              //   new Promise((resolve, reject) => {
-              //     const index = oldRow.id;
-              //     const updatedRows = [...data];
-              //     updatedRows[index] = updatedRow;
-              //     setTimeout(() => {
-              //       const res = axios.put(
-              //         `/bed/updateBedById/${index}`,
-              //         updatedRow
-              //       );
-
-              //       //console.log(updatedRows);
-              //       setData(updatedRows);
-              //       resolve();
-              //     }, 2000);
-              //   }),
+              
             }}
             options={{
               exportButton: true,
