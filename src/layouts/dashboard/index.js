@@ -72,7 +72,7 @@ function Dashboard({ authorized }) {
                   coloredShadow="info"
                 >
                   <MDTypography variant="h6" color="white">
-                    AVAILABLE ROOMS
+                    AVAILABLE BEDS
                   </MDTypography>
                 </MDBox>
                 <MDBox pt={3}>
