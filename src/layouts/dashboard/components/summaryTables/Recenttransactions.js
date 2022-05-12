@@ -15,6 +15,8 @@ const columns = [
 ];
 
 
+console.log('hello')
+
 
 export default function AvailableRooms() {
 	
