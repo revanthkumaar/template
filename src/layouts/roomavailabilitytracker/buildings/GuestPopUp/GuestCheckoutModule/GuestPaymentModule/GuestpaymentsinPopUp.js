@@ -58,6 +58,10 @@ const notify = () => toast();
 
 const GuestpaymentsinPopUp = (props) => {
 
+
+
+  const [disableButtons, setDisableButtons] = React.useState(false);
+
   let userData = JSON.parse(sessionStorage.getItem("userdata"));
   let userId = userData.data.userId
   console.log(userId)
@@ -69,13 +73,16 @@ const GuestpaymentsinPopUp = (props) => {
   const handleToggle = () => {
     setOpen(!open);
   };
+
+  var GuestOccupancyType = props.guestdetails.occupancyType
   var GuestID = props.guestdetails.id;
   var INITIAL_FORM_STATE = {
     paymentPurpose: "",
     amountPaid: "",
     transactionId: "",
     guestId: GuestID,
-    createdBy : userId
+    createdBy : userId,
+    occupancyType : GuestOccupancyType
   };
 
   const classes = useStyles();
@@ -92,9 +99,11 @@ const GuestpaymentsinPopUp = (props) => {
               validationSchema={FORM_VALIDATION} 
               onSubmit={async (guest, { resetForm }) => {
                 console.log(guest);
-                handleToggle()
+                handleToggle();
 
-                const res = await axios.post("/payment/addPaymentAtOnBoarding", guest)
+
+                const res = await axios.post("/payment/addAfterOnBoard", guest)
+                
                 .catch((err) => {
                   toast.error("Server error");
                 });
@@ -146,7 +155,7 @@ const GuestpaymentsinPopUp = (props) => {
                     </Grid>
 
                     <Grid item xs={6} sx={{ marginTop: 2 }}>
-                      <Button  >Record Payment</Button>
+                      <Button  disabled={disableButtons} onClick={()=>{setDisableButtons(true)}}>Record Payment</Button>
                     </Grid>
                   </Grid>
                   <ToastContainer  maxWidth="sx"

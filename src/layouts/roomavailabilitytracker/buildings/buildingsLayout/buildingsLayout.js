@@ -112,7 +112,66 @@ const BuildingsLayout = (props) => {
                                                       color="success"
                                                     />
                                                   );
-                                                } else {
+                                                } 
+                                                  else if(bdno.guestStatus == "InNotice"){
+
+                                                    return (
+                                                      <Tooltip
+                                                        title={bdno.guestName} 
+                                                      >
+                                                        <HotelOutlinedIcon
+                                                          key={bdno.bedId}
+                                                          color="warning"
+                                                          className="click"
+                                                          id={bdno.guestId}
+                                                          onClick={async () => {
+                                                            setLoading(false);
+                                                            console.log(
+                                                              bdno.guestId
+                                                            );
+                                                            await axios
+                                                              .get(
+                                                                `guest/onClickDues/${bdno.guestId}`
+                                                              )
+                                                              .then(
+                                                                (response) =>
+                                                                  (GuestDueAmount =
+                                                                    response.data)
+                                                              );
+                                                            console.log(
+                                                              GuestDueAmount
+                                                            );
+  
+                                                            await axios
+                                                              .get(
+                                                                `/guest/getGuestByGuestId/${bdno.guestId}`
+                                                              )
+                                                              .then((res) => {
+                                                                GuestDetails =
+                                                                  res.data;
+                                                                console.log(
+                                                                  GuestDetails
+                                                                );
+  
+                                                                setOpen(true);
+                                                                setLoading(true);
+                                                              })
+                                                              .catch((err) => {
+                                                                console.log(err);
+                                                              });
+  
+                                                            // await axios .get(`guest/getPendingAndCompletedById/${bdno.guestId}`)
+                                                            // .then((res) => {
+                                                            //   GuestDueAmount = res.data;
+                                                            //   console.log(GuestDueAmount)
+  
+                                                            // })
+                                                          }}
+                                                        />
+                                                      </Tooltip>
+                                                    );
+                                                  }
+                                                else{
                                                   return (
                                                     <Tooltip
                                                       title={bdno.guestName}
