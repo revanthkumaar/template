@@ -42,6 +42,7 @@ var plannedcheckoutdate = null
 
   const initiateCheckoutProcess = () => {
      axios.get(`guest/get/${props.guestdetails.id}`).then((res) => setDates(res.data))
+     toast.success("Initiated Checkout Successfully");
 
     // setCheckOutDate(formatDate(props.guestdetails.checkOutDate));
     // setDate(dt);
