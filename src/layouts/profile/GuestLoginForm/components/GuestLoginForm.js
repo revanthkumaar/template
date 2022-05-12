@@ -368,6 +368,9 @@ const GuestLoginForm = () => {
                           <h6>Select Building *</h6>
 
                           <Select
+                           IconComponent={() => (
+                            <ArrowDropDownIcon className={classes.size} />
+                          )}
                             className={classes.root}
                             name="buildingId"
                             options={obje1}
@@ -382,6 +385,9 @@ const GuestLoginForm = () => {
                           <h6>Select Building *</h6>
 
                           <Select
+                           IconComponent={() => (
+                            <ArrowDropDownIcon className={classes.size} />
+                          )}
                             className={classes.root}
                             name="buildingId"
                             options={building}
@@ -396,6 +402,9 @@ const GuestLoginForm = () => {
                       <Grid item xs={6}>
                         <h6>Select Bed *</h6>
                         <Select
+                         IconComponent={() => (
+                          <ArrowDropDownIcon className={classes.size} />
+                        )}
                           className={classes.root}
                           name="bedId"
                           options={availableBedsByBuidlingName}
@@ -408,6 +417,9 @@ const GuestLoginForm = () => {
                           OccupancyType *
                         </InputLabel>
                         <Select
+                         IconComponent={() => (
+                          <ArrowDropDownIcon className={classes.size} />
+                        )}
                           className={classes.root}
                           name="occupancyType"
                           options={Occupancytype}
@@ -422,6 +434,9 @@ const GuestLoginForm = () => {
                             Duration
                           </InputLabel>
                           <Select
+                           IconComponent={() => (
+                            <ArrowDropDownIcon className={classes.size} />
+                          )}
                             className={classes.root}
                             name="duration"
                             options={duration}
@@ -550,7 +565,7 @@ const GuestLoginForm = () => {
                         </InputLabel>
 
                         <Select
-                          IconComponent={(Gender) => (
+                          IconComponent={() => (
                             <ArrowDropDownIcon className={classes.size} />
                           )}
                           name="gender"

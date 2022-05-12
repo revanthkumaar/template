@@ -12,6 +12,8 @@ import Icon from '@mui/material/Icon';
 import BuildingsTracker from 'layouts/roomavailabilitytracker/buildings';
 import ForgotBasic from 'layouts/authentication/forgot-password'
 import Cover from 'layouts/authentication/reset-password/cover'
+import InNotices from 'layouts/upcomingCheckouts';
+import ArchivedGuests from 'layouts/archivedCheckouts';
 const routes = [
 	{
 		type: 'collapse',
@@ -81,6 +83,22 @@ const routes = [
 		icon: <Icon fontSize="small">table_view</Icon>,
 		route: '/branch',
 		component: <Branch />
+	},
+	{
+		type: 'collapse',
+		name: 'Upcoming Checkouts',
+		key: 'upcomingCheckouts',
+		icon: <Icon fontSize="small">table</Icon>,
+		route: '/upcomingCheckouts',
+		component: <InNotices />
+	},
+	{
+		type: 'collapse',
+		name: 'Archived Guests',
+		key: 'archivedGuests',
+		icon: <Icon fontSize="small">archive</Icon>,
+		route: '/archivedGuests',
+		component: <ArchivedGuests />
 	},
 	// {
 	// 	type: 'collapse',

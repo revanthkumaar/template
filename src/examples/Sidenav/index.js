@@ -82,7 +82,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
       let typeOfUser = userData.data.userType;
       // console.log(typeOfUser)
 
-      if (typeOfUser == "manager" && (key == "dashboard" || key == "branch")) {
+      if (typeOfUser == "manager" && (key == "dashboard" || key == "branch" || key == "upcomingCheckouts" || key == "archivedGuests")) {
         // console.log('inside iffff')
         type = "main";
       }
