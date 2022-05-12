@@ -14,7 +14,7 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 
 function InnregGuestDetails(props) {
-    console.log(props.guestdetails.noticeDate)
+    // console.log(props.guestdetails.noticeDate)
     function formatDate(checkInDate) {
         var datePart = checkInDate.match(/\d+/g),
           year = datePart[0].substring(2), // get only two digits
@@ -41,7 +41,7 @@ function InnregGuestDetails(props) {
       var s = props.guestdetails.plannedCheckOutDate.toLocaleString("ko-KR", {
         timeZone: "Asia/Kolkata",
       });
-      console.log(s);
+      // console.log(s);
       var da = formatDate(s)
       function createData(name, calories) {
         return { name, calories };
@@ -60,20 +60,18 @@ function InnregGuestDetails(props) {
     
       ];
       const rows1=[
-        
-        createData(<h4>Check-In Date</h4>, props.guestdetails.checkInDate),
-        createData(<h4>Due Amount</h4>, 'Rs.'+props.GuestDueAmount),
-        createData(<h4>Check Out Initiated Date</h4>,props.guestdetails.noticeDate),
-        
-        createData(<h4>Planned Check-Out Date</h4>,props.guestdetails.plannedCheckOutDate),
-        createData(<h4>AmountPaid</h4>, 'Rs.'+ props.guestdetails.amountPaid),
-        
+        createData(<h4>Check-in Date</h4>, props.guestdetails.checkInDate),
+        createData(<h4>Check-out Initiated Date</h4>,props.guestdetails.noticeDate),
+        createData(<h4>Planned Check-out Date</h4>,props.guestdetails.plannedCheckOutDate),
+        createData(<h4>Default Rent for this bed</h4>,'Rs.'+ props.guestdetails.defaultRent ),
         createData(<h4>Security Deposit</h4>,'Rs.'+ props.guestdetails.securityDeposit ),
-        createData(<h4>Default Rent</h4>,'Rs.'+ props.guestdetails.defaultRent )
-    
+        createData(<h4>Current Due Amount</h4>, 'Rs.'+props.GuestDueAmount),
+        createData(<h4>Total Amount Paid</h4>, 'Rs.'+ props.TotalAmountByGuest)
+        
       ]
 
       console.log('this is innotice regular guy')
+      console.log(props.TotalAmountByGuest)
   return (
     <Grid container spacing={2} columns={16} >
     <Grid item xs={8}>

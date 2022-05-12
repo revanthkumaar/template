@@ -25,6 +25,8 @@ import Tooltip from "@material-ui/core/Tooltip";
 
 var GuestDetails = {};
 var GuestDueAmount = null;
+var TotalAmountByGuest = null;
+var GuestId = null;
 
 const BuildingsLayout = (props) => {
   // console.log(props.buildingId)
@@ -33,7 +35,20 @@ const BuildingsLayout = (props) => {
 
   const [loading, setLoading] = React.useState(false);
   const closeLoading = () => setLoading(!loading);
-  console.log(props.buildingId);
+  // console.log(props.buildingId);
+
+
+  const totalAmountPaidByGuest = async () => {
+    await axios
+    .get(`guest/getTotalPaid/${GuestId}`)
+    .then((response) =>
+    (TotalAmountByGuest =response.data)
+    );
+  console.log(
+    TotalAmountByGuest
+  );
+
+  }
 
   useEffect(async () => {
     await axios
@@ -50,7 +65,7 @@ const BuildingsLayout = (props) => {
       });
   }, [props.buildingId]);
 
-  const [GuestId, setGuestId] = React.useState("");
+  // const [GuestId, setGuestId] = React.useState("");
   const [open, setOpen] = React.useState(false);
   const handleClose = () => setOpen(false);
 
@@ -62,10 +77,12 @@ const BuildingsLayout = (props) => {
             return (
               <>
                 <GuestPopUp
+
                   open={open}
                   handleClose={handleClose}
                   GuestDetails={GuestDetails}
                   GuestDueAmount={GuestDueAmount}
+                  TotalAmountByGuest={TotalAmountByGuest}
                 />
 
                 <Grid container spacing={2}>
@@ -126,9 +143,12 @@ const BuildingsLayout = (props) => {
                                                           id={bdno.guestId}
                                                           onClick={async () => {
                                                             setLoading(false);
+                                                            GuestId = bdno.guestId
                                                             console.log(
                                                               bdno.guestId
                                                             );
+                                                            totalAmountPaidByGuest()
+                                                            
                                                             await axios
                                                               .get(
                                                                 `guest/onClickDues/${bdno.guestId}`
@@ -186,6 +206,7 @@ const BuildingsLayout = (props) => {
                                                           console.log(
                                                             bdno.guestId
                                                           );
+                                                          totalAmountPaidByGuest
                                                           await axios
                                                             .get(
                                                               `guest/onClickDues/${bdno.guestId}`
