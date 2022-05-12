@@ -412,10 +412,11 @@ const GuestLoginForm = () => {
                         ></Select>
                       </Grid>
                       <Grid item xs={6}>
-                        <InputLabel id="demo-simple-select-labe">
+                        {/* <InputLabel id="demo-simple-select-labe">
                           {" "}
                           OccupancyType *
-                        </InputLabel>
+                        </InputLabel> */}
+                        <h6>OccupancyType *</h6>
                         <Select
                          IconComponent={() => (
                           <ArrowDropDownIcon className={classes.size} />
@@ -429,10 +430,11 @@ const GuestLoginForm = () => {
 
                       {occtype === "Daily" || occtype === "Monthly" ? (
                         <Grid item xs={6}>
-                          <InputLabel id="demo-simple-select-labe">
+                          {/* <InputLabel id="demo-simple-select-labe">
                             {" "}
                             Duration
-                          </InputLabel>
+                          </InputLabel> */}
+                          <h6>Duration*</h6>
                           <Select
                            IconComponent={() => (
                             <ArrowDropDownIcon className={classes.size} />
@@ -451,10 +453,12 @@ const GuestLoginForm = () => {
                       {occtype === "Daily" || occtype === "Monthly" ? (
                         console.log("")
                       ) : (
+                        
                         <Grid item xs={6}>
+                          <h6>Security Deposit</h6>
                           <Textfield
                             name="securityDeposit"
-                            label="Security Deposit"
+                            //label="Security Deposit"
                             value={secureDepo}
                           />
                         </Grid>
@@ -462,17 +466,19 @@ const GuestLoginForm = () => {
 
                       <Grid item xs={6}></Grid>
                       <Grid item xs={6}>
+                      <h6>Default Rent</h6>
                         <Textfield
                           name="defaultRent"
-                          label="Default Rent"
+                         // label="Default Rent"
                           value={defaultRentofBed}
                         />
                       </Grid>
                       <Grid item xs={6}></Grid>
                       <Grid item xs={6}>
+                      <h6>Amount To Be Paid</h6>
                         <Textfield
                           name="amountToBePaid"
-                          label="Amount To Be Paid"
+                          //label="Amount To Be Paid"
                           value={amountTooPay}
                         />
                       </Grid>
@@ -485,17 +491,19 @@ const GuestLoginForm = () => {
                       </Grid>
 
                       <Grid item xs={6}>
+                      <h6>Amount Paid *</h6>
                         <Textfield
                           name="amountPaid"
-                          label="Amount Paid"
+                         // label="Amount Paid"
                           required
                           onClick={amountNeedToPay}
                         />
                       </Grid>
                       <Grid item xs={6}>
+                      <h6>Transaction ID *</h6>
                         <Textfield
                           name="transactionId"
-                          label="Transaction ID"
+                          //label="Transaction ID"
                           required
                         />
                       </Grid>
@@ -509,60 +517,83 @@ const GuestLoginForm = () => {
                       </Grid>
 
                       <Grid item xs={6}>
+                      <h6>First Name *</h6>
                         <Textfield
                           name="firstName"
-                          label="First Name"
+                          //label="First Name"
                           required
                         />
                       </Grid>
 
                       <Grid item xs={6}>
-                        <Textfield name="lastName" label="Last Name" required />
+                      <h6>Last Name *</h6>
+                        <Textfield name="lastName" 
+                       // label="Last Name" 
+                        required />
                       </Grid>
                       <Grid item xs={6}>
-                        <Textfield name="email" label="Email" required />
+                      <h6>Email *</h6>
+                        <Textfield name="email" 
+                       // label="Email"
+                         required />
                       </Grid>
                       <Grid item xs={6}>
+                      <h6>Date of Birth *</h6>
                         <DateTimePicker
                           maxdate={new Date()}
                           name="dateOfBirth"
-                          label="Date of Birth"
+                          //label="Date of Birth"
                           required
                         />
                       </Grid>
 
                       <Grid item xs={6}>
+                      <h6>Personal Phone *</h6>
                         <Textfield
                           name="personalNumber"
-                          label="Personal Phone"
+                          //label="Personal Phone"
                           required
                         />
                       </Grid>
                       <Grid item xs={6}>
+                      <h6>Secondary Phone</h6>
                         <Textfield
                           name="secondaryPhoneNumber"
-                          label="Secondary Phone"
+                          //label="Secondary Phone"
                         />
                       </Grid>
                       <Grid item xs={6}>
-                        <Textfield name="fatherName" label="Father's Name" />
+                      <h6>Father's Name</h6>
+                        <Textfield name="fatherName" 
+                        //label="Father's Name" 
+                        />
                       </Grid>
                       <Grid item xs={6}>
-                        <Textfield name="fatherNumber" label="Father's Phone" />
+                      <h6>Father's Phone</h6>
+                        <Textfield name="fatherNumber" 
+                        //label="Father's Phone"
+                         />
                       </Grid>
 
                       <Grid item xs={6}>
-                        <Textfield name="bloodGroup" label="Blood Group" />
+                      <h6>Blood Group</h6>
+                        <Textfield name="bloodGroup"
+                         //label="Blood Group" 
+                         />
                       </Grid>
                       <Grid item xs={6}>
-                        <Textfield name="occupation" label="Occupation" />
+                      <h6>Occupation</h6>
+                        <Textfield name="occupation" 
+                        //label="Occupation" 
+                        />
                       </Grid>
                       <br />
 
                       <Grid item xs={6}>
-                        <InputLabel id="demo-simple-select-label">
+                        {/* <InputLabel id="demo-simple-select-label">
                           Select Gender *
-                        </InputLabel>
+                        </InputLabel> */}
+                        <h6>Select Gender *</h6>
 
                         <Select
                           IconComponent={() => (
@@ -574,9 +605,10 @@ const GuestLoginForm = () => {
                         ></Select>
                       </Grid>
                       <Grid item xs={6}>
+                      <h6>Aadhar Number *</h6>
                         <Textfield
                           name="aadharNumber"
-                          label="Aadhar Number"
+                         // label="Aadhar Number"
                           required
                         />
                       </Grid>
@@ -591,28 +623,39 @@ const GuestLoginForm = () => {
                       </Grid>
 
                       <Grid item xs={12}>
+                      <h6>Address Line 1 *</h6>
                         <Textfield
                           name="addressLine1"
-                          label="Address Line 1"
+                         // label="Address Line 1"
                           required
                         />
                       </Grid>
 
                       <Grid item xs={6}>
-                        <Textfield name="addressLine2" label="Address Line 2" />
+                      <h6>Address Line 2</h6>
+                        <Textfield name="addressLine2" 
+                        //label="Address Line 2" 
+                        />
                       </Grid>
                       <Grid item xs={6}>
-                        <Textfield name="pincode" label="Pincode" required />
+                      <h6>Pincode *</h6>
+                        <Textfield name="pincode" 
+                        //label="Pincode"
+                         required />
                       </Grid>
 
                       <Grid item xs={6}>
-                        <Textfield name="city" label="City" required />
+                      <h6>City *</h6>
+                        <Textfield name="city" 
+                        //label="City"
+                         required />
                       </Grid>
 
                       <Grid item xs={6}>
-                        <InputLabel id="demo-simple-select-label">
+                        {/* <InputLabel id="demo-simple-select-label">
                           Select state *
-                        </InputLabel>
+                        </InputLabel> */}
+                         <h6>Select state *</h6>
 
                         <Select
                           IconComponent={(Gender) => (
@@ -625,9 +668,10 @@ const GuestLoginForm = () => {
                       </Grid>
 
                       <Grid item xs={12}>
+                      <h6>Check-in Notes</h6>
                         <Textfield
                           name="checkinNotes"
-                          label="Check-in Notes"
+                          //label="Check-in Notes"
                           multiline
                           rows={3}
                         />

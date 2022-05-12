@@ -20,24 +20,24 @@ import GuestDetailsIndex from "./GuestDetails";
 // import AppBar from "@mui/material/AppBar";
 import CheckOut from "./GuestCheckoutModule/CheckOut";
 import "./GuestPopUp.css";
+import AppBar from '@mui/material/AppBar';
 
-import Toolbar from "@mui/material/Toolbar";
 
 export default function GuestPopUp({ open, handleClose, ...props }) {
   return (
     <div>
       {props.GuestDetails.occupancyType === "regular" ? (
         <Dialog open={open} onClose={handleClose} maxWidth="lg">
-          <MDButton
+           <AppBar position="static"
             width="100%"
             variant="contained"
-            color="info"
+            color="error"
             size="large"
             justify="center"
             style={{ borderRadius: 0 }}
           >
             Guest Details
-          </MDButton>
+          </AppBar>
           <DialogContent>
             <GuestDetailsIndex
               guestdetails={props.GuestDetails}
