@@ -24,6 +24,8 @@ import AppBar from '@mui/material/AppBar';
 
 
 export default function GuestPopUp({ open, handleClose, ...props }) {
+  console.log('heeeeeeeeeeeeeee')
+  console.log(props.TotalAmountByGuest)
   return (
     <div>
       {props.GuestDetails.occupancyType === "regular" ? (
@@ -42,6 +44,7 @@ export default function GuestPopUp({ open, handleClose, ...props }) {
             <GuestDetailsIndex
               guestdetails={props.GuestDetails}
               GuestDueAmount={props.GuestDueAmount}
+              TotalAmountByGuest={props.TotalAmountByGuest}
             />
             <br />
 
@@ -93,6 +96,7 @@ export default function GuestPopUp({ open, handleClose, ...props }) {
             <GuestDetailsIndex
               guestdetails={props.GuestDetails}
               GuestDueAmount={props.GuestDueAmount}
+              TotalAmountByGuest={props.TotalAmountByGuest}
             />
             <br />
 

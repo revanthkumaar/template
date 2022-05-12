@@ -37,24 +37,17 @@ function ActregGuestDetails(props) {
         createData(<h4>Email</h4>, props.guestdetails.email),
         createData(<h4>Bed ID</h4>, props.guestdetails.bedId),
         createData(<h4>Guest Status</h4>, props.guestdetails.guestStatus),
-        
         createData(<h4>Occupancy Type</h4>, props.guestdetails.occupancyType),
-        
-    
       ];
       const rows1=[
-        
-        createData(<h4>Check-In Date</h4>, props.guestdetails.checkInDate),
-        createData(<h4>Due Amount</h4>, 'Rs.'+props.GuestDueAmount),
-       
-        
-       
-        createData(<h4>AmountPaid</h4>, 'Rs.'+ props.guestdetails.amountPaid),
-        
-        createData(<h4>SecurityDeposit</h4>,'Rs.'+ props.guestdetails.securityDeposit ),
-        createData(<h4>Default Rent</h4>,'Rs.'+ props.guestdetails.defaultRent )
-    
+        createData(<h4>Check-in Date</h4>, props.guestdetails.checkInDate),
+        createData(<h4>Current Due Amount</h4>, 'Rs.'+props.GuestDueAmount),
+        createData(<h4>Security Deposit</h4>,'Rs.'+ props.guestdetails.securityDeposit ),
+        createData(<h4>Default Rent</h4>,'Rs.'+ props.guestdetails.defaultRent ),
+        createData(<h4>Total Amount Paid</h4>, 'Rs.'+ props.TotalAmountByGuest)
       ]
+      console.log(props.TotalAmountByGuest)
+    
   return (
     <Grid container spacing={2} columns={16}>
     <Grid item xs={8}>

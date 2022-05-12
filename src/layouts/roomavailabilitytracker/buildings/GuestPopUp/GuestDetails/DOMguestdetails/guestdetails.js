@@ -54,7 +54,7 @@ function Guestdetails(props) {
     createData(<h4>Guest Name</h4>, props.guestdetails.firstName),
     createData(<h4>Mobile</h4>, props.guestdetails.personalNumber),
     createData(<h4>Email</h4>, props.guestdetails.email),
-    createData(<h4>BedID</h4>, props.guestdetails.bedId),
+    createData(<h4>Bed ID</h4>, props.guestdetails.bedId),
     createData(<h4>Guest Status</h4>, props.guestdetails.guestStatus),
     createData(<h4>Duration</h4>, props.guestdetails.duration),
     createData(<h4>Occupancy Type</h4>, props.guestdetails.occupancyType),
@@ -63,18 +63,17 @@ function Guestdetails(props) {
   ];
   const rows1=[
     
-    createData(<h4>Check-In Date</h4>, props.guestdetails.checkInDate),
-    createData(<h4>Planned Check-Out Date</h4>,props.guestdetails.plannedCheckOutDate),
+    createData(<h4>Check-in Date</h4>, props.guestdetails.checkInDate),
+    createData(<h4>Planned Check-out Date</h4>,props.guestdetails.plannedCheckOutDate),
     createData(<h4>Due Amount</h4>, 'Rs.'+props.GuestDueAmount),
-    
-   
-    createData(<h4>AmountPaid</h4>, 'Rs.'+ props.guestdetails.amountPaid),
-    
+    createData(<h4>Total Amount Paid</h4>, 'Rs.'+ props.TotalAmountByGuest),
     // createData(<h4>SecurityDeposit</h4>,'Rs.'+ props.guestdetails.securityDeposit ),
     createData(<h4>Default Rent</h4>,'Rs.'+ props.guestdetails.defaultRent )
 
   ]
+
  console.log('this is DOM guy')
+ console.log(props.TotalAmountByGuest)
   return (
     <Grid container spacing={2} columns={16}>
     <Grid item xs={8}>
