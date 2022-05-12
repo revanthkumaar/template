@@ -61,7 +61,7 @@ const CheckOut = (props) => {
     axios.get(`guest/getFinalCheckout/${props.guestdetails.id}`)
     .then((res) => {console.log(res.data); 
       // setDisableCheckoutButtons(true);
-       toast.success("Guest Checked-Out Successfully");})
+       toast.success("Guest Checked-Out Successfully. Please wait before we complete the transaction.");})
    
     setTimeout(() => {
       window.location.reload();
