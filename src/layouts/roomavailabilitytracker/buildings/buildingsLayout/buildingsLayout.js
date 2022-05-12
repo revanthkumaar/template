@@ -40,13 +40,13 @@ const BuildingsLayout = (props) => {
 
   const totalAmountPaidByGuest = async () => {
     await axios
-    .get(`guest/getTotalPaid/${GuestId}`)
-    .then((response) =>
-    (TotalAmountByGuest =response.data)
+      .get(`guest/getTotalPaid/${GuestId}`)
+      .then((response) =>
+        (TotalAmountByGuest = response.data)
+      );
+    console.log(
+      TotalAmountByGuest
     );
-  console.log(
-    TotalAmountByGuest
-  );
 
   }
 
@@ -129,69 +129,78 @@ const BuildingsLayout = (props) => {
                                                       color="success"
                                                     />
                                                   );
-                                                } 
-                                                  else if(bdno.guestStatus == "InNotice"){
+                                                }
+                                                else if (bdno.guestStatus == "InNotice") {
 
-                                                    return (
-                                                      <Tooltip
-                                                        title={bdno.guestName} 
-                                                      >
-                                                        <HotelOutlinedIcon
-                                                          key={bdno.bedId}
-                                                          color="warning"
-                                                          className="click"
-                                                          id={bdno.guestId}
-                                                          onClick={async () => {
-                                                            setLoading(false);
-                                                            GuestId = bdno.guestId
-                                                            console.log(
-                                                              bdno.guestId
+                                                  return (
+                                                    <Tooltip
+                                                      title={bdno.guestName}
+                                                    >
+                                                      <HotelOutlinedIcon
+                                                        key={bdno.bedId}
+                                                        color="warning"
+                                                        className="click"
+                                                        id={bdno.guestId}
+                                                        onClick={async () => {
+                                                          setLoading(false);
+                                                          GuestId = bdno.guestId
+                                                          console.log(
+                                                            bdno.guestId
+                                                          );
+                                                          // totalAmountPaidByGuest()
+
+                                                          await axios
+                                                            .get(`guest/getTotalPaid/${bdno.guestId}`)
+                                                            .then((response) =>
+                                                              (TotalAmountByGuest = response.data)
                                                             );
-                                                            totalAmountPaidByGuest()
-                                                            
-                                                            await axios
-                                                              .get(
-                                                                `guest/onClickDues/${bdno.guestId}`
-                                                              )
-                                                              .then(
-                                                                (response) =>
-                                                                  (GuestDueAmount =
-                                                                    response.data)
+                                                          console.log(
+                                                            TotalAmountByGuest
+                                                          );
+
+                                                          await axios
+                                                            .get(
+                                                              `guest/onClickDues/${bdno.guestId}`
+                                                            )
+                                                            .then(
+                                                              (response) =>
+                                                              (GuestDueAmount =
+                                                                response.data)
+                                                            );
+                                                          console.log(
+                                                            GuestDueAmount
+                                                          );
+
+                                                          await axios
+                                                            .get(
+                                                              `/guest/getGuestByGuestId/${bdno.guestId}`
+                                                            )
+                                                            .then((res) => {
+                                                              GuestDetails =
+                                                                res.data;
+                                                              console.log(
+                                                                GuestDetails
                                                               );
-                                                            console.log(
-                                                              GuestDueAmount
-                                                            );
-  
-                                                            await axios
-                                                              .get(
-                                                                `/guest/getGuestByGuestId/${bdno.guestId}`
-                                                              )
-                                                              .then((res) => {
-                                                                GuestDetails =
-                                                                  res.data;
-                                                                console.log(
-                                                                  GuestDetails
-                                                                );
-  
-                                                                setOpen(true);
-                                                                setLoading(true);
-                                                              })
-                                                              .catch((err) => {
-                                                                console.log(err);
-                                                              });
-  
-                                                            // await axios .get(`guest/getPendingAndCompletedById/${bdno.guestId}`)
-                                                            // .then((res) => {
-                                                            //   GuestDueAmount = res.data;
-                                                            //   console.log(GuestDueAmount)
-  
-                                                            // })
-                                                          }}
-                                                        />
-                                                      </Tooltip>
-                                                    );
-                                                  }
-                                                else{
+
+                                                              setOpen(true);
+                                                              setLoading(true);
+                                                            })
+                                                            .catch((err) => {
+                                                              console.log(err);
+                                                            });
+
+                                                          // await axios .get(`guest/getPendingAndCompletedById/${bdno.guestId}`)
+                                                          // .then((res) => {
+                                                          //   GuestDueAmount = res.data;
+                                                          //   console.log(GuestDueAmount)
+
+                                                          // })
+                                                        }}
+                                                      />
+                                                    </Tooltip>
+                                                  );
+                                                }
+                                                else {
                                                   return (
                                                     <Tooltip
                                                       title={bdno.guestName}
@@ -206,15 +215,24 @@ const BuildingsLayout = (props) => {
                                                           console.log(
                                                             bdno.guestId
                                                           );
-                                                          totalAmountPaidByGuest
+                                                          // totalAmountPaidByGuest
+
+                                                          await axios
+                                                            .get(`guest/getTotalPaid/${bdno.guestId}`)
+                                                            .then((response) =>
+                                                              (TotalAmountByGuest = response.data)
+                                                            );
+                                                          console.log(
+                                                            TotalAmountByGuest
+                                                          );
                                                           await axios
                                                             .get(
                                                               `guest/onClickDues/${bdno.guestId}`
                                                             )
                                                             .then(
                                                               (response) =>
-                                                                (GuestDueAmount =
-                                                                  response.data)
+                                                              (GuestDueAmount =
+                                                                response.data)
                                                             );
                                                           console.log(
                                                             GuestDueAmount
