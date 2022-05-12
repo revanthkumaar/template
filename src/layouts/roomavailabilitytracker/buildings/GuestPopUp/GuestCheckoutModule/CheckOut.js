@@ -46,7 +46,9 @@ const CheckOut = (props) => {
 
   const initiateCheckoutProcess = () => {
     axios.get(`guest/get/${props.guestdetails.id}`).
-      then((res) => { setDates(res.data); setDisableCheckoutButtons(true); toast.success("Initiated Checkout Successfully");})
+      then((res) => { setDates(res.data); 
+        // setDisableCheckoutButtons(true);
+         toast.success("Initiated Checkout Successfully");})
       .catch(err => { console.err(err); toast.error("Checkout Initiation Failed"); })
     // setCheckOutDate(formatDate(props.guestdetails.checkOutDate));
     // setDate(dt);
@@ -57,7 +59,9 @@ const CheckOut = (props) => {
   const finalCheckOutHandler = () => {
 
     axios.get(`guest/getFinalCheckout/${props.guestdetails.id}`)
-    .then((res) => {console.log(res.data); setDisableCheckoutButtons(true); toast.success("Guest Checked-Out Successfully");})
+    .then((res) => {console.log(res.data); 
+      // setDisableCheckoutButtons(true);
+       toast.success("Guest Checked-Out Successfully");})
    
     setTimeout(() => {
       window.location.reload();

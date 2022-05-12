@@ -7,13 +7,11 @@ import axios from "../../../../Uri"
 
 
 const columns = [
-	{ field: 'id', headerName: ' PAYMENT ID', width: 200 },
+	{ field: 'guestId', headerName: 'GUEST ID', width: 200 },
 	{ field: 'amountPaid', headerName: 'AMOUNT PAID', width: 200 },
 	{ field: 'transactionId', headerName: 'TRANSACTION ID', width: 200 },
 	{ field: 'transactionDate', headerName: 'TRANSACTION DATE', width: 200 },
-	{ field: 'paymentPurpose', headerName: 'PAYMENT PURPOSE', width: 200 },
-	{ field: 'guestId', headerName: 'GUEST ID', width: 200 },
-	
+	{ field: 'paymentPurpose', headerName: 'PAYMENT PURPOSE', width: 200 }
 ];
 
 
