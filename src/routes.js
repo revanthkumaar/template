@@ -103,7 +103,7 @@ const routes = [
 	},
 	{
 		type: 'collapse',
-		name: 'All Transactions',
+		name: 'Payments History',
 		key: 'allTransactions',
 		icon: <Icon fontSize="small">Transactions</Icon>,
 		route: '/allTransactions',

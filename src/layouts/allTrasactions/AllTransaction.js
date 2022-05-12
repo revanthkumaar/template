@@ -293,7 +293,7 @@ function AllTransaction() {
       <h4 align='center'></h4> */}
         <Grid xs={12}>
           <MaterialTable
-            title="Transaction List"
+            title="Complete Payment History of all Buildings"
             data={data}
             sx={{ color: "white" }}
             columns={columns}
