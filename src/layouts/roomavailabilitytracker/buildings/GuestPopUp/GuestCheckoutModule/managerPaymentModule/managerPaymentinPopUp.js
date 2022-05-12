@@ -59,6 +59,10 @@ const FORM_VALIDATION = Yup.object().shape({
 const notify = () => toast();
 
 const ManagerPaymentsinPopup = (props) => {
+
+
+  const [disableButtons, setDisableButtons] = React.useState(false);
+
   let userData = JSON.parse(sessionStorage.getItem("userdata"));
   let userId = userData.data.userId;
   console.log(userId);
@@ -105,6 +109,9 @@ const ManagerPaymentsinPopup = (props) => {
               onSubmit={async (guest, { resetForm }) => {
                 console.log(guest);
                 handleToggle();
+                setDisableButtons(true);
+                console.log('hello')
+                
 
                 const res = await axios
                   .post("/payment/addAfterOnBoard", guest)
@@ -115,6 +122,7 @@ const ManagerPaymentsinPopup = (props) => {
 
                 if (res.data !== null) {
                   handleClose();
+                
                   toast.success("Payment Recorded Successfully");
                 }
 
@@ -133,7 +141,8 @@ const ManagerPaymentsinPopup = (props) => {
                       <Textfield name="transactionId" label="Transaction ID" />
                     </Grid>
                     <Grid item xs={2} sx={{ marginTop: 0.5 }} width={100}>
-                      <Button type="Submit" align="center">
+                      <Button 
+                       >
                         REFUND
                       </Button>
                     </Grid>

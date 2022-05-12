@@ -5,8 +5,12 @@ import { useFormikContext } from "formik";
 const ButtonWrapper = ({ children, ...otherProps }) => {
   const { submitForm } = useFormikContext();
 
+
+  const [disableButtons, setDisableButtons] = React.useState(false);
+
   const handleSubmit = () => {
     submitForm();
+    setDisableButtons(true)
   };
 
   const configButton = {
@@ -14,6 +18,7 @@ const ButtonWrapper = ({ children, ...otherProps }) => {
     color: "info",
     size:"medium",
     onClick: handleSubmit,
+    disabled :  disableButtons
     
   };
 
