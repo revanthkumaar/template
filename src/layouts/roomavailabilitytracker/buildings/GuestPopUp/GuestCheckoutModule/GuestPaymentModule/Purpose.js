@@ -1,6 +1,6 @@
 const Purpose = {
     "roomrent" : "Room Rent",
-    "securitydeposit" : "Security Deposit",
+    "checkoutClearance": "Check-out Clearance"
   };
   export default Purpose;
   

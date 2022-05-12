@@ -293,7 +293,7 @@ function ArchivedGuest() {
       <h4 align='center'></h4> */}
         <Grid xs={12}>
           <MaterialTable
-            title="Upcoming Check Out List"
+            title="Vacated Guests From All Buildings"
             data={data}
             sx={{ color: "white" }}
             columns={columns}

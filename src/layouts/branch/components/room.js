@@ -17,10 +17,9 @@ const INITIAL_FORM_STATE = {
 };
 
 function Room() {
-
   let userData = JSON.parse(sessionStorage.getItem("userdata"));
-  let userId = userData.data.userId
-  console.log(userId)
+  let userId = userData.data.userId;
+  console.log(userId);
   const [data, setData] = useState([]);
   const [building, setBuilding] = useState([]);
   const [floor, setFloor] = useState([]);
@@ -123,16 +122,15 @@ function Room() {
       validate: (rowData) => {
         if (rowData.roomNumber === undefined) {
           return "Room Number is Required";
-        }
-        else if(rowData.roomNumber.match(/[^0-9]/g)){
-          return" Please enter valid numbers"
-        }
-        else if(rowData.roomNumber.length<3||rowData.roomNumber.length>3){
-        return" Please enter room numbers"
-
+        } else if (rowData.roomNumber.match(/[^0-9]/g)) {
+          return " Please enter valid numbers";
+        } else if (
+          rowData.roomNumber.length < 3 ||
+          rowData.roomNumber.length > 3
+        ) {
+          return " Please enter room numbers";
         }
         return true;
-        
       },
     },
   ];
@@ -178,21 +176,21 @@ function Room() {
 
     return acc;
   }, {});
-  console.log(obj1)
+  console.log(obj1);
 
   const obje1 = { floorId: floorId };
-  const obje = { createdBy:userId}
+  const obje = { createdBy: userId };
 
   return (
     <div>
       <Grid container rowSpacing={8}>
-        <Grid item xs={12} >
+        <Grid item xs={12}>
           <Formik initialValues={{ ...INITIAL_FORM_STATE }}>
             {(formProps) => (
               <Form>
                 <Grid container>
-                  <Grid item xs={4}>
-                    <InputLabel>Select Building</InputLabel>
+                  <Grid item xs={4} height={30}>
+                    <h5>Select Building</h5>
                     <Select
                       name="selectBuilding"
                       options={obj}
@@ -202,12 +200,13 @@ function Room() {
                       }}
                     />
                   </Grid>
+                  &nbsp;&nbsp;&nbsp;
 
                   {obj1 === null ? (
                     console.log("obj1 is null")
                   ) : (
                     <Grid item xs={4}>
-                      <InputLabel>Select Floor</InputLabel>
+                      <h5>Select Floor</h5>
                       <Select
                         name="selectFloor"
                         options={obj1}
@@ -223,112 +222,104 @@ function Room() {
             )}
           </Formik>
         </Grid>
-
+        <br/><br/>
         <Grid xs={30}>
-        <Grid item xs={12}>
-          <MaterialTable
-            title="Manage Rooms"
-            data={data}
-            sx={{ color: "white" }}
-            rowsPerPageOptions={20}
-            columns={columns}
-            editable={{
-              onRowAdd: (newRow) =>
+          <Grid item xs={12}>
+            <MaterialTable
+              title="Manage Rooms"
+              data={data}
+              sx={{ color: "white" }}
+              rowsPerPageOptions={20}
+              columns={columns}
+              editable={{
+                onRowAdd: (newRow) =>
+                  new Promise((resolve, reject) => {
+                    const updatedRows = [
+                      ...data,
+                      { id: Math.floor(Math.random() * 100), ...newRow },
+                    ];
 
+                    if (buildingId && floorId) {
+                      setTimeout(() => {
+                        const newRow1 = Object.assign(newRow, obje);
+                        const newRow2 = Object.assign(newRow1, obje1);
+                        const res = axios
+                          .post(
+                            "/bed/addRoom",
 
-                new Promise((resolve, reject) => {
-                  const updatedRows = [
-                    ...data,
-                    { id: Math.floor(Math.random() * 100), ...newRow },
-                  ];
+                            newRow2
+                          )
+                          .catch((err) => {
+                            toast.error("Server error");
+                          });
+                        console.log(newRow2);
 
-                  if(buildingId && floorId){
-                    setTimeout(() => {
-                      const newRow1 = Object.assign(newRow, obje);
-                      const newRow2 = Object.assign(newRow1, obje1)
-                      const res = axios
-                        .post(
-                          "/bed/addRoom",
-  
-                          newRow2
-                        )
-                        .catch((err) => {
-                          toast.error("Server error");
-                        });
-                      console.log(newRow2);
-  
-                      toast.success("New Room added");
-                      //console.log(newRow1);
-  
-                      setData(updatedRows);
-                      resolve();
-                    }, 2000);
+                        toast.success("New Room added");
+                        //console.log(newRow1);
 
-                  }
-                  else{
-                    toast.error("Could not add a Room. Please Check your entry");
-                  }
-                  
-                }),
+                        setData(updatedRows);
+                        resolve();
+                      }, 2000);
+                    } else {
+                      toast.error(
+                        "Could not add a Room. Please Check your entry"
+                      );
+                    }
+                  }),
 
+                // onRowDelete: (selectedRow) =>
+                //   new Promise((resolve, reject) => {
+                //     const index = selectedRow.buildingId;
+                //     const updatedRows = [...data];
+                //     updatedRows.splice(index, 1);
+                //     setTimeout(() => {
+                //       const res = axios.delete(`/bed/deleteBuilding/${index}`);
+                //       // console.log(res);
+                //       // console.log(updatedRows);
+                //       setData(updatedRows);
+                //       resolve();
+                //     }, 2000);
+                //   }),
+                // onRowUpdate: (updatedRow, oldRow) =>
+                //   new Promise((resolve, reject) => {
+                //     const index = oldRow.buildingId;
+                //     const updatedRows = [...data];
+                //     updatedRows[index] = updatedRow;
+                //     setTimeout(() => {
+                //       const res = axios.put(
+                //         `/bed/updateBuildingById/${index}`,
+                //         updatedRow
+                //       );
 
+                //       //console.log(updatedRows);
+                //       setData(updatedRows);
+                //       resolve();
+                //     }, 2000);
+                //   }),
+              }}
+              // actions={[{onClick:(rowData) => {
+              //   console.log(lookup[rowData.buildingId])
+              // }}]}
+              options={{
+                exportButton: true,
+                grouping: true,
 
-
-
-              // onRowDelete: (selectedRow) =>
-              //   new Promise((resolve, reject) => {
-              //     const index = selectedRow.buildingId;
-              //     const updatedRows = [...data];
-              //     updatedRows.splice(index, 1);
-              //     setTimeout(() => {
-              //       const res = axios.delete(`/bed/deleteBuilding/${index}`);
-              //       // console.log(res);
-              //       // console.log(updatedRows);
-              //       setData(updatedRows);
-              //       resolve();
-              //     }, 2000);
-              //   }),
-              // onRowUpdate: (updatedRow, oldRow) =>
-              //   new Promise((resolve, reject) => {
-              //     const index = oldRow.buildingId;
-              //     const updatedRows = [...data];
-              //     updatedRows[index] = updatedRow;
-              //     setTimeout(() => {
-              //       const res = axios.put(
-              //         `/bed/updateBuildingById/${index}`,
-              //         updatedRow
-              //       );
-
-              //       //console.log(updatedRows);
-              //       setData(updatedRows);
-              //       resolve();
-              //     }, 2000);
-              //   }),
-            }}
-            // actions={[{onClick:(rowData) => {
-            //   console.log(lookup[rowData.buildingId])
-            // }}]}
-            options={{
-              exportButton: true,
-              grouping: true,
-
-              actionsColumnIndex: -1,
-              addRowPosition: "first",
-              headerStyle: {
-                backgroundColor: "#1E90FF",
-                color: "white",
-                fontSize: "15px",
-                height: "10px",
-                fontWeight: "bold",
-              },
-              rowStyle: {
-                fontSize: 16,
-              },
-            }}
-          />
-        
+                actionsColumnIndex: -1,
+                addRowPosition: "first",
+                headerStyle: {
+                  backgroundColor: "#1E90FF",
+                  color: "white",
+                  fontSize: "15px",
+                  height: "10px",
+                  fontWeight: "bold",
+                },
+                rowStyle: {
+                  fontSize: 16,
+                },
+              }}
+            />
+          </Grid>
         </Grid>
-      </Grid>
       </Grid>
     </div>
   );

@@ -14,6 +14,7 @@ import ForgotBasic from 'layouts/authentication/forgot-password'
 import Cover from 'layouts/authentication/reset-password/cover'
 import InNotices from 'layouts/upcomingCheckouts';
 import ArchivedGuests from 'layouts/archivedCheckouts';
+import AllTransactions from 'layouts/allTrasactions';
 const routes = [
 	{
 		type: 'collapse',
@@ -99,6 +100,14 @@ const routes = [
 		icon: <Icon fontSize="small">archive</Icon>,
 		route: '/archivedGuests',
 		component: <ArchivedGuests />
+	},
+	{
+		type: 'collapse',
+		name: 'All Transactions',
+		key: 'allTransactions',
+		icon: <Icon fontSize="small">Transactions</Icon>,
+		route: '/allTransactions',
+		component: <AllTransactions />
 	},
 	// {
 	// 	type: 'collapse',

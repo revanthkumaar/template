@@ -68,8 +68,7 @@ const FORM_VALIDATION = Yup.object().shape({
   lastName: Yup.string()
     .matches(/^[aA-zZ\s]+$/, "Invalid LastName ")
     .required("Required"),
-  fatherName: Yup.string()
-    .matches(/^[aA-zZ\s]+$/, "Invalid LastName "),
+  fatherName: Yup.string().matches(/^[aA-zZ\s]+$/, "Invalid LastName "),
   email: Yup.string().email("Invalid email.").required("Required"),
   dateOfBirth: Yup.date()
     .required("DOB is Required")
@@ -80,14 +79,15 @@ const FORM_VALIDATION = Yup.object().shape({
         moment().diff(moment(date), "years") >= 12 &&
         moment().diff(moment(date), "years") <= 80
     ),
-  bloodGroup: Yup.string()
-    .matches(/^(A|B|AB|O)[+-]$/, {
-      message: "Please enter valid Blood Group.",
-      excludeEmptyString: false,
-    }),
+  bloodGroup: Yup.string().matches(/^(A|B|AB|O)[+-]$/, {
+    message: "Please enter valid Blood Group.",
+    excludeEmptyString: false,
+  }),
 
-  occupation: Yup.string()
-    .matches(/^[aA-zZ\s]+$/, "Give a Valid Occupation Type "),
+  occupation: Yup.string().matches(
+    /^[aA-zZ\s]+$/,
+    "Give a Valid Occupation Type "
+  ),
   gender: Yup.string().required("Required"),
   personalNumber: Yup.string()
     .matches(/^[6-9]\d{9}$/, {
@@ -95,16 +95,14 @@ const FORM_VALIDATION = Yup.object().shape({
       excludeEmptyString: false,
     })
     .required("Required"),
-  secondaryPhoneNumber: Yup.string()
-    .matches(/^[6-9]\d{9}$/, {
-      message: "Please enter Valid Mobile Number",
-      excludeEmptyString: false,
-    }),
-  fatherNumber: Yup.string()
-    .matches(/^[6-9]\d{9}$/, {
-      message: "Please enter Valid Mobile Number",
-      excludeEmptyString: false,
-    }),
+  secondaryPhoneNumber: Yup.string().matches(/^[6-9]\d{9}$/, {
+    message: "Please enter Valid Mobile Number",
+    excludeEmptyString: false,
+  }),
+  fatherNumber: Yup.string().matches(/^[6-9]\d{9}$/, {
+    message: "Please enter Valid Mobile Number",
+    excludeEmptyString: false,
+  }),
 
   aadharNumber: Yup.string()
     .matches(/^\d{4}\d{4}\d{4}$/, "Invalid Aadhar Number")
@@ -362,15 +360,21 @@ const GuestLoginForm = () => {
                           {" "}
                           * Indicates fields are Required
                         </InputLabel>
+                        <br/>
+                        
+                        <InputLabel id="demo-simple-select-labe">
+                          {" "}
+                          Fill the Form in Order Wise
+                        </InputLabel>
                       </Grid>
                       {userType !== "manager" ? (
                         <Grid item xs={6}>
                           <h6>Select Building *</h6>
 
                           <Select
-                           IconComponent={() => (
-                            <ArrowDropDownIcon className={classes.size} />
-                          )}
+                            IconComponent={() => (
+                              <ArrowDropDownIcon className={classes.size} />
+                            )}
                             className={classes.root}
                             name="buildingId"
                             options={obje1}
@@ -385,9 +389,9 @@ const GuestLoginForm = () => {
                           <h6>Select Building *</h6>
 
                           <Select
-                           IconComponent={() => (
-                            <ArrowDropDownIcon className={classes.size} />
-                          )}
+                            IconComponent={() => (
+                              <ArrowDropDownIcon className={classes.size} />
+                            )}
                             className={classes.root}
                             name="buildingId"
                             options={building}
@@ -402,9 +406,9 @@ const GuestLoginForm = () => {
                       <Grid item xs={6}>
                         <h6>Select Bed *</h6>
                         <Select
-                         IconComponent={() => (
-                          <ArrowDropDownIcon className={classes.size} />
-                        )}
+                          IconComponent={() => (
+                            <ArrowDropDownIcon className={classes.size} />
+                          )}
                           className={classes.root}
                           name="bedId"
                           options={availableBedsByBuidlingName}
@@ -418,9 +422,9 @@ const GuestLoginForm = () => {
                         </InputLabel> */}
                         <h6>OccupancyType *</h6>
                         <Select
-                         IconComponent={() => (
-                          <ArrowDropDownIcon className={classes.size} />
-                        )}
+                          IconComponent={() => (
+                            <ArrowDropDownIcon className={classes.size} />
+                          )}
                           className={classes.root}
                           name="occupancyType"
                           options={Occupancytype}
@@ -436,9 +440,9 @@ const GuestLoginForm = () => {
                           </InputLabel> */}
                           <h6>Duration*</h6>
                           <Select
-                           IconComponent={() => (
-                            <ArrowDropDownIcon className={classes.size} />
-                          )}
+                            IconComponent={() => (
+                              <ArrowDropDownIcon className={classes.size} />
+                            )}
                             className={classes.root}
                             name="duration"
                             options={duration}
@@ -453,7 +457,6 @@ const GuestLoginForm = () => {
                       {occtype === "Daily" || occtype === "Monthly" ? (
                         console.log("")
                       ) : (
-                        
                         <Grid item xs={6}>
                           <h6>Security Deposit</h6>
                           <Textfield
@@ -466,16 +469,16 @@ const GuestLoginForm = () => {
 
                       <Grid item xs={6}></Grid>
                       <Grid item xs={6}>
-                      <h6>Default Rent</h6>
+                        <h6>Default Rent</h6>
                         <Textfield
                           name="defaultRent"
-                         // label="Default Rent"
+                          // label="Default Rent"
                           value={defaultRentofBed}
                         />
                       </Grid>
                       <Grid item xs={6}></Grid>
                       <Grid item xs={6}>
-                      <h6>Amount To Be Paid</h6>
+                        <h6>Amount To Be Paid</h6>
                         <Textfield
                           name="amountToBePaid"
                           //label="Amount To Be Paid"
@@ -491,16 +494,16 @@ const GuestLoginForm = () => {
                       </Grid>
 
                       <Grid item xs={6}>
-                      <h6>Amount Paid *</h6>
+                        <h6>Amount Paid *</h6>
                         <Textfield
                           name="amountPaid"
-                         // label="Amount Paid"
+                          // label="Amount Paid"
                           required
                           onClick={amountNeedToPay}
                         />
                       </Grid>
                       <Grid item xs={6}>
-                      <h6>Transaction ID *</h6>
+                        <h6>Transaction ID *</h6>
                         <Textfield
                           name="transactionId"
                           //label="Transaction ID"
@@ -517,7 +520,7 @@ const GuestLoginForm = () => {
                       </Grid>
 
                       <Grid item xs={6}>
-                      <h6>First Name *</h6>
+                        <h6>First Name *</h6>
                         <Textfield
                           name="firstName"
                           //label="First Name"
@@ -526,19 +529,23 @@ const GuestLoginForm = () => {
                       </Grid>
 
                       <Grid item xs={6}>
-                      <h6>Last Name *</h6>
-                        <Textfield name="lastName" 
-                       // label="Last Name" 
-                        required />
+                        <h6>Last Name *</h6>
+                        <Textfield
+                          name="lastName"
+                          // label="Last Name"
+                          required
+                        />
                       </Grid>
                       <Grid item xs={6}>
-                      <h6>Email *</h6>
-                        <Textfield name="email" 
-                       // label="Email"
-                         required />
+                        <h6>Email *</h6>
+                        <Textfield
+                          name="email"
+                          // label="Email"
+                          required
+                        />
                       </Grid>
                       <Grid item xs={6}>
-                      <h6>Date of Birth *</h6>
+                        <h6>Date of Birth *</h6>
                         <DateTimePicker
                           maxdate={new Date()}
                           name="dateOfBirth"
@@ -548,7 +555,7 @@ const GuestLoginForm = () => {
                       </Grid>
 
                       <Grid item xs={6}>
-                      <h6>Personal Phone *</h6>
+                        <h6>Personal Phone *</h6>
                         <Textfield
                           name="personalNumber"
                           //label="Personal Phone"
@@ -556,35 +563,39 @@ const GuestLoginForm = () => {
                         />
                       </Grid>
                       <Grid item xs={6}>
-                      <h6>Secondary Phone</h6>
+                        <h6>Secondary Phone</h6>
                         <Textfield
                           name="secondaryPhoneNumber"
                           //label="Secondary Phone"
                         />
                       </Grid>
                       <Grid item xs={6}>
-                      <h6>Father's Name</h6>
-                        <Textfield name="fatherName" 
-                        //label="Father's Name" 
+                        <h6>Father's Name</h6>
+                        <Textfield
+                          name="fatherName"
+                          //label="Father's Name"
                         />
                       </Grid>
                       <Grid item xs={6}>
-                      <h6>Father's Phone</h6>
-                        <Textfield name="fatherNumber" 
-                        //label="Father's Phone"
-                         />
+                        <h6>Father's Phone</h6>
+                        <Textfield
+                          name="fatherNumber"
+                          //label="Father's Phone"
+                        />
                       </Grid>
 
                       <Grid item xs={6}>
-                      <h6>Blood Group</h6>
-                        <Textfield name="bloodGroup"
-                         //label="Blood Group" 
-                         />
+                        <h6>Blood Group</h6>
+                        <Textfield
+                          name="bloodGroup"
+                          //label="Blood Group"
+                        />
                       </Grid>
                       <Grid item xs={6}>
-                      <h6>Occupation</h6>
-                        <Textfield name="occupation" 
-                        //label="Occupation" 
+                        <h6>Occupation</h6>
+                        <Textfield
+                          name="occupation"
+                          //label="Occupation"
                         />
                       </Grid>
                       <br />
@@ -605,10 +616,10 @@ const GuestLoginForm = () => {
                         ></Select>
                       </Grid>
                       <Grid item xs={6}>
-                      <h6>Aadhar Number *</h6>
+                        <h6>Aadhar Number *</h6>
                         <Textfield
                           name="aadharNumber"
-                         // label="Aadhar Number"
+                          // label="Aadhar Number"
                           required
                         />
                       </Grid>
@@ -623,39 +634,44 @@ const GuestLoginForm = () => {
                       </Grid>
 
                       <Grid item xs={12}>
-                      <h6>Address Line 1 *</h6>
+                        <h6>Address Line 1 *</h6>
                         <Textfield
                           name="addressLine1"
-                         // label="Address Line 1"
+                          // label="Address Line 1"
                           required
                         />
                       </Grid>
 
                       <Grid item xs={6}>
-                      <h6>Address Line 2</h6>
-                        <Textfield name="addressLine2" 
-                        //label="Address Line 2" 
+                        <h6>Address Line 2</h6>
+                        <Textfield
+                          name="addressLine2"
+                          //label="Address Line 2"
                         />
                       </Grid>
                       <Grid item xs={6}>
-                      <h6>Pincode *</h6>
-                        <Textfield name="pincode" 
-                        //label="Pincode"
-                         required />
+                        <h6>Pincode *</h6>
+                        <Textfield
+                          name="pincode"
+                          //label="Pincode"
+                          required
+                        />
                       </Grid>
 
                       <Grid item xs={6}>
-                      <h6>City *</h6>
-                        <Textfield name="city" 
-                        //label="City"
-                         required />
+                        <h6>City *</h6>
+                        <Textfield
+                          name="city"
+                          //label="City"
+                          required
+                        />
                       </Grid>
 
                       <Grid item xs={6}>
                         {/* <InputLabel id="demo-simple-select-label">
                           Select state *
                         </InputLabel> */}
-                         <h6>Select state *</h6>
+                        <h6>Select state *</h6>
 
                         <Select
                           IconComponent={(Gender) => (
@@ -668,7 +684,7 @@ const GuestLoginForm = () => {
                       </Grid>
 
                       <Grid item xs={12}>
-                      <h6>Check-in Notes</h6>
+                        <h6>Check-in Notes</h6>
                         <Textfield
                           name="checkinNotes"
                           //label="Check-in Notes"

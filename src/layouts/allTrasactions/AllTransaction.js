@@ -10,7 +10,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { string } from "prop-types";
 
-function InNotice() {
+function AllTransaction() {
   let userData = JSON.parse(sessionStorage.getItem("userdata"));
   let userId = userData.data.userId;
   console.log(userId);
@@ -293,7 +293,7 @@ function InNotice() {
       <h4 align='center'></h4> */}
         <Grid xs={12}>
           <MaterialTable
-            title="Upcoming Check Out Guests List"
+            title="Transaction List"
             data={data}
             sx={{ color: "white" }}
             columns={columns}
@@ -387,4 +387,4 @@ function InNotice() {
   );
 }
 
-export default InNotice;
+export default AllTransaction;
