@@ -290,9 +290,9 @@ const GuestLoginForm = () => {
   const obj5 = { buildingId: buildId };
   const amountNeedToPay = (n) => {};
   const navigate = useNavigate();
-  const refreshPage = () => {
-    window.location.reload();
-  };
+  // const refreshPage = () => {
+  //   window.location.reload();
+  // };
 
   return (
     <div>
@@ -338,9 +338,9 @@ const GuestLoginForm = () => {
                       toast.success("OnBoarded Successfully");
 
                       resetForm();
-                      setTimeout(() => {
-                        refreshPage();
-                      }, 4000);
+                      // setTimeout(() => {
+                      //   refreshPage();
+                      // }, 4000);
                     }
                   } else {
                     handleClose();

@@ -56,16 +56,17 @@ const CheckOut = (props) => {
   console.log(dates)
 
 
-  const finalCheckOutHandler = () => {
+  const finalCheckOutHandler = async() => {
 
-    axios.get(`guest/getFinalCheckout/${props.guestdetails.id}`)
+   await axios.get(`guest/getFinalCheckout/${props.guestdetails.id}`)
     .then((res) => {console.log(res.data); 
       // setDisableCheckoutButtons(true);
        toast.success("Guest Checked-Out Successfully. Please wait before we complete the transaction.");})
+       .catch((err)=> console.log(err));
    
-    setTimeout(() => {
-      window.location.reload();
-    }, 2000)
+    // setTimeout(() => {
+    //   window.location.();
+    // }, 2000)
 
   }
   return (
