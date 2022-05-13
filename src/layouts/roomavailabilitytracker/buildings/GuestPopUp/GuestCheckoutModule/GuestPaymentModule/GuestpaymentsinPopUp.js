@@ -74,7 +74,8 @@ const GuestpaymentsinPopUp = (props) => {
     setOpen(!open);
   };
 
-  var GuestOccupancyType = props.guestdetails.occupancyType
+  var GuestOccupancyType = props.guestdetails.occupancyType;
+  var buildingId = props.guestdetails.buildingId;
   var GuestID = props.guestdetails.id;
   var INITIAL_FORM_STATE = {
     paymentPurpose: "",
@@ -82,7 +83,8 @@ const GuestpaymentsinPopUp = (props) => {
     transactionId: "",
     guestId: GuestID,
     createdBy : userId,
-    occupancyType : GuestOccupancyType
+    occupancyType : GuestOccupancyType,
+    buildingId:buildingId
   };
 
   const classes = useStyles();

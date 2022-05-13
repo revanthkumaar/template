@@ -102,7 +102,7 @@ export default function TransactionHistory(props) {
       <td>{row.paymentId}</td>
       <td>{row.transactionDate}</td>
       <td>{row.refundAmount}</td>
-      <td>{row.amountPaid}</td>
+      <td align="center">{row.amountPaid}</td>
       <td>{row.paymentPurpose}</td>
       <td>{row.transactionId}</td>
     </tr>

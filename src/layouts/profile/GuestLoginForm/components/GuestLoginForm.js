@@ -55,10 +55,11 @@ const INITIAL_FORM_STATE = {
   pincode: "",
   city: "",
   state: "",
+  // createdBy:
   amountToBePaid: "",
   defaultRent: "",
   securityDeposit: "",
-  checkinNotes: "",
+  checkinNotes: "", 
 };
 
 const FORM_VALIDATION = Yup.object().shape({
@@ -362,10 +363,6 @@ const GuestLoginForm = () => {
                         </InputLabel>
                         <br/>
                         
-                        <InputLabel id="demo-simple-select-labe">
-                          {" "}
-                          Fill the Form in Order Wise
-                        </InputLabel>
                       </Grid>
                       {userType !== "manager" ? (
                         <Grid item xs={6}>

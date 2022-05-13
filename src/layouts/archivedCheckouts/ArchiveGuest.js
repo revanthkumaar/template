@@ -93,26 +93,7 @@ function ArchivedGuest() {
     //   },
     },
     
-    {
-      title: "Email",
-      field: "email",
-      type: "email",
-
-      headerStyle: {
-        backgroundColor: "#1E90FF",
-        color: "white",
-      },
-    //   validate: (rowData) => {
-    //     if (rowData.email === undefined || rowData.email === "") {
-    //       return "Required";
-    //     } else if (!rowData.email.includes("@" && ".")) {
-    //       return "Enter Valid Email Address";
-    //       //  return {isValid:false,helperText:"Phone number should contains 10 digits"}
-    //     }
-
-    //     return true;
-    //   },
-    },
+  
     // {
     //   title: "Role",
     //   field: "userType",
