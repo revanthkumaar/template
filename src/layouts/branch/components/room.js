@@ -262,7 +262,7 @@ function Room() {
                       }, 2000);
                     } else {
                       toast.error(
-                        "Could not add a Room. Please Check your entry"
+                        "Please select Building and Floor to Proceed."
                       );
                     }
                   }),

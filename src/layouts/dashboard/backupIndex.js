@@ -36,19 +36,49 @@ function Dashboard({ authorized }) {
 
         <h4 style={{ paddingTop: "10px" }}> Total Buildings Summary</h4>
         <MDBox mt={5}>
-          <Grid container spacing={2} rowSpacing={50}>
+          <Grid container spacing={2}>
             <Grid item xs={12}>
-
-              <RecentTransactions />
-
+              <Card>
+                <MDBox
+                  mx={3}
+                  mt={-3}
+                  py={1}
+                  px={2}
+                  variant="gradient"
+                  sx={{ background: "#1E90FF" }}
+                  borderRadius="lg"
+                  coloredShadow="info"
+                >
+                  <MDTypography variant="h6" color="white">
+                    RECENT TRANSACTIONS
+                  </MDTypography>
+                </MDBox>
+                <MDBox pt={3}>
+                  <RecentTransactions />
+                </MDBox>
+              </Card>
             </Grid>
             
-
-
             <Grid item xs={12}>
-
-              <AvailabeRooms />
-
+              <Card>
+                <MDBox
+                  mx={3}
+                  mt={-3}
+                  py={1}
+                  px={2}
+                  variant="gradient"
+                  sx={{ background: "#1E90FF" }}
+                  borderRadius="lg"
+                  coloredShadow="info"
+                >
+                  <MDTypography variant="h6" color="white">
+                    AVAILABLE BEDS
+                  </MDTypography>
+                </MDBox>
+                <MDBox pt={3}>
+                  <AvailabeRooms />
+                </MDBox>
+              </Card>
             </Grid>
           </Grid>
         </MDBox>

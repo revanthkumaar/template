@@ -347,7 +347,7 @@ function Beds() {
                     }, 2000);
                   }
                   else{
-                    toast.error("Could not add a bed. Please Check your entry");                  }
+                    toast.error("Please select Building, Floor/Room to proceed.");                  }
                     
                 }),
               
